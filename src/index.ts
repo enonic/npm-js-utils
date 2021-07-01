@@ -20,3 +20,6 @@ export {
 	VALUE_TYPE_STRING,
 	addQueryFilter
 } from './storage';
+export {
+	toStr
+} from './value';
