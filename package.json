@@ -4,16 +4,25 @@
   "description": "Enonic XP SDK",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "esbuild": "^0.12.13",
     "eslint": "^7.29.0"
   },
   "files": [
+    "/dist",
     "/src"
   ],
   "keywords": [
     "enonic",
-    "sdk"
+    "sdk",
+    "typescript",
+    "commonjs"
   ],
   "license": "",
   "name": "@enonic/sdk",
+  "scripts": {
+    "buildForOldestNode": "rm -r dist; find src -type f | xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=node --target=node6.4.0",
+    "build": "rm -r dist; find src -type f | xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=neutral --target=es2015",
+    "prepack": "yarn run build"
+  },
   "version": "0.0.1-SNAPSHOT"
 }
