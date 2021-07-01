@@ -1,5 +1,12 @@
-export const QUERY_FUNCTION_FULLTEXT:string = 'fulltext';
-export const QUERY_FUNCTION_NGRAM:string = 'ngram';
-export const QUERY_FUNCTION_RANGE:string = 'range';
-export const QUERY_FUNCTION_PATH_MATCH:string = 'pathMatch';
-export const QUERY_FUNCTION_STEMMED:string = 'stemmed';
+export {
+	FILTER_CLAUSE_MUST,
+	FILTER_CLAUSE_MUST_NOT,
+	FILTER_CLAUSE_SHOULD,
+	FILTER_CLAUSES,
+	QUERY_FUNCTION_FULLTEXT,
+	QUERY_FUNCTION_NGRAM,
+	QUERY_FUNCTION_RANGE,
+	QUERY_FUNCTION_PATH_MATCH,
+	QUERY_FUNCTION_STEMMED
+} from './constants'
+export {addQueryFilter} from './addQueryFilter'
