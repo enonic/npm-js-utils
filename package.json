@@ -1,0 +1,19 @@
+{
+  "author": "Christian Westgaard <cwe@enonic.com>",
+  "contributors": [],
+  "description": "Enonic XP SDK",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.29.0"
+  },
+  "files": [
+    "/src"
+  ],
+  "keywords": [
+    "enonic",
+    "sdk"
+  ],
+  "license": "",
+  "name": "@enonic/sdk",
+  "version": "0.0.1-SNAPSHOT"
+}
