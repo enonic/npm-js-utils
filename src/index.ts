@@ -3,10 +3,16 @@ export {
 	FILTER_CLAUSE_MUST_NOT,
 	FILTER_CLAUSE_SHOULD,
 	FILTER_CLAUSES,
+	INDEX_CONFIG_TEMPLATE_NONE,
+	INDEX_CONFIG_TEMPLATE_BY_TYPE,
+	INDEX_CONFIG_TEMPLATE_FULLTEXT,
+	INDEX_CONFIG_TEMPLATE_PATH,
+	INDEX_CONFIG_TEMPLATE_MINIMAL,
+	INDEX_CONFIG_TEMPLATES,
 	QUERY_FUNCTION_FULLTEXT,
 	QUERY_FUNCTION_NGRAM,
-	QUERY_FUNCTION_RANGE,
 	QUERY_FUNCTION_PATH_MATCH,
+	QUERY_FUNCTION_RANGE,
 	QUERY_FUNCTION_STEMMED,
 	QUERY_OPERATOR_AND,
 	QUERY_OPERATOR_OR,
@@ -20,7 +26,8 @@ export {
 	VALUE_TYPE_LOCAL_TIME,
 	VALUE_TYPE_SET,
 	VALUE_TYPE_STRING,
-	addQueryFilter
+	addQueryFilter,
+	indexTemplateToConfig
 } from './storage';
 
 export {
@@ -39,3 +46,10 @@ export {
 	isString,
 	toStr
 } from './value';
+
+export const COLON_SIGN = ':'; // Not good in repo names
+export const DOT_SIGN = '.';
+export const ELLIPSIS = '…';
+
+export const RESPONSE_TYPE_JSON = 'text/json;charset=utf-8';
+export const RESPONSE_TYPE_HTML = 'text/html;charset=utf-8';
