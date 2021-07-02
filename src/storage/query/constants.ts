@@ -13,3 +13,6 @@ export const QUERY_FUNCTION_NGRAM = 'ngram';
 export const QUERY_FUNCTION_RANGE = 'range';
 export const QUERY_FUNCTION_PATH_MATCH = 'pathMatch';
 export const QUERY_FUNCTION_STEMMED = 'stemmed';
+
+export const QUERY_OPERATOR_AND = 'and';
+export const QUERY_OPERATOR_OR = 'or';
