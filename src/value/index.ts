@@ -19,6 +19,10 @@ export const isNotSet = (value: unknown): boolean =>
 	value === null || typeof value === 'undefined';
 
 
+export const isObject = (value: unknown): boolean =>
+	Object.prototype.toString.call(value).slice(8,-1) === 'Object';
+
+
 export function isSet(value: unknown): boolean {
 	if (typeof value === 'boolean') { return true; } // If value is true/false it is set
 	return value !== null && typeof value !== 'undefined';

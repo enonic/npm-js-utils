@@ -34,6 +34,7 @@ export {
 	isFunction,
 	isInt,
 	isNotSet,
+	isObject,
 	isSet,
 	isString,
 	toStr
