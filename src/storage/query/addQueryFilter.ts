@@ -39,8 +39,10 @@ export function addQueryFilter({
 	if (!returnedFilters.boolean) { returnedFilters.boolean = {}; }
 	if (!returnedFilters.boolean[clause]) {
 		returnedFilters.boolean[clause] = filter;
+	} else if (Array.isArray(returnedFilters.boolean[clause])) {
+		returnedFilters.boolean[clause].push(filter);
 	} else {
-		returnedFilters.boolean[clause] = [...returnedFilters.boolean[clause],filter];
+		returnedFilters.boolean[clause] = [returnedFilters.boolean[clause],filter];
 	}
 	return returnedFilters;
 }
