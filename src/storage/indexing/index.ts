@@ -1,4 +1,4 @@
-export {LANGUAGES} from './language';
+export {STEMMING_LANGUAGES} from './stemming';
 export {
 	VALUE_TYPE_ANY,
 	VALUE_TYPE_BOOLEAN,

@@ -4,7 +4,7 @@ interface Language {
 }
 
 // https://developer.enonic.com/docs/xp/stable/storage/indexing#languages
-export const LANGUAGES:Array<Language> = [
+export const STEMMING_LANGUAGES:Array<Language> = [
 	{
 		code: 'ar',
 		language: 'Arabic'
