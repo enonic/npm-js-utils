@@ -22,6 +22,19 @@ export {
 	VALUE_TYPE_STRING,
 	addQueryFilter
 } from './storage';
+
 export {
+	camelize,
+	lpad,
+	rpad,
+	ucFirst
+} from './string'
+
+export {
+	isFunction,
+	isInt,
+	isNotSet,
+	isSet,
+	isString,
 	toStr
 } from './value';
