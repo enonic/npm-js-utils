@@ -1,3 +1,5 @@
+export {forceArray} from './array';
+
 export {
 	FILTER_CLAUSE_MUST,
 	FILTER_CLAUSE_MUST_NOT,
