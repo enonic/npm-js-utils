@@ -15,6 +15,7 @@ export {
 	VALUE_TYPE_LOCAL_TIME,
 	VALUE_TYPE_SET,
 	VALUE_TYPE_STRING,
+	enonify,
 	indexTemplateToConfig
 } from './indexing';
 export {

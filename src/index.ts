@@ -1,4 +1,7 @@
-export {forceArray} from './array';
+export {
+	flatten,
+	forceArray
+} from './array';
 
 export {
 	FILTER_CLAUSE_MUST,
@@ -29,6 +32,7 @@ export {
 	VALUE_TYPE_SET,
 	VALUE_TYPE_STRING,
 	addQueryFilter,
+	enonify,
 	indexTemplateToConfig
 } from './storage';
 

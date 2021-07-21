@@ -6,6 +6,7 @@ export {
 	INDEX_CONFIG_TEMPLATE_MINIMAL,
 	INDEX_CONFIG_TEMPLATES
 } from './constants';
+export {enonify} from './enonify';
 export {STEMMING_LANGUAGES} from './stemming';
 export {indexTemplateToConfig} from './indexTemplateToConfig';
 export {
