@@ -44,7 +44,14 @@ export {
 	lpad,
 	rpad,
 	ucFirst
-} from './string'
+} from './string';
+
+export {
+	TASK_STATE_FAILED,
+	TASK_STATE_FINISHED,
+	TASK_STATE_RUNNING,
+	TASK_STATE_WAITING
+} from './task';
 
 export {
 	isDate,
