@@ -1,7 +1,7 @@
 {
   "author": "Christian Westgaard <cwe@enonic.com>",
   "contributors": [],
-  "description": "Enonic XP SDK",
+  "description": "Enonic XP JavaScript Utils",
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/register": "^7.15.3",
@@ -22,12 +22,14 @@
   ],
   "keywords": [
     "enonic",
-    "sdk",
+    "utils",
+    "ecmascript",
+    "javascript",
     "typescript",
     "commonjs"
   ],
   "license": "",
-  "name": "@enonic/sdk",
+  "name": "@enonic/js-utils",
   "scripts": {
     "clean": "rm -r dist 2>/dev/null;true",
     "buildCjsForOldestNode": "find src -type f | xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=node --target=node6.4.0",
