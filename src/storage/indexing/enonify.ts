@@ -7,7 +7,17 @@ import {
 } from '../../value';
 
 
-// NOTE: Recursive
+/**
+ * Returns the data you pass in, with the same modifications, as if you had stored it in an Enonic XP repository.
+ * It's useful when you want to diff some updated data against what Enonic XP has stored.
+ * Thus you can avoid creating useless versions of the same data, where the only difference is the modification that Enonic XP applies.
+ *
+ * @remarks
+ * To handle deeply nested values, this function is recursive
+ *
+ * @param unknown - Input data
+ * @returns Modified version of the input data
+ */
 export function enonify(unknown :unknown) :unknown {
 	//console.log(typeof unknown);
 
