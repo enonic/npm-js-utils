@@ -90,7 +90,7 @@ export const STEMMING_LANGUAGES:Array<Language> = [
 		code: 'pt',
 		language: 'Portuguese'
 	}, {
-		code: 'pt-br',
+		code: 'pt-br', // TODO: Should this be pt-BR?
 		language: 'Brazilian'
 	}, {
 		code: 'ro',
