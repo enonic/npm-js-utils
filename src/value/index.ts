@@ -1,5 +1,20 @@
+export function isDate(value :unknown) :boolean {
+	return Object.prototype.toString.call(value).slice(8,-1) === 'Date';
+}
+
+
+/*export function isDateString(value :unknown) :boolean {
+	return typeof value === 'string' && !isNaN(Date.parse(value));
+}*/
+
+
 export function isFunction(value: any): boolean {
 	return !!(value && value.constructor && value.call && value.apply); // highly performant
+}
+
+
+export function isInfinity(value :unknown) :boolean {
+	return typeof value === 'number' && !isFinite(value);
 }
 
 
