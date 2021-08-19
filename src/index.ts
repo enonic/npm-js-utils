@@ -35,8 +35,10 @@ export {
 	VALUE_TYPE_SET,
 	VALUE_TYPE_STRING,
 	addQueryFilter,
+	dirname,
 	enonify,
-	indexTemplateToConfig
+	indexTemplateToConfig,
+	join
 } from './storage';
 
 export {

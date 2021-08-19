@@ -7,8 +7,12 @@ export {
 	INDEX_CONFIG_TEMPLATES
 } from './constants';
 export {enonify} from './enonify';
-export {STEMMING_LANGUAGES} from './stemming';
 export {indexTemplateToConfig} from './indexTemplateToConfig';
+export {
+	dirname,
+	join
+} from './path';
+export {STEMMING_LANGUAGES} from './stemming';
 export {
 	VALUE_TYPE_ANY,
 	VALUE_TYPE_BOOLEAN,
