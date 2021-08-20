@@ -54,7 +54,8 @@ export {
 	camelize,
 	lpad,
 	rpad,
-	ucFirst
+	ucFirst,
+	unStem
 } from './string';
 
 export {

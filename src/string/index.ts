@@ -2,7 +2,9 @@ import {
 	isFunction,
 	isString
 } from '../value/';
-
+export {
+	unStem
+} from './unStem';
 
 export const camelize = (
 	str: string,
