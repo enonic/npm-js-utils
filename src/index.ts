@@ -1,4 +1,5 @@
 export {
+	findIndex,
 	flatten,
 	forceArray
 } from './array';
