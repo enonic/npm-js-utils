@@ -13,6 +13,7 @@ export {
 	join
 } from './path';
 export {STEMMING_LANGUAGES} from './stemming';
+export {updateIndexConfigs} from './updateIndexConfigs';
 export {
 	VALUE_TYPE_ANY,
 	VALUE_TYPE_BOOLEAN,

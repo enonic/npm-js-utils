@@ -32,7 +32,8 @@ export {
 	dirname,
 	enonify,
 	indexTemplateToConfig,
-	join
+	join,
+	updateIndexConfigs
 } from './indexing';
 export {
 	FILTER_CLAUSE_MUST,

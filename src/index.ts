@@ -48,7 +48,8 @@ export {
 	dirname,
 	enonify,
 	indexTemplateToConfig,
-	join
+	join,
+	updateIndexConfigs
 } from './storage';
 
 export {
