@@ -47,5 +47,7 @@ export {
 	QUERY_FUNCTION_STEMMED,
 	QUERY_OPERATOR_AND,
 	QUERY_OPERATOR_OR,
-	addQueryFilter
+	addQueryFilter,
+	fulltext,
+	ngram
 } from './query';

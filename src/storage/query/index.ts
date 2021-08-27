@@ -10,5 +10,7 @@ export {
 	QUERY_FUNCTION_STEMMED,
 	QUERY_OPERATOR_AND,
 	QUERY_OPERATOR_OR
-} from './constants'
-export {addQueryFilter} from './addQueryFilter'
+} from './constants';
+export {addQueryFilter} from './addQueryFilter';
+export {fulltext} from './fulltext';
+export {ngram} from './ngram';

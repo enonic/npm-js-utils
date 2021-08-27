@@ -47,8 +47,10 @@ export {
 	addQueryFilter,
 	dirname,
 	enonify,
+	fulltext,
 	indexTemplateToConfig,
 	join,
+	ngram,
 	updateIndexConfigs
 } from './storage';
 

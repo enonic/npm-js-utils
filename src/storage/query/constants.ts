@@ -16,3 +16,16 @@ export const QUERY_FUNCTION_STEMMED = 'stemmed';
 
 export const QUERY_OPERATOR_AND = 'and';
 export const QUERY_OPERATOR_OR = 'or';
+
+export const QUERY_OPERATORS = [
+	QUERY_OPERATOR_AND.toUpperCase(),
+	QUERY_OPERATOR_OR.toUpperCase()
+] as const;
+
+export interface FieldObject {
+	readonly boost :number,
+	readonly field :string,
+}
+
+type Field = (string | FieldObject);
+export type Fields = (Field | Field[]);
