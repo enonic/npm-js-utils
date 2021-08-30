@@ -84,8 +84,11 @@ export {
 	QUERY_FUNCTION_STEMMED,
 	QUERY_OPERATOR_AND,
 	QUERY_OPERATOR_OR,
+	and,
 	addQueryFilter,
 	fulltext,
+	group,
 	ngram,
+	or,
 	stemmed
 } from './query';

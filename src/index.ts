@@ -81,13 +81,16 @@ export {
 	VALUE_TYPE_REFERENCE,
 	VALUE_TYPE_SET,
 	VALUE_TYPE_STRING,
+	and,
 	addQueryFilter,
 	dirname,
 	enonify,
 	fulltext,
+	group,
 	indexTemplateToConfig,
 	join,
 	ngram,
+	or,
 	stemmed,
 	updateIndexConfigs
 } from './storage';

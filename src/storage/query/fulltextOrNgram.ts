@@ -17,8 +17,8 @@ export function fulltextOrNgram(
 	operator :Operator = QUERY_OPERATOR_OR
 ) :string {
 	return `${fOrN}(${buildFields(fields)},'${searchString}'${
-		operator.toUpperCase() === QUERY_OPERATOR_AND.toUpperCase()
-			? `,'${QUERY_OPERATOR_AND.toUpperCase()}'`
+		operator.toUpperCase() === QUERY_OPERATOR_AND
+			? `,'${QUERY_OPERATOR_AND}'`
 			: '' // OR is the default https://developer.enonic.com/docs/xp/stable/storage/noql#ngram
 		})`;
 }

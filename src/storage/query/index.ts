@@ -12,6 +12,9 @@ export {
 	QUERY_OPERATOR_OR
 } from './constants';
 export {addQueryFilter} from './addQueryFilter';
+export {and} from './and';
 export {fulltext} from './fulltext';
+export {group} from './group';
 export {ngram} from './ngram';
+export {or} from './or';
 export {stemmed} from './stemmed';

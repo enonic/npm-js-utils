@@ -21,8 +21,8 @@ export function stemmed(
 	language :StemmingLanguageCodes = STEMMING_LANGUAGE_CODE_ENGLISH
 ) :string {
 	return `stemmed(${buildFields(fields)},'${searchString}','${
-		operator.toUpperCase() === QUERY_OPERATOR_AND.toUpperCase()
-			? QUERY_OPERATOR_AND.toUpperCase()
-			: QUERY_OPERATOR_OR.toUpperCase()
+		operator.toUpperCase() === QUERY_OPERATOR_AND
+			? QUERY_OPERATOR_AND
+			: QUERY_OPERATOR_OR
 		}','${language}')`;
 }

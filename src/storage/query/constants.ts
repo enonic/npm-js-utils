@@ -14,12 +14,12 @@ export const QUERY_FUNCTION_RANGE = 'range';
 export const QUERY_FUNCTION_PATH_MATCH = 'pathMatch';
 export const QUERY_FUNCTION_STEMMED = 'stemmed';
 
-export const QUERY_OPERATOR_AND = 'and';
-export const QUERY_OPERATOR_OR = 'or';
+export const QUERY_OPERATOR_AND = 'AND';
+export const QUERY_OPERATOR_OR = 'OR';
 
 export const QUERY_OPERATORS = [
-	QUERY_OPERATOR_AND.toUpperCase(),
-	QUERY_OPERATOR_OR.toUpperCase()
+	QUERY_OPERATOR_AND,
+	QUERY_OPERATOR_OR
 ] as const;
 
 export interface FieldObject {
