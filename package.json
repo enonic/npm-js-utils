@@ -28,7 +28,7 @@
     "typescript",
     "commonjs"
   ],
-  "license": "",
+  "license": "GPLV3",
   "name": "@enonic/js-utils",
   "scripts": {
     "clean": "rm -r dist 2>/dev/null;true",
