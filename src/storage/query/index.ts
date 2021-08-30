@@ -17,4 +17,10 @@ export {fulltext} from './fulltext';
 export {group} from './group';
 export {ngram} from './ngram';
 export {or} from './or';
+export {
+	SORT_CREATED,
+	SORT_DISPLAYNAME,
+	SORT_MANUAL,
+	SORT_MODIFIED
+} from './sort'
 export {stemmed} from './stemmed';
