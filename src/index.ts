@@ -96,6 +96,7 @@ export {
 	ngram,
 	or,
 	stemmed,
+	uniqueId,
 	updateIndexConfigs
 } from './storage';
 

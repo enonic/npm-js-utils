@@ -52,6 +52,7 @@ export {
 	STEMMING_LANGUAGE_CODES,
 	STEMMING_LANGUAGES
 } from './stemming';
+export {uniqueId} from './uniqueId';
 export {updateIndexConfigs} from './updateIndexConfigs';
 export {
 	VALUE_TYPE_ANY,

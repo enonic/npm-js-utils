@@ -70,6 +70,7 @@ export {
 	enonify,
 	indexTemplateToConfig,
 	join,
+	uniqueId,
 	updateIndexConfigs
 } from './indexing';
 export {
