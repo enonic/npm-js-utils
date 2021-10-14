@@ -134,10 +134,12 @@ export {
 	isInt,
 	isNotFalse,
 	isNotSet,
+	isNotTrue,
 	isNull,
 	isObject,
 	isSet,
 	isString,
+	isTrue,
 	isUndefined,
 	toStr
 } from './value';

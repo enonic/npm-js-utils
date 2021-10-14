@@ -9,7 +9,7 @@ export function isDate(value :unknown) :boolean {
 
 
 export function isFalse(value :unknown): boolean {
-	return value == false;
+	return value === false;
 }
 
 
@@ -44,8 +44,13 @@ export const isNotSet = (value: unknown): boolean =>
 	value === null || typeof value === 'undefined';
 
 
+export function isNotTrue(value :unknown): boolean {
+	return value !== true;
+}
+
+
 export function isNull(value: unknown): boolean {
-	return value == null;
+	return value === null;
 }
 
 
@@ -63,8 +68,12 @@ export const isString = (value: unknown): boolean =>
 	typeof value === 'string' || value instanceof String;
 
 
+export function isTrue(value :unknown): boolean {
+	return value === true;
+}
+
 export function isUndefined(value: unknown): boolean {
-	return typeof value == 'undefined';
+	return typeof value === 'undefined';
 }
 
 export function toStr(
