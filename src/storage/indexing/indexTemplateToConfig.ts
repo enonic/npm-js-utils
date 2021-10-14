@@ -95,11 +95,9 @@ export function indexTemplateToConfig({
 		if (languages) {
 			rv[INDEX_CONFIG_LANGUAGES] = languages;
 		}
-		return {
-			...rv,
-			[INDEX_CONFIG_N_GRAM]: false,
-			[INDEX_CONFIG_PATH]: false
-		};
+		rv[INDEX_CONFIG_N_GRAM] = false;
+		rv[INDEX_CONFIG_PATH] = false;
+		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_BY_TYPE) {
 		const rv = {
@@ -114,11 +112,9 @@ export function indexTemplateToConfig({
 		if (languages) {
 			rv[INDEX_CONFIG_LANGUAGES] = languages;
 		}
-		return {
-			...rv,
-			[INDEX_CONFIG_N_GRAM]: false,
-			[INDEX_CONFIG_PATH]: false,
-		};
+		rv[INDEX_CONFIG_N_GRAM] = false;
+		rv[INDEX_CONFIG_PATH] = false;
+		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_FULLTEXT) {
 		const rv = {
@@ -133,11 +129,9 @@ export function indexTemplateToConfig({
 		if (languages) {
 			rv[INDEX_CONFIG_LANGUAGES] = languages;
 		}
-		return {
-			...rv,
-			[INDEX_CONFIG_N_GRAM]: true,
-			[INDEX_CONFIG_PATH]: false
-		};
+		rv[INDEX_CONFIG_N_GRAM] = true;
+		rv[INDEX_CONFIG_PATH] = false;
+		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_PATH) {
 		const rv = {
@@ -152,11 +146,9 @@ export function indexTemplateToConfig({
 		if (languages) {
 			rv[INDEX_CONFIG_LANGUAGES] = languages;
 		}
-		return {
-			...rv,
-			[INDEX_CONFIG_N_GRAM]: false,
-			[INDEX_CONFIG_PATH]: true
-		};
+		rv[INDEX_CONFIG_N_GRAM] = false;
+		rv[INDEX_CONFIG_PATH] = true;
+		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_MINIMAL) {
 		const rv = {
@@ -171,11 +163,9 @@ export function indexTemplateToConfig({
 		if (languages) {
 			rv[INDEX_CONFIG_LANGUAGES] = languages;
 		}
-		return {
-			...rv,
-			[INDEX_CONFIG_N_GRAM]: false,
-			[INDEX_CONFIG_PATH]: false
-		};
+		rv[INDEX_CONFIG_N_GRAM] = false;
+		rv[INDEX_CONFIG_PATH] = false;
+		return rv as IndexConfigEntry;
 	}
 	throw new Error(`Unknown indexing template:${template}!`);
 }
