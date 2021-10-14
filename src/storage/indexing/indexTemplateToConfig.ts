@@ -6,6 +6,14 @@
 import {isObject} from '../../value';
 
 import {
+	INDEX_CONFIG_ENABLED,
+	INDEX_CONFIG_DECIDE_BY_TYPE,
+	INDEX_CONFIG_FULLTEXT,
+	INDEX_CONFIG_INCLUDE_IN_ALL_TEXT,
+	INDEX_CONFIG_INDEX_VALUE_PROCESSORS,
+	INDEX_CONFIG_LANGUAGES,
+	INDEX_CONFIG_N_GRAM,
+	INDEX_CONFIG_PATH,
 	INDEX_CONFIG_TEMPLATE_NONE,
 	INDEX_CONFIG_TEMPLATE_BY_TYPE,
 	INDEX_CONFIG_TEMPLATE_FULLTEXT,
@@ -50,15 +58,15 @@ interface IndexConfigEntry {
    */
   readonly path: boolean;
 
-  indexValueProcessors: ReadonlyArray<any>;
-  languages: ReadonlyArray<any>;
+  indexValueProcessors?: ReadonlyArray<any>;
+  languages?: ReadonlyArray<any>;
 }
 
 
 interface indexTemplateToConfigParam {
 	template: IndexConfigTemplates | IndexConfigEntry,
-	indexValueProcessors: [],
-	languages: []
+	indexValueProcessors?: [],
+	languages?: []
 }
 
 
@@ -75,63 +83,98 @@ export function indexTemplateToConfig({
 		return configObject;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_NONE) {
+		const rv = {
+			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
+			[INDEX_CONFIG_ENABLED]: false,
+			[INDEX_CONFIG_FULLTEXT]: false,
+			[INDEX_CONFIG_INCLUDE_IN_ALL_TEXT]: false
+		};
+		if (indexValueProcessors) {
+			rv[INDEX_CONFIG_INDEX_VALUE_PROCESSORS] = indexValueProcessors;
+		}
+		if (languages) {
+			rv[INDEX_CONFIG_LANGUAGES] = languages;
+		}
 		return {
-			enabled: false,
-			decideByType: false,
-			nGram: false,
-			fulltext: false,
-			includeInAllText: false,
-			path: false,
-			indexValueProcessors,
-			languages
+			...rv,
+			[INDEX_CONFIG_N_GRAM]: false,
+			[INDEX_CONFIG_PATH]: false
 		};
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_BY_TYPE) {
+		const rv = {
+			[INDEX_CONFIG_DECIDE_BY_TYPE]: true,
+			[INDEX_CONFIG_ENABLED]: true,
+			[INDEX_CONFIG_FULLTEXT]: false,
+			[INDEX_CONFIG_INCLUDE_IN_ALL_TEXT]: false
+		};
+		if (indexValueProcessors) {
+			rv[INDEX_CONFIG_INDEX_VALUE_PROCESSORS] = indexValueProcessors;
+		}
+		if (languages) {
+			rv[INDEX_CONFIG_LANGUAGES] = languages;
+		}
 		return {
-			enabled: true,
-			decideByType: true,
-			nGram: false,
-			fulltext: false,
-			includeInAllText: false,
-			path: false,
-			indexValueProcessors,
-			languages
+			...rv,
+			[INDEX_CONFIG_N_GRAM]: false,
+			[INDEX_CONFIG_PATH]: false,
 		};
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_FULLTEXT) {
+		const rv = {
+			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
+			[INDEX_CONFIG_ENABLED]: true,
+			[INDEX_CONFIG_FULLTEXT]: true,
+			[INDEX_CONFIG_INCLUDE_IN_ALL_TEXT]: true
+		};
+		if (indexValueProcessors) {
+			rv[INDEX_CONFIG_INDEX_VALUE_PROCESSORS] = indexValueProcessors;
+		}
+		if (languages) {
+			rv[INDEX_CONFIG_LANGUAGES] = languages;
+		}
 		return {
-			enabled: true,
-			decideByType: false,
-			nGram: true,
-			fulltext: true,
-			includeInAllText: true,
-			path: false,
-			indexValueProcessors,
-			languages
+			...rv,
+			[INDEX_CONFIG_N_GRAM]: true,
+			[INDEX_CONFIG_PATH]: false
 		};
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_PATH) {
+		const rv = {
+			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
+			[INDEX_CONFIG_ENABLED]: true,
+			[INDEX_CONFIG_FULLTEXT]: false,
+			[INDEX_CONFIG_INCLUDE_IN_ALL_TEXT]: false
+		};
+		if (indexValueProcessors) {
+			rv[INDEX_CONFIG_INDEX_VALUE_PROCESSORS] = indexValueProcessors;
+		}
+		if (languages) {
+			rv[INDEX_CONFIG_LANGUAGES] = languages;
+		}
 		return {
-			enabled: true,
-			decideByType: false,
-			nGram: false,
-			fulltext: false,
-			includeInAllText: false,
-			path: true,
-			indexValueProcessors,
-			languages
+			...rv,
+			[INDEX_CONFIG_N_GRAM]: false,
+			[INDEX_CONFIG_PATH]: true
 		};
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_MINIMAL) {
+		const rv = {
+			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
+			[INDEX_CONFIG_ENABLED]: true,
+			[INDEX_CONFIG_FULLTEXT]: false,
+			[INDEX_CONFIG_INCLUDE_IN_ALL_TEXT]: false
+		};
+		if (indexValueProcessors) {
+			rv[INDEX_CONFIG_INDEX_VALUE_PROCESSORS] = indexValueProcessors;
+		}
+		if (languages) {
+			rv[INDEX_CONFIG_LANGUAGES] = languages;
+		}
 		return {
-			enabled: true,
-			decideByType: false,
-			nGram: false,
-			fulltext: false,
-			includeInAllText: false,
-			path: false,
-			indexValueProcessors,
-			languages
+			...rv,
+			[INDEX_CONFIG_N_GRAM]: false,
+			[INDEX_CONFIG_PATH]: false
 		};
 	}
 	throw new Error(`Unknown indexing template:${template}!`);
