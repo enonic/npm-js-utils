@@ -8,6 +8,11 @@ export function isDate(value :unknown) :boolean {
 }*/
 
 
+export function isFalse(value :unknown): boolean {
+	return value == false;
+}
+
+
 export function isFunction(value: any): boolean {
 	return !!(value && value.constructor && value.call && value.apply); // highly performant
 }
@@ -30,8 +35,18 @@ export function isInt(value: unknown): boolean {
 }*/
 
 
+export function isNotFalse(value :unknown): boolean {
+	return value !== false;
+}
+
+
 export const isNotSet = (value: unknown): boolean =>
 	value === null || typeof value === 'undefined';
+
+
+export function isNull(value: unknown): boolean {
+	return value == null;
+}
 
 
 export const isObject = (value: unknown): boolean =>
@@ -47,6 +62,10 @@ export function isSet(value: unknown): boolean {
 export const isString = (value: unknown): boolean =>
 	typeof value === 'string' || value instanceof String;
 
+
+export function isUndefined(value: unknown): boolean {
+	return typeof value == 'undefined';
+}
 
 export function toStr(
 	value: unknown,

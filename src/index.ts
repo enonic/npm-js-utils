@@ -129,12 +129,16 @@ export {
 
 export {
 	isDate,
+	isFalse,
 	isFunction,
 	isInt,
+	isNotFalse,
 	isNotSet,
+	isNull,
 	isObject,
 	isSet,
 	isString,
+	isUndefined,
 	toStr
 } from './value';
 
