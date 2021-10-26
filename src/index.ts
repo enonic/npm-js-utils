@@ -128,14 +128,18 @@ export {
 } from './task';
 
 export {
+	isBoolean,
 	isDate,
+	isDateString,
 	isFalse,
 	isFunction,
+	isInfinity,
 	isInt,
 	isNotFalse,
 	isNotSet,
 	isNotTrue,
 	isNull,
+	isNumber,
 	isObject,
 	isSet,
 	isString,

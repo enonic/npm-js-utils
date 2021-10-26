@@ -1,11 +1,16 @@
+export function isBoolean(value :unknown) :boolean {
+	return Object.prototype.toString.call(value).slice(8,-1) === 'Boolean';
+}
+
+
 export function isDate(value :unknown) :boolean {
 	return Object.prototype.toString.call(value).slice(8,-1) === 'Date';
 }
 
 
-/*export function isDateString(value :unknown) :boolean {
+export function isDateString(value :unknown) :boolean {
 	return typeof value === 'string' && !isNaN(Date.parse(value));
-}*/
+}
 
 
 export function isFalse(value :unknown): boolean {
@@ -51,6 +56,11 @@ export function isNotTrue(value :unknown): boolean {
 
 export function isNull(value: unknown): boolean {
 	return value === null;
+}
+
+
+export function isNumber(value: unknown): boolean {
+  return typeof value === 'number' && isFinite(value);
 }
 
 
