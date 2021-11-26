@@ -5,6 +5,10 @@ export {
 } from './array';
 
 export {
+	sortKeys
+} from './object';
+
+export {
 	AGGREGATION_COUNT,
 	AGGREGATION_DATE_HISTOGRAM,
 	AGGREGATION_DATE_RANGE,
