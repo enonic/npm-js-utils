@@ -5,7 +5,8 @@ export {
 } from './array';
 
 export {
-	sortKeys
+	sortKeys,
+	sortKeysRec
 } from './object';
 
 export {
