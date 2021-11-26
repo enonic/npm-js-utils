@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {print} from 'q-i';
+//import {print} from 'q-i';
 //import serialize from 'serialize-javascript';
 
 import {enonify} from '../../../dist/esm/index.mjs';
@@ -141,7 +141,7 @@ const OBJECT = {
 
 // NOTE: Use the output of this to test in Enonic XP.
 //console.log(OBJECT);
-print(OBJECT, { maxItems: Infinity });
+//print(OBJECT, { maxItems: Infinity });
 
 describe('enonify', () => {
 	it('returns what Enonic XP stores', () => {
