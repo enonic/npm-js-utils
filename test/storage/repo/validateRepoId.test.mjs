@@ -6,7 +6,7 @@ import {
 } from '../../../dist/esm/index.mjs';
 
 const VALID = [
-	'123',
+	'0123456789',
 	'a',
 	'z',
 

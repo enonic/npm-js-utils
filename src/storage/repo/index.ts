@@ -49,7 +49,7 @@ export function validateRepoId(repoId :string) {
 			code === 45 // -
 			|| code === 46 // .
 			|| (
-				code >= 49 // 1
+				code >= 48 // 0
 				// digit 9 = code 57
 				&& code <= 58 // :
 			)
