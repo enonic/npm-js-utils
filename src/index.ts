@@ -120,6 +120,7 @@ export {
 
 export {
 	camelize,
+	fold,
 	lpad,
 	rpad,
 	ucFirst,
