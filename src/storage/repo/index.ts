@@ -38,7 +38,7 @@ export function validateRepoId(repoId :string) {
 	}
 
 	if (repoId.toLowerCase() !== repoId) {
-		return "repoId can't contains uppercase letters!";
+		return "repoId can't contain uppercase letters!";
 	}
 
 	for (var i = 0; i < repoId.length; i++) {
