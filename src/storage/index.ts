@@ -111,3 +111,6 @@ export {
 	or,
 	stemmed
 } from './query';
+export {
+	validateRepoId
+} from './repo';

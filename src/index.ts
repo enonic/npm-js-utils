@@ -114,7 +114,8 @@ export {
 	or,
 	stemmed,
 	uniqueId,
-	updateIndexConfigs
+	updateIndexConfigs,
+	validateRepoId
 } from './storage';
 
 export {
