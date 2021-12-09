@@ -24,7 +24,8 @@ export {enonify} from './enonify';
 export {indexTemplateToConfig} from './indexTemplateToConfig';
 export {
 	dirname,
-	join
+	join,
+	trimExt
 } from './path';
 export {
 	STEMMING_LANGUAGE_CODE_ARABIC,

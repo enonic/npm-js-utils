@@ -113,6 +113,7 @@ export {
 	ngram,
 	or,
 	stemmed,
+	trimExt,
 	uniqueId,
 	updateIndexConfigs,
 	validateRepoId

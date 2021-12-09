@@ -84,6 +84,7 @@ export {
 	enonify,
 	indexTemplateToConfig,
 	join,
+	trimExt,
 	uniqueId,
 	updateIndexConfigs
 } from './indexing';
