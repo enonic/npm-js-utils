@@ -43,5 +43,5 @@
     "pretest": "yarn run build",
     "prepack": "yarn run build && yarn typedoc"
   },
-  "version": "0.8.0"
+  "version": "0.8.1"
 }
