@@ -1,7 +1,4 @@
-/*import {
-	IndexConfigEntry,
-	IndexConfigTemplates
-} from 'enonic-types/node';*/
+import type { IndexConfigEntry } from '/lib/xp/node';
 
 import {isObject} from '../../value';
 
@@ -22,58 +19,11 @@ import {
 	INDEX_CONFIG_TEMPLATES
 } from './constants';
 
-
 type IndexConfigTemplates = typeof INDEX_CONFIG_TEMPLATES[number];
 
+type PartialIndexConfigEntry = Partial<IndexConfigEntry>;
 
-interface IndexConfigEntry {
-  /**
-   * If true, indexing is done based on valueType, according to the table above. I.e. numeric values are indexed as
-   * both string and numeric.
-   */
-  readonly decideByType: boolean;
-
-  /**
-   * If false, indexing will be disabled for the affected properties
-   */
-  readonly enabled: boolean;
-
-  /**
-   * Values are stored as 'ngram'
-   */
-  readonly nGram: boolean;
-
-  /**
-   * Values are stored as 'ngram', 'analyzed' and also added to the _allText system property
-   */
-  readonly fulltext: boolean;
-
-  /**
-   * Affected values will be added to the _allText property
-   */
-  readonly includeInAllText: boolean;
-
-  /**
-   * Values are stored as 'path' type and applicable for the pathMatch-function
-   */
-  readonly path: boolean;
-
-  indexValueProcessors?: ReadonlyArray<unknown>;
-  languages?: ReadonlyArray<unknown>;
-}
-
-interface IndexConfigEntryUnderConstruction {
-	decideByType?: boolean;
-    enabled?: boolean;
-    nGram?: boolean;
-    fulltext?: boolean;
-    includeInAllText?: boolean;
-    path?: boolean;
-    indexValueProcessors?: Array<unknown>;
-    languages?: Array<unknown>;
-}
-
-interface indexTemplateToConfigParam {
+interface IndexTemplateToConfigParam {
 	template: IndexConfigTemplates | IndexConfigEntry,
 	indexValueProcessors?: [],
 	languages?: []
@@ -82,9 +32,9 @@ interface indexTemplateToConfigParam {
 
 export function indexTemplateToConfig({
 	template,
-	indexValueProcessors,// = [],
-	languages// = []
-}: indexTemplateToConfigParam): IndexConfigEntry {
+	indexValueProcessors = [],
+	languages = []
+}: IndexTemplateToConfigParam): IndexConfigEntry {
 	if (isObject(template)) {
 		const configObject:IndexConfigEntry = JSON.parse(JSON.stringify(template)); // dereference
 		configObject.indexValueProcessors = indexValueProcessors;
@@ -93,7 +43,7 @@ export function indexTemplateToConfig({
 		return configObject;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_NONE) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :PartialIndexConfigEntry = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: false,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -110,7 +60,7 @@ export function indexTemplateToConfig({
 		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_BY_TYPE) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :PartialIndexConfigEntry = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: true,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -127,7 +77,7 @@ export function indexTemplateToConfig({
 		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_FULLTEXT) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :PartialIndexConfigEntry = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: true,
@@ -144,7 +94,7 @@ export function indexTemplateToConfig({
 		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_PATH) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :PartialIndexConfigEntry = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -161,7 +111,7 @@ export function indexTemplateToConfig({
 		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_MINIMAL) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :PartialIndexConfigEntry = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
