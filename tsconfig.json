@@ -37,7 +37,11 @@
 		"strict": true,
 		"strictFunctionTypes": true,
 		"strictNullChecks": true,
-		"target": "ES5"
+		"target": "ES5",
+		"types": [
+			"enonic-types",
+			"node"
+		]
 	},
 	"exclude": [
 		"node_modules"
