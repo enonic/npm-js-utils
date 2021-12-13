@@ -1,9 +1,6 @@
 import {deepStrictEqual} from 'assert';
 
-import {
-	join,
-	toStr
-} from '../../../../dist/esm/index.mjs';
+import {join} from '../../../../dist/esm/index.mjs';
 
 
 const SIMPLE_TESTS = [[
@@ -33,21 +30,32 @@ const SIMPLE_TESTS = [[
 ]];
 
 
-describe('join', () => {
-	for (var i = 0; i < SIMPLE_TESTS.length; i++) {
-		const params = SIMPLE_TESTS[i][0];
-		const expected = SIMPLE_TESTS[i][1];
-		it(`join(${toStr(params)}) --> '${expected}'`, () => {
-			deepStrictEqual(
-				expected,
-				join(params)
-			)
+function toStr(a) {
+	return JSON.stringify(a);
+}
+
+
+describe('storage', () => {
+	describe('indexing', () => {
+		describe('path', () => {
+			describe('join', () => {
+				for (var i = 0; i < SIMPLE_TESTS.length; i++) {
+					const params = SIMPLE_TESTS[i][0];
+					const expected = SIMPLE_TESTS[i][1];
+					it(`join(${toStr(params)}) --> '${expected}'`, () => {
+						deepStrictEqual(
+							expected,
+							join(params)
+						)
+					});
+				} // for
+				it("join(['a', 'b'], '\\') --> 'a\\b'", () => {
+					deepStrictEqual(
+						'a\\b',
+						join(['a', 'b'], '\\')
+					)
+				});
+			});
 		});
-	} // for
-	it("join(['a', 'b'], '\\') --> 'a\\b'", () => {
-		deepStrictEqual(
-			'a\\b',
-			join(['a', 'b'], '\\')
-		)
 	});
 });

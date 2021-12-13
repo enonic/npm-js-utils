@@ -2,11 +2,16 @@ const {isArray} = Array;
 const {keys} = Object;
 
 
-export function sortKeys(obj: object) :object {
+interface LooseObject {
+	[key :string] :any
+}
+
+
+export function sortKeys(obj: LooseObject) :LooseObject {
 	if (typeof obj !== 'object' || isArray(obj)) {
 		throw new Error('sortKeys');
 	}
-	const newObject = {};
+	const newObject :LooseObject = {};
 	const sortedKeys :string[] = keys(obj).sort();
 	for (let i = 0, l = sortedKeys.length; i < l; i++) {
 		const k :string = sortedKeys[i] as string;
@@ -26,10 +31,10 @@ export function sortKeysRec(obj :unknown) :unknown {
     if (typeof obj !== 'object' || obj === null)
         return obj;// as unknown;
     const sortedKeys = keys(obj).sort();
-    const newObject = {};
+    const newObject :LooseObject = {};
     for (let i = 0, l = sortedKeys.length; i < l; i++) {
 		const k :string = sortedKeys[i] as string;
-		newObject[k] = sortKeysRec(obj[k]); // Recurse
+		newObject[k] = sortKeysRec((obj as LooseObject)[k]); // Recurse
 	}
     return newObject;// as object;
 }

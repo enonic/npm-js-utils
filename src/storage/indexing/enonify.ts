@@ -7,6 +7,11 @@ import {
 } from '../../value';
 
 
+interface LooseObject {
+	[key :string] :any
+}
+
+
 /**
  * Returns the data you pass in, with the same modifications, as if you had stored it in an Enonic XP repository.
  * It's useful when you want to diff some updated data against what Enonic XP has stored.
@@ -46,18 +51,18 @@ export function enonify(unknown :unknown) :unknown {
 	}
 
 	if (isObject(unknown)) {
-		Object.keys(unknown as object).forEach((k) => {
-			let value = (unknown as object)[k];
+		Object.keys(unknown as LooseObject).forEach((k) => {
+			let value = (unknown as LooseObject)[k];
 			if (Array.isArray(value)) {
 				value = enonifyArray(value); // value may longer be an Array. Example: [NaN] -> undefined
 			}
 			if (Array.isArray(value)) {
-				(unknown as object)[k] = value; // Shortcircuit: No need to run through Arrays a second time
+				(unknown as LooseObject)[k] = value; // Shortcircuit: No need to run through Arrays a second time
 			} else {
 				if (shouldBeDeleted(value)) {
-					delete (unknown as object)[k];
+					delete (unknown as LooseObject)[k];
 				} else {
-					(unknown as object)[k] = enonify(value); // NOTE: Recurse
+					(unknown as LooseObject)[k] = enonify(value); // NOTE: Recurse
 				}
 			}
 		}); // forEach

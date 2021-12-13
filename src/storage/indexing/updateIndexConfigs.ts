@@ -23,16 +23,20 @@ export function updateIndexConfigs({
 	configs,
 	updates = []
 } :updateIndexConfigsParams) :IndexConfigs {
-	const dereffedConfigs = JSON.parse(JSON.stringify(configs));
+	const dereffedConfigs :IndexConfigsItem[] = JSON.parse(JSON.stringify(configs));
 	for (let i = 0; i < updates.length; i++) {
+
+		// TODO We haven't actually verified that updates[i] is an IndexConfigsItem!
+		const anUpdate :IndexConfigsItem = updates[i] as IndexConfigsItem;
+
 		const j = findIndex(
 			dereffedConfigs,
-			({path:p}) => p === updates[i]?.path
+			({path} :IndexConfigsItem) => path === anUpdate.path
 		);
 		if (j !== -1) {
-			dereffedConfigs.splice(j, 1, updates[i]);
+			dereffedConfigs.splice(j, 1, anUpdate);
 		} else {
-			dereffedConfigs.push(updates[i]);
+			dereffedConfigs.push(anUpdate);
 		}
 	} // for
 	dereffedConfigs.sort(

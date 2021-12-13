@@ -1241,15 +1241,18 @@ const MAPPING = {
 	0xFF3F: '_',
 	0x2053: '~',
 	0xFF5E: '~'
-};
+} as const;
+
 
 export function fold(inStr: string) :string {
 	return inStr.split('').map(character => {
-		if (character.charCodeAt(0) < 128) {
+		const charCode = character.charCodeAt(0);
+		if (charCode < 128) {
 			return character;
-		} else {
-			const replacement = MAPPING[character.charCodeAt(0)];
-			return (replacement === undefined) ? '-' : replacement;
 		}
+		if (MAPPING.hasOwnProperty(charCode)) {
+			return MAPPING[charCode as keyof typeof MAPPING];
+		}
+		return '-';
 	}).join('');
 }

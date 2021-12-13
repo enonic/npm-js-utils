@@ -62,6 +62,16 @@ interface IndexConfigEntry {
   languages?: ReadonlyArray<any>;
 }
 
+interface IndexConfigEntryUnderConstruction {
+	decideByType?: boolean;
+    enabled?: boolean;
+    nGram?: boolean;
+    fulltext?: boolean;
+    includeInAllText?: boolean;
+    path?: boolean;
+    indexValueProcessors?: Array<any>;
+    languages?: Array<any>;
+}
 
 interface indexTemplateToConfigParam {
 	template: IndexConfigTemplates | IndexConfigEntry,
@@ -83,7 +93,7 @@ export function indexTemplateToConfig({
 		return configObject;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_NONE) {
-		const rv = {
+		const rv :IndexConfigEntryUnderConstruction = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: false,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -100,7 +110,7 @@ export function indexTemplateToConfig({
 		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_BY_TYPE) {
-		const rv = {
+		const rv :IndexConfigEntryUnderConstruction = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: true,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -117,7 +127,7 @@ export function indexTemplateToConfig({
 		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_FULLTEXT) {
-		const rv = {
+		const rv :IndexConfigEntryUnderConstruction = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: true,
@@ -134,7 +144,7 @@ export function indexTemplateToConfig({
 		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_PATH) {
-		const rv = {
+		const rv :IndexConfigEntryUnderConstruction = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -151,7 +161,7 @@ export function indexTemplateToConfig({
 		return rv as IndexConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_MINIMAL) {
-		const rv = {
+		const rv :IndexConfigEntryUnderConstruction = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
