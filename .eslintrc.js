@@ -1,12 +1,13 @@
 module.exports = {
 	extends: [
-		'eslint:recommended'
+		'plugin:@typescript-eslint/eslint-recommended',
+		'plugin:@typescript-eslint/recommended'
 	],
 	globals: {
 		// CommonJS (CJS) format
 		module: false
 	},
-	parser: 'babel-eslint',
+	plugins: ['@typescript-eslint'],
 	rules: { // https://eslint.org/docs/rules
 		indent: ['warn', 'tab'],
 		'no-tabs': ['off']
