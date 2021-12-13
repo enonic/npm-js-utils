@@ -12,9 +12,9 @@ function unStemNorwegian(word :string) :Array<string> {
 
 export function unStem(word :string, language: string) :Array<string> {
 	switch (language) {
-		case 'en': return unStemEnglish(word);
-		case 'no': return unStemNorwegian(word);
-		default:
-			throw new Error(`Unsupported lanugage:${language}`);
+	case 'en': return unStemEnglish(word);
+	case 'no': return unStemNorwegian(word);
+	default:
+		throw new Error(`Unsupported lanugage:${language}`);
 	}
 }

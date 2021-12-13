@@ -42,7 +42,7 @@ export function updateIndexConfigs({
 	} // for
 	dereffedConfigs.sort(
 		(a :IndexConfigsItem, b :IndexConfigsItem) =>
-		(a.path > b.path) ? 1 : -1
+			(a.path > b.path) ? 1 : -1
 	); // Slow?
 	return dereffedConfigs;
 } // updateIndexConfigs

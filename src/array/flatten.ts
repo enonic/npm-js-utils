@@ -1,9 +1,15 @@
-export function flatten(arr :Array<unknown>, d :number = 1 ) :Array<unknown> {
-   return d > 0
-   	? arr.reduce((acc :any[], val) => acc.concat(
-		Array.isArray(val)
-			? flatten(val, d - 1)
-			: val
+export function flatten(
+	arr :unknown[],
+	d :number = 1
+) :unknown[] {
+	return d > 0
+		? arr.reduce((
+			acc :unknown[],
+			val
+		) => acc.concat(
+			Array.isArray(val)
+				? flatten(val, d - 1)
+				: val
 		), [])
-    : arr.slice();
-};
+		: arr.slice();
+}

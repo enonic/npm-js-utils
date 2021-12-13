@@ -24,5 +24,5 @@ export function stemmed(
 		operator.toUpperCase() === QUERY_OPERATOR_AND
 			? QUERY_OPERATOR_AND
 			: QUERY_OPERATOR_OR
-		}','${language}')`;
+	}','${language}')`;
 }

@@ -41,7 +41,7 @@ export function validateRepoId(repoId :string) {
 		return "repoId can't contain uppercase letters!";
 	}
 
-	for (var i = 0; i < repoId.length; i++) {
+	for (let i = 0; i < repoId.length; i++) {
   		const char = repoId.charAt(i);
 		const code = char.charCodeAt(0);
 		//console.debug(`char:${toStr(char)} charCode:${code}`)

@@ -21,4 +21,4 @@ export function buildFields(fields :Fields) {
 		//console.debug('field', field);
 		return `${field}${boost ? `^${boost}`: ''}`;
 	}).join(',')}'`;
-};
+}

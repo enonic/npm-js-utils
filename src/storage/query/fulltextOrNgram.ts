@@ -20,5 +20,5 @@ export function fulltextOrNgram(
 		operator.toUpperCase() === QUERY_OPERATOR_AND
 			? `,'${QUERY_OPERATOR_AND}'`
 			: '' // OR is the default https://developer.enonic.com/docs/xp/stable/storage/noql#ngram
-		})`;
+	})`;
 }

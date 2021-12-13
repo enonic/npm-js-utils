@@ -58,8 +58,8 @@ interface IndexConfigEntry {
    */
   readonly path: boolean;
 
-  indexValueProcessors?: ReadonlyArray<any>;
-  languages?: ReadonlyArray<any>;
+  indexValueProcessors?: ReadonlyArray<unknown>;
+  languages?: ReadonlyArray<unknown>;
 }
 
 interface IndexConfigEntryUnderConstruction {
@@ -69,8 +69,8 @@ interface IndexConfigEntryUnderConstruction {
     fulltext?: boolean;
     includeInAllText?: boolean;
     path?: boolean;
-    indexValueProcessors?: Array<any>;
-    languages?: Array<any>;
+    indexValueProcessors?: Array<unknown>;
+    languages?: Array<unknown>;
 }
 
 interface indexTemplateToConfigParam {

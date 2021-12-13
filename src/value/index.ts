@@ -1,5 +1,3 @@
-//export const {isArray} = Array;
-
 export function isBoolean(value :unknown) :boolean {
 	return Object.prototype.toString.call(value).slice(8,-1) === 'Boolean';
 }
@@ -20,8 +18,15 @@ export function isFalse(value :unknown): boolean {
 }
 
 
-export function isFunction(value: any) :boolean {
-	return !!(value && value.constructor && value.call && value.apply); // highly performant
+export function isFunction(value: unknown) :boolean {
+	return Object.prototype.toString.call(value).slice(8,-1) === 'Function';
+	/* // Highly performant (but unsafe?)
+	return !!(
+		value
+		&& (value as object).constructor // Function inherits Object.prototype.constructor
+		&& (value as () => unknown).call // Function.prototype.call()
+		&& (value as () => unknown).apply // Function.prototype.apply()
+	); */
 }
 
 
@@ -31,9 +36,9 @@ export function isInfinity(value :unknown) :boolean {
 
 
 export function isInt(value: unknown): boolean {
-  return typeof value === 'number' &&
-    isFinite(value) && // TODO Is isFinite() available in Enonic XP?
-    Math.floor(value) === value;
+	return typeof value === 'number' &&
+		isFinite(value) && // TODO Is isFinite() available in Enonic XP?
+		Math.floor(value) === value;
 }
 /* Alternative implementation, but type complaints {
 	return !isNaN(value as number)
@@ -62,7 +67,7 @@ export function isNull(value: unknown): boolean {
 
 
 export function isNumber(value: unknown): boolean {
-  return typeof value === 'number' && isFinite(value);
+	return typeof value === 'number' && isFinite(value);
 }
 
 
@@ -88,10 +93,24 @@ export function isUndefined(value: unknown): boolean {
 	return typeof value === 'undefined';
 }
 
+
+/*
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+
+replacer | Optional | A function that alters the behavior of the stringification
+process, or an array of String and Number that serve as an allowlist for
+selecting/filtering the properties of the value object to be included in the
+JSON string. If this value is null or not provided, all properties of the object
+are included in the resulting JSON string.
+*/
+type ReplacerFn = (this: unknown, key: string, value: unknown) => unknown;
+//type Replacer =  ReplacerFn|Array<string|number>|undefined
+type Replacer =  ReplacerFn|undefined
+
 export function toStr(
 	value: unknown,
-	replacer?: (key: string, value: any) => any,
-	space: string | number = 4
+	replacer? :Replacer,
+	space: string | number | undefined = 4
 ): string {
 	return JSON.stringify(value, replacer, space);
 }
