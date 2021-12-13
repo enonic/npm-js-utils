@@ -11,6 +11,7 @@ module.exports = {
 	rules: { // https://eslint.org/docs/rules
 		'@typescript-eslint/no-inferrable-types': ['off'],
 		indent: ['warn', 'tab'],
+		'prefer-rest-params': ['off'], // This rule should not be used in ES3/5 environments.
 		'no-inferrable-types': ['off'],
 		'no-tabs': ['off']
 	}

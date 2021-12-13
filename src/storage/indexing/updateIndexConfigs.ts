@@ -32,7 +32,8 @@ export function updateIndexConfigs({
 
 		const j = findIndex(
 			dereffedConfigs,
-			({path} :IndexConfigsItem) => path === anUpdate.path
+			//({path} :IndexConfigsItem) => path === anUpdate.path
+			(item :unknown) => (item as IndexConfigsItem).path === anUpdate.path
 		);
 		if (j !== -1) {
 			dereffedConfigs.splice(j, 1, anUpdate);
