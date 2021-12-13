@@ -1,7 +1,7 @@
 import {forceArray} from '../../array/forceArray';
 import {isObject} from '../../value';
 
-import {
+import type {
 	FieldObject,
 	Fields
 } from './constants';
@@ -10,7 +10,7 @@ import {
 export function buildFields(fields :Fields) {
 	return `'${forceArray(fields).map((stringOrObj) => {
 		//console.debug('stringOrObj', stringOrObj);
-		let boost :number;
+		let boost :number|undefined;
 		let field :string;
 		if (isObject(stringOrObj)) {
 			boost = (stringOrObj as FieldObject).boost || undefined;

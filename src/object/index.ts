@@ -7,16 +7,18 @@ export function sortKeys(obj: object) :object {
 		throw new Error('sortKeys');
 	}
 	const newObject = {};
-	const sortedKeys = keys(obj).sort();
-	for (let i = 0, l = sortedKeys.length; i < l; i++)
-        newObject[sortedKeys[i]] = obj[sortedKeys[i]];
+	const sortedKeys :string[] = keys(obj).sort();
+	for (let i = 0, l = sortedKeys.length; i < l; i++) {
+		const k :string = sortedKeys[i] as string;
+		newObject[k] = obj[k];
+	}
     return newObject;
 }
 
 
 export function sortKeysRec(obj :unknown) :unknown {
 	if (isArray(obj)) {
-        const newArray = [];
+        const newArray :unknown[] = [];
         for (let i = 0, l = obj.length; i < l; i++)
             newArray[i] = sortKeysRec(obj[i]); // Recurse
         return newArray;// as [];
@@ -25,7 +27,9 @@ export function sortKeysRec(obj :unknown) :unknown {
         return obj;// as unknown;
     const sortedKeys = keys(obj).sort();
     const newObject = {};
-    for (let i = 0, l = sortedKeys.length; i < l; i++)
-        newObject[sortedKeys[i]] = sortKeysRec(obj[sortedKeys[i]]); // Recurse
+    for (let i = 0, l = sortedKeys.length; i < l; i++) {
+		const k :string = sortedKeys[i] as string;
+		newObject[k] = sortKeysRec(obj[k]); // Recurse
+	}
     return newObject;// as object;
 }

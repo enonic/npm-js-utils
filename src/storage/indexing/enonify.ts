@@ -47,17 +47,17 @@ export function enonify(unknown :unknown) :unknown {
 
 	if (isObject(unknown)) {
 		Object.keys(unknown as object).forEach((k) => {
-			let value = unknown[k];
+			let value = (unknown as object)[k];
 			if (Array.isArray(value)) {
 				value = enonifyArray(value); // value may longer be an Array. Example: [NaN] -> undefined
 			}
 			if (Array.isArray(value)) {
-				unknown[k] = value; // Shortcircuit: No need to run through Arrays a second time
+				(unknown as object)[k] = value; // Shortcircuit: No need to run through Arrays a second time
 			} else {
 				if (shouldBeDeleted(value)) {
-					delete unknown[k];
+					delete (unknown as object)[k];
 				} else {
-					unknown[k] = enonify(value); // NOTE: Recurse
+					(unknown as object)[k] = enonify(value); // NOTE: Recurse
 				}
 			}
 		}); // forEach

@@ -18,9 +18,9 @@
 		"noImplicitAny": false,
 		"noPropertyAccessFromIndexSignature": true,
 		"noUncheckedIndexedAccess": true,
-		"noUnusedLocals": false,
+		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"outDir": "tmp/cjs",
+		"outDir": "build/tsc",
 		"paths": {
 			"@enonic/js-utils": ["node_modules/@enonic/js-utils/src"],
 			"enonic-types/*": ["node_modules/enonic-types/*"]
@@ -34,9 +34,9 @@
 			"test"
 		],
 		"sourceMap": false,
-		"strict": false,
-		"strictFunctionTypes": false,
-		"strictNullChecks": false,
+		"strict": true,
+		"strictFunctionTypes": true,
+		"strictNullChecks": true,
 		"target": "ES5"
 	},
 	"exclude": [

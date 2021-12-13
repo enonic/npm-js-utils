@@ -1,15 +1,16 @@
 export function join(
-	paths :Array<string>,
+	paths :string[],
 	separator :string = '/'
 ) :string {
+	let parts :string[] = [];
+
 	// Split the inputs into a list of path commands.
-	let parts = [];
-	for (let i = 0; i < paths.length; i += 1) {
-		parts = parts.concat(paths[i].split(separator));
+	for (let i = 0;	i < paths.length; i += 1) {
+		parts = parts.concat((paths[i] as string).split(separator));
 	}
 
 	// Interpret the path commands to get the new resolved path.
-	const newParts = [];
+	const newParts :string[] = [];
 	for (let i = 0; i < parts.length; i += 1) {
 		const part = parts[i];
 		// Remove leading and trailing slashes

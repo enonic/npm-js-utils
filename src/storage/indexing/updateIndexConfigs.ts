@@ -15,19 +15,19 @@ declare type IndexConfigs = ReadonlyArray<IndexConfigsItem>
 
 interface updateIndexConfigsParams {
 	readonly configs :IndexConfigs,
-	readonly updates :IndexConfigs
+	readonly updates? :IndexConfigs
 }
 
 
 export function updateIndexConfigs({
 	configs,
-	updates
+	updates = []
 } :updateIndexConfigsParams) :IndexConfigs {
 	const dereffedConfigs = JSON.parse(JSON.stringify(configs));
 	for (let i = 0; i < updates.length; i++) {
 		const j = findIndex(
 			dereffedConfigs,
-			({path:p}) => p === updates[i].path
+			({path:p}) => p === updates[i]?.path
 		);
 		if (j !== -1) {
 			dereffedConfigs.splice(j, 1, updates[i]);

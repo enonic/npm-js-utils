@@ -14,7 +14,7 @@ import {
 	toStr
 } from '../../value';
 
-const VALID_REGEXP_STR = '0-9a-z'
+//const VALID_REGEXP_STR = '0-9a-z'
 
 
 export function validateRepoId(repoId :string) {
