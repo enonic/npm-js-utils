@@ -1,7 +1,8 @@
 import type {
 	IndexConfigEntry,
 	IndexConfigTemplates
-} from 'enonic-types/node';
+//} from 'enonic-types/node';
+} from '/lib/xp/node'; // TypeScript module inside enonic-types/node
 
 import {findIndex} from '../../array/findIndex';
 

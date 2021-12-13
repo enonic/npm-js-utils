@@ -5,7 +5,8 @@ import type {
 	HasValueFilter,
 	IdsFilter,
 	NotExistsFilter
-} from 'enonic-types/content';
+//} from 'enonic-types/content';
+} from '/lib/xp/content'; // TypeScript module inside enonic-types/node
 
 import {
 	FILTER_CLAUSE_MUST,
