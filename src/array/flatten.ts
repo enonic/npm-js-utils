@@ -1,5 +1,8 @@
-export function flatten(
-	arr :unknown[],
+type NestedArray<T> = Array<NestedArray<T> | T>;
+
+
+export function flatten<T>(
+	arr :NestedArray<T>,
 	d :number = 1
 ) :unknown[] {
 	return d > 0
