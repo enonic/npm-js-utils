@@ -1,4 +1,4 @@
-import {
+import type {
 	IndexConfigEntry,
 	IndexConfigTemplates
 } from 'enonic-types/node';

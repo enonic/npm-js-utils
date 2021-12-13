@@ -1,8 +1,51 @@
 {
-  "files": [
-    "./src/index.ts"
-  ],
-  "include": [
-    "src/**/*"
-  ]
+	"compilerOptions": {
+		"allowJs": false,
+		"baseUrl": ".",
+		"declaration": false,
+		"declarationMap": false,
+		"downlevelIteration": true,
+		"importHelpers": true,
+		"importsNotUsedAsValues": "error",
+		"inlineSourceMap": false,
+		"inlineSources": false,
+		"listEmittedFiles": true,
+		"listFiles": false,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noEmitOnError": true,
+		"noErrorTruncation": true,
+		"noImplicitAny": false,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": true,
+		"outDir": "tmp/cjs",
+		"paths": {
+			"@enonic/js-utils": ["node_modules/@enonic/js-utils/src"],
+			"enonic-types/*": ["node_modules/enonic-types/*"]
+		},
+		"removeComments": true,
+		"resolveJsonModule": true,
+		"rootDir": "src",
+		"rootDirs": [
+			"src",
+			"node_modules",
+			"test"
+		],
+		"sourceMap": false,
+		"strict": false,
+		"strictFunctionTypes": false,
+		"strictNullChecks": false,
+		"target": "ES5"
+	},
+	"exclude": [
+		"node_modules"
+	],
+	"files": [
+		"src/index.ts"
+	],
+	"include": [
+		"src/**/*.ts"
+	]
 }
