@@ -5,16 +5,15 @@ import type {
 	HasValueFilter,
 	IdsFilter,
 	NotExistsFilter
-//} from 'enonic-types/content';
-} from '/lib/xp/content'; // TypeScript module inside enonic-types/node
+} from './Filters';
 
 import {
 	FILTER_CLAUSE_MUST,
 	FILTER_CLAUSES
 } from './constants';
 
-type FilterClause = typeof FILTER_CLAUSES[number];
 
+type FilterClause = typeof FILTER_CLAUSES[number];
 
 interface RelaxedBooleanFilter {
   boolean?: {

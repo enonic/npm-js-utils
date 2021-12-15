@@ -39,7 +39,6 @@
 		"strictNullChecks": true,
 		"target": "ES5",
 		"types": [
-			"enonic-types",
 			"node"
 		]
 	},
