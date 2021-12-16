@@ -1,3 +1,5 @@
+export {isDate} from './isDate';
+export {isDateString} from './isDateString';
 export {isGeoPoint} from './isGeoPoint';
 export {isGeoPointArray} from './isGeoPointArray';
 export {isGeoPointString} from './isGeoPointString';
@@ -7,16 +9,6 @@ export {isString} from './isString';
 
 export function isBoolean(value :unknown) :boolean {
 	return Object.prototype.toString.call(value).slice(8,-1) === 'Boolean';
-}
-
-
-export function isDate(value :unknown) :boolean {
-	return Object.prototype.toString.call(value).slice(8,-1) === 'Date';
-}
-
-
-export function isDateString(value :unknown) :boolean {
-	return typeof value === 'string' && !isNaN(Date.parse(value));
 }
 
 
