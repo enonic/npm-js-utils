@@ -148,6 +148,7 @@ export {
 	isInstantString,
 	isInt,
 	isLocalDateString,
+	isLocalDateTimeString,
 	isNotFalse,
 	isNotSet,
 	isNotTrue,
