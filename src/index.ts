@@ -154,6 +154,7 @@ export {
 	isObject,
 	isSet,
 	isString,
+	isTime,
 	isTrue,
 	isUndefined,
 	toStr
