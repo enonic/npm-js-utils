@@ -3,10 +3,12 @@ export {isDateString} from './isDateString';
 export {isGeoPoint} from './isGeoPoint';
 export {isGeoPointArray} from './isGeoPointArray';
 export {isGeoPointString} from './isGeoPointString';
+export {isInstantString} from './isInstantString';
 export {isInt} from './isInt';
 export {isNumber} from './isNumber';
 export {isString} from './isString';
 export {isTime} from './isTime';
+export {isTimeString} from './isTimeString';
 
 
 export function isBoolean(value :unknown) :boolean {

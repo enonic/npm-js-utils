@@ -145,6 +145,7 @@ export {
 	isGeoPointArray,
 	isGeoPointString,
 	isInfinity,
+	isInstantString,
 	isInt,
 	isNotFalse,
 	isNotSet,
@@ -155,6 +156,7 @@ export {
 	isSet,
 	isString,
 	isTime,
+	isTimeString,
 	isTrue,
 	isUndefined,
 	toStr

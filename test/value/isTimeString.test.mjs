@@ -1,13 +1,12 @@
 import {deepStrictEqual} from 'assert';
 import {
-	isTime,
+	isTimeString,
 	isInfinity,
 	isNumber
 } from '../../dist/esm/index.mjs';
 
 
 const TESTS_TRUE = [
-	new Date(),
 	'10:15:30',
 	'00:00',
 	'00:00:00',
@@ -56,6 +55,7 @@ const TESTS_FALSE = [
 	'0:0:61',
 	// Date related, but not an actual Date object
 	'2011-12-03T10:15:30Z',
+	new Date(),
 	new Date().toDateString(),
 	new Date().toGMTString(),
 	new Date().toJSON(),
@@ -96,13 +96,13 @@ function toStr(v) {
 
 
 describe('value', () => {
-	describe('isTime()', () => {
+	describe('isTimeString()', () => {
 		describe('--> true', () => {
 			TESTS_TRUE.forEach((params) => {
 				it(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						true,
-						isTime(params)
+						isTimeString(params)
 					);
 				});
 			});
@@ -112,7 +112,7 @@ describe('value', () => {
 				it(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						false,
-						isTime(params)
+						isTimeString(params)
 					);
 				});
 			});
