@@ -18,8 +18,7 @@ const TESTS_TRUE = [
 	'2011-12-03T10:15:30.12345678Z',
 	'2011-12-03T10:15:30.123456789Z',
 	new Date().toJSON(),
-	new Date().toISOString(),
-
+	new Date().toISOString()
 ];
 
 

@@ -4,6 +4,7 @@ export {isGeoPoint} from './isGeoPoint';
 export {isGeoPointArray} from './isGeoPointArray';
 export {isGeoPointString} from './isGeoPointString';
 export {isInstantString} from './isInstantString';
+export {isLocalDateString} from './isLocalDateString';
 export {isInt} from './isInt';
 export {isNumber} from './isNumber';
 export {isString} from './isString';

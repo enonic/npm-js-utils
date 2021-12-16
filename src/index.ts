@@ -147,6 +147,7 @@ export {
 	isInfinity,
 	isInstantString,
 	isInt,
+	isLocalDateString,
 	isNotFalse,
 	isNotSet,
 	isNotTrue,
