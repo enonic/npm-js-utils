@@ -1,3 +1,10 @@
+export {isGeoPoint} from './isGeoPoint';
+export {isGeoPointArray} from './isGeoPointArray';
+export {isGeoPointString} from './isGeoPointString';
+export {isNumber} from './isNumber';
+export {isString} from './isString';
+
+
 export function isBoolean(value :unknown) :boolean {
 	return Object.prototype.toString.call(value).slice(8,-1) === 'Boolean';
 }
@@ -66,11 +73,6 @@ export function isNull(value: unknown): boolean {
 }
 
 
-export function isNumber(value: unknown): boolean {
-	return typeof value === 'number' && isFinite(value);
-}
-
-
 export const isObject = (value: unknown): boolean =>
 	Object.prototype.toString.call(value).slice(8,-1) === 'Object';
 
@@ -79,10 +81,6 @@ export function isSet(value: unknown): boolean {
 	if (typeof value === 'boolean') { return true; } // If value is true/false it is set
 	return value !== null && typeof value !== 'undefined';
 }
-
-
-export const isString = (value: unknown): boolean =>
-	typeof value === 'string' || value instanceof String;
 
 
 export function isTrue(value :unknown): boolean {
