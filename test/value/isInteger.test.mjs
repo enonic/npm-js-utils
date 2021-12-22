@@ -2,37 +2,26 @@ import {deepStrictEqual} from 'assert';
 import {
 	isInfinity,
 	isNumber,
-	isObject
+	isInteger
 } from '../../dist/esm/index.mjs';
 
+import {
+	FLOATS,
+	INTEGERS,
+	INFINITIES,
+	NOT_NUMBERS
+} from '../testData.mjs'
 
-const TESTS_TRUE = [
-	{},
-	{ key: 'property' }
-];
 
-const TESTS_FALSE = [
-	undefined,
-	null,
-	'',
-	'string',
-	true,
-	false,
-	[],
-	//{},
-	-Infinity,
-	-1,
-	-0.1,
-	-0.0,
-	0,
-	0.0,
-	0.1,
-	1,
-	Infinity,
-	new Date(),
-	() => {},
-	NaN
-];
+const TESTS_TRUE = [].concat(
+	INTEGERS
+);
+
+const TESTS_FALSE = [].concat(
+	FLOATS,
+	INFINITIES,
+	NOT_NUMBERS
+);
 
 
 function toStr(v) {
@@ -47,13 +36,13 @@ function toStr(v) {
 
 
 describe('value', () => {
-	describe('isObject()', () => {
+	describe('isInteger()', () => {
 		describe('--> true', () => {
 			TESTS_TRUE.forEach((params) => {
 				it(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						true,
-						isObject(params)
+						isInteger(params)
 					);
 				});
 			});
@@ -63,7 +52,7 @@ describe('value', () => {
 				it(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						false,
-						isObject(params)
+						isInteger(params)
 					);
 				});
 			});
