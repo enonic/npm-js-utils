@@ -19,7 +19,7 @@ export const DATE_OBJECT_STRINGS = [ // except the ones matching INSTANT format.
 
 export const MS_SINCE_EPOCH = [
 	Date.now(), // Returns the numeric value corresponding to the current time—the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC, with leap seconds ignored.
-	Date.parse('2011-12-03T10:15:30Z'), // Parses a string representation of a date and returns the number of milliseconds since 1 January, 1970, 00:00:00 UTC, with leap seconds ignored.
+	Date.parse('Z'), // Parses a string representation of a date and returns the number of milliseconds since 1 January, 1970, 00:00:00 UTC, with leap seconds ignored.
 
 	//Date.UTC() // NaN // Accepts the same parameters as the longest form of the constructor (i.e. 2 to 7) and returns the number of milliseconds since January 1, 1970, 00:00:00 UTC, with leap seconds ignored.
 	Date.UTC(0,0,0,0,0,0), // -2209075200000 // Sun, 31 Dec 1899 00:00:00 GMT
@@ -92,7 +92,10 @@ export const LOCAL_TIME_STRINGS = [
 //──────────────────────────────────────────────────────────────────────────────
 export const INSTANT_STRINGS_INVALID = [
 	'2011-12-03T10:15Z', // java.time.format.DateTimeParseException: Text '2011-12-03T10:15Z' could not be parsed at index 16
-	'2011-12-03T10:15:30', // java.time.format.DateTimeParseException: Text '2011-12-03T10:15:30' could not be parsed at index 19
+
+	// This is a valid localDateTimeString! Added LOCAL_DATE_TIME_STRINGS to NOT_INSTANT_STRINGS
+	//'2011-12-03T10:15:30', // java.time.format.DateTimeParseException: Text '2011-12-03T10:15:30' could not be parsed at index 19
+
 	'2011-12-03T10:15:30.1234567890Z', // java.time.format.DateTimeParseException: Text '2011-12-03T10:15:30.1234567890Z' could not be parsed at index 29
 	'2002-12-31T23:00:00+01:00', // java.time.format.DateTimeParseException: Text '2002-12-31T23:00:00+01:00' could not be parsed at index 19
 	// Right format, but invalid time
@@ -108,7 +111,7 @@ export const INSTANT_STRINGS_INVALID = [
 	'2000-01-01T24:00:01Z',
 	'2000-01-01T25:00:00Z',
 	'2000-01-01T00:60:00Z',
-	'2000-01-01T00:00:60Z',
+	'2000-01-01T00:00:60Z'
 ];
 
 export const LOCAL_DATE_STRINGS_INVALID = [
@@ -119,31 +122,45 @@ export const LOCAL_DATE_STRINGS_INVALID = [
 	'0000-00-01', // Text '0000-00-01' could not be parsed: Invalid value for MonthOfYear (valid values 1 - 12): 0 java.time.format.DateTimeParseException
 	'0000-01-00', // Text '0000-01-00' could not be parsed: Invalid value for DayOfMonth (valid values 1 - 28/31): 0 java.time.format.DateTimeParseException
 	'0000-13-01', // Text '0000-13-01' could not be parsed: Invalid value for MonthOfYear (valid values 1 - 12): 13 java.time.format.DateTimeParseException
-	'0000-01-32', // Text '0000-01-32' could not be parsed: Invalid value for DayOfMonth (valid values 1 - 28/31): 32 java.time.format.DateTimeParseException
-	// localDateString related, but not an actual localDateString
-	...INSTANT_STRINGS,
-	...DATE_OBJECT_STRINGS,
-	...MS_SINCE_EPOCH
+	'0000-01-32' // Text '0000-01-32' could not be parsed: Invalid value for DayOfMonth (valid values 1 - 28/31): 32 java.time.format.DateTimeParseException
 ];
 
 export const LOCAL_DATE_TIME_STRINGS_INVALID = [
 	// Invalid format
-	'0000-01-01', // Text '0000-01-01' could not be parsed at index 10 java.time.format.DateTimeParseException
+
+	// This is a valid localDateString. Add LOCAL_DATE_STRINGS to NOT_LOCAL_DATE_TIME_STRINGS
+	//'0000-01-01', // Text '0000-01-01' could not be parsed at index 10 java.time.format.DateTimeParseException
+
 	'0000-01-01T', // Text '0000-01-01T' could not be parsed at index 11 java.time.format.DateTimeParseException
 	'0000-01-01T00', // Text '0000-01-01T00' could not be parsed at index 13 java.time.format.DateTimeParseException
 	'0000-01-01T00:00.1', // Text '0000-01-01T00:00.1' could not be parsed, unparsed text found at index 16 java.time.format.DateTimeParseException
-	'2007-12-03T10:15:30Z', // Text '2007-12-03T10:15:30Z' could not be parsed, unparsed text found at index 19 java.time.format.DateTimeParseException
+
+	// This is a valid instant string, rather add INSTANT_STRINGS to NOT_LOCAL_DATE_TIME_STRING
+	//'2007-12-03T10:15:30Z', // Text '2007-12-03T10:15:30Z' could not be parsed, unparsed text found at index 19 java.time.format.DateTimeParseException
+
 	// Valid format, but invalid date
 	'0000-00-01T00:00:00', // Text '0000-00-01T00:00:00' could not be parsed: Invalid value for MonthOfYear (valid values 1 - 12): 0 java.time.format.DateTimeParseException
 	'0000-01-00T00:00:00', // Text '0000-01-00T00:00:00' could not be parsed: Invalid value for DayOfMonth (valid values 1 - 28/31): 0 java.time.format.DateTimeParseException
 	'0000-01-01T24:00:00', // Text '0000-01-01T24:00:00' could not be parsed: Invalid value for HourOfDay (valid values 0 - 23): 24 java.time.format.DateTimeParseException
 	'0000-01-01T00:60:00', // Text '0000-01-01T00:60:00' could not be parsed: Invalid value for MinuteOfHour (valid values 0 - 59): 60 java.time.format.DateTimeParseException
 	'0000-01-01T00:00:60', // Text '0000-01-01T00:00:60' could not be parsed: Invalid value for SecondOfMinute (valid values 0 - 59): 60 java.time.format.DateTimeParseException
-	'0000-01-01T00:00:00.1234567890', // Text '0000-01-01T00:00:00.1234567890' could not be parsed, unparsed text found at index 29 java.time.format.DateTimeParseException
-	// localDateTimeString related, but not an actual localDateTimeString
-	...INSTANT_STRINGS,
-	...DATE_OBJECT_STRINGS,
-	...MS_SINCE_EPOCH
+	'0000-01-01T00:00:00.1234567890' // Text '0000-01-01T00:00:00.1234567890' could not be parsed, unparsed text found at index 29 java.time.format.DateTimeParseException
+];
+
+export const LOCAL_TIME_STRINGS_INVALID = [
+	/*'00:00',
+	'00:00:00',
+	'00:00:00.', // Allowed
+	'00:00:00.1',
+	'00:00:00.12',
+	'00:00:00.123',
+	'00:00:00.1234',
+	'00:00:00.12345',
+	'00:00:00.123456',
+	'00:00:00.1234567',
+	'00:00:00.12345678',
+	'00:00:00.123456789'*/
+	'00:00:00.1234567890'
 ];
 
 //──────────────────────────────────────────────────────────────────────────────

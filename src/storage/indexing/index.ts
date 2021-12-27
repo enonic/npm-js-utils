@@ -81,5 +81,6 @@ export {
 	VALUE_TYPE_LONG,
 	VALUE_TYPE_REFERENCE,
 	VALUE_TYPE_SET,
-	VALUE_TYPE_STRING
+	VALUE_TYPE_STRING,
+	detectValueType
 } from './valueType';

@@ -104,6 +104,7 @@ export {
 	VALUE_TYPE_STRING,
 	and,
 	addQueryFilter,
+	detectValueType,
 	dirname,
 	enonify,
 	fulltext,
