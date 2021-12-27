@@ -1,7 +1,7 @@
 import {isString} from './isString';
 
 
-const REGEXP_DATE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d{0,9})?)?$/
+const REGEXP_DATE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d{0,9})?)?$/ // Same as instant, but no Z on the end.
 
 
 export function isLocalDateTimeString(v :unknown) :boolean {

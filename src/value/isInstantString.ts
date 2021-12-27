@@ -3,8 +3,7 @@
 import {isString} from './isString';
 
 
-const REGEXP_INSTANT = /^\d{4}-\d{2}-\d{2}T\d{2}\:\d{2}\:\d{2}(\.\d{0,9})?Z$/;
-
+const REGEXP_INSTANT = /^\d{4}-\d{2}-\d{2}T\d{2}\:\d{2}\:\d{2}(\.\d{0,9})?Z$/; // Same as localDateTimeString, but with a Z on the end.
 
 export function isInstantString(v :unknown) :boolean {
 	if (!isString(v)) { return false; }

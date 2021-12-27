@@ -4,7 +4,7 @@ import {
 	INSTANT_STRINGS,
 	//INSTANT_STRINGS_INVALID
 	//INSTANTS contains DATE_OBJECTS
-	NOT_INSTANT_STRINGS //contains INSTANT_STRINGS_INVALID
+	NOT_INSTANT_STRINGS //contains INSTANT_STRINGS_INVALID which contains LOCAL_DATE_TIME_STRINGS
 } from '../testData'
 import {toStr} from '../toStr';
 
