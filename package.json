@@ -48,7 +48,7 @@
     "docs": "npx typedoc",
     "lint": "npx eslint src test",
     "mocha": "npx mocha",
-    "test": "npx mocha",
+    "test": "npx mocha --config .swc.mocharc.cjs",
     "prebuild": "yarn run clean",
     "premocha": "yarn run build",
     "pretest": "yarn run build",

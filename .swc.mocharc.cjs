@@ -7,6 +7,5 @@ module.exports = {
 		//'ts'
     ],
     parallel: true,
-    //spec: 'test/**'
 	spec: 'build/swc/test/**'
 }
