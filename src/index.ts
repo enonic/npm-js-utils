@@ -163,6 +163,7 @@ export {
 	isTimeString,
 	isTrue,
 	isUndefined,
+	isUuidV4String,
 	toStr
 } from './value';
 

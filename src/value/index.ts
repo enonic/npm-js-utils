@@ -13,6 +13,7 @@ export {isPositiveInteger} from './isPositiveInteger';
 export {isString} from './isString';
 export {isTime} from './isTime';
 export {isTimeString} from './isTimeString';
+export {isUuidV4String} from './isUuidV4String';
 
 
 export function isBoolean(value :unknown) :boolean {
