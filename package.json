@@ -38,11 +38,11 @@
   "name": "@enonic/js-utils",
   "scripts": {
     "clean": "rm -r build dist 2>/dev/null;true",
-    "build": "yarn build:swc && yarn buildCjs && yarn buildEsm",
+    "build": "yarn build:swc & yarn buildCjs & yarn buildEsm",
     "buildCjsForOldestNode": "find src -type f | xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=node --target=node6.4.0",
     "buildCjs": "find src -type f | xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=neutral --target=es2015",
     "buildEsm": "find src -type f | xargs npx esbuild --bundle --format=esm --outbase=src --outdir=dist/esm --out-extension:.js=.mjs --platform=neutral --target=es2015",
-    "build:swc": "yarn run build:swc:src && yarn run build:swc:test",
+    "build:swc": "yarn run build:swc:src & yarn run build:swc:test",
     "build:swc:src": "find src -name '*.ts' | xargs npx swc --config-file ./.swcrc.json -d build/swc/src --source-root src",
     "build:swc:test": "find test -name '*.ts' | xargs npx swc --config-file ./.swcrc.json -d build/swc/test --source-root test",
     "docs": "npx typedoc",
