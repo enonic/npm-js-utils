@@ -34,8 +34,9 @@ describe('uniqueId', () => {
 		}, {
 			name: 'TypeError',
 			//message: "Cannot destructure property 'repoId' of 'undefined' as it is undefined."
-			message: "Cannot read property 'repoId' of undefined"
-			//message: /destructure/
+			//message: "Cannot read property 'repoId' of undefined"
+			//message: "Cannot read properties of undefined (reading 'repoId')"
+			message: /^Cannot (destructure|read) propert.* 'repoId'/
 		});
 	});
 	it('throws TypeError when required named parameter repoId is missing', () => {

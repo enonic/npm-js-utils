@@ -36,7 +36,7 @@ interface IndexConfigEntryUnderConstruction {
 interface indexTemplateToConfigParam {
 	template: IndexConfigTemplates | IndexConfigEntry,
 	indexValueProcessors?: [],
-	languages?: []
+	languages? :string[]
 }
 
 
