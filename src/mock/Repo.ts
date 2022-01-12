@@ -38,7 +38,11 @@ export class Repo {
 		};
 	}
 
-	getBranch(branchId :string) {
-		return this._branches[branchId];
+	getBranch(branchId :string) :Branch {
+		const branchObj = this._branches[branchId];
+		if (!branchObj) {
+			throw new Error(`getBranch: No branch with branchId:${branchId}`);
+		}
+		return branchObj;
 	}
 } // class Repo
