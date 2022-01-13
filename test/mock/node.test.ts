@@ -1,3 +1,4 @@
+import {isString} from '../../src';
 import {
 	deepStrictEqual//,
 	//throws // For some reason this gets borked by swc
@@ -83,58 +84,101 @@ describe('mock', () => {
 				);
 			}); // it
 			describe('Connection', () => {
+				const createRes = connection.create({});
 				describe('create', () => {
-					it('returns the created node', () => {
+					//javaBridge.log.debug('generated id:%s', createRes._id);
+					it('generates an _id', () => {
 						deepStrictEqual(
-							{
-								_id: 'myId',
-								_indexConfig: {
-									default: {
-										decideByType: false,
-										enabled: true,
-										nGram: false,
-										fulltext: false,
-										includeInAllText: false,
-										path: false,
-										indexValueProcessors: [],
-										languages: []
-						    		},
-									configs: []
-								},
-								_name: 'myId'
-							},
-							connection.create({
-								_id: 'myId'
-							})
+							true,
+							isString(createRes._id)
 						);
 					}); // it
-					it("doesn't enonify _indexConfig", () => {
+					it('generates an _versionKey', () => {
+						deepStrictEqual(
+							true,
+							isString(createRes._versionKey)
+						);
+					}); // it
+					it('sets _name to _id (when _name is not passed in)', () => {
+						deepStrictEqual(
+							createRes._id,
+							createRes._name
+						);
+					}); // it
+					it('provides a default _indexConfig (when not passed in)', () => {
 						deepStrictEqual(
 							{
-								_id: 'myId3',
-								_indexConfig: {
-									configs: [{
-										path: 'myString',
-										config: {
-											decideByType: false,
-											enabled: true,
-											fulltext: true,
-											includeInAllText: true,
-											languages: ['en'],
-											nGram: true,
-											path: false
-										}
-									}]
+								default: {
+									decideByType: true,
+									enabled: true,
+									nGram: false,
+									fulltext: false,
+									includeInAllText: false,
+									path: false,
+									indexValueProcessors: [],
+									languages: []
 								},
-								_name: 'myId3'
+								configs: []
 							},
-							connection.create({
-								_id: 'myId3',
+							createRes._indexConfig
+						);
+					}); // it
+					it("sets _nodeType to 'default' (when not passed in)", () => {
+						deepStrictEqual(
+							'default',
+							createRes._nodeType
+						);
+					}); // it
+					it("sets _state to 'DEFAULT' (regardless of passed in)", () => {
+						deepStrictEqual(
+							'DEFAULT',
+							createRes._state
+						);
+					}); // it
+					it('sets _ts (regardless of passed in)', () => {
+						//javaBridge.log.debug('_ts:%s', createRes._ts);
+						deepStrictEqual(
+							true,
+							isString(createRes._ts)
+						);
+						deepStrictEqual(
+							node._ts,
+							createRes._ts
+						);
+					}); // it
+					const node = connection.get(createRes._id);
+					//javaBridge.log.debug('node:%s', node);
+					it('returns the created node', () => {
+						deepStrictEqual(
+							node,
+							createRes
+						);
+					}); // it*/
+					it("doesn't enonify _indexConfig", () => {
+						const createRes2 = connection.create({
+							_indexConfig: {
+								configs: [{
+									path: 'myString',
+									config: {
+										decideByType: true,
+										enabled: true,
+										fulltext: true,
+										includeInAllText: true,
+										languages: ['en'],
+										nGram: true,
+										path: false
+									}
+								}]
+							}
+						});
+						deepStrictEqual(
+							{
+								...createRes2,
 								_indexConfig: {
 									configs: [{
 										path: 'myString',
 										config: {
-											decideByType: false,
+											decideByType: true,
 											enabled: true,
 											fulltext: true,
 											includeInAllText: true,
@@ -144,134 +188,41 @@ describe('mock', () => {
 										}
 									}]
 								}
-							})
+							},
+							createRes2
 						);
 					}); // it
 				}); // describe create
 				describe('get', () => {
 					it('returns a single node', () => {
 						deepStrictEqual(
-							{
-								_id: 'myId',
-								_indexConfig: {
-									default: {
-										decideByType: false,
-										enabled: true,
-										nGram: false,
-										fulltext: false,
-										includeInAllText: false,
-										path: false,
-										indexValueProcessors: [],
-										languages: []
-						    		},
-									configs: []
-								},
-								_name: 'myId'
-							},
-							connection.get('myId')
+							createRes,
+							connection.get(createRes._id)
 						);
 					}); // it
-					connection.create({
-						_id: 'myId2'
-					})
 					it('returns a multiple nodes', () => {
+						const createRes2 = connection.create({});
+						//javaBridge.log.debug('createRes2:%s', createRes2);
 						deepStrictEqual(
-							[{
-								_id: 'myId',
-								_indexConfig: {
-									default: {
-										decideByType: false,
-										enabled: true,
-										nGram: false,
-										fulltext: false,
-										includeInAllText: false,
-										path: false,
-										indexValueProcessors: [],
-										languages: []
-						    		},
-									configs: []
-								},
-								_name: 'myId'
-							},{
-								_id: 'myId2',
-								_indexConfig: {
-									default: {
-										decideByType: false,
-										enabled: true,
-										nGram: false,
-										fulltext: false,
-										includeInAllText: false,
-										path: false,
-										indexValueProcessors: [],
-										languages: []
-						    		},
-									configs: []
-								},
-								_name: 'myId2'
-							}],
-							connection.get('myId','myId2')
+							[createRes,createRes2],
+							connection.get(createRes._id,createRes2._id)
 						);
 						deepStrictEqual(
-							[{
-								_id: 'myId',
-								_indexConfig: {
-									default: {
-										decideByType: false,
-										enabled: true,
-										nGram: false,
-										fulltext: false,
-										includeInAllText: false,
-										path: false,
-										indexValueProcessors: [],
-										languages: []
-						    		},
-									configs: []
-								},
-								_name: 'myId'
-							},{
-								_id: 'myId2',
-								_indexConfig: {
-									default: {
-										decideByType: false,
-										enabled: true,
-										nGram: false,
-										fulltext: false,
-										includeInAllText: false,
-										path: false,
-										indexValueProcessors: [],
-										languages: []
-						    		},
-									configs: []
-								},
-								_name: 'myId2'
-							}],
+							[createRes,createRes2],
 							//@ts-ignore
-							connection.get(['myId','myId2'])
+							connection.get([createRes._id,createRes2._id])
 						);
-					}); // it
+					}); // it*/
 				}); // describe get
 				describe('modify', () => {
 					it('returns the modified node', () => {
 						deepStrictEqual(
 							{
-								_id: 'myId',
-								_indexConfig: {
-									default: {
-										decideByType: false,
-										enabled: true,
-										nGram: false,
-										fulltext: false,
-										includeInAllText: false,
-										path: false,
-										indexValueProcessors: [],
-										languages: []
-						    		},
-									configs: []
-								},
+								...createRes,
 								_name: 'myModifiedName'
 							},
 							connection.modify({
-								key: 'myId',
+								key: createRes._id,
 								editor: (node) => {
 									node._name = 'myModifiedName';
 									return node;
@@ -280,6 +231,26 @@ describe('mock', () => {
 						);
 					}); // it
 				}); // describe modify
+				describe('query', () => {
+					const queryRes = connection.query();
+					//javaBridge.log.debug('queryRes:%s', queryRes);
+					it('returns all nodes', () => {
+						deepStrictEqual(
+							{
+								count: 2,
+								hits: [{
+									id: '00000000-0000-0000-0000-000000000000',
+									score: 1
+								},{
+									id: createRes._id,
+									score: 1
+								}],
+								total: 2
+							},
+							queryRes
+						);
+					}); // it
+				}); // describe query
 			}); // describe Connection
 		}); // describe connect
 	}); // describe JavaBridge

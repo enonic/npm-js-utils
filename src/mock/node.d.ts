@@ -6,6 +6,7 @@ import type {
 	PermissionsParams,
 	PrincipalKey
 } from './auth.d';
+import {NodeQueryResponse} from './repo.d';
 
 
 export interface Source {
@@ -110,6 +111,8 @@ export interface RepoNode {
 	_nodeType: string;
 	_permissions: Array<PermissionsParams>;
 	_state: string;
+	_ts :string;
+	_versionKey: string;
 }
 
 export interface NodeModifyParams<NodeData> {
@@ -124,17 +127,16 @@ export interface NodeModifyParams<NodeData> {
 	editor: (node: NodeData & RepoNode) => NodeData & RepoNode;
 }
 
-export interface MockNodeCreateRequiredParams {
-	_id :string;
-}
-
 export interface MockNodeCreateOptionalParams {
+	_id? :string;
 	_name? :string;
+	_versionKey? :string;
+	//_ts? :string
 }
 
-export type MockNodeCreateParam = MockNodeCreateRequiredParams & MockNodeCreateOptionalParams & LooseObject;
+export type MockNodeCreateParam = LooseObject & MockNodeCreateOptionalParams;
 
-export type MockNode = RepoNode & LooseObject;
+export type MockNode = LooseObject & RepoNode;
 
 //export type MockNodeGetParams = string | string[];
 
@@ -154,4 +156,9 @@ export interface MockRepoConnection {
 
 	//modify<NodeData>(params: NodeModifyParams<NodeData>): NodeData & RepoNode;
 	modify(param :MockNodeModifyParam) :MockNode
+
+	/*query<AggregationKeys extends string = never>(
+		params: NodeQueryParams<AggregationKeys>
+	): NodeQueryResponse<AggregationKeys>;*/
+	query<AggregationKeys extends string = never>() :NodeQueryResponse<AggregationKeys>;
 }

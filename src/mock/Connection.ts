@@ -18,16 +18,8 @@ export class Connection implements MockRepoConnection {
 		this._branch = branch;
 	}
 
-	create({
-		//_id,
-		_name,
-		...rest
-	} :MockNodeCreateParam) :MockNodeCreateParam {
-		return this._branch.createNode({
-			//_id,
-			_name,
-			...rest
-		});
+	create(param :MockNodeCreateParam) :MockNodeCreateParam {
+		return this._branch.createNode(param);
 	}
 
 	get(...keys :string[]) :MockNode | MockNode[] {
@@ -42,5 +34,9 @@ export class Connection implements MockRepoConnection {
 			key,
 			editor
 		});
+	}
+
+	query(/*object*/) {
+		return this._branch.query(/*object*/);
 	}
 } // class Connection

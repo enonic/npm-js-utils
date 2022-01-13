@@ -108,8 +108,41 @@ export interface RepositoryConfig<Data = EmptyObject> {
 	data?: Data;
 }
 
+export interface NodeQueryHit {
+	id: string;
+	score: number;
+}
+
+export interface AggregationsResponseBucket {
+	docCount: number;
+	key: string;
+	from?: number | string;
+	to?: number | string;
+
+	[key2: string]: any; // sub aggregations
+}
+
+export interface AggregationsResponseEntry {
+	buckets: Array<AggregationsResponseBucket>;
+}
+
+export type AggregationsResponse<AggregationKeys extends string> = {
+	[K in AggregationKeys]: AggregationsResponseEntry;
+};
+
+export interface NodeQueryResponse<AggregationKeys extends string = never> {
+	total: number;
+	count: number;
+	hits: ReadonlyArray<NodeQueryHit>;
+	aggregations: AggregationsResponse<AggregationKeys>;
+}
+
 export interface RepoLib {
 	create(param :CreateRepoParams) :RepositoryConfig
 	get(repoId :string) :RepositoryConfig
 	list() :RepositoryConfig[]
+	/*query<AggregationKeys extends string = never>(
+		params: NodeQueryParams<AggregationKeys>
+	): NodeQueryResponse<AggregationKeys>;*/
+	query<AggregationKeys extends string = never>() :NodeQueryResponse<AggregationKeys>;
 }

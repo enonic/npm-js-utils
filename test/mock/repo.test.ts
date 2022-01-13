@@ -54,6 +54,23 @@ describe('mock', () => {
 						createdRepo
 					);
 				}); // it
+				it('created repo contains a root node', () => {
+					const connection = javaBridge.connect({
+						branch: 'master',
+						repoId: 'myRepoId'
+					});
+					deepStrictEqual(
+						{
+							count: 1,
+							hits: [{
+								id: '00000000-0000-0000-0000-000000000000',
+								score: 1
+							}],
+							total: 1
+						},
+						connection.query()
+					); // deepStrictEqual
+				}); // it
 			}); // describe create
 			describe('get', () => {
 				it('returns info about a repo', () => {
