@@ -107,3 +107,9 @@ export interface RepositoryConfig<Data = EmptyObject> {
 	settings: RepositorySettings;
 	data?: Data;
 }
+
+export interface RepoLib {
+	create(param :CreateRepoParams) :RepositoryConfig
+	get(repoId :string) :RepositoryConfig
+	list() :RepositoryConfig[]
+}

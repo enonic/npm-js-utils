@@ -8,6 +8,7 @@ import type {
 } from './node.d';
 import type {
 	CreateRepoParams,
+	RepoLib,
 	RepositoryConfig
 } from './repo.d';
 import type {
@@ -32,6 +33,32 @@ export class JavaBridge {
 		info: (...params) => { console.info(...params) },
 		warning: (...params) => { console.warn(...params) }
 	};
+	readonly repo :RepoLib = {
+		create: ({
+			id,
+			//rootChildOrder,
+			//rootPermissions,
+			settings
+		} :CreateRepoParams) :RepositoryConfig => {
+			const repo = new Repo({
+				id,
+				//rootPermissions,
+				settings
+			});
+			this._repos[id] = repo;
+			return repo.get();
+		},
+		get: (repoId :string) :RepositoryConfig => {
+			const repo = this._repos[repoId];
+			if (!repo) {
+				throw new Error(`getRepo: No repo with id:${repoId}`);
+			}
+			return repo.get();
+		},
+		list: () :RepositoryConfig[] => {
+			return Object.keys(this._repos).map(repoId => this.repo.get(repoId));
+		}
+	}
 	readonly value :ValueLib = {
 		geoPoint: (v) => v,
 		geoPointString: (v) => v,
@@ -54,21 +81,6 @@ export class JavaBridge {
 			this.log = log;
 		}
 	} // constructor
-
-	createRepo({
-		id,
-		//rootChildOrder,
-		//rootPermissions,
-		settings
-	} :CreateRepoParams) :RepositoryConfig {
-		const repo = new Repo({
-			id,
-			//rootPermissions,
-			settings
-		});
-		this._repos[id] = repo;
-		return repo.get();
-	}
 
 	connect({
 		repoId,
