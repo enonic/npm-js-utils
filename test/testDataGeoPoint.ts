@@ -1,4 +1,6 @@
-export const GEOPOINT_ARRAYS = [
+import type {GeoPointArray} from '../src/mock/value.d';
+
+export const GEOPOINT_ARRAYS :GeoPointArray[] = [
 	[59.9090442,10.7423389],
 	[-90,-180],
 	[90,-180],

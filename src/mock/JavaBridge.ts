@@ -3,15 +3,16 @@ import type {
 	Log
 } from './globals.d'
 import type {
-	CreateRepoParams,
-	RepositoryConfig
-} from './repo.d';
-
-import type {
 	MockRepoConnection,
 	Source
 } from './node.d';
-
+import type {
+	CreateRepoParams,
+	RepositoryConfig
+} from './repo.d';
+import type {
+	ValueLib
+} from './value.d';
 
 import {Connection} from './Connection';
 import {Repo} from './Repo';
@@ -30,6 +31,15 @@ export class JavaBridge {
 		error: (...params) => { console.error(...params) },
 		info: (...params) => { console.info(...params) },
 		warning: (...params) => { console.warn(...params) }
+	};
+	readonly value :ValueLib = {
+		geoPoint: (v) => v,
+		geoPointString: (v) => v,
+		instant: (v) => v,
+		localDate: (v) => v,
+		localDateTime: (v) => v,
+		localTime: (v) => v,
+		reference: (v) => v
 	};
 
 	constructor({
