@@ -9,8 +9,8 @@ export interface App {
 }
 
 export interface Log {
-	debug(message :string, ...args :unknown[]): void
-	error(message :string, ...args :unknown[]): void
-	info(message :string, ...args :unknown[]): void
-	warning(message :string, ...args :unknown[]): void
+	debug(message :string, ...args :unknown[]) :void
+	error(message :string, ...args :unknown[]) :void
+	info(message :string, ...args :unknown[]) :void
+	warning(message :string, ...args :unknown[]) :void
 }

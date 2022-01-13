@@ -1,12 +1,14 @@
-import {deepStrictEqual} from 'assert';
+import {
+	deepStrictEqual//,
+	//throws // For some reason this gets borked by swc
+} from 'assert';
+import * as assert from 'assert';
 import {JavaBridge} from '../../src/mock/JavaBridge';
-
 
 function hasMethod(obj :unknown, name :string) {
 	// TODO check if obj is Object?
 	return typeof obj[name] === 'function';
 }
-
 
 describe('mock', () => {
 	describe('JavaBridge', () => {
@@ -15,75 +17,69 @@ describe('mock', () => {
 				config: {},
 				name: 'com.enonic.app.test',
 				version: '0.0.1-SNAPSHOT'
-			},
-			log: {
-				debug: (...params) => { console.debug(...params) },
-				error: (...params) => { console.error(...params) },
-				info: (...params) => { console.info(...params) },
-				warning: (...params) => { console.warn(...params) }
 			}
 		});
-		it('instance has app object', () => {
-			deepStrictEqual(
-				{
-					config: {},
-					name: 'com.enonic.app.test',
-					version: '0.0.1-SNAPSHOT'
-				},
-				javaBridge.app
-			);
-		}); // it
-		describe('log', () => {
-			describe('debug', () => {
-				it('log object has debug method', () => {
-					deepStrictEqual(
-						true,
-						hasMethod(javaBridge.log, 'debug')
-					);
-				}); // it
-				javaBridge.log.debug('string:%s', 'string');
-			}); // describe debug
-			describe('error', () => {
-				it('log object has error method', () => {
-					deepStrictEqual(
-						true,
-						hasMethod(javaBridge.log, 'error')
-					);
-				}); // it
-				javaBridge.log.error('string:%s', 'string');
-			}); // describe error
-			describe('info', () => {
-				it('log object has info method', () => {
-					deepStrictEqual(
-						true,
-						hasMethod(javaBridge.log, 'info')
-					);
-				}); // it
-				javaBridge.log.info('string:%s', 'string');
-			}); // describe info
-			describe('warning', () => {
-				it('log object has warning method', () => {
-					deepStrictEqual(
-						true,
-						hasMethod(javaBridge.log, 'warning')
-					);
-				}); // it
-				javaBridge.log.warning('string:%s', 'string');
-			}); // describe warning
-		}); // describe log
-
-		const createdRepo = javaBridge.repo.create({
+		javaBridge.repo.create({
 			id: 'myRepoId'
 		});
+		it('instance has property connect', () => {
+			deepStrictEqual(
+				true,
+				hasMethod(javaBridge, 'connect')
+			);
+		}); // it
 		describe('connect', () => {
+			it('throws TypeError when no params', () => {
+				assert.throws(() => {
+					//@ts-ignore
+					javaBridge.connect();
+				}, {
+					name: 'TypeError',
+					message: /^Cannot (destructure|read) propert.* 'repoId'/
+				});
+			}); // it
+			it('throws Error when param.repoId is missing', () => {
+				assert.throws(() => {
+					//@ts-ignore
+					javaBridge.connect({
+						branch: 'master'
+					});
+				}, {
+					name: 'Error',
+					message: /No repo with id/
+				});
+			}); // it
+			it('throws Error when param.branch is missing', () => {
+				assert.throws(() => {
+					//@ts-ignore
+					javaBridge.connect({
+						repoId: 'myRepoId'
+					});
+				}, {
+					name: 'Error',
+					message: /No branch with branchId/
+				});
+			}); // it
 			const connection = javaBridge.connect({
-				repoId: 'myRepoId',
-				branch: 'master'
+				branch: 'master',
+				repoId: 'myRepoId'
 			});
 			it('returns an object which has a create method', () => {
 				deepStrictEqual(
 					true,
 					hasMethod(connection, 'create')
+				);
+			}); // it
+			it('returns an object which has a get method', () => {
+				deepStrictEqual(
+					true,
+					hasMethod(connection, 'get')
+				);
+			}); // it
+			it('returns an object which has a modify method', () => {
+				deepStrictEqual(
+					true,
+					hasMethod(connection, 'modify')
 				);
 			}); // it
 			describe('Connection', () => {
