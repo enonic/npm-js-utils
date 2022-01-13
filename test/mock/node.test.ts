@@ -88,10 +88,62 @@ describe('mock', () => {
 						deepStrictEqual(
 							{
 								_id: 'myId',
+								_indexConfig: {
+									default: {
+										decideByType: false,
+										enabled: true,
+										nGram: false,
+										fulltext: false,
+										includeInAllText: false,
+										path: false,
+										indexValueProcessors: [],
+										languages: []
+						    		},
+									configs: []
+								},
 								_name: 'myId'
 							},
 							connection.create({
 								_id: 'myId'
+							})
+						);
+					}); // it
+					it("doesn't enonify _indexConfig", () => {
+						deepStrictEqual(
+							{
+								_id: 'myId3',
+								_indexConfig: {
+									configs: [{
+										path: 'myString',
+										config: {
+											decideByType: false,
+											enabled: true,
+											fulltext: true,
+											includeInAllText: true,
+											languages: ['en'],
+											nGram: true,
+											path: false
+										}
+									}]
+								},
+								_name: 'myId3'
+							},
+							connection.create({
+								_id: 'myId3',
+								_indexConfig: {
+									configs: [{
+										path: 'myString',
+										config: {
+											decideByType: false,
+											enabled: true,
+											fulltext: true,
+											includeInAllText: true,
+											languages: ['en'],
+											nGram: true,
+											path: false
+										}
+									}]
+								}
 							})
 						);
 					}); // it
@@ -101,6 +153,19 @@ describe('mock', () => {
 						deepStrictEqual(
 							{
 								_id: 'myId',
+								_indexConfig: {
+									default: {
+										decideByType: false,
+										enabled: true,
+										nGram: false,
+										fulltext: false,
+										includeInAllText: false,
+										path: false,
+										indexValueProcessors: [],
+										languages: []
+						    		},
+									configs: []
+								},
 								_name: 'myId'
 							},
 							connection.get('myId')
@@ -113,9 +178,35 @@ describe('mock', () => {
 						deepStrictEqual(
 							[{
 								_id: 'myId',
+								_indexConfig: {
+									default: {
+										decideByType: false,
+										enabled: true,
+										nGram: false,
+										fulltext: false,
+										includeInAllText: false,
+										path: false,
+										indexValueProcessors: [],
+										languages: []
+						    		},
+									configs: []
+								},
 								_name: 'myId'
 							},{
 								_id: 'myId2',
+								_indexConfig: {
+									default: {
+										decideByType: false,
+										enabled: true,
+										nGram: false,
+										fulltext: false,
+										includeInAllText: false,
+										path: false,
+										indexValueProcessors: [],
+										languages: []
+						    		},
+									configs: []
+								},
 								_name: 'myId2'
 							}],
 							connection.get('myId','myId2')
@@ -123,9 +214,35 @@ describe('mock', () => {
 						deepStrictEqual(
 							[{
 								_id: 'myId',
+								_indexConfig: {
+									default: {
+										decideByType: false,
+										enabled: true,
+										nGram: false,
+										fulltext: false,
+										includeInAllText: false,
+										path: false,
+										indexValueProcessors: [],
+										languages: []
+						    		},
+									configs: []
+								},
 								_name: 'myId'
 							},{
 								_id: 'myId2',
+								_indexConfig: {
+									default: {
+										decideByType: false,
+										enabled: true,
+										nGram: false,
+										fulltext: false,
+										includeInAllText: false,
+										path: false,
+										indexValueProcessors: [],
+										languages: []
+						    		},
+									configs: []
+								},
 								_name: 'myId2'
 							}],
 							//@ts-ignore
@@ -138,6 +255,19 @@ describe('mock', () => {
 						deepStrictEqual(
 							{
 								_id: 'myId',
+								_indexConfig: {
+									default: {
+										decideByType: false,
+										enabled: true,
+										nGram: false,
+										fulltext: false,
+										includeInAllText: false,
+										path: false,
+										indexValueProcessors: [],
+										languages: []
+						    		},
+									configs: []
+								},
 								_name: 'myModifiedName'
 							},
 							connection.modify({

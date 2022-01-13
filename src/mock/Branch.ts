@@ -23,7 +23,19 @@ export class Branch {
 	createNode({
 		//_childOrder,
 		_id, // Not possible in Enonic XP, useful here for testing
-		//_indexConfig,
+		_indexConfig = {
+			default: {
+				decideByType: false,
+				enabled: true,
+				nGram: false,
+				fulltext: false,
+				includeInAllText: false,
+				path: false,
+				indexValueProcessors: [],
+				languages: []
+    		},
+			configs: []
+		},
 		//_inheritsPermissions,
 		//_manualOrderValue,
 		_name = _id,
@@ -34,11 +46,12 @@ export class Branch {
 		if (this._nodes.hasOwnProperty(_id as string)) {
 			throw new Error(`createNode: node with _id:${_id} already exist!`);
 		}
-		const node :MockNode = enonify({
+		const node :MockNode = {
 			_id,
+			_indexConfig,
 			_name,
-			...rest
-		}) as MockNode;
+			...(enonify(rest) as Object)
+		} as MockNode;
 		this._nodes[_id] = node;
 		return node;
 	}
