@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {JavaBridge} from '../../src/mock/index';
+import {JavaBridge} from '../../src/mock/JavaBridge';
 
 
 function hasMethod(obj :unknown, name :string) {
@@ -10,8 +10,68 @@ function hasMethod(obj :unknown, name :string) {
 
 describe('mock', () => {
 	describe('JavaBridge', () => {
-		const javaBridge = new JavaBridge();
-		it('instance had method createRepo', () => {
+		const javaBridge = new JavaBridge({
+			app: {
+				config: {},
+				name: 'com.enonic.app.test',
+				version: '0.0.1-SNAPSHOT'
+			},
+			log: {
+				debug: (...params) => { console.debug(...params) },
+				error: (...params) => { console.error(...params) },
+				info: (...params) => { console.info(...params) },
+				warning: (...params) => { console.warn(...params) }
+			}
+		});
+		it('instance has app object', () => {
+			deepStrictEqual(
+				{
+					config: {},
+					name: 'com.enonic.app.test',
+					version: '0.0.1-SNAPSHOT'
+				},
+				javaBridge.app
+			);
+		}); // it
+		describe('log', () => {
+			describe('debug', () => {
+				it('log object has debug method', () => {
+					deepStrictEqual(
+						true,
+						hasMethod(javaBridge.log, 'debug')
+					);
+				}); // it
+				javaBridge.log.debug('string:%s', 'string');
+			}); // describe debug
+			describe('error', () => {
+				it('log object has error method', () => {
+					deepStrictEqual(
+						true,
+						hasMethod(javaBridge.log, 'error')
+					);
+				}); // it
+				javaBridge.log.error('string:%s', 'string');
+			}); // describe error
+			describe('info', () => {
+				it('log object has info method', () => {
+					deepStrictEqual(
+						true,
+						hasMethod(javaBridge.log, 'info')
+					);
+				}); // it
+				javaBridge.log.info('string:%s', 'string');
+			}); // describe info
+			describe('warning', () => {
+				it('log object has warning method', () => {
+					deepStrictEqual(
+						true,
+						hasMethod(javaBridge.log, 'warning')
+					);
+				}); // it
+				javaBridge.log.warning('string:%s', 'string');
+			}); // describe warning
+		}); // describe log
+		it('instance has method createRepo', () => {
 			deepStrictEqual(
 				true,
 				hasMethod(javaBridge, 'createRepo')
@@ -88,6 +148,7 @@ describe('mock', () => {
 									_id: 'myId2',
 									_name: 'myId2'
 								}],
+								//@ts-ignore
 								connection.get(['myId','myId2'])
 							);
 						}); // it

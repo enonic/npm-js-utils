@@ -1,4 +1,8 @@
 import type {
+	App,
+	Log
+} from './globals.d'
+import type {
 	CreateRepoParams,
 	RepositoryConfig
 } from './repo.d';
@@ -20,10 +24,26 @@ export interface Repos {
 
 export class JavaBridge {
 	private _repos :Repos = {};
+	readonly app :App;
+	readonly log :Log = {
+		debug: (...params) => { console.debug(...params) },
+		error: (...params) => { console.error(...params) },
+		info: (...params) => { console.info(...params) },
+		warning: (...params) => { console.warn(...params) }
+	};
 
-	constructor() {
-		//this._repos = {} as Repos;
-	}
+	constructor({
+		app,
+		log
+	} :{
+		app :App
+		log? :Log
+	}) {
+		this.app = app;
+		if (log) {
+			this.log = log;
+		}
+	} // constructor
 
 	createRepo({
 		id,
