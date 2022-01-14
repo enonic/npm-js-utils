@@ -1,42 +1,78 @@
-import type {Branch} from './Branch';
+import type {Log} from './globals.d'
+import type { Branch } from './Branch';
+import type { JavaBridge } from './JavaBridge';
+import type { RepoNodeWithData } from './node/node.d';
+import type { NodeCreateParams } from './node/create.d';
+import type { NodeModifyParams } from './node/modify.d';
+import type { NodeQueryParams } from './node/query';
 import type {
-	MockNode,
-	MockNodeCreateParam,
-	MockNodeModifyParam,
-	MockRepoConnection
-} from './node.d';
+	NodeQueryResponse,
+	RepoConnection
+} from './node/repoConnection.d';
 
 
-export class Connection implements MockRepoConnection {
+export class Connection implements RepoConnection {
 	private _branch :Branch;
+	private _javaBridge :JavaBridge;
+	readonly log :Log;
 
 	constructor({
-		branch
+		branch,
+		javaBridge
 	} :{
-		branch :Branch
+		branch :Branch,
+		javaBridge :JavaBridge
 	}) {
+		//console.debug('javaBridge.constructor.name', javaBridge.constructor.name);
 		this._branch = branch;
+		this._javaBridge = javaBridge;
+		this.log = this._javaBridge.log;
+		//this.log.debug('in Connection constructor');
 	}
 
-	create(param :MockNodeCreateParam) :MockNodeCreateParam {
+	create(param :NodeCreateParams) :RepoNodeWithData {
 		return this._branch.createNode(param);
 	}
 
-	get(...keys :string[]) :MockNode | MockNode[] {
+	/*get(key :string) :RepoNodeWithData {
+		return this._branch.getNode(key);
+	}
+	get(keys :string[]) :RepoNodeWithData | RepoNodeWithData[] {
+		return this._branch.getNode(keys);
+	}*/
+	get(...keys :string[]) :RepoNodeWithData | RepoNodeWithData[] {
 		return this._branch.getNode(...keys);
 	}
 
 	modify({
 		key,
 		editor
-	} :MockNodeModifyParam) :MockNode {
+	} :NodeModifyParams) :RepoNodeWithData {
 		return this._branch.modifyNode({
 			key,
 			editor
 		});
 	}
 
-	query(/*object*/) {
-		return this._branch.query(/*object*/);
+	query({
+		aggregations,
+		count,
+		explain,
+		filters,
+		highlight,
+		query,
+		sort,
+		start
+	} :NodeQueryParams) :NodeQueryResponse {
+		return this._branch.query({
+			aggregations,
+			count,
+			explain,
+			filters,
+			highlight,
+			query,
+			sort,
+			start
+		});
 	}
 } // class Connection

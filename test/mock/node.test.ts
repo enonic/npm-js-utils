@@ -232,11 +232,12 @@ describe('mock', () => {
 					}); // it
 				}); // describe modify
 				describe('query', () => {
-					const queryRes = connection.query();
+					const queryRes = connection.query({});
 					//javaBridge.log.debug('queryRes:%s', queryRes);
 					it('returns all nodes', () => {
 						deepStrictEqual(
 							{
+								aggregations: {},
 								count: 2,
 								hits: [{
 									id: '00000000-0000-0000-0000-000000000000',

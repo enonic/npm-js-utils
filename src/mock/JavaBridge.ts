@@ -3,17 +3,17 @@ import type {
 	Log
 } from './globals.d'
 import type {
-	MockRepoConnection,
+	RepoConnection,
 	Source
-} from './node.d';
+} from './node/repoConnection.d';
 import type {
 	CreateRepoParams,
 	RepoLib,
 	RepositoryConfig
-} from './repo.d';
+} from './repo/index.d';
 import type {
 	ValueLib
-} from './value.d';
+} from './value/index.d';
 
 import {Connection} from './Connection';
 import {Repo} from './Repo';
@@ -42,6 +42,7 @@ export class JavaBridge {
 		} :CreateRepoParams) :RepositoryConfig => {
 			const repo = new Repo({
 				id,
+				javaBridge: this,
 				//rootPermissions,
 				settings
 			});
@@ -80,6 +81,7 @@ export class JavaBridge {
 		if (log) {
 			this.log = log;
 		}
+		//this.log.debug('in JavaBridge constructor');
 	} // constructor
 
 	connect({
@@ -87,13 +89,16 @@ export class JavaBridge {
 		branch//,
 		//user,
 		//principals
-	} :Source) :MockRepoConnection {
+	} :Source) :RepoConnection {
 		const repo = this._repos[repoId];
 		if (!repo) {
 			throw new Error(`connect: No repo with id:${repoId}!`);
 		}
 		const branchObj = repo.getBranch(branch);
-		const connection = new Connection({branch: branchObj});
+		const connection = new Connection({
+			branch: branchObj,
+			javaBridge: this
+		});
 		return connection;
 	}
 } // class JavaBridge

@@ -1,4 +1,4 @@
-import type {PermissionsParams} from './auth'
+import type {PermissionsParams} from '../auth'
 
 export interface ElasticSearchIndexSettings {
 	index?: {
@@ -144,5 +144,5 @@ export interface RepoLib {
 	/*query<AggregationKeys extends string = never>(
 		params: NodeQueryParams<AggregationKeys>
 	): NodeQueryResponse<AggregationKeys>;*/
-	query<AggregationKeys extends string = never>() :NodeQueryResponse<AggregationKeys>;
+	//query<AggregationKeys extends string = never>() :NodeQueryResponse<AggregationKeys>;
 }

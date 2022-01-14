@@ -61,6 +61,7 @@ describe('mock', () => {
 					});
 					deepStrictEqual(
 						{
+							aggregations: {},
 							count: 1,
 							hits: [{
 								id: '00000000-0000-0000-0000-000000000000',
@@ -68,7 +69,7 @@ describe('mock', () => {
 							}],
 							total: 1
 						},
-						connection.query()
+						connection.query({})
 					); // deepStrictEqual
 				}); // it
 			}); // describe create
