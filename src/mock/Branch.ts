@@ -80,7 +80,7 @@ export class Branch {
 
 	private generateId() :string {
 		this._highest_id += 1;
-		return `00000000-0000-4000-8000-${lpad(this._highest_id,11,'0')}`;
+		return `00000000-0000-4000-8000-${lpad(this._highest_id,12,'0')}`;
 	}
 
 	createNode({
