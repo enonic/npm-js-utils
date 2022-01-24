@@ -1,7 +1,8 @@
 export {
 	findIndex,
 	flatten,
-	forceArray
+	forceArray,
+	sortByProperty
 } from './array';
 
 export {
