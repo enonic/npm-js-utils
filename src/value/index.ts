@@ -9,6 +9,7 @@ export {isLocalDateTimeString} from './isLocalDateTimeString';
 export {isInt} from './isInt';
 export {isInteger} from './isInteger';
 export {isNumber} from './isNumber';
+export {isObject} from './isObject';
 export {isPositiveInteger} from './isPositiveInteger';
 export {isString} from './isString';
 export {isTime} from './isTime';
@@ -60,10 +61,6 @@ export function isNotTrue(value :unknown): boolean {
 export function isNull(value: unknown): boolean {
 	return value === null;
 }
-
-
-export const isObject = (value: unknown): boolean =>
-	Object.prototype.toString.call(value).slice(8,-1) === 'Object';
 
 
 export function isSet(value: unknown): boolean {

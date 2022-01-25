@@ -1,3 +1,5 @@
+export {hasOwnProperty} from './hasOwnProperty';
+
 const {isArray} = Array;
 const {keys} = Object;
 

@@ -1,11 +1,13 @@
+import {hasOwnProperty} from '../object/hasOwnProperty';
 import {isNumber} from '../value/isNumber';
+import {isObject} from '../value';
 import {isString} from '../value/isString';
 import {toStr} from '../value';
 
 
-interface LooseObject {
-	[key :string] :unknown
-}
+/*interface LooseObject {
+	[key :PropertyKey] :unknown
+}*/
 
 
 function compareNumbers(
@@ -31,37 +33,42 @@ function compareStrings(
 }
 
 
-export function sortByProperty(
-	array :LooseObject[],
+export function sortByProperty<T>(
+	array :Array<T>,
 	propertyName :string
-) :LooseObject[] {
-	const localArray :LooseObject[] = JSON.parse(JSON.stringify(array));
+) :Array<T> {
+	const localArray :Array<T> = JSON.parse(JSON.stringify(array));
 	return localArray.sort((
 		a,
 		b
 	) => {
-		if (!a.hasOwnProperty(propertyName)) {
+		if (!isObject(a) || !isObject(b)) {
+			throw new TypeError(`sortByProperty: a or b not an object! a:${toStr(a)} b:${toStr(b)}`);
+		}
+		if (!hasOwnProperty(a, propertyName)) {
 			throw new TypeError(`sortByProperty: a doesn't have a property named:'${propertyName}'! a:${toStr(a)}`);
 		}
-		if (!b.hasOwnProperty(propertyName)) {
+		if (!hasOwnProperty(b, propertyName)) {
 			throw new TypeError(`sortByProperty: b doesn't have a property named:'${propertyName}'! b:${toStr(b)}`);
 		}
+		const valueA :unknown = a[propertyName];
+		const valueB :unknown = b[propertyName];
 		if (
-			isNumber(a[propertyName])
-			&& isNumber(b[propertyName])
+			isNumber(valueA)
+			&& isNumber(valueB)
 		) {
 			return compareNumbers(
-				a[propertyName] as number,
-				b[propertyName] as number
+				valueA,
+				valueB
 			);
 		}
 		if (
-			isString(a[propertyName])
-			&& isString(a[propertyName])
+			isString(valueA)
+			&& isString(valueB)
 		) {
 			return compareStrings(
-				a[propertyName] as string,
-				b[propertyName] as string
+				valueA,
+				valueB
 			);
 		}
 		throw new TypeError(`sortByProperty: Value of propertyName:${propertyName} is neither number nor string! a:${toStr(a)} b:${toStr(b)}`);
