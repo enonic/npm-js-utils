@@ -62,7 +62,7 @@ export interface RepoConnection {
 	/**
 	* Checking if a node or nodes exist for the current context.
 	*/
-	//exists(keys: string | ReadonlyArray<string>): ReadonlyArray<string>;
+	exists(keys: string | Array<string>): Array<string>;
 
 	/**
 	* Fetch the versions of a node.

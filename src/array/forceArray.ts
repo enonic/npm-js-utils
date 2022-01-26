@@ -1,3 +1,3 @@
-export function forceArray(data :unknown) :Array<unknown> {
+export function forceArray<T>(data :T | Array<T>) :Array<T> {
 	return (Array.isArray(data) ? data : [data]);
 }

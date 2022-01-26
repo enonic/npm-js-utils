@@ -9,6 +9,7 @@ import type { Repo } from './Repo';
 import {
 	enonify,
 	flatten,
+	forceArray,
 	lpad
 } from '../';
 
@@ -122,7 +123,24 @@ export class Branch {
 		return node;
 	}
 
+	existsNode(keys: string | Array<string>) :Array<string> {
+		//this.log.debug('existsNode() keys:%s', keys);
+		const existingKeys = forceArray(keys)
+			.map(k => {
+				//this.log.debug("existsNode() k:'%s'", k);
+				if (this.getNode(k)) {
+					//this.log.debug("existsNode() k:'%s' exists", k);
+					return k;
+				}
+				//this.log.debug("existsNode() k:'%s' does NOT exists", k);
+				return '';
+			}).filter(x => x);
+		//this.log.debug("existsNode() keys:%s existingKeys:'%s'", keys, existingKeys);
+		return existingKeys;
+	}
+
 	getNode(...keys :string[]) :RepoNodeWithData | RepoNodeWithData[] {
+		//this.log.debug('getNode() keys:%s', keys);
 		// TODO support key as _path
 		if (!keys.length) {
 			return [];

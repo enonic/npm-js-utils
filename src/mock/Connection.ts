@@ -34,6 +34,10 @@ export class Connection implements RepoConnection {
 		return this._branch.createNode(param);
 	}
 
+	exists(keys: string | Array<string>) :Array<string> {
+		return this._branch.existsNode(keys);
+	}
+
 	/*get(key :string) :RepoNodeWithData {
 		return this._branch.getNode(key);
 	}
