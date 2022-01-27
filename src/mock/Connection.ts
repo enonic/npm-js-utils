@@ -38,6 +38,10 @@ export class Connection implements RepoConnection {
 		return this._branch.existsNode(keys);
 	}
 
+	delete(keys: string | Array<string>) :Array<string> {
+		return this._branch.deleteNode(keys);
+	}
+
 	/*get(key :string) :RepoNodeWithData {
 		return this._branch.getNode(key);
 	}

@@ -139,6 +139,26 @@ export class Branch {
 		return existingKeys;
 	}
 
+	deleteNode(keys: string | Array<string>) :Array<string> {
+		const keysArray = forceArray(keys);
+		//const existingKeys :Array<string> = this.existsNode(keys);
+		const deletedKeys = [];
+		for (let i = 0; i < keysArray.length; i++) {
+		    const key :string = keysArray[i] as string;
+			if (!this.existsNode(key)[0] || this.existsNode(key)[0] !== key) {
+				this.log.warning(`Node with key:'${key}' doesn't exist. Skipping delete.`);
+				continue;
+			}
+			try {
+				delete this._nodes[key];
+				deletedKeys.push(key);
+			} catch (e) {
+				this.log.error(`Something went wrong when trying to delete node with key:'${key}'`);
+			}
+		} // for
+		return deletedKeys;
+	}
+
 	getNode(...keys :string[]) :RepoNodeWithData | RepoNodeWithData[] {
 		//this.log.debug('getNode() keys:%s', keys);
 		// TODO support key as _path

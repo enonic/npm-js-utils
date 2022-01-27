@@ -52,7 +52,7 @@ export interface RepoConnection {
 	/**
 	* Deleting a node or nodes.
 	*/
-	//delete(keys: string | ReadonlyArray<string>): ReadonlyArray<string>;
+	delete(keys: string | Array<string>): Array<string>;
 
 	/**
 	* Resolves the differences for a node between current and given branch.
