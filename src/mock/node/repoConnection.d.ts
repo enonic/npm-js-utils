@@ -105,6 +105,9 @@ export interface RepoConnection {
 	* This function returns the active version of a node.
 	*/
 	//getActiveVersion(params: GetActiveVersionParams): any;
+	getActiveVersion(object :{
+		key :string
+	}) :string
 
 	/**
 	* This function sets the active version of a node.

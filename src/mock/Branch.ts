@@ -172,6 +172,18 @@ export class Branch {
 			: nodes[0] as RepoNodeWithData;
 	}
 
+	getNodeActiveVersion({
+		key
+	} :{
+		key :string
+	}) :string | undefined {
+		const node :RepoNodeWithData | undefined = this.getNode(key) as (RepoNodeWithData | undefined);
+		if (node) {
+			return node._versionKey;
+		}
+		this.log.error(`No such node with key:'${key}`);
+	}
+
 	modifyNode({
 		key,
 		editor

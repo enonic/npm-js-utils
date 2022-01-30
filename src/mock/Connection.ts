@@ -52,6 +52,14 @@ export class Connection implements RepoConnection {
 		return this._branch.getNode(...keys);
 	}
 
+	getActiveVersion({
+		key
+	} :{
+		key :string
+	}) :string {
+		return this._branch.getNodeActiveVersion({key});
+	}
+
 	modify({
 		key,
 		editor
