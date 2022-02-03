@@ -9,7 +9,7 @@ interface LooseObject {
 }
 
 
-export function sortKeys(obj: LooseObject) :LooseObject {
+export function sortKeys<T extends LooseObject>(obj: T) :T {
 	if (typeof obj !== 'object' || isArray(obj)) {
 		throw new Error('sortKeys');
 	}
@@ -19,7 +19,7 @@ export function sortKeys(obj: LooseObject) :LooseObject {
 		const k :string = sortedKeys[i] as string;
 		newObject[k] = obj[k];
 	}
-	return newObject;
+	return newObject as T;
 }
 
 
