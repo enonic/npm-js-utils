@@ -10,12 +10,19 @@ import {
 	enonify,
 	flatten,
 	forceArray,
-	lpad
+	isUuidV4String,
+	lpad,
+	sortKeys
 } from '../';
+import {NodeNotFoundException} from './node/NodeNotFoundException';
 
 
 interface Nodes {
 	[key :string] :RepoNodeWithData
+}
+
+interface PathIndex {
+	[key :string] :string
 }
 
 const DEFAULT_INDEX_CONFIG = {
@@ -31,6 +38,12 @@ const DEFAULT_INDEX_CONFIG = {
 	},
 	configs: []
 };
+
+
+function isPathString(key :string) :boolean {
+	return key.startsWith('/');
+}
+
 
 export class Branch {
 	static generateInstantString() {
@@ -65,6 +78,9 @@ export class Branch {
 			_versionKey: '00000000-0000-4000-8000-000000000001'
 		}
 	};
+	private _pathIndex :PathIndex = {
+		'': '00000000-0000-0000-0000-000000000000'
+	};
 	private _repo :Repo;
 	readonly log :Log;
 
@@ -92,7 +108,7 @@ export class Branch {
 		//_manualOrderValue,
 		_name,
 		_nodeType = 'default',
-		//_parentPath,
+		_parentPath = '/',
 		//_permissions,
 		//_state, // avoid it ending up in rest
 		//_ts, // avoid it ending up in rest
@@ -104,22 +120,40 @@ export class Branch {
 		const _id = this.generateId();
 		const _versionKey = this.generateId();
 		if (!_name) { _name = _id; }
+
+		if(!_parentPath.endsWith('/')) {
+			_parentPath += '/'
+		}
+		//this.log.debug('_parentPath:%s', _parentPath);
+		//this.log.debug('this._pathIndex:%s', this._pathIndex);
+
+		if (
+			_parentPath !== '/' && // The root node actually has no name nor path
+			this.existsNode(_parentPath)[0] !== _parentPath
+		) {
+			throw new NodeNotFoundException(`Cannot create node with name ${_name}, parent '${_parentPath}' not found`);
+		}
+
 		const _ts = Branch.generateInstantString();
 
 		if (this._nodes.hasOwnProperty(_id as string)) {
 			throw new Error(`createNode: node with _id:${_id} already exist!`);
 		}
+		const _path :string = `${_parentPath}${_name}`; // TODO use path.join?
 		const node :RepoNodeWithData = {
 			_id,
 			_indexConfig,
 			_name,
 			_nodeType,
+			_path,
 			_state: 'DEFAULT',
 			_ts,
 			_versionKey,
 			...(enonify(rest) as Object)
 		} as RepoNodeWithData;
 		this._nodes[_id] = node;
+		this._pathIndex[_path] = _id;
+		//this.log.debug('this._pathIndex:%s', this._pathIndex);
 		return node;
 	}
 
@@ -141,16 +175,22 @@ export class Branch {
 
 	deleteNode(keys: string | Array<string>) :Array<string> {
 		const keysArray = forceArray(keys);
-		//const existingKeys :Array<string> = this.existsNode(keys);
 		const deletedKeys = [];
 		for (let i = 0; i < keysArray.length; i++) {
 		    const key :string = keysArray[i] as string;
-			if (!this.existsNode(key)[0] || this.existsNode(key)[0] !== key) {
+			let maybeNode;
+			try {
+				maybeNode = this.getNode(key) as RepoNodeWithData;
+			} catch (e) {
+				// no-op
+			}
+			if (!maybeNode) {
 				this.log.warning(`Node with key:'${key}' doesn't exist. Skipping delete.`);
 				continue;
 			}
 			try {
-				delete this._nodes[key];
+				delete this._pathIndex[maybeNode._path];
+				delete this._nodes[maybeNode._id];
 				deletedKeys.push(key);
 			} catch (e) {
 				this.log.error(`Something went wrong when trying to delete node with key:'${key}'`);
@@ -159,14 +199,36 @@ export class Branch {
 		return deletedKeys;
 	}
 
+	private keyToId(key :string) :string | undefined {
+		let maybeId :string|undefined = key;
+		if (isPathString(key)) {
+			const path = key.endsWith('/') ? key.substring(0, key.length - 1) : key;
+			//this.log.debug('path:%s', path);
+			maybeId = this._pathIndex[path];
+			//this.log.debug('maybeId:%s', maybeId);
+			if (!maybeId) {
+				//throw new Error(`Could not find id from path:${path}!`);
+				this.log.debug(`Could not find id from path:${path}!`);
+				return undefined;
+			}
+		}
+		if (!isUuidV4String(maybeId)) {
+			this.log.debug(`key not an id! key:${key}`);
+			//throw new TypeError(`key not an id nor path! key:${key}`);
+			return undefined;
+		}
+		return maybeId;
+	}
+
 	getNode(...keys :string[]) :RepoNodeWithData | RepoNodeWithData[] {
 		//this.log.debug('getNode() keys:%s', keys);
-		// TODO support key as _path
 		if (!keys.length) {
 			return [];
 		}
 		const flattenedKeys :string[] = flatten(keys) as string[];
-		const nodes :RepoNodeWithData[] = flattenedKeys.map(k => this._nodes[k]) as RepoNodeWithData[];
+		const nodes :RepoNodeWithData[] = flattenedKeys.map(key => {
+			return this._nodes[this.keyToId(key)] as RepoNodeWithData;
+		}); // map
 		return nodes.length > 1
 			? nodes //as RepoNodeWithData[]
 			: nodes[0] as RepoNodeWithData;
@@ -189,7 +251,20 @@ export class Branch {
 		editor
 	} :NodeModifyParams) :RepoNodeWithData {
 		const node :RepoNodeWithData = this.getNode(key) as RepoNodeWithData;
-		return editor(node);
+		if (!node) {
+			throw new Error(`modify: Node with key:${key} not found!`);
+		}
+		const _id = node._id;
+		const _name = node._name;
+		const _path = node._path;
+		const modifiedNode :RepoNodeWithData = sortKeys({
+			...editor(node),
+			_id, // Not allowed to change _id
+			_name, // Not allowed to rename
+			_path, // Not allowed to move
+		} as RepoNodeWithData);
+		this._nodes[_id] = modifiedNode;
+		return this._nodes[_id] as RepoNodeWithData;
 	}
 
 	//@ts-ignore

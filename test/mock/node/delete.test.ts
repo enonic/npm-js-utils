@@ -1,6 +1,7 @@
 import {
 	deepStrictEqual
 } from 'assert';
+import * as assert from 'assert';
 
 import {JavaBridge} from '../../../src/mock/JavaBridge';
 
@@ -35,27 +36,79 @@ describe('mock', () => {
 						hasMethod(connection, 'delete')
 					);
 				}); // it
-				//javaBridge.log.info('createRes:%s', createRes);
 				describe('delete()', () => {
+					/*describe('throws', () => {
+						it('when key is not id nor path', () => {
+							assert.throws(() => {
+								//@ts-ignore
+								connection.delete('');
+							}, {
+								name: 'TypeError',
+								message: /^key not an id nor path/
+							});
+						}); // it
+					}); // describe throws*/
 					it('works for a single existing node', () => {
-						const createRes = connection.create({});
+						const createRes1 = connection.create({});
 						deepStrictEqual(
-							[createRes._id],
-							connection.delete(createRes._id)
+							[createRes1._id],
+							connection.delete(createRes1._id)
 						); // deepStrictEqual
 					}); // it
-					it('return an emptry array for a single non existant key', () => {
+					it('return an empty array for a single non existant key', () => {
 						deepStrictEqual(
 							[],
-							connection.delete('')
+							connection.delete('/nonExistantParentPath/nonExistantName')
 						); // deepStrictEqual
 					}); // it
 					it('works for a list of existing and non-existant keys', () => {
-						const createRes = connection.create({});
+						const createRes2 = connection.create({});
 						deepStrictEqual(
-							[createRes._id],
-							connection.delete(['', createRes._id, 'whatever'])
+							[createRes2._id],
+							connection.delete(['', createRes2._id, 'whatever'])
 						); // deepStrictEqual
+					}); // it
+					it('cleans up the pathIndex', () => {
+						const createFolderRes =	connection.create({
+							_name: 'myParentPath'
+						});
+						const createRes3 = connection.create({
+							_name: 'myName',
+							_parentPath: '/myParentPath/'
+						});
+						//javaBridge.log.info('createRes3:%s', createRes3);
+						deepStrictEqual(
+							'/myParentPath/myName',
+							createRes3._path
+						);
+						deepStrictEqual(
+							createRes3,
+							connection.get('/myParentPath/myName')
+						);
+
+						connection.delete('/myParentPath/myName');
+						deepStrictEqual(
+							[],
+							connection.exists(createRes3._id)
+						);
+						deepStrictEqual(
+							[],
+							connection.exists('/myParentPath/myName')
+						);
+						deepStrictEqual( // Parent exists after node deleted
+							['/myParentPath'],
+							connection.exists('/myParentPath')
+						);
+
+						connection.delete('/myParentPath');
+						deepStrictEqual(
+							[],
+							connection.exists(createFolderRes._id)
+						);
+						deepStrictEqual(
+							[],
+							connection.exists('/myParentPath')
+						);
 					}); // it
 				}); // describe delete()
 			}); // describe Connection
