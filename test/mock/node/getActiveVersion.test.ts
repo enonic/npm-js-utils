@@ -38,10 +38,21 @@ describe('mock', () => {
 				const createRes = connection.create({});
 				javaBridge.log.info('createRes:%s', createRes);
 				describe('getActiveVersion()', () => {
+					it('returns null for a non existing node', () => {
+						deepStrictEqual(
+							null,
+							connection.getActiveVersion({ key: '0001' })
+						); // deepStrictEqual
+					}); // it
 					it('works for a single existing node', () => {
 						const createRes = connection.create({});
 						deepStrictEqual(
-							createRes._versionKey,
+							{
+								versionId: createRes._versionKey,
+								nodeId: createRes._id,
+								nodePath: createRes._path,
+								timestamp: createRes._ts
+							},
 							connection.getActiveVersion({ key: createRes._id })
 						); // deepStrictEqual
 					}); // it

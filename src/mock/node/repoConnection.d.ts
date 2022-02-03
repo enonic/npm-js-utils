@@ -6,6 +6,10 @@ import type {
 } from './node.d';
 import type { NodeCreateParams } from './create.d';
 //import type { NodeGetParams } from './get.d';
+import type {
+	GetActiveVersionParamObject,
+	GetActiveVersionResponse
+} from './getActiveVersion.d'
 import type { NodeModifyParams } from './modify.d';
 import type { NodeQueryParams } from './query';
 import type { AggregationsResponse } from './query/aggregation.d';
@@ -104,10 +108,7 @@ export interface RepoConnection {
 	/**
 	* This function returns the active version of a node.
 	*/
-	//getActiveVersion(params: GetActiveVersionParams): any;
-	getActiveVersion(object :{
-		key :string
-	}) :string
+	getActiveVersion(object: GetActiveVersionParamObject): GetActiveVersionResponse;
 
 	/**
 	* This function sets the active version of a node.

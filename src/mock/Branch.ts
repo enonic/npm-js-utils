@@ -1,6 +1,10 @@
 import type { Log } from './globals.d'
 import type { RepoNodeWithData } from './node/node.d';
 import type { NodeCreateParams } from './node/create.d';
+import type {
+	GetActiveVersionParamObject,
+	GetActiveVersionResponse
+} from './node/getActiveVersion.d'
 import type { NodeModifyParams } from './node/modify.d';
 import type { NodeQueryParams } from './node/query';
 import type { NodeQueryResponse } from './node/repoConnection.d';
@@ -157,17 +161,36 @@ export class Branch {
 		return node;
 	}
 
+	private keyToId(key :string) :string | undefined {
+		let maybeId :string|undefined = key;
+		if (isPathString(key)) {
+			const path = key.endsWith('/') ? key.substring(0, key.length - 1) : key;
+			//this.log.debug('path:%s', path);
+			maybeId = this._pathIndex[path];
+			//this.log.debug('maybeId:%s', maybeId);
+			if (!maybeId) {
+				//throw new Error(`Could not find id from path:${path}!`);
+				this.log.debug(`Could not find id from path:${path}!`);
+				return undefined;
+			}
+		}
+		if (!isUuidV4String(maybeId)) {
+			this.log.debug(`key not an id! key:${key}`);
+			//throw new TypeError(`key not an id nor path! key:${key}`);
+			return undefined;
+		}
+		return maybeId;
+	}
+
 	existsNode(keys: string | Array<string>) :Array<string> {
 		//this.log.debug('existsNode() keys:%s', keys);
 		const existingKeys = forceArray(keys)
 			.map(k => {
-				//this.log.debug("existsNode() k:'%s'", k);
-				if (this.getNode(k)) {
-					//this.log.debug("existsNode() k:'%s' exists", k);
-					return k;
+				const id = this.keyToId(k);
+				if (!id) {
+					return '';
 				}
-				//this.log.debug("existsNode() k:'%s' does NOT exists", k);
-				return '';
+				return this._nodes.hasOwnProperty(id) ? k : '';
 			}).filter(x => x);
 		//this.log.debug("existsNode() keys:%s existingKeys:'%s'", keys, existingKeys);
 		return existingKeys;
@@ -199,36 +222,20 @@ export class Branch {
 		return deletedKeys;
 	}
 
-	private keyToId(key :string) :string | undefined {
-		let maybeId :string|undefined = key;
-		if (isPathString(key)) {
-			const path = key.endsWith('/') ? key.substring(0, key.length - 1) : key;
-			//this.log.debug('path:%s', path);
-			maybeId = this._pathIndex[path];
-			//this.log.debug('maybeId:%s', maybeId);
-			if (!maybeId) {
-				//throw new Error(`Could not find id from path:${path}!`);
-				this.log.debug(`Could not find id from path:${path}!`);
-				return undefined;
-			}
-		}
-		if (!isUuidV4String(maybeId)) {
-			this.log.debug(`key not an id! key:${key}`);
-			//throw new TypeError(`key not an id nor path! key:${key}`);
-			return undefined;
-		}
-		return maybeId;
-	}
-
 	getNode(...keys :string[]) :RepoNodeWithData | RepoNodeWithData[] {
 		//this.log.debug('getNode() keys:%s', keys);
 		if (!keys.length) {
 			return [];
 		}
 		const flattenedKeys :string[] = flatten(keys) as string[];
-		const nodes :RepoNodeWithData[] = flattenedKeys.map(key => {
-			return this._nodes[this.keyToId(key)] as RepoNodeWithData;
-		}); // map
+		const existingKeys = this.existsNode(flattenedKeys);
+		const nodes :RepoNodeWithData[] = existingKeys.map(key => {
+			const id = this.keyToId(key);
+			if (!id) {
+				throw new Error(`Can't get id from key:${key}, even though exists???`); // This could happen if node deleted after exists called.
+			}
+			return this._nodes[id] as RepoNodeWithData;
+		});//.filter(x => x as RepoNodeWithData);
 		return nodes.length > 1
 			? nodes //as RepoNodeWithData[]
 			: nodes[0] as RepoNodeWithData;
@@ -236,14 +243,18 @@ export class Branch {
 
 	getNodeActiveVersion({
 		key
-	} :{
-		key :string
-	}) :string | undefined {
+	} :GetActiveVersionParamObject) :GetActiveVersionResponse {
 		const node :RepoNodeWithData | undefined = this.getNode(key) as (RepoNodeWithData | undefined);
 		if (node) {
-			return node._versionKey;
+			return {
+				versionId: node._versionKey,
+				nodeId: node._id,
+				nodePath: node._path,
+				timestamp: node._ts
+			};
 		}
 		this.log.error(`No such node with key:'${key}`);
+		return null;
 	}
 
 	modifyNode({
