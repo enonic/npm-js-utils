@@ -4,41 +4,36 @@ const {isArray} = Array;
 const {keys} = Object;
 
 
-interface LooseObject {
-	[key :string] :unknown
-}
-
-
-export function sortKeys<T extends LooseObject>(obj: T) :T {
+export function sortKeys<T extends Object>(obj: T) :T {
 	if (typeof obj !== 'object' || isArray(obj)) {
 		throw new Error('sortKeys');
 	}
-	const newObject :LooseObject = {};
-	const sortedKeys :string[] = keys(obj).sort();
+	const newObject = {} as T;
+	const sortedKeys = keys(obj).sort();
 	for (let i = 0, l = sortedKeys.length; i < l; i++) {
-		const k :string = sortedKeys[i] as string;
+		const k = sortedKeys[i] as keyof T;
 		newObject[k] = obj[k];
 	}
-	return newObject as T;
+	return newObject;
 }
 
 
-export function sortKeysRec(obj :unknown) :unknown {
+export function sortKeysRec<T extends Object>(obj :T) :T {
 	if (isArray(obj)) {
-		const newArray :unknown[] = [];
+		const newArray = [];
 		for (let i = 0, l = obj.length; i < l; i++) {
 			newArray[i] = sortKeysRec(obj[i]); // Recurse
 		}
-		return newArray;// as [];
+		return newArray as unknown as T;
 	}
 	if (typeof obj !== 'object' || obj === null) {
-		return obj;// as unknown;
+		return obj;
 	}
 	const sortedKeys = keys(obj).sort();
-	const newObject :LooseObject = {};
+	const newObject = {} as T;
 	for (let i = 0, l = sortedKeys.length; i < l; i++) {
-		const k :string = sortedKeys[i] as string;
-		newObject[k] = sortKeysRec((obj as LooseObject)[k]); // Recurse
+		const k = sortedKeys[i] as keyof T;
+		newObject[k] = sortKeysRec(obj[k]); // Recurse
 	}
-	return newObject;// as object;
+	return newObject;
 }
