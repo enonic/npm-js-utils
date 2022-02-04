@@ -1,4 +1,6 @@
+export {getIn} from './getIn';
 export {hasOwnProperty} from './hasOwnProperty';
+export {setIn} from './setIn';
 
 const {isArray} = Array;
 const {keys} = Object;

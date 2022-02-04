@@ -6,7 +6,9 @@ export {
 } from './array';
 
 export {
+	getIn,
 	hasOwnProperty,
+	setIn,
 	sortKeys,
 	sortKeysRec
 } from './object';
