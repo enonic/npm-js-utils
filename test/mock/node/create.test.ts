@@ -1,6 +1,7 @@
 import {isString} from '../../../src';
 import {
-	deepStrictEqual//,
+	deepStrictEqual,
+	notEqual,
 	//throws // For some reason this gets borked by swc
 } from 'assert';
 import * as assert from 'assert';
@@ -40,9 +41,43 @@ describe('mock', () => {
 				);
 			}); // it
 			describe('Connection', () => {
-				const createRes = connection.create({});
+				const createRes = connection.create({
+					_id: 'ignoredId'
+				});
 				describe('create', () => {
+					describe('throws', () => {
+						it('throws NodeNotFoundException when _parentPath not found', () => {
+							assert.throws(() => {
+								connection.create({
+									_parentPath: '/nonExistant/'
+								});
+							}, {
+								name: 'com.enonic.xp.node.NodeNotFoundException',
+								message: /^Cannot create node with name .*, parent '.*' not found/
+							});
+						}); // it
+						it('throws NodeAlreadyExistAtPathException', () => {
+							const node = connection.create({
+								_name: 'a'
+							});
+							assert.throws(() => {
+								connection.create({
+									_name: 'a'
+								});
+							}, {
+								name: 'com.enonic.xp.node.NodeAlreadyExistAtPathException',
+								message: /^Node already exists at .* repository: .* branch: .*$/
+							});
+							connection.delete(node._id);
+						}); // it
+					}); // describe throws
 					//javaBridge.log.debug('generated id:%s', createRes._id);
+					it('ignores passed in _id', () => {
+						notEqual(
+							'ignoredId',
+							createRes._id
+						);
+					}); // it
 					it('generates an _id', () => {
 						deepStrictEqual(
 							true,
@@ -84,17 +119,6 @@ describe('mock', () => {
 							'default',
 							createRes._nodeType
 						);
-					}); // it
-
-					it('throws NodeNotFoundException when _parentPath not found', () => {
-						assert.throws(() => {
-							connection.create({
-								_parentPath: '/nonExistant/'
-							});
-						}, {
-							name: 'com.enonic.xp.node.NodeNotFoundException',
-							message: /^Cannot create node with name .*, parent '.*' not found/
-						});
 					}); // it
 
 					it('supports a _parentPath parameter', () => {

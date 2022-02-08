@@ -18,6 +18,7 @@ import {
 	lpad,
 	sortKeys
 } from '../';
+import {NodeAlreadyExistAtPathException} from './node/NodeAlreadyExistAtPathException';
 import {NodeNotFoundException} from './node/NodeNotFoundException';
 
 
@@ -55,6 +56,7 @@ export class Branch {
 	}
 
 	private _highest_id :number = 1;
+	private _id :string;
 	private _nodes :Nodes = {
 		'00000000-0000-0000-0000-000000000000': {
 			_childOrder: '_ts DESC',
@@ -89,11 +91,14 @@ export class Branch {
 	readonly log :Log;
 
 	constructor({
+		branchId,
 		repo
 	} :{
+		branchId :string
 		repo :Repo
 	}) {
 		//console.debug('repo.constructor.name',repo.constructor.name);
+		this._id = branchId;
 		this._repo = repo;
 		this.log = this._repo.log;
 		//this.log.debug('in Branch constructor');
@@ -106,7 +111,6 @@ export class Branch {
 
 	createNode({
 		//_childOrder,
-		//_id, // avoid it ending up in rest
 		_indexConfig = DEFAULT_INDEX_CONFIG,
 		//_inheritsPermissions,
 		//_manualOrderValue,
@@ -119,11 +123,11 @@ export class Branch {
 		//_versionKey, // avoid it ending up in rest
 		...rest
 	} :NodeCreateParams) :RepoNodeWithData {
-		//if (rest.hasOwnProperty('_id')) { delete rest._id; }
+		if (rest.hasOwnProperty('_id')) { delete rest['_id']; } // /lib/xp/node.connect().create() simply ignores _id
 		//if (rest.hasOwnProperty('_versionKey')) { delete rest._versionKey; }
 		const _id = this.generateId();
 		const _versionKey = this.generateId();
-		if (!_name) { _name = _id; }
+		if (!_name) { _name = _id as string; }
 
 		if(!_parentPath.endsWith('/')) {
 			_parentPath += '/'
@@ -140,10 +144,14 @@ export class Branch {
 
 		const _ts = Branch.generateInstantString();
 
-		if (this._nodes.hasOwnProperty(_id as string)) {
-			throw new Error(`createNode: node with _id:${_id} already exist!`);
+		if (this._nodes.hasOwnProperty(_id)) { // This can only happen if
+			throw new Error(`Node already exists with ${_id} repository: ${this._repo.id()} branch: ${this._id}`); // /lib/xp/node.connect().create() simply ignores _id
+			//throw new NodeAlreadyExistAtPathException(`Node already exists at ${_path} repository: ${this._repo.id} branch: ${this._id}`);
 		}
 		const _path :string = `${_parentPath}${_name}`; // TODO use path.join?
+		if (this._pathIndex.hasOwnProperty(_path)) {
+			throw new NodeAlreadyExistAtPathException(`Node already exists at ${_path} repository: ${this._repo.id()} branch: ${this._id}`);
+		}
 		const node :RepoNodeWithData = {
 			_id,
 			_indexConfig,

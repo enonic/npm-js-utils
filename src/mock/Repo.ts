@@ -11,7 +11,9 @@ interface Branches {
 
 
 export class Repo {
+	//#id :string; // Private identifiers are only available when targeting ECMAScript 2015 and higher.
 	private _id :string;
+
 	private _branches :Branches;
 	private _javaBridge :JavaBridge;
 	//rootChildOrder
@@ -36,9 +38,15 @@ export class Repo {
 		this._settings = settings;
 		this._branches = {
 			'master': new Branch({
+				branchId: 'master',
 				repo: this
 			})
 		};
+	}
+
+	//public get id() :string { // jsc.target should be es5 or upper to use getter / setter
+	public id() :string {
+		return this._id;
 	}
 
 	get() {
