@@ -1,7 +1,9 @@
+export * as array from './array'; // for example array.includes
 export {
 	findIndex,
 	flatten,
 	forceArray,
+	//includes, // Conflicts with string.includes
 	sortByProperty
 } from './array';
 
@@ -124,11 +126,14 @@ export {
 	validateRepoId
 } from './storage';
 
+export * as string from './string'; // for example string.includes
 export {
 	camelize,
 	fold,
+	//includes, // Conflicts with array.includes
 	lpad,
 	rpad,
+	startsWith,
 	ucFirst,
 	unStem
 } from './string';

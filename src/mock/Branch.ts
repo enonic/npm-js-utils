@@ -30,6 +30,7 @@ interface PathIndex {
 	[key :string] :string
 }
 
+
 const DEFAULT_INDEX_CONFIG = {
 	default: {
 		decideByType: true,
@@ -43,6 +44,14 @@ const DEFAULT_INDEX_CONFIG = {
 	},
 	configs: []
 };
+
+const IGNORED_ON_CREATE = [
+	'_id',
+	'_path',
+	'_state',
+	'_ts',
+	'_versionKey'
+];
 
 
 function isPathString(key :string) :boolean {
@@ -118,13 +127,12 @@ export class Branch {
 		_nodeType = 'default',
 		_parentPath = '/',
 		//_permissions,
-		//_state, // avoid it ending up in rest
-		//_ts, // avoid it ending up in rest
-		//_versionKey, // avoid it ending up in rest
 		...rest
 	} :NodeCreateParams) :RepoNodeWithData {
-		if (rest.hasOwnProperty('_id')) { delete rest['_id']; } // /lib/xp/node.connect().create() simply ignores _id
-		//if (rest.hasOwnProperty('_versionKey')) { delete rest._versionKey; }
+		for (let i = 0; i < IGNORED_ON_CREATE.length; i++) {
+		    const k = IGNORED_ON_CREATE[i] as string;
+			if (rest.hasOwnProperty(k)) { delete rest[k]; }
+		}
 		const _id = this.generateId();
 		const _versionKey = this.generateId();
 		if (!_name) { _name = _id as string; }

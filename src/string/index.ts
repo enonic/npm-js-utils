@@ -3,6 +3,8 @@ import {
 	isString
 } from '../value/';
 export {fold} from './fold';
+export {includes} from './includes';
+export {startsWith} from './startsWith';
 export {unStem} from './unStem';
 
 export const camelize = (

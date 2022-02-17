@@ -9,7 +9,7 @@
 		"importsNotUsedAsValues": "error",
 		"inlineSourceMap": false,
 		"inlineSources": false,
-		"listEmittedFiles": true,
+		"listEmittedFiles": false,
 		"listFiles": false,
 		"module": "commonjs",
 		"moduleResolution": "node",

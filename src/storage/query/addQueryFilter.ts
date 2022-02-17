@@ -24,9 +24,9 @@ interface RelaxedBooleanFilter {
 }
 
 interface addFilterParam {
-	clause: FilterClause,
+	clause?: FilterClause,
 	filter: ExistsFilter | HasValueFilter | IdsFilter | NotExistsFilter,
-	filters: RelaxedBooleanFilter
+	filters?: RelaxedBooleanFilter
 }
 
 
