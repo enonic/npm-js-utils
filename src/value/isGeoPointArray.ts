@@ -1,7 +1,9 @@
+import type {GeoPointArray} from '../mock/value';
+
 import {isNumber} from './isNumber';
 
 
-export function isGeoPointArray(v :unknown) :boolean {
+export function isGeoPointArray(v :GeoPointArray | unknown) :v is GeoPointArray {
 	if (!Array.isArray(v)) { return false; }
 
 	const [lat, lon] :number[] = v;
