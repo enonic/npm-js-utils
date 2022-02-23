@@ -7,6 +7,8 @@ import type {
 	Source
 } from './node/repoConnection.d';
 import type {
+	BranchConfig,
+	CreateBranchParams,
 	CreateRepoParams,
 	RepoLib,
 	RepositoryConfig
@@ -17,6 +19,7 @@ import type {
 
 import {Connection} from './Connection';
 import {Repo} from './Repo';
+import {RepositoryNotFoundException} from './repo/RepositoryNotFoundException';
 
 import {toStr} from '..';
 
@@ -135,10 +138,20 @@ export class JavaBridge {
 			this._repos[id] = repo;
 			return repo.get();
 		},
+		createBranch: ({
+			branchId,
+			repoId
+		} :CreateBranchParams) :BranchConfig => {
+			const repo = this._repos[repoId];
+			if (!repo) {
+				throw new RepositoryNotFoundException(`Repository with id [${repoId}] not found`);
+			}
+			return repo.createBranch(branchId);
+		},
 		get: (repoId :string) :RepositoryConfig => {
 			const repo = this._repos[repoId];
 			if (!repo) {
-				throw new Error(`getRepo: No repo with id:${repoId}`);
+				throw new RepositoryNotFoundException(`Repository with id [${repoId}] not found`);
 			}
 			return repo.get();
 		},

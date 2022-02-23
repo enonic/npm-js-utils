@@ -3,7 +3,7 @@ export {
 	findIndex,
 	flatten,
 	forceArray,
-	//includes, // Conflicts with string.includes
+	includes as arrayIncludes, // Conflicts with string.includes
 	sortByProperty
 } from './array';
 
@@ -130,7 +130,7 @@ export * as string from './string'; // for example string.includes
 export {
 	camelize,
 	fold,
-	//includes, // Conflicts with array.includes
+	includes as stringIncludes, // Conflicts with array.includes
 	lpad,
 	rpad,
 	startsWith,

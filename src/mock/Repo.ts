@@ -1,8 +1,13 @@
 import type {Log} from './globals.d'
-import type {RepositorySettings} from './repo/index.d';
+import type {
+	BranchConfig,
+	CreateBranchParams,
+	RepositorySettings
+} from './repo/index.d';
 import type {JavaBridge} from './JavaBridge';
 
 import {Branch} from './Branch';
+import {BranchAlreadyExistException} from './repo/BranchAlreadyExistException';
 
 
 interface Branches {
@@ -42,6 +47,17 @@ export class Repo {
 				repo: this
 			})
 		};
+	}
+
+	public createBranch(branchId :string) :BranchConfig {
+		if (this._branches[branchId]) {
+			throw new BranchAlreadyExistException(`Branch [{${branchId}}] already exists`);
+		}
+		this._branches[branchId] = new Branch({
+			branchId,
+			repo: this
+		});
+		return { id: branchId };
 	}
 
 	//public get id() :string { // jsc.target should be es5 or upper to use getter / setter

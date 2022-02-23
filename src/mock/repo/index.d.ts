@@ -137,8 +137,18 @@ export interface NodeQueryResponse<AggregationKeys extends string = never> {
 	aggregations: AggregationsResponse<AggregationKeys>;
 }
 
+export interface CreateBranchParams {
+	branchId: string;
+	repoId: string;
+}
+
+export interface BranchConfig {
+	readonly id: string;
+}
+
 export interface RepoLib {
 	create(param :CreateRepoParams) :RepositoryConfig
+	createBranch(params: CreateBranchParams): BranchConfig;
 	get(repoId :string) :RepositoryConfig
 	list() :RepositoryConfig[]
 	/*query<AggregationKeys extends string = never>(
