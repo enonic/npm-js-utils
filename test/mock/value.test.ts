@@ -78,8 +78,11 @@ describe('mock', () => {
 			describe('geoPoint', () => {
 				it('returns the input', () => {
 					deepStrictEqual(
-						GEOPOINT_ARRAYS[0],
-						javaBridge.value.geoPoint(GEOPOINT_ARRAYS[0])
+						`${GEOPOINT_ARRAYS[0][0]},${GEOPOINT_ARRAYS[0][1]}`,
+						javaBridge.value.geoPoint(
+							GEOPOINT_ARRAYS[0][0],
+							GEOPOINT_ARRAYS[0][1]
+						)
 					);
 				}); // it
 			}); // describe geoPoint

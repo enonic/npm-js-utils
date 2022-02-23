@@ -160,7 +160,7 @@ export class JavaBridge {
 		}
 	}
 	readonly value :ValueLib = {
-		geoPoint: (v) => v,
+		geoPoint: (lat,lon) => `${lat},${lon}`,
 		geoPointString: (v) => v,
 		instant: (v) => v,
 		localDate: (v) => v,
