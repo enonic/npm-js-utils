@@ -1,7 +1,6 @@
 import type {Log} from './globals.d'
 import type {
 	BranchConfig,
-	CreateBranchParams,
 	RepositorySettings
 } from './repo/index.d';
 import type {JavaBridge} from './JavaBridge';
