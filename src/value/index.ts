@@ -8,6 +8,7 @@ export {isLocalDateString} from './isLocalDateString';
 export {isLocalDateTimeString} from './isLocalDateTimeString';
 export {isInt} from './isInt';
 export {isInteger} from './isInteger';
+export {isNonNegativeIntegerString} from './isNonNegativeIntegerString';
 export {isNumber} from './isNumber';
 export {isObject} from './isObject';
 export {isPositiveInteger} from './isPositiveInteger';

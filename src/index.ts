@@ -160,6 +160,7 @@ export {
 	isInteger,
 	isLocalDateString,
 	isLocalDateTimeString,
+	isNonNegativeIntegerString,
 	isNotFalse,
 	isNotSet,
 	isNotTrue,

@@ -30,11 +30,17 @@ import {
 	FLOATS,
 	NUMBERS_INFINITE,
 	//INTEGERS_NEGATIVE,
+	//INTEGERS_NON_NEGATIVE,
 	//INTEGERS_POSITIVE,
 	NAN,
 	//INTEGERS,
 	//NUMBERS_FINITE,
-	NUMBERS
+	NUMBERS,
+	STRINGS_FLOAT,
+	STRINGS_INTEGER_NEGATIVE,
+	STRINGS_INTEGER_NON_NEGATIVE,
+	STRING_NAN,
+	STRINGS_NUMBER_INFINITE
 } from './testDataNumber';
 
 import {
@@ -75,11 +81,17 @@ export {
 	FLOATS,
 	NUMBERS_INFINITE,
 	INTEGERS_NEGATIVE,
+	INTEGERS_NON_NEGATIVE,
 	INTEGERS_POSITIVE,
 	NAN,
 	INTEGERS,
 	NUMBERS_FINITE,
-	NUMBERS
+	NUMBERS,
+	STRINGS_FLOAT,
+	STRINGS_INTEGER_NEGATIVE,
+	STRINGS_INTEGER_NON_NEGATIVE,
+	STRING_NAN,
+	STRINGS_NUMBER_INFINITE
 } from './testDataNumber';
 
 export {
@@ -94,10 +106,16 @@ export const BOOLEANS = [
 	false,
 	true
 ];
+export const STRINGS_BOOLEAN = BOOLEANS.map(i => ''+i);
+//console.debug('STRINGS_BOOLEAN', STRINGS_BOOLEAN);
 
 export const EMPTY_ARRAY = [];
+export const STRING_EMPTY_ARRAY = '[]';
+//console.debug('STRING_EMPTY_ARRAY', STRING_EMPTY_ARRAY);
 
 export const EMPTY_OBJECT = {};
+export const STRING_EMPTY_OBJECT = '{}';
+//console.debug('STRING_EMPTY_OBJECT', STRING_EMPTY_OBJECT);
 
 export const EMPTY_STRING = '';
 
@@ -115,34 +133,32 @@ export const UNDEFINED = undefined;
 //──────────────────────────────────────────────────────────────────────────────
 // Derived
 //──────────────────────────────────────────────────────────────────────────────
-export const STRINGS = [
+
+export const STRINGS = [].concat([
 	EMPTY_STRING,
 	'a',
-	'true',
-	'false',
-	'[]',
-	'{}',
-	'-Infinity',
-	'-1',
-	'-0.1',
+	STRING_EMPTY_ARRAY,
+	STRING_EMPTY_OBJECT,
 	'-0.0',
 	'-0',
-	'0',
 	'0.0',
-	'0.1',
-	'1',
-	'Infinity',
+	STRING_NAN,
 	'new Date()'
-]/*.concat(
-	//GEOPOINT_STRINGS,
+],
+	STRINGS_BOOLEAN,
+	STRINGS_FLOAT,
+	STRINGS_INTEGER_NEGATIVE,
+	STRINGS_INTEGER_NON_NEGATIVE,
+	STRINGS_NUMBER_INFINITE
+	/*GEOPOINT_STRINGS,
 	GEOPOINT_STRINGS_INVALID,
 	//INSTANT_STRINGS,
 	INSTANT_STRINGS_INVALID,
 	//LOCAL_DATE_STRINGS,
 	LOCAL_DATE_STRINGS_INVALID,
 	LOCAL_DATE_TIME_STRINGS_INVALID,
-	UUID_NIL
-)*/;
+	UUID_NIL*/
+);
 
 //──────────────────────────────────────────────────────────────────────────────
 // NOT
