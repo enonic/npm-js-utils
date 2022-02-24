@@ -1,10 +1,27 @@
 import {deepStrictEqual} from 'assert';
-import {detectValueType} from '../../../../src';
+import {
+	VALUE_TYPE_ANY,
+	VALUE_TYPE_BOOLEAN,
+	VALUE_TYPE_DOUBLE,
+	VALUE_TYPE_GEO_POINT,
+	VALUE_TYPE_INSTANT,
+	VALUE_TYPE_LOCAL_DATE,
+	VALUE_TYPE_LOCAL_DATE_TIME,
+	VALUE_TYPE_LOCAL_TIME,
+	//VALUE_TYPE_LONG,
+	VALUE_TYPE_REFERENCE,
+	VALUE_TYPE_SET,
+	VALUE_TYPE_STRING,
+	detectCommonValueType,
+	detectValueType
+} from '../../../../src';
 import {
 	BOOLEANS,
 	EMPTY_ARRAY,
 	FUNCTION,
 	GEOPOINTS,
+	GEOPOINT_ARRAYS,
+	GEOPOINT_STRINGS,
 	INSTANTS,
 	LOCAL_DATE_STRINGS,
 	LOCAL_DATE_TIME_STRINGS,
@@ -36,6 +53,71 @@ const SET = [].concat(
 
 
 describe('value', () => {
+	describe('detectCommonValueType()', () => {
+		it('geoStrs --> geo', () => {
+			deepStrictEqual(
+				VALUE_TYPE_GEO_POINT,
+				detectCommonValueType(GEOPOINT_STRINGS)
+			); // deepStrictEqual
+		}); // it
+		it('[...geoArrs, ...geoStrs] --> geo', () => {
+			deepStrictEqual(
+				VALUE_TYPE_GEO_POINT,
+				detectCommonValueType([
+					...GEOPOINT_ARRAYS,
+					...GEOPOINT_STRINGS
+				])
+			); // deepStrictEqual
+		}); // it
+		it('[...geoStrs, ...geoArrs] --> geo', () => {
+			deepStrictEqual(
+				VALUE_TYPE_GEO_POINT,
+				detectCommonValueType([
+					...GEOPOINT_STRINGS,
+					...GEOPOINT_ARRAYS
+				])
+			); // deepStrictEqual
+		}); // it
+		it('[...geoArrs,...nums] --> double', () => {
+			deepStrictEqual(
+				VALUE_TYPE_DOUBLE,
+				detectCommonValueType([
+					...GEOPOINT_ARRAYS,
+					...NUMBERS_FINITE
+				])
+			); // deepStrictEqual
+		}); // it
+		it('[...nums,...geoArrs] --> double', () => {
+			deepStrictEqual(
+				VALUE_TYPE_DOUBLE,
+				detectCommonValueType([
+					...NUMBERS_FINITE,
+					...GEOPOINT_ARRAYS
+				])
+			); // deepStrictEqual
+		}); // it
+		it('[...geoArrs,...geoStrs,...nums] --> string', () => {
+			deepStrictEqual(
+				VALUE_TYPE_STRING,
+				detectCommonValueType([
+					...GEOPOINT_ARRAYS,
+					...GEOPOINT_STRINGS,
+					...NUMBERS_FINITE
+				])
+			); // deepStrictEqual
+		}); // it
+		it('[...nums,...geoStrs,...geoArrs] --> string', () => {
+			deepStrictEqual(
+				VALUE_TYPE_STRING,
+				detectCommonValueType([
+					...NUMBERS_FINITE,
+					...GEOPOINT_STRINGS,
+					...GEOPOINT_ARRAYS
+				])
+			); // deepStrictEqual
+		}); // it
+	}); // describe detectCommonValueType
+
 	describe('detectValueType()', () => {
 
 		describe('--> boolean', () => {
@@ -70,6 +152,20 @@ describe('value', () => {
 				deepStrictEqual(
 					'double',
 					detectValueType(NUMBERS_FINITE)
+				);
+			});
+			const shouldResolveToDouble = GEOPOINT_ARRAYS.concat([0,0,0]);
+			it(`${toStr(shouldResolveToDouble)}`, () => {
+				deepStrictEqual(
+					'double',
+					detectValueType(shouldResolveToDouble)
+				);
+			});
+			const shouldResolveToString = GEOPOINTS.concat([0,0,0]);
+			it(`${toStr(shouldResolveToString)}`, () => {
+				deepStrictEqual(
+					VALUE_TYPE_STRING,
+					detectValueType(shouldResolveToString)
 				);
 			});
 		});
@@ -235,6 +331,5 @@ describe('value', () => {
 				);
 			});
 		});
-
 	}); // describe detectValueType
 }); // describe value

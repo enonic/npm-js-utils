@@ -13,4 +13,7 @@ export {
 	VALUE_TYPE_STRING,
 	VALUE_TYPES
 } from './constants';
-export {detectValueType} from './detectValueType';
+export {
+	detectCommonValueType,
+	detectValueType
+} from './detectValueType';

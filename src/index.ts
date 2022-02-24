@@ -110,6 +110,7 @@ export {
 	VALUE_TYPE_STRING,
 	and,
 	addQueryFilter,
+	detectCommonValueType,
 	detectValueType,
 	dirname,
 	enonify,

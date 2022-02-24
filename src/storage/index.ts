@@ -80,6 +80,7 @@ export {
 	VALUE_TYPE_REFERENCE,
 	VALUE_TYPE_SET,
 	VALUE_TYPE_STRING,
+	detectCommonValueType,
 	detectValueType,
 	dirname,
 	enonify,
