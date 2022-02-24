@@ -7,7 +7,12 @@ import {isString} from './isString';
 export function isGeoPointString(v :GeoPointString | unknown) :v is GeoPointString {
 	if (!isString(v)) { return false; }
 
-	const [lat, lon] :string[] = (v as string).split(',');
+	const array = (v as string).split(',');
+	if (array.length !== 2) {
+		return false;
+	}
+
+	const [lat, lon] :string[] = array;
 
 	if (!isString(lat) || !isString(lon)) {	return false; }
 

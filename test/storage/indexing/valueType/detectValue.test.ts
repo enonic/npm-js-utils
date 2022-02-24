@@ -47,7 +47,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} //for
+			it(`${toStr(BOOLEANS)}`, () => {
+				deepStrictEqual(
+					'boolean',
+					detectValueType(BOOLEANS)
+				);
+			});
 		});
 
 		describe('--> double', () => {
@@ -59,7 +65,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(NUMBERS_FINITE)}`, () => {
+				deepStrictEqual(
+					'double',
+					detectValueType(NUMBERS_FINITE)
+				);
+			});
 		});
 
 		describe('--> geoPoint', () => {
@@ -71,7 +83,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(GEOPOINTS)}`, () => {
+				deepStrictEqual(
+					'geoPoint',
+					detectValueType(GEOPOINTS)
+				);
+			});
 		});
 
 		describe('--> instant', () => {
@@ -83,7 +101,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(INSTANTS)}`, () => {
+				deepStrictEqual(
+					'instant',
+					detectValueType(INSTANTS)
+				);
+			});
 		});
 
 		describe('--> localDate', () => {
@@ -95,7 +119,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(LOCAL_DATE_STRINGS)}`, () => {
+				deepStrictEqual(
+					'localDate',
+					detectValueType(LOCAL_DATE_STRINGS)
+				);
+			});
 		});
 
 		describe('--> localDateTime', () => {
@@ -107,7 +137,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(LOCAL_DATE_TIME_STRINGS)}`, () => {
+				deepStrictEqual(
+					'localDateTime',
+					detectValueType(LOCAL_DATE_TIME_STRINGS)
+				);
+			});
 		});
 
 		describe('--> localTime', () => {
@@ -119,7 +155,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(LOCAL_TIME_STRINGS)}`, () => {
+				deepStrictEqual(
+					'localTime',
+					detectValueType(LOCAL_TIME_STRINGS)
+				);
+			});
 		});
 
 		describe('--> reference', () => {
@@ -131,7 +173,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(UUID_V4)}`, () => {
+				deepStrictEqual(
+					'reference',
+					detectValueType(UUID_V4)
+				);
+			});
 		});
 
 		describe('--> set', () => {
@@ -143,7 +191,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(SET)}`, () => {
+				deepStrictEqual(
+					'set',
+					detectValueType(SET)
+				);
+			});
 		});
 
 		describe('--> string', () => {
@@ -155,7 +209,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(STRINGS)}`, () => {
+				deepStrictEqual(
+					'string',
+					detectValueType(STRINGS)
+				);
+			});
 		});
 
 		describe('--> any', () => {
@@ -167,7 +227,13 @@ describe('value', () => {
 						detectValueType(param)
 					);
 				});
-			}
+			} // for
+			it(`${toStr(ANY)}`, () => {
+				deepStrictEqual(
+					'any',
+					detectValueType(ANY)
+				);
+			});
 		});
 
 	}); // describe detectValueType

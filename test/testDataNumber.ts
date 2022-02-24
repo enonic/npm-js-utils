@@ -1,4 +1,4 @@
-import {GEOPOINT_ARRAYS_INVALID} from './testDataGeoPoint';
+//import {GEOPOINT_ARRAYS_INVALID} from './testDataGeoPoint';
 
 
 export const FLOATS = [
@@ -47,8 +47,8 @@ export const STRING_NAN = ''+NAN;
 //──────────────────────────────────────────────────────────────────────────────
 export const INTEGERS = [].concat(
 	INTEGERS_NEGATIVE,
-	INTEGERS_POSITIVE,
-	...GEOPOINT_ARRAYS_INVALID // Flattened array of integers
+	INTEGERS_NON_NEGATIVE//,
+	//...GEOPOINT_ARRAYS_INVALID // Flattened array of integers and floats
 );
 
 export const NUMBERS_FINITE = [].concat(

@@ -4,7 +4,10 @@ import {isNumber} from './isNumber';
 
 
 export function isGeoPointArray(v :GeoPointArray | unknown) :v is GeoPointArray {
-	if (!Array.isArray(v)) { return false; }
+	if (
+		!Array.isArray(v)
+		|| v.length !== 2 // Even if the two first items are valid, if there are more items, it's not a GeoPointArray
+	) { return false; }
 
 	const [lat, lon] :number[] = v;
 	if (!isNumber(lat) && !isNumber(lon)) { return false; }

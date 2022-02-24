@@ -4,26 +4,16 @@ import {
 	isInfinity,
 	isNumber
 } from '../../src';
+import {
+	GEOPOINTS,
+	GEOPOINTS_INVALID
+} from '../testData';
 
 
-const TESTS_TRUE = [
-	[59.9090442,10.7423389],
-	[-90,-180],
-	[90,-180],
-	[0,0],
-	[-90,180],
-	[90,180],
-	'59.9090442,10.7423389',
-	'-90,-180',
-	'90,-180',
-	'0,0',
-	'-90,180',
-	'90,180'
-];
-
-
-const TESTS_FALSE = [
+const TESTS_FALSE = [].concat(GEOPOINTS_INVALID, [
 	// Invalid input
+	[0,0,0], // Array of number
+	'0,0,0',
 	'',
 	true,
 	false,
@@ -39,17 +29,7 @@ const TESTS_FALSE = [
 	[true,true],
 	[false,false],
 	['a','b'],
-
-	// "Valid", but outside range
-	'-90.1,0',
-	'90.1,0',
-	'0,-180.1',
-	'0,180.1',
-	[-90.1,0],
-	[90.1,0],
-	[0,-180.1],
-	[0,180.1],
-];
+], );
 
 
 function toStr(v) {
@@ -66,7 +46,7 @@ function toStr(v) {
 describe('value', () => {
 	describe('isGeoPoint()', () => {
 		describe('--> true', () => {
-			TESTS_TRUE.forEach((params) => {
+			GEOPOINTS.forEach((params) => {
 				it(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						true,
