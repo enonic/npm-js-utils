@@ -6,7 +6,9 @@ import type {
 import type {Highlight} from './highlight.d';
 
 
-export interface NodeQueryParams<AggregationKeys extends string = never> {
+export interface NodeQueryParams<
+	AggregationKeys extends undefined|string = undefined
+> {
 	/**
 	* Start index (used for paging).
 	*/
@@ -35,7 +37,11 @@ export interface NodeQueryParams<AggregationKeys extends string = never> {
 	/**
 	* Aggregations expression.
 	*/
-	aggregations?: Record<AggregationKeys, Aggregation>;
+	aggregations?: AggregationKeys extends undefined
+		? {}
+		: AggregationKeys extends string
+			? Record<AggregationKeys, Aggregation>
+			: never
 
 	/**
 	* Highlighting config

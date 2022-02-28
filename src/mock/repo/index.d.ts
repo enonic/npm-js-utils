@@ -1,4 +1,6 @@
 import type {PermissionsParams} from '../auth'
+import type {AggregationsResponse} from '../node/query/aggregation.d';
+
 
 export interface ElasticSearchIndexSettings {
 	index?: {
@@ -113,24 +115,9 @@ export interface NodeQueryHit {
 	score: number;
 }
 
-export interface AggregationsResponseBucket {
-	docCount: number;
-	key: string;
-	from?: number | string;
-	to?: number | string;
-
-	[key2: string]: any; // sub aggregations
-}
-
-export interface AggregationsResponseEntry {
-	buckets: Array<AggregationsResponseBucket>;
-}
-
-export type AggregationsResponse<AggregationKeys extends string> = {
-	[K in AggregationKeys]: AggregationsResponseEntry;
-};
-
-export interface NodeQueryResponse<AggregationKeys extends string = never> {
+export interface NodeQueryResponse<
+	AggregationKeys extends undefined|string = undefined
+> {
 	total: number;
 	count: number;
 	hits: ReadonlyArray<NodeQueryHit>;

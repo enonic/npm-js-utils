@@ -1,8 +1,8 @@
 export interface TermsAggregation {
 	terms: {
 		field: string;
-		order: string;
-		size: number;
+		order?: string; // _term ASC
+		size?: number; // Default to 10
 		minDocCount?: number;
 	};
 	aggregations?: {
@@ -133,6 +133,7 @@ export type Aggregation =
 	| MaxAggregation
 	| ValueCountAggregation;
 
+
 export interface AggregationsResponseBucket {
 	readonly docCount: number;
 	readonly key: string;
@@ -144,8 +145,25 @@ export interface AggregationsResponseBucket {
 
 export interface AggregationsResponseEntry {
 	readonly buckets: Array<AggregationsResponseBucket>;
+
+	// Max, Min, Value Count
+	readonly value? :number
+
+	// Stats
+	readonly avg? :number
+	readonly count? :number
+	readonly max? :number
+	readonly min? :number
+	readonly sum? :number
 }
 
-export type AggregationsResponse<AggregationKeys extends string> = {
-	[K in AggregationKeys]: AggregationsResponseEntry;
-};
+export type AggregationsResponse<
+	AggregationKeys extends undefined|string = undefined
+> = AggregationKeys extends undefined
+	? {}
+	: AggregationKeys extends string
+		? Record<AggregationKeys, AggregationsResponseEntry>
+		/*? {
+			[AggregationKey in AggregationKeys]: AggregationsResponseEntry
+		}*/
+		: never;

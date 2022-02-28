@@ -326,5 +326,5 @@ export class Branch {
 			})),
 			total
 		};
-	}
+	} // query
 } // class Branch

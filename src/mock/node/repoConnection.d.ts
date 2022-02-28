@@ -30,7 +30,9 @@ export interface NodeQueryHit {
 	readonly score: number;
 }
 
-export interface NodeQueryResponse<AggregationKeys extends string = never> {
+export interface NodeQueryResponse<
+	AggregationKeys extends undefined|string = undefined
+> {
 	readonly total: number;
 	readonly count: number;
 	readonly hits: ReadonlyArray<NodeQueryHit>;

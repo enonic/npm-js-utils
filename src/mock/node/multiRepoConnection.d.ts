@@ -21,15 +21,19 @@ export interface MultiRepoNodeQueryHit extends NodeQueryHit {
 	readonly branch: string;
 }
 
-export type MultiRepoNodeQueryResponse<AggregationKeys extends string = never> = Omit<
+export type MultiRepoNodeQueryResponse<
+	AggregationKeys extends undefined|string = undefined
+> = Omit<
 	NodeQueryResponse<AggregationKeys>,
 	"hits"
-	> & {
+> & {
 	hits: ReadonlyArray<MultiRepoNodeQueryHit>;
 };
 
 export interface MultiRepoConnection {
-	query<AggregationKeys extends string>(
+	query<
+		AggregationKeys extends undefined|string = undefined
+	>(
 		params: NodeQueryParams<AggregationKeys>
 	): MultiRepoNodeQueryResponse<AggregationKeys>;
 }
