@@ -9,5 +9,5 @@ export interface Highlight {
 	postTag?: string;
 	requireFieldMatch?: boolean;
 	tagsSchema?: string;
-	properties: Record<string, Highlight>;
+	properties?: Record<string, Highlight>; // Yes it's optional, no error will occur, but no highilights returned either
 }
