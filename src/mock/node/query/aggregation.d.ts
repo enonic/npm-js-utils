@@ -134,6 +134,15 @@ export type Aggregation =
 	| ValueCountAggregation;
 
 
+export type Aggregations<
+	AggregationKeys extends undefined|string = undefined
+> = AggregationKeys extends undefined
+	? {}
+	: AggregationKeys extends string
+		? Record<AggregationKeys, Aggregation>
+		: never;
+
+
 export interface AggregationsResponseBucket {
 	readonly docCount: number;
 	readonly key: string;
