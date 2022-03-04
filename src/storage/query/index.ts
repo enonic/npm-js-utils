@@ -1,3 +1,5 @@
+export * as dsl from './dsl';
+
 export {
 	FILTER_CLAUSE_MUST,
 	FILTER_CLAUSE_MUST_NOT,

@@ -90,6 +90,7 @@ export {
 	uniqueId,
 	updateIndexConfigs
 } from './indexing';
+export *  as query from './query';
 export {
 	FILTER_CLAUSE_MUST,
 	FILTER_CLAUSE_MUST_NOT,
@@ -108,6 +109,7 @@ export {
 	SORT_MODIFIED,
 	and,
 	addQueryFilter,
+	dsl,
 	fulltext,
 	group,
 	ngram,

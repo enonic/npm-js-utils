@@ -15,6 +15,7 @@ export {
 	sortKeysRec
 } from './object';
 
+export * as storage from './storage';
 export {
 	AGGREGATION_COUNT,
 	AGGREGATION_DATE_HISTOGRAM,
