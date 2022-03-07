@@ -1,4 +1,5 @@
 export {and} from './and';
+export {bool} from './bool';
 export {fulltext} from './fulltext';
 export {inQuery} from './inQuery';
 export {like} from './like';
