@@ -1,30 +1,19 @@
 import type {OneOrMore} from '../../../types.d';
-
+import type {
+	SortDirection,
+	SortDSLExpression
+} from '../types.d';
 
 //import {toStr} from '../../../value';
+import {isDirection} from '../sort';
 
 
-type SortDirection = "ASC" | "DESC";
-
-interface QueryExpressionSortParams {
-	field :string
-	direction? :SortDirection
-}
-
-interface QueryExpressionSort {
-	sort :OneOrMore<QueryExpressionSortParams>
-}
-
-function isDirection(s :string) :boolean {
-	return s === 'ASC' || s === 'DESC';
-}
-
-function sort(field :string, direction? :SortDirection) :QueryExpressionSort;
-function sort(...args :Array<string>) :QueryExpressionSort;
-function sort(...args :any) :QueryExpressionSort {
+function sort(field :string, direction? :SortDirection) :SortDSLExpression;
+function sort(...args :Array<string>) :OneOrMore<SortDSLExpression>;
+function sort(...args :any) :OneOrMore<SortDSLExpression> {
 	//console.debug('args:%s', toStr(args));
-	const sort :OneOrMore<QueryExpressionSortParams> = [];
-	let param :Partial<QueryExpressionSortParams> = {};
+	const sort :OneOrMore<SortDSLExpression> = [];
+	let param :Partial<SortDSLExpression> = {};
 	for (let i = 0; i < args.length; i++) {
 	    const arg = args[i];
 		if (isDirection(arg)) {
@@ -36,7 +25,7 @@ function sort(...args :any) :QueryExpressionSort {
 		} else {
 			//console.debug('isField arg:%s', arg);
 			if (param.field) {
-				sort.push(JSON.parse(JSON.stringify(param)) as QueryExpressionSortParams); // Deref
+				sort.push(JSON.parse(JSON.stringify(param)) as SortDSLExpression); // Deref
 				param = {
 					field: arg
 				};
@@ -45,14 +34,14 @@ function sort(...args :any) :QueryExpressionSort {
 			}
 		}
 		if (i === args.length - 1) {
-			sort.push(param as QueryExpressionSortParams); // No need to deref
+			sort.push(param as SortDSLExpression); // No need to deref
 		}
 		//console.debug('i:%s sort:%s', i, toStr(sort));
 	} // for
 	//console.debug('sort:%s', toStr(sort));
 	return sort.length === 1
-		? {	sort: sort[0] as QueryExpressionSortParams}
-		: { sort };
+		? sort[0] as SortDSLExpression
+		: sort;
 }
 
 export { sort };

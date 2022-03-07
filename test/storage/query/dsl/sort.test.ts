@@ -9,9 +9,7 @@ describe('sort', () => {
 	it('minimal', () => {
 		deepStrictEqual(
 			{
-				sort: {
-					field: '_score'
-				}
+				field: '_score'
 			},
 			sort('_score')
 		)
@@ -19,10 +17,8 @@ describe('sort', () => {
 	it('ascending', () => {
 		deepStrictEqual(
 			{
-				sort: {
-					field: '_score',
-					direction: 'ASC'
-				}
+				field: '_score',
+				direction: 'ASC'
 			},
 			sort('_score','ASC')
 		)
@@ -30,37 +26,31 @@ describe('sort', () => {
 	it('descending', () => {
 		deepStrictEqual(
 			{
-				sort: {
-					field: '_score',
-					direction: 'DESC'
-				}
+				field: '_score',
+				direction: 'DESC'
 			},
 			sort('_score','DESC')
 		)
 	});
 	it('two fields without direction', () => {
 		deepStrictEqual(
-			{
-				sort: [{
-					field: '_score'
-				}, {
-					field: '_name',
-				}]
-			},
+			[{
+				field: '_score'
+			}, {
+				field: '_name',
+			}],
 			sort('_score', '_name')
 		)
 	});
 	it('two fields with direction', () => {
 		deepStrictEqual(
-			{
-				sort: [{
-					field: '_score',
-					direction: 'DESC'
-				}, {
-					field: '_name',
-					direction: 'ASC'
-				}]
-			},
+			[{
+				field: '_score',
+				direction: 'DESC'
+			}, {
+				field: '_name',
+				direction: 'ASC'
+			}],
 			sort('_score', 'DESC', '_name', 'ASC')
 		)
 	});
