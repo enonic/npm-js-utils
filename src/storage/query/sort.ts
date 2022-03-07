@@ -4,6 +4,8 @@ import type {
 	SortDirection,
 	SortStatement
 } from './types.d';
+import type {SortDirectionCaseInsensitive} from './sort.caseInsensitive.d';
+
 
 export const ASC :SortDirectionAscending = 'ASC';
 export const DESC :SortDirectionDescending = 'DESC';
@@ -15,4 +17,9 @@ export const SORT_MODIFIED :SortStatement = `modifiedTime ${DESC}`;
 
 export function isDirection(s :string) :s is SortDirection {
 	return s === ASC || s === DESC;
+}
+
+export function isDirectionCaseInsensitive(s :string) :s is SortDirectionCaseInsensitive {
+	const u = s.toUpperCase();
+	return u === ASC || u === DESC;
 }

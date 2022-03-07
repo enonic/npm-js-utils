@@ -7,7 +7,15 @@ import type {SortStatementCaseInsensitive} from '../sort.caseInsensitive.d';
 //import type {SortStatement} from '../types.d';
 
 
-export function termsParams(
+//import {toStr} from '../../../';
+import {isSet} from '../../../value';
+import {isNumber} from '../../../value/isNumber';
+import {isObject} from '../../../value/isObject';
+import {isString} from '../../../value/isString';
+//import {isDirectionCaseInsensitive} from '../sort';
+
+
+function termsParams(
 	field :string,
 	order? :SortStatementCaseInsensitive,
 	size? :number,
@@ -23,22 +31,64 @@ export function termsParams(
 	return terms;
 }
 
+type TermsOptionalParam = string|number|Aggregations;
 
-export function terms(
+/*function terms(
 	field :string,
 	order? :SortStatementCaseInsensitive,
 	size? :number,
 	minDocCount? :number,
 	aggregations? :Aggregations
-) {
+) :TermsAggregation;*/
+function terms(field :string, ...optionalArgs :Array<TermsOptionalParam>) {
+	let order :SortStatementCaseInsensitive//|undefined = undefined;
+	let size :number//|undefined = undefined;
+	let minDocCount :number//|undefined = undefined;
+	let aggregations :Aggregations//|undefined = undefined;
+
+	for (let i = 0; i < optionalArgs.length; i++) {
+	    const optinalArg = optionalArgs[i];
+		//console.debug('i:%s optinalArg:%s', i, toStr(optinalArg));
+		if (isString(optinalArg)) {
+			//@ts-ignore
+			if (order) {
+				throw new Error(`terms: You can only provide one optional order parameter!`);
+			}
+			order = optinalArg as SortStatementCaseInsensitive;
+		} else if (isNumber(optinalArg)) {
+			//@ts-ignore
+			if (isSet(minDocCount)) {
+				throw new Error(`terms: You can only provide one or two optional number parameters!`);
+			}
+			//@ts-ignore
+			if (isSet(size)) {
+				minDocCount = optinalArg;
+			} else {
+				size = optinalArg;
+			}
+		} else if (isObject(optinalArg)) {
+			//@ts-ignore
+			if (aggregations) {
+				throw new Error(`terms: You can only provide one optional aggregations parameter!`);
+			}
+			aggregations = optinalArg as Aggregations;
+		} else {
+			throw new Error(`terms: Unknown optional parameter type!`);
+		}
+	}
+
 	const termsAggregation :TermsAggregation = {
 		terms: termsParams(
 			field,
+			//@ts-ignore
 			order,
+			//@ts-ignore
 			size,
+			//@ts-ignore
 			minDocCount
 		)
 	};
+	//@ts-ignore
 	if (aggregations) {
 		termsAggregation.aggregations = aggregations;
 	}
@@ -46,7 +96,7 @@ export function terms(
 }
 
 
-/*export function termsNamed<
+/* function termsNamed<
 	Name extends string = string
 >({
 	field,
@@ -75,3 +125,10 @@ export function terms(
 		)
 	} as Record<Name,TermsAggregation>;
 }*/
+
+
+export {
+	terms,
+	//termsNamed,
+	termsParams
+}
