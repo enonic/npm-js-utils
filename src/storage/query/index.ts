@@ -1,3 +1,4 @@
+export * as aggregation from './aggregation';
 export * as dsl from './dsl';
 
 export {

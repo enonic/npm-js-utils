@@ -1,23 +1,27 @@
+export interface TermsAggregationParams {
+	field :string;
+	order? :string; // _term ASC
+	size? :number; // Default to 10
+	minDocCount? :number;
+}
+
 export interface TermsAggregation {
-	terms: {
-		field: string;
-		order?: string; // _term ASC
-		size?: number; // Default to 10
-		minDocCount?: number;
-	};
-	aggregations?: {
-		[subaggregation: string]: Aggregation;
+	terms :TermsAggregationParams;
+	aggregations? :{
+		[subaggregation :string] :Aggregation;
 	};
 }
 
+export interface StatsAggregationParams {
+	field :string;
+	order? :string;
+	size? :number;
+}
+
 export interface StatsAggregation {
-	stats: {
-		field: string;
-		order: string;
-		size: number;
-	};
-	aggregations?: {
-		[subaggregation: string]: Aggregation;
+	stats :StatsAggregationParams;
+	aggregations? :{
+		[subaggregation :string] :Aggregation;
 	};
 }
 
