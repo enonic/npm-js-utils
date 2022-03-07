@@ -6,10 +6,17 @@ import {
 	storage
 } from '../../../../src';
 
-const not = storage.query.dsl.not;
+/*const not = storage.query.dsl.not;
 const fulltext = storage.query.dsl.fulltext;
 const ngram = storage.query.dsl.ngram;
-const stemmed = storage.query.dsl.stemmed;
+const stemmed = storage.query.dsl.stemmed;*/
+const {
+	fulltext,
+	ngram,
+	mustNot,
+	not,
+	stemmed
+} = storage.query.dsl;
 
 const SEARCH_STRING = 'searchString';
 
@@ -50,7 +57,7 @@ describe('not', () => {
 			{
 				mustNot: [resF, resS]
 			},
-			not(f,s)
+			mustNot(f,s)
 		)
 	});
 	it('array with one item', () => {
@@ -66,7 +73,7 @@ describe('not', () => {
 			{
 				mustNot: [resF, resS]
 			},
-			not([f,s])
+			mustNot([f,s])
 		)
 	});
 	it('combo', () => {

@@ -26,4 +26,9 @@ function and(...args :any) :Must {
 	};
 }
 
-export { and };
+const must = and;
+
+export {
+	and,
+	must
+};

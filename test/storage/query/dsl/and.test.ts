@@ -6,10 +6,17 @@ import {
 	storage
 } from '../../../../src';
 
-const and = storage.query.dsl.and;
+/*const and = storage.query.dsl.and;
 const fulltext = storage.query.dsl.fulltext;
 const ngram = storage.query.dsl.ngram;
-const stemmed = storage.query.dsl.stemmed;
+const stemmed = storage.query.dsl.stemmed;*/
+const {
+	and,
+	fulltext,
+	must,
+	ngram,
+	stemmed
+} = storage.query.dsl;
 
 const SEARCH_STRING = 'searchString';
 
@@ -50,7 +57,7 @@ describe('and', () => {
 			{
 				must: [resF, resS]
 			},
-			and(f,s)
+			must(f,s)
 		)
 	});
 	it('array with one item', () => {
@@ -66,7 +73,7 @@ describe('and', () => {
 			{
 				must: [resF, resS]
 			},
-			and([f,s])
+			must([f,s])
 		)
 	});
 	it('combo', () => {

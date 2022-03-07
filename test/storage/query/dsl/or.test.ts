@@ -6,10 +6,17 @@ import {
 	storage
 } from '../../../../src';
 
-const or = storage.query.dsl.or;
+/*const or = storage.query.dsl.or;
 const fulltext = storage.query.dsl.fulltext;
 const ngram = storage.query.dsl.ngram;
-const stemmed = storage.query.dsl.stemmed;
+const stemmed = storage.query.dsl.stemmed;*/
+const {
+	fulltext,
+	ngram,
+	or,
+	should,
+	stemmed
+} = storage.query.dsl;
 
 const SEARCH_STRING = 'searchString';
 
@@ -50,7 +57,7 @@ describe('or', () => {
 			{
 				should: [resF, resS]
 			},
-			or(f,s)
+			should(f,s)
 		)
 	});
 	it('array with one item', () => {
@@ -66,7 +73,7 @@ describe('or', () => {
 			{
 				should: [resF, resS]
 			},
-			or([f,s])
+			should([f,s])
 		)
 	});
 	it('combo', () => {

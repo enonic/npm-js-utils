@@ -23,4 +23,9 @@ function or(...args :any) :Should {
 	};
 }
 
-export { or };
+const should = or;
+
+export {
+	or,
+	should
+};

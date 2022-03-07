@@ -20,4 +20,10 @@ function not(...args :any) :MustNot {
 		mustNot: flattened
 	};
 }
-export { not };
+
+const mustNot = not;
+
+export {
+	mustNot,
+	not
+};
