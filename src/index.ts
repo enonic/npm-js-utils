@@ -131,6 +131,7 @@ export {
 export * as string from './string'; // for example string.includes
 export {
 	camelize,
+	cleanAnyDoubleQuoteWrap,
 	fold,
 	includes as stringIncludes, // Conflicts with array.includes
 	lpad,

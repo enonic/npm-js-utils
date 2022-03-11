@@ -2,6 +2,7 @@ import {
 	isFunction,
 	isString
 } from '../value/';
+export {cleanAnyDoubleQuoteWrap} from './cleanAnyDoubleQuoteWrap';
 export {fold} from './fold';
 export {includes} from './includes';
 export {startsWith} from './startsWith';
