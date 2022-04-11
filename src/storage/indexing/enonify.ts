@@ -1,10 +1,8 @@
 import {flatten} from '../../array/flatten';
-import {
-	isDate,
-	isFunction,
-	isInfinity,
-	isObject
-} from '../../value';
+import {isDate} from '../../value/isDate';
+import {isFunction} from '../../value/isFunction';
+import {isInfinity} from '../../value/isInfinity';
+import {isObject} from '../../value/isObject';
 
 
 interface LooseObject {

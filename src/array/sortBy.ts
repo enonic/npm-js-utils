@@ -1,8 +1,8 @@
 import {hasOwnProperty} from '../object/hasOwnProperty';
 import {isNumber} from '../value/isNumber';
-import {isObject} from '../value';
+import {isObject} from '../value/isObject';
 import {isString} from '../value/isString';
-import {toStr} from '../value';
+import {toStr} from '../value/toStr';
 
 
 /*interface LooseObject {
