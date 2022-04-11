@@ -3,7 +3,7 @@ import {isUuidV4String} from '../../src';
 import {
 	UUID_V4,
 	NOT_UUID_V4
-} from '../testData'
+} from '@enonic/test-data';
 import {toStr} from '../toStr';
 
 

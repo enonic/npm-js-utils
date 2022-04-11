@@ -5,7 +5,7 @@ import {
 	//LOCAL_DATE_TIME_STRINGS_INVALID
 	//LOCAL_DATE_TIMES // contains LOCAL_DATE_TIME_STRINGS and DATE_OBJECT
 	NOT_LOCAL_DATE_TIME_STRINGS // contains LOCAL_DATE_TIME_STRINGS_INVALID which contains INSTANT_STRINGS
-} from '../testData'
+} from '@enonic/test-data';
 import {toStr} from '../toStr';
 
 

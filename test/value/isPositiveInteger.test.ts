@@ -11,7 +11,7 @@ import {
 	INTEGERS_NON_NEGATIVE,
 	NUMBERS_INFINITE,
 	NOT_NUMBERS
-} from '../testData'
+} from '@enonic/test-data';
 
 
 const TESTS_TRUE = [].concat(

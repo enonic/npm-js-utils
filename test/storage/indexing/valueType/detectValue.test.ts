@@ -1,16 +1,16 @@
 import {deepStrictEqual} from 'assert';
 import {
-	VALUE_TYPE_ANY,
-	VALUE_TYPE_BOOLEAN,
+	//VALUE_TYPE_ANY,
+	//VALUE_TYPE_BOOLEAN,
 	VALUE_TYPE_DOUBLE,
 	VALUE_TYPE_GEO_POINT,
-	VALUE_TYPE_INSTANT,
-	VALUE_TYPE_LOCAL_DATE,
-	VALUE_TYPE_LOCAL_DATE_TIME,
-	VALUE_TYPE_LOCAL_TIME,
+	//VALUE_TYPE_INSTANT,
+	//VALUE_TYPE_LOCAL_DATE,
+	//VALUE_TYPE_LOCAL_DATE_TIME,
+	//VALUE_TYPE_LOCAL_TIME,
 	//VALUE_TYPE_LONG,
-	VALUE_TYPE_REFERENCE,
-	VALUE_TYPE_SET,
+	//VALUE_TYPE_REFERENCE,
+	//VALUE_TYPE_SET,
 	VALUE_TYPE_STRING,
 	detectCommonValueType,
 	detectValueType
@@ -34,7 +34,7 @@ import {
 	STRINGS,
 	UNDEFINED,
 	UUID_V4
-} from '../../../testData'
+} from '@enonic/test-data'
 import {toStr} from '../../../toStr';
 
 

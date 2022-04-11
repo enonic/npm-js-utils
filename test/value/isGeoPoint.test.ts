@@ -1,46 +1,37 @@
-import {deepStrictEqual} from 'assert';
-import {
-	isGeoPoint,
-	isInfinity,
-	isNumber
-} from '../../src';
 import {
 	GEOPOINTS,
 	GEOPOINTS_INVALID
-} from '../testData';
+} from '@enonic/test-data';
+import {deepStrictEqual} from 'assert';
+
+import {isGeoPoint} from '../../src';
+import {toStr} from '../toStr';
 
 
-const TESTS_FALSE = [].concat(GEOPOINTS_INVALID, [
-	// Invalid input
-	[0,0,0], // Array of number
-	'0,0,0',
-	'',
-	true,
-	false,
-	[],
-	{},
-	-1,
-	1,
-	-Infinity,
-	Infinity,
-	new Date(),
-	'a,a',
-	'0.0',
-	[true,true],
-	[false,false],
-	['a','b'],
-], );
-
-
-function toStr(v) {
-	if (isInfinity(v)) {
-		return v;
-	}
-	if(isNumber(v) && (v < -9 || v > 9)) {
-		return v.toExponential();
-	}
-	return JSON.stringify(v);
-}
+const TESTS_FALSE = [].concat(
+	GEOPOINTS_INVALID,
+	[
+		// Invalid input
+		[0,0,0], // Array of number
+		'0,0,0',
+		'',
+		true,
+		false,
+		[],
+		{},
+		-1,
+		1,
+		-Infinity,
+		Infinity,
+		new Date(),
+		'a,a',
+		'0.0',
+		[true,true],
+		[false,false],
+		['a','b'],
+	]
+);
+console.debug('TESTS_FALSE:', TESTS_FALSE);
 
 
 describe('value', () => {

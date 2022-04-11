@@ -19,7 +19,7 @@ import {
 	STRINGS_INTEGER_NEGATIVE,
 	STRING_NAN,
 	STRINGS_NUMBER_INFINITE
-} from '../testData'
+} from '@enonic/test-data';
 
 
 const TESTS_TRUE = [].concat(

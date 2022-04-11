@@ -12,9 +12,11 @@ export function isGeoPointString(v :GeoPointString | unknown) :v is GeoPointStri
 		return false;
 	}
 
-	//const [lat, lon] :string[] = array; error TS2354: This syntax requires an imported helper but module 'tslib' cannot be found.
-	const lat = v[0];
-	const lon = v[1];
+	// tslib is required (transpile time) to support Array deconstruction.
+	// Even though it's easy to avoid using Array deconstruction,
+	//  since tslib is already used for export {} from,
+	//   it's kept as a development dependency.
+	const [lat, lon] :string[] = array;
 
 	if (!isString(lat) || !isString(lon)) {	return false; }
 

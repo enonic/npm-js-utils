@@ -9,9 +9,11 @@ export function isGeoPointArray(v :GeoPointArray | unknown) :v is GeoPointArray
 		|| v.length !== 2 // Even if the two first items are valid, if there are more items, it's not a GeoPointArray
 	) { return false; }
 
-	//const [lat, lon] :number[] = v; // error TS2354: This syntax requires an imported helper but module 'tslib' cannot be found.
-	const lat = v[0];
-	const lon = v[1];
+	// tslib is required (transpile time) to support Array deconstruction.
+	// Even though it's easy to avoid using Array deconstruction,
+	//  since tslib is already used for export {} from,
+	//   it's kept as a development dependency.
+	const [lat, lon] :number[] = v;
 
 	if (!isNumber(lat) && !isNumber(lon)) { return false; }
 

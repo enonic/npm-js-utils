@@ -3,7 +3,7 @@ import {isInteger} from '../../src';
 import {
 	INTEGERS,
 	NOT_INTEGERS
-} from '../testData'
+} from '@enonic/test-data';
 import {toStr} from '../toStr';
 
 

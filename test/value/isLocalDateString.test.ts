@@ -4,7 +4,7 @@ import {
 	LOCAL_DATE_STRINGS,
 	//LOCAL_DATES // contains DATE_OBJECTS
 	NOT_LOCAL_DATE_STRINGS // contains LOCAL_DATE_STRINGS_INVALID
-} from '../testData'
+} from '@enonic/test-data';
 import {toStr} from '../toStr';
 
 

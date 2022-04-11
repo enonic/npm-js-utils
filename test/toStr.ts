@@ -6,7 +6,7 @@ import {
 //} from '../src/index.js';
 
 
-export function toStr(v) {
+export function toStr(v :unknown) {
 	if (isInfinity(v)) {
 		return v;
 	}
