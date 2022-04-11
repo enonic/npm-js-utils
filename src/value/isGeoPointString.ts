@@ -1,4 +1,4 @@
-import type {GeoPointString} from '../index.d';
+import type {GeoPointString} from '../types/index.d';
 
 import {isGeoPointArray} from './isGeoPointArray';
 import {isString} from './isString';

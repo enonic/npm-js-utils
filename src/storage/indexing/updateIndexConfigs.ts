@@ -1,7 +1,8 @@
 import type {
 	IndexConfigEntry,
 	IndexConfigTemplates
-} from './IndexConfig';
+} from '../../types/index.d';
+
 
 import {findIndex} from '../../array/findIndex';
 

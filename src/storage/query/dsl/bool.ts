@@ -1,7 +1,7 @@
 import type {
 	CompoundExpression,
 	CompoundExpressionBoolean
-} from './index.d';
+} from '../../../types/index.d';
 
 
 export function bool(compoundExpression :CompoundExpression) :CompoundExpressionBoolean {

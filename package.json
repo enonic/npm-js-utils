@@ -38,24 +38,29 @@
     "commonjs"
   ],
   "license": "GPL-3.0",
+  "main": "dist/cjs/index.js",
   "name": "@enonic/js-utils",
   "scripts": {
-    "clean": "rm -r build dist 2>/dev/null;true",
-    "build": "yarn build:swc & yarn buildCjs & yarn buildEsm",
+    "build": "yarn build:swc & yarn build:tsc:cjs & yarn buildEsm",
     "buildCjsForOldestNode": "find src -type f -not -name '*.d.ts' | xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=node --target=node6.4.0",
-    "buildCjs": "find src -type f -not -name '*.d.ts'| xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=neutral --target=es2015",
+    "build:esbuild:cjs": "find src -type f -not -name '*.d.ts'| xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=neutral --target=es2015",
     "buildEsm": "find src -type f -not -name '*.d.ts'| xargs npx esbuild --bundle --format=esm --outbase=src --outdir=dist/esm --out-extension:.js=.mjs --platform=neutral --target=es2015",
-    "build:swc": "yarn run build:swc:src & yarn run build:swc:test",
+    "build:swc": "yarn build:swc:src & yarn build:swc:test",
     "build:swc:src": "find src -name '*.ts' -not -name '*.d.ts' | xargs npx swc --config-file ./.swcrc.json -d build/swc/src --source-root src",
     "build:swc:test": "find test -name '*.ts' -not -name '*.d.ts' | xargs npx swc --config-file ./.swcrc.json -d build/swc/test --source-root test",
+    "build:tsc:cjs": "npx tsc",
+    "clean": "rm -r build dist 2>/dev/null;true",
+    "copy": "mkdir dist && mkdir dist/cjs && cp -r src/types dist/cjs/",
     "docs": "npx typedoc",
     "lint": "npx eslint src test",
     "mocha": "npx mocha",
     "test": "npx mocha --config .swc.mocharc.cjs",
-    "prebuild": "yarn run clean",
-    "premocha": "yarn run build",
-    "pretest": "yarn run build",
-    "prepack": "yarn run build && yarn typedoc"
+    "prebuild": "yarn copy",
+    "precopy": "yarn clean",
+    "premocha": "yarn build",
+    "pretest": "yarn build",
+    "prepack": "yarn test && yarn typedoc",
+    "tsc": "npx tsc"
   },
-  "version": "0.33.3"
+  "version": "0.34.0"
 }

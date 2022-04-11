@@ -1,4 +1,5 @@
-import type {IndexConfigEntry} from './IndexConfig';
+import type {IndexConfigEntry} from '../../types/index.d';
+
 
 import {isObject} from '../../value';
 

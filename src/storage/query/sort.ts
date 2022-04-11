@@ -1,10 +1,10 @@
 import type {
 	SortDirectionAscending,
+	SortDirectionCaseInsensitive,
 	SortDirectionDescending,
 	SortDirection,
 	SortStatement
-} from './index.d';
-import type {SortDirectionCaseInsensitive} from './sort.caseInsensitive.d';
+} from '../../types/index.d';
 
 
 export const ASC :SortDirectionAscending = 'ASC';

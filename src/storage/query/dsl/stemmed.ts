@@ -1,4 +1,4 @@
-import type {QueryExpressionStemmed} from './index.d';
+import type {QueryExpressionStemmed} from '../../../types/index.d';
 
 import {
 	STEMMING_LANGUAGE_CODE_ENGLISH,

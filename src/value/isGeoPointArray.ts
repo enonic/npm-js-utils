@@ -1,4 +1,4 @@
-import type {GeoPointArray} from '../index.d';
+import type {GeoPointArray} from '../types/index.d';
 
 import {isNumber} from './isNumber';
 

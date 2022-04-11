@@ -35,3 +35,11 @@ export interface IndexConfigEntry {
 }
 
 export type IndexConfigTemplates = "none" | "byType" | "fulltext" | "path" | "minimal";
+
+export interface IndexConfig {
+	default: IndexConfigEntry | IndexConfigTemplates;
+	configs?: ReadonlyArray<{
+		path: string;
+		config: IndexConfigEntry | IndexConfigTemplates;
+	}>;
+}

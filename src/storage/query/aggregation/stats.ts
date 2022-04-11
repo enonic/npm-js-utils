@@ -1,9 +1,9 @@
 import type {
 	Aggregations,
+	SortStatementCaseInsensitive,
 	StatsAggregation,
 	StatsAggregationParams
-} from '../../../types/node/query/aggregation.d'
-import type {SortStatementCaseInsensitive} from '../sort.caseInsensitive.d';
+} from '../../../types/index.d';
 
 
 export function statsParams(

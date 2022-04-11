@@ -1,11 +1,10 @@
 import type {
 	Aggregations,
 	TermsAggregation,
-	TermsAggregationParams
-} from '../../../types/node/query/aggregation.d'
-import type {SortStatementCaseInsensitive} from '../sort.caseInsensitive.d';
-//import type {SortStatement} from '../index.d';
-
+	TermsAggregationParams,
+	//SortStatement,
+	SortStatementCaseInsensitive
+} from '../../../types/index.d';
 
 //import {toStr} from '../../../';
 import {isSet} from '../../../value';

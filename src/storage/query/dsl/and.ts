@@ -1,8 +1,8 @@
-//import type {OneOrMore} from '../../../index.d';
 import type {
 	CompoundExpression,
+	//OneOrMore,
 	QueryExpression
-} from './index.d';
+} from '../../../types/index.d';
 
 
 import {flatten} from '../../../array/flatten';

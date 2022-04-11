@@ -1,4 +1,3 @@
-import type {ValueType} from './ValueType';
 import {
 	VALUE_TYPE_ANY,
 	VALUE_TYPE_BOOLEAN,
@@ -11,7 +10,8 @@ import {
 	//VALUE_TYPE_LONG,
 	VALUE_TYPE_REFERENCE,
 	VALUE_TYPE_SET,
-	VALUE_TYPE_STRING
+	VALUE_TYPE_STRING,
+	VALUE_TYPES
 } from './constants';
 import {
 	isBoolean,
@@ -29,6 +29,10 @@ import {
 	isTimeString,
 	isUuidV4String
 } from '../../../value'
+
+
+type ValueType = typeof VALUE_TYPES[number];
+
 
 /*
 	Any
@@ -134,7 +138,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 			//console.debug('isObject === true value', value);
 			if (!commonValueType || commonValueType === VALUE_TYPE_SET) {
 				commonValueType = VALUE_TYPE_SET
-			} else if (commonValueType !== VALUE_TYPE_SET) {
+			} else /*if (commonValueType !== VALUE_TYPE_SET)*/ { // No-overlap
 				return VALUE_TYPE_ANY;
 			}
 			objectCount++;

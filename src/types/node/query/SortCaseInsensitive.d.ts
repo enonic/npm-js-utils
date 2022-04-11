@@ -1,3 +1,5 @@
+import type {SortField} from './Sort.d';
+
 type CaseInsensitiveA = 'a'|'A';
 type CaseInsensitiveC = 'c'|'C';
 type CaseInsensitiveD = 'd'|'D';
@@ -13,7 +15,6 @@ export type SortDirectionCaseInsensitive =
 	SortDirectionAscendingCaseInsensitive
 	| SortDirectionDescendingCaseInsensitive;
 
-export type SortField = string;
 export type SortExpressionCaseInsensitive = `${SortField} ${SortDirectionCaseInsensitive}`;
 export type SortStatementCaseInsensitive = SortExpressionCaseInsensitive
 	| `${SortExpressionCaseInsensitive},${''|' '}${SortExpressionCaseInsensitive}`

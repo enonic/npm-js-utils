@@ -5,7 +5,8 @@ import type {
 	HasValueFilter,
 	IdsFilter,
 	NotExistsFilter
-} from './Filters';
+} from '../../types/index.d';
+
 
 import {
 	FILTER_CLAUSE_MUST,

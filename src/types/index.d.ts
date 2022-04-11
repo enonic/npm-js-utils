@@ -1,11 +1,96 @@
+export type { App } from './App.d';
+export type {
+	Permission,
+	PermissionsParams,
+	PrincipalKey,
+	PrincipalKeyGroup,
+	PrincipalKeyRole,
+	PrincipalKeySystem,
+	PrincipalKeyUser
+} from './Auth';
 export type {
 	GeoPointArray,
 	GeoPointFunction,
 	GeoPointString
 } from './GeoPoint.d';
+export type { Log } from './Log.d';
 export type {
-	OptionalSpace
-} from './String.d';
+	Aggregation,
+	Aggregations,
+	AggregationsResponse,
+	AggregationsResponseBucket,
+	AggregationsResponseEntry,
+	AnalysedIndexType,
+	BasicFilters,
+	BooleanFilter,
+	CompoundExpression,
+	CompoundExpressionBoolean,
+	DateHistogramAggregation,
+	DateRangeAggregation,
+	ExistsFilter,
+	GeoDistanceAggregation,
+	GetActiveVersionParamObject,
+	GetActiveVersionResponse,
+	GetActiveVersionResponseObject,
+	HasValueFilter,
+	Highlight,
+	IdsFilter,
+	IndexConfig,
+	IndexConfigEntry,
+	IndexConfigTemplates,
+	MaxAggregation,
+	MinAggregation,
+	MultiRepoConnection,
+	MultiRepoConnectParams,
+	MultiRepoNodeQueryHit,
+	MultiRepoNodeQueryResponse,
+	NodeCreateParams,
+	NodeGetParams,
+	NodeLibrary,
+ 	NodeModifyParams,
+	NodeQueryHit,
+ 	NodeQueryParams,
+ 	NodeQueryResponse,
+	NotExistsFilter,
+	QueryDSL,
+	QueryExpression,
+	QueryExpressionFulltext,
+	QueryExpressionNgram,
+	QueryExpressionStemmed,
+	QueryFilters,
+	RangeAggregation,
+	RepoConnection,
+	RepoNode,
+	RepoNodeWithData,
+	SortDirection,
+	SortDirectionAscending,
+	SortDirectionAscendingCaseInsensitive,
+	SortDirectionDescending,
+	SortDirectionDescendingCaseInsensitive,
+	SortDirectionCaseInsensitive,
+	SortDSLExpression,
+	SortExpression,
+	SortExpressionCaseInsensitive,
+	SortField,
+	SortStatement,
+	SortStatementCaseInsensitive,
+	Source,
+	SourceWithPrincipals,
+	StatsAggregation,
+	StatsAggregationParams,
+	TermsAggregation,
+	TermsAggregationParams,
+	ValueCountAggregation
+} from './node/index.d';
 export type {
-	OneOrMore
-} from './Utility.d';
+	BranchConfig,
+	CreateBranchParams,
+	CreateRepoParams,
+	ElasticSearchIndexSettings,
+	IndexDefinition,
+	RepoLib,
+	RepositoryConfig,
+	RepositorySettings
+} from './Repo.d';
+export type { OptionalSpace } from './String.d';
+export type { OneOrMore } from './Utility.d';
