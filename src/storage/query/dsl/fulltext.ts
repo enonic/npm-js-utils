@@ -1,4 +1,4 @@
-import type {QueryExpressionFulltext} from './types.d';
+import type {QueryExpressionFulltext} from './index.d';
 
 
 import {

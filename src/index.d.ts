@@ -1,1 +1,7 @@
-export type OneOrMore<T> = T | T[];
+export type {
+	GeoPointArray,
+	GeoPointFunction,
+	GeoPointString,
+	OneOrMore,
+	OptionalSpace
+} from './types/index.d';

@@ -1,4 +1,4 @@
-import type {AnalysedIndexType} from './types.d';
+import type {AnalysedIndexType} from './index.d';
 
 
 interface QueryExpressionInParams<ValueType> {

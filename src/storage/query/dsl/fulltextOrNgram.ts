@@ -1,7 +1,7 @@
 import type {
 	QueryExpressionFulltext,
 	QueryExpressionNgram
-} from './types.d';
+} from './index.d';
 
 import {buildFieldsArray} from '../buildFields';
 import {

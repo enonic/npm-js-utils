@@ -1,7 +1,7 @@
 import type {
 	CompoundExpression,
 	QueryExpression
-} from './types.d';
+} from './index.d';
 
 
 import {flatten} from '../../../array/flatten';

@@ -1,4 +1,4 @@
-import type {QueryExpressionNgram} from './types.d';
+import type {QueryExpressionNgram} from './index.d';
 
 
 import {

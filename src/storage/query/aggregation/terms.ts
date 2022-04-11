@@ -2,9 +2,9 @@ import type {
 	Aggregations,
 	TermsAggregation,
 	TermsAggregationParams
-} from '../../../mock/node/query/aggregation.d'
+} from '../../../types/node/query/aggregation.d'
 import type {SortStatementCaseInsensitive} from '../sort.caseInsensitive.d';
-//import type {SortStatement} from '../types.d';
+//import type {SortStatement} from '../index.d';
 
 
 //import {toStr} from '../../../';

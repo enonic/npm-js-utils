@@ -1,4 +1,4 @@
-import type {OneOrMore} from '../../../types.d';
+import type {OneOrMore} from '../../../index.d';
 
 // Base primitive value index of a field (number, string, boolean) or
 export type AnalysedIndexType = "time" | "dateTime"

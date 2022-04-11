@@ -1,8 +1,8 @@
-import type {OneOrMore} from '../../../types.d';
+import type {OneOrMore} from '../../../index.d';
 import type {
 	SortDirection,
 	SortDSLExpression
-} from '../types.d';
+} from '../index.d';
 
 //import {toStr} from '../../../value';
 import {isDirection} from '../sort';

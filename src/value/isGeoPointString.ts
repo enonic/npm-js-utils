@@ -1,4 +1,4 @@
-import type {GeoPointString} from '../mock/value';
+import type {GeoPointString} from '../index.d';
 
 import {isGeoPointArray} from './isGeoPointArray';
 import {isString} from './isString';

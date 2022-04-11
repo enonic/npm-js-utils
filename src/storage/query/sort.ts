@@ -3,7 +3,7 @@ import type {
 	SortDirectionDescending,
 	SortDirection,
 	SortStatement
-} from './types.d';
+} from './index.d';
 import type {SortDirectionCaseInsensitive} from './sort.caseInsensitive.d';
 
 

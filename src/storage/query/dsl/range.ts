@@ -1,4 +1,4 @@
-import type {AnalysedIndexType} from './types.d';
+import type {AnalysedIndexType} from './index.d';
 
 
 import {isDate} from '../../../value/isDate';

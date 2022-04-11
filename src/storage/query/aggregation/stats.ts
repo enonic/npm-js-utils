@@ -2,7 +2,7 @@ import type {
 	Aggregations,
 	StatsAggregation,
 	StatsAggregationParams
-} from '../../../mock/node/query/aggregation.d'
+} from '../../../types/node/query/aggregation.d'
 import type {SortStatementCaseInsensitive} from '../sort.caseInsensitive.d';
 
 
