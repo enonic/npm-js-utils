@@ -1,4 +1,5 @@
 import type {Aggregation} from './Aggregation.d';
+import type {QueryDSL} from './Dsl.d';
 import type {
 	BasicFilters,
 	BooleanFilter
@@ -77,7 +78,7 @@ export interface NodeQueryParams<
 	/**
 	* Query expression.
 	*/
-	query?: string;
+	query? :QueryDSL | string;
 
 	/**
 	* Query filters

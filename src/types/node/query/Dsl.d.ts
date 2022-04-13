@@ -42,4 +42,4 @@ export interface CompoundExpressionBoolean {
 	boolean :CompoundExpression;
 }
 
-export type QueryDSL = CompoundExpressionBoolean & QueryExpression;
+export type QueryDSL = Partial<CompoundExpressionBoolean> & QueryExpression;
