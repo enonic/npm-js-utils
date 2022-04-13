@@ -23,8 +23,8 @@ export const QUERY_OPERATORS = [
 ] as const;
 
 export interface FieldObject {
-	readonly boost? :number,
-	readonly field :string,
+	boost? :number,
+	field :string,
 }
 
 type Field = (string | FieldObject);

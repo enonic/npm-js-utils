@@ -26,17 +26,17 @@ export interface Source {
 }
 
 export interface NodeQueryHit {
-	readonly id: string;
-	readonly score: number;
+	id: string;
+	score: number;
 }
 
 export interface NodeQueryResponse<
 	AggregationKeys extends undefined|string = undefined
 > {
-	readonly total: number;
-	readonly count: number;
-	readonly hits: ReadonlyArray<NodeQueryHit>;
-	readonly aggregations: AggregationsResponse<AggregationKeys>;
+	total: number;
+	count: number;
+	hits: ReadonlyArray<NodeQueryHit>;
+	aggregations: AggregationsResponse<AggregationKeys>;
 }
 
 export interface RepoConnection {

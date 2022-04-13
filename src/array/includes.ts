@@ -1,5 +1,5 @@
-type ArrayElement<ArrayType extends readonly unknown[]> =
-	ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
+type ArrayElement<ArrayType extends unknown[]> =
+	ArrayType extends (infer ElementType)[] ? ElementType : never;
 
 
 function sameValueZero(x :unknown, y :unknown) {
@@ -14,7 +14,7 @@ function sameValueZero(x :unknown, y :unknown) {
 
 
 export function includes<
-	A extends Readonly<Array<unknown>>
+	A extends Array<unknown>
 >(
 	array :A,
 	searchElement :ArrayElement<A>,

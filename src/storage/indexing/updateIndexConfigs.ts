@@ -8,15 +8,15 @@ import {findIndex} from '../../array/findIndex';
 
 
 interface IndexConfigsItem {
-	readonly path: string;
-	readonly config: IndexConfigEntry | IndexConfigTemplates;
+	path: string;
+	config: IndexConfigEntry | IndexConfigTemplates;
 }
 
 declare type IndexConfigs = ReadonlyArray<IndexConfigsItem>
 
 interface updateIndexConfigsParams {
-	readonly configs :IndexConfigs,
-	readonly updates? :IndexConfigs
+	configs :IndexConfigs,
+	updates? :IndexConfigs
 }
 
 

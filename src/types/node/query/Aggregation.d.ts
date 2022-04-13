@@ -148,26 +148,26 @@ export type Aggregations<
 
 
 export interface AggregationsResponseBucket {
-	readonly docCount: number;
-	readonly key: string;
-	readonly from?: number | string;
-	readonly to?: number | string;
+	docCount: number;
+	key: string;
+	from?: number | string;
+	to?: number | string;
 
-	readonly [key2: string]: any; // sub aggregations
+	[key2: string]: any; // sub aggregations
 }
 
 export interface AggregationsResponseEntry {
-	readonly buckets: Array<AggregationsResponseBucket>;
+	buckets: Array<AggregationsResponseBucket>;
 
 	// Max, Min, Value Count
-	readonly value? :number
+	value? :number
 
 	// Stats
-	readonly avg? :number
-	readonly count? :number
-	readonly max? :number
-	readonly min? :number
-	readonly sum? :number
+	avg? :number
+	count? :number
+	max? :number
+	min? :number
+	sum? :number
 }
 
 export type AggregationsResponse<

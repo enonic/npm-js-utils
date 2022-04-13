@@ -17,8 +17,8 @@ export interface MultiRepoConnectParams {
 }
 
 export interface MultiRepoNodeQueryHit extends NodeQueryHit {
-	readonly repoId: string;
-	readonly branch: string;
+	repoId: string;
+	branch: string;
 }
 
 export type MultiRepoNodeQueryResponse<

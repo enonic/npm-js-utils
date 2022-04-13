@@ -3,7 +3,7 @@ interface AppConfigObject {
 }
 
 export interface App {
-	readonly config :AppConfigObject
-	readonly name :string
-	readonly version :string
+	config :AppConfigObject
+	name :string
+	version :string
 }

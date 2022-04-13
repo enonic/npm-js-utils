@@ -2,10 +2,10 @@ import {DOT_SIGN} from '../../constants';
 
 
 interface UniqueIdParams {
-	readonly repoId :string;
-	readonly branchId? :string;
-	readonly nodeId :string;
-	readonly versionKey? :string;
+	repoId :string;
+	branchId? :string;
+	nodeId :string;
+	versionKey? :string;
 }
 
 

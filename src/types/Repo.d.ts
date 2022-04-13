@@ -130,7 +130,7 @@ export interface CreateBranchParams {
 }
 
 export interface BranchConfig {
-	readonly id: string;
+	id: string;
 }
 
 export interface RepoLib {
