@@ -90,6 +90,7 @@ export {
 	uniqueId,
 	updateIndexConfigs
 } from './indexing';
+export {HIGHLIGHT_FIELD_ALLTEXT} from './highlighting';
 export *  as query from './query';
 export {
 	FILTER_CLAUSE_MUST,
