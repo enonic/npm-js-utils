@@ -23,7 +23,7 @@ export interface NodeCreateParams {
 	/**
 	* The access control list for the node. By default the creator will have full access
 	*/
-	_permissions?: ReadonlyArray<PermissionsParams>;
+	_permissions?: Array<PermissionsParams>;
 
 	/**
 	* true if the permissions should be inherited from the node parent. Default is false.

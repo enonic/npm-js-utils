@@ -27,7 +27,7 @@ export type MultiRepoNodeQueryResponse<
 	NodeQueryResponse<AggregationKeys>,
 	"hits"
 > & {
-	hits: ReadonlyArray<MultiRepoNodeQueryHit>;
+	hits: Array<MultiRepoNodeQueryHit>;
 };
 
 export interface MultiRepoConnection {

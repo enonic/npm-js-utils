@@ -120,7 +120,7 @@ export interface NodeQueryResponse<
 > {
 	total: number;
 	count: number;
-	hits: ReadonlyArray<NodeQueryHit>;
+	hits: Array<NodeQueryHit>;
 	aggregations: AggregationsResponse<AggregationKeys>;
 }
 

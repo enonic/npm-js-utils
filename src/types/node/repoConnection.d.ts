@@ -35,7 +35,7 @@ export interface NodeQueryResponse<
 > {
 	total: number;
 	count: number;
-	hits: ReadonlyArray<NodeQueryHit>;
+	hits: Array<NodeQueryHit>;
 	aggregations: AggregationsResponse<AggregationKeys>;
 }
 
@@ -45,7 +45,7 @@ export interface RepoConnection {
 	*/
 	//commit(params: CommitParams): CommitResponse;
 
-	//commit(params: MultiCommitParams): ReadonlyArray<CommitResponse>;
+	//commit(params: MultiCommitParams): Array<CommitResponse>;
 
 	/**
 	* Creating a node. To create a content where the name is not important and there could be multiple instances under the
@@ -85,7 +85,7 @@ export interface RepoConnection {
 	/**
 	* Fetches specific nodes by paths or IDs.
 	*/
-	//get<NodeData>(keys: ReadonlyArray<string | NodeGetParams>): ReadonlyArray<NodeData & RepoNode>;
+	//get<NodeData>(keys: Array<string | NodeGetParams>): Array<NodeData & RepoNode>;
 	//get(keys: Array<string | NodeGetParams>): Array<RepoNodeWithData>;
 	//get(keys: string[]): RepoNodeWithData | RepoNodeWithData[];
 
@@ -93,8 +93,8 @@ export interface RepoConnection {
 	* Fetches specific nodes by path(s) or ID(s).
 	*/
 	/*get<NodeData>(
-		keys: string | NodeGetParams | ReadonlyArray<string | NodeGetParams>
-	): (NodeData & RepoNode) | ReadonlyArray<NodeData & RepoNode>;*/
+		keys: string | NodeGetParams | Array<string | NodeGetParams>
+	): (NodeData & RepoNode) | Array<NodeData & RepoNode>;*/
 	/*get(
 		keys: string | NodeGetParams | Array<string | NodeGetParams>
 	): (RepoNodeWithData) | Array<RepoNodeWithData>;*/

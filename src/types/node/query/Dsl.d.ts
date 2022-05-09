@@ -5,7 +5,7 @@ export type AnalysedIndexType = "time" | "dateTime"
 
 export interface QueryExpressionFulltext {
 	fulltext :{
-		fields :ReadonlyArray<string>
+		fields :Array<string>
 		operator :string
 		query :string
 	}
@@ -13,7 +13,7 @@ export interface QueryExpressionFulltext {
 
 export interface QueryExpressionNgram {
 	ngram :{
-		fields :ReadonlyArray<string>
+		fields :Array<string>
 		operator :string
 		query :string
 	}
@@ -21,7 +21,7 @@ export interface QueryExpressionNgram {
 
 export interface QueryExpressionStemmed {
 	stemmed :{
-		fields :ReadonlyArray<string>
+		fields :Array<string>
 		language :string
 		operator :string
 		query :string

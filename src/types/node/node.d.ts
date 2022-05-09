@@ -10,7 +10,7 @@ export interface RepoNode {
 	_name :string;
 	_nodeType :string;
 	_path :string;
-	_permissions :ReadonlyArray<PermissionsParams>;
+	_permissions :Array<PermissionsParams>;
 	_state :string;
 	_versionKey :string;
 	_ts :string;

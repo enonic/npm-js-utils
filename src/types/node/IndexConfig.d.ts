@@ -30,15 +30,15 @@ export interface IndexConfigEntry {
    */
   path: boolean;
 
-  indexValueProcessors?: ReadonlyArray<unknown>;
-  languages?: ReadonlyArray<unknown>;
+  indexValueProcessors?: Array<unknown>;
+  languages?: Array<unknown>;
 }
 
 export type IndexConfigTemplates = "none" | "byType" | "fulltext" | "path" | "minimal";
 
 export interface IndexConfig {
 	default: IndexConfigEntry | IndexConfigTemplates;
-	configs?: ReadonlyArray<{
+	configs?: Array<{
 		path: string;
 		config: IndexConfigEntry | IndexConfigTemplates;
 	}>;

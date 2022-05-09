@@ -12,7 +12,7 @@ interface IndexConfigsItem {
 	config: IndexConfigEntry | IndexConfigTemplates;
 }
 
-declare type IndexConfigs = ReadonlyArray<IndexConfigsItem>
+declare type IndexConfigs = Array<IndexConfigsItem>
 
 interface updateIndexConfigsParams {
 	configs :IndexConfigs,
