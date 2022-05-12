@@ -2,6 +2,7 @@ export {camelize} from './camelize';
 export {cleanAnyDoubleQuoteWrap} from './cleanAnyDoubleQuoteWrap';
 export {fold} from './fold';
 export {includes} from './includes';
+export {isValidGraphQLName} from './isValidGraphQLName'
 export {lpad} from './lpad';
 export {rpad} from './rpad';
 export {startsWith} from './startsWith';
