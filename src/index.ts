@@ -135,6 +135,7 @@ export {
 	cleanAnyDoubleQuoteWrap,
 	fold,
 	includes as stringIncludes, // Conflicts with array.includes
+	isAsciiPrintablePunctuation,
 	isValidGraphQLName,
 	lpad,
 	rpad,

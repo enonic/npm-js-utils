@@ -298,10 +298,10 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
-"@enonic/test-data@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@enonic/test-data/-/test-data-0.1.1.tgz#454986cf085d1b4b33932e9c2d0ad3d4b9ae8873"
-  integrity sha512-oYlayfiN36JO/PJjdsbH0In+ebkigLjWZKBDUf+UvkVl0kMXXa2rthG5WHh6i4JVE+Ql/kRR/MRsOETMTnKQdA==
+"@enonic/test-data@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@enonic/test-data/-/test-data-0.2.1.tgz#68dd6374f48060fd9a39c5659edf6e7cb487064a"
+  integrity sha512-63Hz92ONDSLcNPP8plbJbDx6PyK6wuOs2nUQmazHjqTa22m3N2XhfogRmJOvF3JVsO08rdTPEr3iBC76OAUKgA==
 
 "@eslint/eslintrc@^1.0.5":
   version "1.0.5"

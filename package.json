@@ -5,7 +5,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/register": "^7.16.5",
-    "@enonic/test-data": "^0.1.1",
+    "@enonic/test-data": "^0.2.1",
     "@types/chai": "^4.3.0",
     "@types/expect": "^24.3.0",
     "@types/mocha": "^9.0.0",
@@ -62,5 +62,5 @@
     "prepack": "yarn test && yarn typedoc",
     "tsc": "npx tsc"
   },
-  "version": "0.36.0"
+  "version": "0.37.0"
 }
