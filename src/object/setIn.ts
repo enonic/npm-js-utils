@@ -48,7 +48,7 @@ export function setIn<
 	let leafKey = path[0] as K;
 	//console.debug('root k:%s', k);
 	if (isUnsafeKey(leafKey)) {
-		throw new Error(`setIn: unsafe root key: "${leafKey}"`);
+		throw new Error(`setIn: unsafe root key: "${String(leafKey)}"`);
 	}
 
 	let obj = target as unknown as ObjectWithPropertyKeys;
@@ -57,14 +57,14 @@ export function setIn<
 		leafKey = path[pathLength - 1] as K;
 		//console.debug('leaf k:%s', k);
 		if (isUnsafeKey(leafKey)) {
-			throw new Error(`setIn: unsafe leaf key: "${leafKey}"`);
+			throw new Error(`setIn: unsafe leaf key: "${String(leafKey)}"`);
 		}
 		for(let i = 0; i < pathLength - 1; i++) {
 			const branchKey = path[i] as K;
 			//console.debug('branchKey:%s', branchKey);
 
 			if (isUnsafeKey(branchKey)) {
-				throw new Error(`setIn: unsafe branch key: "${branchKey}"`);
+				throw new Error(`setIn: unsafe branch key: "${String(branchKey)}"`);
 			}
 
 			if (!hasOwnProperty(obj, branchKey)) {
