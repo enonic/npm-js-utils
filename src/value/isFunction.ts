@@ -1,4 +1,4 @@
-export function isFunction(value: unknown) :boolean {
+export function isFunction(value: unknown) :value is Function {
 	return Object.prototype.toString.call(value).slice(8,-1) === 'Function';
 	/* // Highly performant (but unsafe?)
 	return !!(
