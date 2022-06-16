@@ -44,13 +44,12 @@ module.exports = {
 
 	overrides: [{ // Which folders to lint must be provided on cmd line.
 		files: [
-			// Is linted whether you want it or not:
-			//'**/*.ts'
-			// Needs to be listed here to be linted:
-			'**/*.mjs'
+			'**/*.ts'
 		]
 	}],
-	//parser: 'babel-eslint',
+
+	parser: '@typescript-eslint/parser',
+
 	/*parserOptions: {
 		allowImportExportEverywhere: false,
 
