@@ -27,6 +27,7 @@ export interface Source {
 
 export interface NodeQueryHit {
 	id: string;
+	highlight ?:Record<string,Array<string>>
 	score: number;
 }
 
