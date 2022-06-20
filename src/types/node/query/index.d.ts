@@ -9,21 +9,30 @@ import type {Highlight} from './Highlight.d';
 
 export type {
 	Aggregation,
+	AggregationForGraphQLSchemaQueryArgsInputType,
 	Aggregations,
 	AggregationsResponse,
 	AggregationsResponseBucket,
 	AggregationsResponseEntry,
+	AggregationType,
 	DateHistogramAggregation,
+	DateHistogramAggregationParams,
 	DateRangeAggregation,
-	MaxAggregation,
-	MinAggregation,
+	DateRangeAggregationParams,
 	GeoDistanceAggregation,
+	GeoDistanceAggregationParams,
+	MaxAggregation,
+	MaxAggregationParams,
+	MinAggregation,
+	MinAggregationParams,
 	RangeAggregation,
+	RangeAggregationParams,
 	StatsAggregation,
 	StatsAggregationParams,
 	TermsAggregation,
 	TermsAggregationParams,
-	ValueCountAggregation
+	ValueCountAggregation,
+	ValueCountAggregationParams
 } from './Aggregation.d';
 export type {
 	AnalysedIndexType,
