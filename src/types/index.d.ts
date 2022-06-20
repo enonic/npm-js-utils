@@ -16,19 +16,24 @@ export type {
 export type { Log } from './Log.d';
 export type {
 	Aggregation,
+	AggregationForGraphQLSchemaQueryArgsInputType,
 	Aggregations,
 	AggregationsResponse,
 	AggregationsResponseBucket,
 	AggregationsResponseEntry,
+	AggregationType,
 	AnalysedIndexType,
 	BasicFilters,
 	BooleanFilter,
 	CompoundExpression,
 	CompoundExpressionBoolean,
 	DateHistogramAggregation,
+	DateHistogramAggregationParams,
 	DateRangeAggregation,
+	DateRangeAggregationParams,
 	ExistsFilter,
 	GeoDistanceAggregation,
+	GeoDistanceAggregationParams,
 	GetActiveVersionParamObject,
 	GetActiveVersionResponse,
 	GetActiveVersionResponseObject,
@@ -39,7 +44,9 @@ export type {
 	IndexConfigEntry,
 	IndexConfigTemplates,
 	MaxAggregation,
+	MaxAggregationParams,
 	MinAggregation,
+	MinAggregationParams,
 	MultiRepoConnection,
 	MultiRepoConnectParams,
 	MultiRepoNodeQueryHit,
@@ -59,6 +66,7 @@ export type {
 	QueryExpressionStemmed,
 	QueryFilters,
 	RangeAggregation,
+	RangeAggregationParams,
 	RepoConnection,
 	RepoNode,
 	RepoNodeWithData,
@@ -80,7 +88,8 @@ export type {
 	StatsAggregationParams,
 	TermsAggregation,
 	TermsAggregationParams,
-	ValueCountAggregation
+	ValueCountAggregation,
+	ValueCountAggregationParams
 } from './node/index.d';
 export type {
 	BranchConfig,
