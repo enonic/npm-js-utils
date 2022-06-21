@@ -92,6 +92,19 @@ export type {
 	ValueCountAggregationParams
 } from './node/index.d';
 export type {
+	EventTypeApplication,
+	EventTypeTaskFinished,
+	EventTypeTaskRemoved,
+	EventTypeTaskUpdated,
+	EventTypesCustom,
+	EventTypesTask,
+	EventTypes,
+	Event,
+	CustomEvent,
+	ApplicationEvent,
+	TaskEvent
+} from './Event.d'
+export type {
 	BranchConfig,
 	CreateBranchParams,
 	CreateRepoParams,
