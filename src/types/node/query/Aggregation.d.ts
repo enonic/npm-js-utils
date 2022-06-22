@@ -1,6 +1,3 @@
-import type {EmptyObject} from '../../Utility.d';
-
-
 //──────────────────────────────────────────────────────────────────────────────
 // Params
 //──────────────────────────────────────────────────────────────────────────────
@@ -205,7 +202,7 @@ export type Aggregation =
 export type Aggregations<
 	AggregationKeys extends undefined|string = undefined
 > = AggregationKeys extends undefined
-	? EmptyObject
+	? {} // eslint-disable-line @typescript-eslint/ban-types
 	: AggregationKeys extends string
 		? Record<AggregationKeys, Aggregation>
 		: never
@@ -240,7 +237,7 @@ export type AggregationsResponseEntry = {
 export type AggregationsResponse<
 	AggregationKeys extends undefined|string = undefined
 > = AggregationKeys extends undefined
-	? EmptyObject
+	? {} // eslint-disable-line @typescript-eslint/ban-types
 	: AggregationKeys extends string
 		? Record<AggregationKeys, AggregationsResponseEntry>
 		/*? {

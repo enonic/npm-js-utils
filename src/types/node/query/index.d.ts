@@ -5,7 +5,6 @@ import type {
 	BooleanFilter
 } from './Filters.d';
 import type {Highlight} from './Highlight.d';
-import type {EmptyObject} from '../../Utility.d';
 
 
 export type {
@@ -104,7 +103,7 @@ export interface NodeQueryParams<
 	* Aggregations expression.
 	*/
 	aggregations ?:AggregationKeys extends undefined
-		? EmptyObject
+		? {} // eslint-disable-line @typescript-eslint/ban-types
 		: AggregationKeys extends string
 			? Record<AggregationKeys, Aggregation>
 			: never
