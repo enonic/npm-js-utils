@@ -122,3 +122,6 @@ export type {
 	AnyObject,
 	OneOrMore
 } from './Utility.d';
+export type {
+	Vhost
+} from './Vhost.d';
