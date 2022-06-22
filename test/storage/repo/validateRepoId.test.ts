@@ -121,7 +121,7 @@ describe('validateRepoId()', () => {
 				);
 			});
 		});
-		for (var i = 0; i < ASCII_FOLDING.length; i++) {
+		for (let i = 0; i < ASCII_FOLDING.length; i++) {
 			const repoId = `a${ASCII_FOLDING[i]}a`;
 			it(`validateRepoId(${toStr(repoId)}) --> errorStr`, () => {
 				const res = validateRepoId(repoId);

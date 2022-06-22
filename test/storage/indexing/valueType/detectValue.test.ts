@@ -121,7 +121,7 @@ describe('value', () => {
 	describe('detectValueType()', () => {
 
 		describe('--> boolean', () => {
-			for (var i = 0; i < BOOLEANS.length; i++) {
+			for (let i = 0; i < BOOLEANS.length; i++) {
 				const param = BOOLEANS[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -139,7 +139,7 @@ describe('value', () => {
 		});
 
 		describe('--> double', () => {
-			for (var i = 0; i < NUMBERS_FINITE.length; i++) {
+			for (let i = 0; i < NUMBERS_FINITE.length; i++) {
 				const param = NUMBERS_FINITE[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -171,7 +171,7 @@ describe('value', () => {
 		});
 
 		describe('--> geoPoint', () => {
-			for (var i = 0; i < GEOPOINTS.length; i++) {
+			for (let i = 0; i < GEOPOINTS.length; i++) {
 				const param = GEOPOINTS[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -189,7 +189,7 @@ describe('value', () => {
 		});
 
 		describe('--> instant', () => {
-			for (var i = 0; i < INSTANTS.length; i++) {
+			for (let i = 0; i < INSTANTS.length; i++) {
 				const param = INSTANTS[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -207,7 +207,7 @@ describe('value', () => {
 		});
 
 		describe('--> localDate', () => {
-			for (var i = 0; i < LOCAL_DATE_STRINGS.length; i++) {
+			for (let i = 0; i < LOCAL_DATE_STRINGS.length; i++) {
 				const param = LOCAL_DATE_STRINGS[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -225,7 +225,7 @@ describe('value', () => {
 		});
 
 		describe('--> localDateTime', () => {
-			for (var i = 0; i < LOCAL_DATE_TIME_STRINGS.length; i++) {
+			for (let i = 0; i < LOCAL_DATE_TIME_STRINGS.length; i++) {
 				const param = LOCAL_DATE_TIME_STRINGS[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -243,7 +243,7 @@ describe('value', () => {
 		});
 
 		describe('--> localTime', () => {
-			for (var i = 0; i < LOCAL_TIME_STRINGS.length; i++) {
+			for (let i = 0; i < LOCAL_TIME_STRINGS.length; i++) {
 				const param = LOCAL_TIME_STRINGS[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -261,7 +261,7 @@ describe('value', () => {
 		});
 
 		describe('--> reference', () => {
-			for (var i = 0; i < UUID_V4.length; i++) {
+			for (let i = 0; i < UUID_V4.length; i++) {
 				const param = UUID_V4[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -279,7 +279,7 @@ describe('value', () => {
 		});
 
 		describe('--> set', () => {
-			for (var i = 0; i < SET.length; i++) {
+			for (let i = 0; i < SET.length; i++) {
 				const param = SET[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -297,7 +297,7 @@ describe('value', () => {
 		});
 
 		describe('--> string', () => {
-			for (var i = 0; i < STRINGS.length; i++) {
+			for (let i = 0; i < STRINGS.length; i++) {
 				const param = STRINGS[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -315,7 +315,7 @@ describe('value', () => {
 		});
 
 		describe('--> any', () => {
-			for (var i = 0; i < ANY.length; i++) {
+			for (let i = 0; i < ANY.length; i++) {
 				const param = ANY[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(

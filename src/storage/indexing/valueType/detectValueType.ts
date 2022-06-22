@@ -53,28 +53,18 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 	//console.debug('array', array);
 
 	let anyStringCount = 0;
-	//@ts-ignore
-	let booleanCount = 0;
-	//@ts-ignore
-	let dateCount = 0;
+	//let booleanCount = 0;
+	//let dateCount = 0;
 	let geoPointArrayCount = 0;
-	//@ts-ignore
-	let geoPointStringCount = 0;
-	//@ts-ignore
-	let instantStringCount = 0;
-	//@ts-ignore
-	let localDateStringCount = 0;
-	//@ts-ignore
-	let localDateTimeStringCount = 0;
-	//@ts-ignore
-	let numberCount = 0;
+	//let geoPointStringCount = 0;
+	//let instantStringCount = 0;
+	//let localDateStringCount = 0;
+	//let localDateTimeStringCount = 0;
+	//let numberCount = 0;
 	let objectCount = 0;
-	//@ts-ignore
-	let stringCount = 0;
-	//@ts-ignore
-	let timeStringCount = 0;
-	//@ts-ignore
-	let uuidV4StringCount = 0;
+	//let stringCount = 0;
+	//let timeStringCount = 0;
+	//let uuidV4StringCount = 0;
 
 	let commonValueType :ValueType|undefined;
 	for (let i = 0; i < array.length; i++) {
@@ -109,7 +99,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 			} else if (anyStringCount) {
 				commonValueType = VALUE_TYPE_STRING;
 			}
-			booleanCount++;
+			//booleanCount++;
 		} else if (isDate(value)) {
 			//console.debug('isDate === true value', value);
 			if (!commonValueType || commonValueType === VALUE_TYPE_INSTANT) {
@@ -119,7 +109,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 			} else if (anyStringCount) {
 				commonValueType = VALUE_TYPE_STRING;
 			}
-			dateCount++;
+			//dateCount++;
 		} else if(isNumber(value)) {
 			//console.debug('isNumber === true value', value);
 			if (!commonValueType) {
@@ -133,7 +123,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 			} else if (geoPointArrayCount) {
 				commonValueType = VALUE_TYPE_DOUBLE
 			}
-			numberCount++;
+			//numberCount++;
 		} else if(isObject(value)) {
 			//console.debug('isObject === true value', value);
 			if (!commonValueType || commonValueType === VALUE_TYPE_SET) {
@@ -151,7 +141,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 				} else if (anyStringCount) {
 					commonValueType = VALUE_TYPE_STRING;
 				}
-				geoPointStringCount++;
+				//geoPointStringCount++;
 			} else if (isInstantString(value)) {
 				//console.debug('isInstantString === true value', value);
 				if (!commonValueType || commonValueType === VALUE_TYPE_INSTANT) {
@@ -159,7 +149,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 				} else if (anyStringCount) {
 					commonValueType = VALUE_TYPE_STRING;
 				}
-				instantStringCount++;
+				//instantStringCount++;
 			} else if (isLocalDateString(value)) {
 				//console.debug('isLocalDateString === true value', value);
 				if (!commonValueType || commonValueType === VALUE_TYPE_LOCAL_DATE) {
@@ -167,7 +157,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 				} else if (anyStringCount) {
 					commonValueType = VALUE_TYPE_STRING;
 				}
-				localDateStringCount++;
+				//localDateStringCount++;
 			} else if (isLocalDateTimeString(value)) {
 				//console.debug('isLocalDateTimeString === true value', value);
 				if (!commonValueType || commonValueType === VALUE_TYPE_LOCAL_DATE_TIME) {
@@ -175,7 +165,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 				} else if (anyStringCount) {
 					commonValueType = VALUE_TYPE_STRING;
 				}
-				localDateTimeStringCount++;
+				//localDateTimeStringCount++;
 			} else if (isTimeString(value)) {
 				//console.debug('isTimeString === true value', value);
 				if (!commonValueType || commonValueType === VALUE_TYPE_LOCAL_TIME) {
@@ -183,7 +173,7 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 				} else if (anyStringCount) {
 					commonValueType = VALUE_TYPE_STRING;
 				}
-				timeStringCount++;
+				//timeStringCount++;
 			} else if (isUuidV4String(value)) {
 				//console.debug('isUuidV4String === true value', value);
 				if (!commonValueType || commonValueType === VALUE_TYPE_REFERENCE) {
@@ -191,11 +181,11 @@ export function detectCommonValueType(array :Array<unknown>) :ValueType {
 				} else if (anyStringCount) {
 					commonValueType = VALUE_TYPE_STRING;
 				}
-				uuidV4StringCount++;
+				//uuidV4StringCount++;
 			} else {
 				//console.debug('isString === true value', value);
 				commonValueType = VALUE_TYPE_STRING;
-				stringCount++;
+				//stringCount++;
 			}
 			anyStringCount++;
 		} else {

@@ -1,7 +1,7 @@
 import * as assert from 'assert';
 import { setIn } from '../../src';
 
-const deepStrictEqual = assert.deepStrictEqual;
+//const deepStrictEqual = assert.deepStrictEqual;
 const throws = assert.throws;
 
 
@@ -74,7 +74,7 @@ describe('setIn', () => {
 	});
 
 	// TODO: Have an option to allow overwriting intermediary non object values?
-    /*it('should set a deeply nested value.', () => {
+	/*it('should set a deeply nested value.', () => {
 		const actual = setIn({ a: 'a', b: { c: 'd' } }, 'b.c.d', 'eee');
 		assert.deepEqual(actual, { a: 'a', b: { c: { d: 'eee' } } });
 	});*/
@@ -113,8 +113,8 @@ describe('setIn', () => {
 	});*/
 
 	it('should extend a function', () => {
-		const log = () => { };
-		const warning = () => { };
+		const log = () => {/**/};
+		const warning = () => {/**/};
 		const o = {};
 
 		setIn(o, 'helpers.foo', log);

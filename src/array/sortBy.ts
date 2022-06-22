@@ -19,8 +19,8 @@ function compareNumbers(
 
 
 function compareStrings(
-	a :string,
-	b :string,
+	a :string|String, //eslint-disable-line @typescript-eslint/ban-types
+	b :string|String, //eslint-disable-line @typescript-eslint/ban-types
 	caseSensitive :boolean = true
 ) :number {
 	if (!caseSensitive) { // TODO asciifold?

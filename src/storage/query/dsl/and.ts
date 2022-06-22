@@ -17,6 +17,7 @@ interface Must {
 function and(arg :QueryExpression & CompoundExpression) :Must;
 function and(...args :Array<QueryExpression & CompoundExpression>) :Must;
 function and(args :Array<QueryExpression & CompoundExpression>) :Must;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function and(...args :any) :Must {
 	//console.debug('args:%s',toStr(args));
 	const flattened = flatten(args) as Array<QueryExpression & CompoundExpression>;

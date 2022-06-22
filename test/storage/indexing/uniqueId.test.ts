@@ -29,6 +29,7 @@ describe('uniqueId', () => {
 	});
 	it('throws TypeError "Cannot destructure" when no params', () => {
 		assert.throws(() => {
+			//eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			//@ts-ignore
 			uniqueId();
 		}, {
@@ -41,6 +42,7 @@ describe('uniqueId', () => {
 	});
 	it('throws TypeError when required named parameter repoId is missing', () => {
 		assert.throws(() => {
+			//eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			//@ts-ignore
 			uniqueId({});
 		}, {
@@ -50,6 +52,7 @@ describe('uniqueId', () => {
 	});
 	it('throws TypeError when required named parameter nodeId is missing', () => {
 		assert.throws(() => {
+			//eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			//@ts-ignore
 			uniqueId({
 				repoId: 'repo'

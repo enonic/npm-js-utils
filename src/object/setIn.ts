@@ -18,7 +18,7 @@ interface ObjectWithPropertyKeys {
 
 function isUnsafeKey(key :PropertyKey) :boolean {
 	return key === '__proto__' || key === 'constructor' || key === 'prototype';
-};
+}
 
 
 export function setIn<
@@ -26,14 +26,14 @@ export function setIn<
 	//O extends object,
 	//O extends {},
 	//O extends ObjectWithStringKeys,
-	O extends unknown,
+	O/* extends unknown*/,
 	//K extends keyof O,
 	//K extends keyof O & string,
 	//K extends string & keyof O,
 	//K extends string,
 	K extends PropertyKey, // string | number | symbol
 	//V extends O[K]
-	V extends unknown
+	V/* extends unknown*/
 >(
 	target :O,
 	path :K | Array<K>,

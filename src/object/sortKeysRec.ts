@@ -1,7 +1,11 @@
+//import type {AnyObject} from '../types';
+
+
 const {isArray} = Array;
 const {keys} = Object;
 
 
+//eslint-disable-next-line @typescript-eslint/ban-types
 export function sortKeysRec<T extends Object>(obj :T) :T {
 	if (isArray(obj)) {
 		const newArray = [];

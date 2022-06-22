@@ -84,7 +84,7 @@ export interface ElasticSearchIndexSettings {
 
 export interface IndexDefinition {
 	settings: ElasticSearchIndexSettings;
-	mapping: any;
+	mapping: unknown; // TODO
 }
 export interface RepositorySettings {
 	definitions? :{

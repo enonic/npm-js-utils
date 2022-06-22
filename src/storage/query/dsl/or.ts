@@ -16,6 +16,7 @@ interface Should {
 function or(arg :QueryExpression & CompoundExpression) :Should;
 function or(...args :Array<QueryExpression & CompoundExpression>) :Should;
 function or(args :Array<QueryExpression & CompoundExpression>) :Should;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function or(...args :any) :Should {
 	const flattened = flatten(args) as Array<QueryExpression & CompoundExpression>;
 	return {

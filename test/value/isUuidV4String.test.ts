@@ -10,7 +10,7 @@ import {toStr} from '../toStr';
 describe('value', () => {
 	describe('isUuidV4String()', () => {
 		describe('--> true', () => {
-			for (var i = 0; i < UUID_V4.length; i++) {
+			for (let i = 0; i < UUID_V4.length; i++) {
 				const param = UUID_V4[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(
@@ -22,7 +22,7 @@ describe('value', () => {
 		}); // describe true
 
 		describe('--> false', () => {
-			for (var i = 0; i < NOT_UUID_V4.length; i++) {
+			for (let i = 0; i < NOT_UUID_V4.length; i++) {
 				const param = NOT_UUID_V4[i];
 				it(`${toStr(param)}`, () => {
 					deepStrictEqual(

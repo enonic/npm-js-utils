@@ -1,3 +1,6 @@
+import type {EmptyObject} from '../../Utility.d';
+
+
 //──────────────────────────────────────────────────────────────────────────────
 // Params
 //──────────────────────────────────────────────────────────────────────────────
@@ -202,7 +205,7 @@ export type Aggregation =
 export type Aggregations<
 	AggregationKeys extends undefined|string = undefined
 > = AggregationKeys extends undefined
-	? {}
+	? EmptyObject
 	: AggregationKeys extends string
 		? Record<AggregationKeys, Aggregation>
 		: never
@@ -217,7 +220,7 @@ export type AggregationsResponseBucket = {
 	from ?:number | string
 	to ?:number | string
 
-	[key2 :string] :any // sub aggregations
+	[key2 :string] :unknown // sub aggregations // TODO
 }
 
 export type AggregationsResponseEntry = {
@@ -237,7 +240,7 @@ export type AggregationsResponseEntry = {
 export type AggregationsResponse<
 	AggregationKeys extends undefined|string = undefined
 > = AggregationKeys extends undefined
-	? {}
+	? EmptyObject
 	: AggregationKeys extends string
 		? Record<AggregationKeys, AggregationsResponseEntry>
 		/*? {

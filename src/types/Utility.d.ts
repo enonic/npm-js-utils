@@ -5,14 +5,16 @@
 export type AnyObject = Record<string, unknown>;
 export type EmptyObject = Record<string, never>;
 
-
 export type OneOrMore<T> = T | T[];
 export type Unset = undefined | null;
 export type ZeroOrMore<T> = Unset | OneOrMore<T>;
 
 export type NonEmptyArray<T> = [T, ...T[]]
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type IsEmptyArray<T> = T extends any[]
   ? T extends NonEmptyArray<any>
     ? false
     : true
   : false
+/* eslint-enable @typescript-eslint/no-explicit-any */

@@ -3,13 +3,13 @@ type ArrayElement<ArrayType extends unknown[]> =
 
 
 function sameValueZero(x :unknown, y :unknown) {
-  return (
-	x === y ||
-	(typeof x === "number" &&
-	  typeof y === "number" &&
-	  isNaN(x) &&
-	  isNaN(y))
-  );
+	return (
+		x === y ||
+		(typeof x === "number" &&
+		typeof y === "number" &&
+		isNaN(x) &&
+		isNaN(y))
+	);
 }
 
 

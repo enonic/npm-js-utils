@@ -40,33 +40,29 @@ type TermsOptionalParam = string|number|Aggregations;
 	aggregations? :Aggregations
 ) :TermsAggregation;*/
 function terms(field :string, ...optionalArgs :Array<TermsOptionalParam>) {
-	let order :SortStatementCaseInsensitive//|undefined = undefined;
-	let size :number//|undefined = undefined;
-	let minDocCount :number//|undefined = undefined;
-	let aggregations :Aggregations//|undefined = undefined;
+	let order :SortStatementCaseInsensitive|undefined;// = undefined;
+	let size :number|undefined;// = undefined;
+	let minDocCount :number|undefined;// = undefined;
+	let aggregations :Aggregations|undefined// = undefined;
 
 	for (let i = 0; i < optionalArgs.length; i++) {
 	    const optinalArg = optionalArgs[i];
 		//console.debug('i:%s optinalArg:%s', i, toStr(optinalArg));
 		if (isString(optinalArg)) {
-			//@ts-ignore
 			if (order) {
 				throw new Error(`terms: You can only provide one optional order parameter!`);
 			}
 			order = optinalArg as SortStatementCaseInsensitive;
 		} else if (isNumber(optinalArg)) {
-			//@ts-ignore
 			if (isSet(minDocCount)) {
 				throw new Error(`terms: You can only provide one or two optional number parameters!`);
 			}
-			//@ts-ignore
 			if (isSet(size)) {
 				minDocCount = optinalArg;
 			} else {
 				size = optinalArg;
 			}
 		} else if (isObject(optinalArg)) {
-			//@ts-ignore
 			if (aggregations) {
 				throw new Error(`terms: You can only provide one optional aggregations parameter!`);
 			}
@@ -79,15 +75,11 @@ function terms(field :string, ...optionalArgs :Array<TermsOptionalParam>) {
 	const termsAggregation :TermsAggregation = {
 		terms: termsParams(
 			field,
-			//@ts-ignore
 			order,
-			//@ts-ignore
 			size,
-			//@ts-ignore
 			minDocCount
 		)
 	};
-	//@ts-ignore
 	if (aggregations) {
 		termsAggregation.aggregations = aggregations;
 	}

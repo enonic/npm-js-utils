@@ -152,6 +152,7 @@ export {
 } from './task';
 
 export {
+	isBasicObject,
 	isBoolean,
 	isDate,
 	isDateString,
@@ -174,8 +175,12 @@ export {
 	isNumber,
 	isObject,
 	isPositiveInteger,
+	isPropertyKey,
 	isSet,
 	isString,
+	isStringLiteral,
+	isStringObject,
+	isSymbol,
 	isTime,
 	isTimeString,
 	isTrue,

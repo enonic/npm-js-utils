@@ -1,12 +1,14 @@
+import type {AnyObject} from '../types';
+
 import {isObject} from '../value/isObject';
 import {hasOwnProperty} from './hasOwnProperty';
 
 
 export function getIn<
-	O extends Object,
+	O extends AnyObject,
 	K extends keyof O,
 	V extends O[K],
-	D extends unknown
+	D/* extends unknown*/
 >(
 	source :O,
 	path :string | Array<string>,

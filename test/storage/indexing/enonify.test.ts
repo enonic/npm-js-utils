@@ -17,7 +17,7 @@ const BOOLEAN_TRUE = true;
 
 const DATE = new Date();
 
-const FUNCTION = () => {};
+const FUNCTION = () => {/**/};
 
 const INFINITY = Infinity;
 const INFINITY_NEGATIVE = -Infinity;

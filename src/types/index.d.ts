@@ -114,5 +114,11 @@ export type {
 	RepositoryConfig,
 	RepositorySettings
 } from './Repo.d';
-export type { OptionalSpace } from './String.d';
-export type { OneOrMore } from './Utility.d';
+export type {
+	AnyString,
+	OptionalSpace
+} from './String.d';
+export type {
+	AnyObject,
+	OneOrMore
+} from './Utility.d';

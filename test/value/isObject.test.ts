@@ -15,7 +15,7 @@ const TESTS_FALSE = [
 	'string',
 	true,
 	false,
-	[],
+	[], // Yes our isObject type guard considers Array not to be object
 	//{},
 	-Infinity,
 	-1,

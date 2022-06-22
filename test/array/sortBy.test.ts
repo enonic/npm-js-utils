@@ -60,6 +60,20 @@ describe('array', () => {
 					}], 'name')
 				)
 			}); // it
+			it('stringLiteral and stringObject values', () => {
+				deepStrictEqual(
+					[{
+						name: 'Jane'
+					},{
+						name: 'John'
+					}],
+					sortByProperty([{
+						name: 'John'
+					},{
+						name: new String('Jane')
+					}], 'name')
+				)
+			}); // it
 		}); // describe sorts
 	}); // describe sortByProperty
 }); // describe array

@@ -3,7 +3,7 @@ export function includes(
 	searchString :string,
 	position?: number
 ) :boolean {
-	if (searchString as any instanceof RegExp) {
+	if ((searchString as unknown) instanceof RegExp) {
 		throw TypeError('second argument must not be a RegExp');
 	}
 	if (position === undefined) { position = 0; }

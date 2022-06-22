@@ -18,7 +18,9 @@ export function isNonNegativeIntegerString(
 		!isString(s)
 		|| !s.length // Don't allow empty string
 		|| (s.length > 1 && s.charCodeAt(0) === 48) // Don't allow multiple digits left padded with 0, example 01
-	) { return false };
+	) {
+		return false;
+	}
 
 	for (let i = s.length - 1; i >= 0; i--) {
     	const d = s.charCodeAt(i);
