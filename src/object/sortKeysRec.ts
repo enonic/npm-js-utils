@@ -1,6 +1,3 @@
-//import type {AnyObject} from '../types';
-
-
 const {isArray} = Array;
 const {keys} = Object;
 

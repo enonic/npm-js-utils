@@ -1,11 +1,8 @@
-import type {AnyObject} from '../types';
-
-
 const {isArray} = Array;
 const {keys} = Object;
 
 
-export function sortKeys<T extends AnyObject>(obj: T) :T {
+export function sortKeys<T extends object>(obj: T) :T {
 	if (typeof obj !== 'object' || isArray(obj)) {
 		throw new Error('sortKeys');
 	}
