@@ -66,13 +66,11 @@ export type TaskEvent = Event<EventTypesTask,{
 
 export type EventLib = {
 	listener :<
-		Type extends EventTypes,
-		Data extends object,
-		Callback = Event<Type, Data>
+		CallbackEvent extends Event
 	>(params :{
-		type :Type
+		type :string // Event type pattern
 		localOnly :boolean
-		callback :(event :Callback) => null
+		callback :(event :CallbackEvent) => null
 	}) => null
 	send :<Data extends object>(params :{
 		type :string
