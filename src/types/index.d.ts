@@ -92,6 +92,7 @@ export type {
 	ValueCountAggregationParams
 } from './node/index.d';
 export type {
+	EventLib,
 	EventTypeApplication,
 	EventTypeTaskFinished,
 	EventTypeTaskRemoved,

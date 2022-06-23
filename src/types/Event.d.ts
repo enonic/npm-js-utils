@@ -17,8 +17,8 @@ export type EventTypes = EventTypeApplication | EventTypesTask | EventTypesCusto
 // Event (with generics)
 //──────────────────────────────────────────────────────────────────────────────
 export type Event<
-	Type extends EventTypes,
-	Data extends AnyObject
+	Type extends EventTypes = EventTypes,
+	Data extends object = AnyObject
 	> = {
 	data :Data
 	distributed :boolean
@@ -63,3 +63,20 @@ export type TaskEvent = Event<EventTypesTask,{
 
 //──────────────────────────────────────────────────────────────────────────────
 //export type Events = ApplicationEvent|TaskEvent|CustomEvent//|GenericEvent
+
+export type EventLib = {
+	listener :<
+		Type extends EventTypes,
+		Data extends object,
+		Callback = Event<Type, Data>
+	>(params :{
+		type :Type
+		localOnly :boolean
+		callback :(event :Callback) => null
+	}) => null
+	send :<Data extends object>(params :{
+		type :string
+		distributed :boolean
+		data ?:Data
+	}) => null
+}
