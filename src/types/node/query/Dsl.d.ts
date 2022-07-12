@@ -3,7 +3,7 @@ import type {OneOrMore} from '../../Utility.d';
 // Base primitive value index of a field (number, string, boolean) or
 export type AnalysedIndexType = "time" | "dateTime"
 
-export interface QueryExpressionFulltext {
+export type QueryExpressionFulltext = {
 	fulltext :{
 		fields :Array<string>
 		operator :string
@@ -11,7 +11,16 @@ export interface QueryExpressionFulltext {
 	}
 }
 
-export interface QueryExpressionNgram {
+export type QueryExpressionIn<ValueType = unknown> = {
+	in :{
+		field :string
+		values :Array<ValueType>
+		type ?:string // 'string'|'number'|'boolean'|'time'|'dateTime'
+		boost ?:number
+	}
+}
+
+export type QueryExpressionNgram = {
 	ngram :{
 		fields :Array<string>
 		operator :string
@@ -19,7 +28,7 @@ export interface QueryExpressionNgram {
 	}
 }
 
-export interface QueryExpressionStemmed {
+export type QueryExpressionStemmed = {
 	stemmed :{
 		fields :Array<string>
 		language :string
@@ -28,17 +37,28 @@ export interface QueryExpressionStemmed {
 	}
 }
 
-export type QueryExpression = Partial<QueryExpressionFulltext>
-	& Partial<QueryExpressionNgram>
-	& Partial<QueryExpressionStemmed>;
+export type QueryExpressionTerm<ValueType = unknown> = {
+	term :{
+		field :string
+		value :ValueType
+		type ?:string // 'string'|'number'|'boolean'|'time'|'dateTime'
+		boost ?:number
+	}
+}
 
-export interface CompoundExpression {
+export type QueryExpression = Partial<QueryExpressionFulltext>
+	& Partial<QueryExpressionIn>
+	& Partial<QueryExpressionNgram>
+	& Partial<QueryExpressionStemmed>
+	& Partial<QueryExpressionTerm>;
+
+export type CompoundExpression = {
 	must? :OneOrMore<QueryExpression> & CompoundExpression
 	mustNot? :OneOrMore<QueryExpression> & CompoundExpression
 	should? :OneOrMore<QueryExpression> & CompoundExpression
 }
 
-export interface CompoundExpressionBoolean {
+export type CompoundExpressionBoolean = {
 	boolean :CompoundExpression;
 }
 
