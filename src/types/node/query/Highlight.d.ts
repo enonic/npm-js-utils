@@ -1,4 +1,4 @@
-export interface Highlight {
+export type Highlight = {
 	encoder?: "default" | "html";
 	fragmenter?: "simple" | "span";
 	fragmentSize?: number;
@@ -11,3 +11,5 @@ export interface Highlight {
 	tagsSchema?: string;
 	properties?: Record<string, Highlight>; // Yes it's optional, no error will occur, but no highilights returned either
 }
+
+export type HighlightResult = Record<string,ReadonlyArray<string>>

@@ -54,6 +54,7 @@ export type {
 	GeoDistanceAggregationParams,
 	HasValueFilter,
 	Highlight,
+	HighlightResult,
 	IdsFilter,
 	MaxAggregation,
 	MaxAggregationParams,
@@ -96,7 +97,7 @@ export type {
 } from './repoConnection.d';
 
 
-export interface NodeLibrary {
+export type NodeLibrary = {
 	/**
 	* Creates a connection to a repository with a given branch and authentication info.
 	*/

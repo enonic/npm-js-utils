@@ -53,7 +53,10 @@ export type {
 	NotExistsFilter,
 	QueryFilters
 } from './Filters.d';
-export type { Highlight } from './Highlight.d';
+export type {
+	Highlight,
+	HighlightResult
+} from './Highlight.d';
 export type {
 	SortDirection,
 	SortDirectionAscending,
@@ -71,9 +74,9 @@ export type {
 	SortStatementCaseInsensitive
 } from './SortCaseInsensitive.d';
 
-export interface NodeQueryParams<
+export type NodeQueryParams<
 	AggregationKeys extends undefined|string = undefined
-> {
+> = {
 	/**
 	* Start index (used for paging).
 	*/
