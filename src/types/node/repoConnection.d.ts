@@ -15,7 +15,7 @@ import type { NodeQueryParams } from './query';
 import type { AggregationsResponse } from './query/aggregation.d';
 
 
-export interface Source {
+export type Source = {
 	repoId: string;
 	branch: string;
 	user?: {
@@ -25,22 +25,22 @@ export interface Source {
 	principals?: Array<PrincipalKey>;
 }
 
-export interface NodeQueryHit {
+export type NodeQueryHit = {
 	id: string;
 	highlight ?:Record<string,Array<string>>
 	score: number;
 }
 
-export interface NodeQueryResponse<
+export type NodeQueryResponse<
 	AggregationKeys extends undefined|string = undefined
-> {
+> = {
 	total: number;
 	count: number;
 	hits: Array<NodeQueryHit>;
 	aggregations: AggregationsResponse<AggregationKeys>;
 }
 
-export interface RepoConnection {
+export type RepoConnection = {
 	/**
 	* Commits the active version of nodes.
 	*/

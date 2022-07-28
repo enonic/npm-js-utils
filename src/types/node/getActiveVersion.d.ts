@@ -1,8 +1,8 @@
-export interface GetActiveVersionParamObject {
+export type GetActiveVersionParamObject = {
 	key :string
 }
 
-export interface GetActiveVersionResponseObject {
+export type GetActiveVersionResponseObject = {
 	versionId :string
 	nodeId :string
 	nodePath :string

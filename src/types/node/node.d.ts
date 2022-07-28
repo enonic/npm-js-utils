@@ -2,7 +2,7 @@ import type { PermissionsParams } from '../auth';
 import type { IndexConfig } from './indexConfig.d';
 
 
-export interface RepoNode {
+export type RepoNode = {
 	_childOrder :string;
 	_id :string;
 	_indexConfig :IndexConfig;
@@ -16,6 +16,6 @@ export interface RepoNode {
 	_ts :string;
 }
 
-export interface RepoNodeWithData extends RepoNode {
+export type RepoNodeWithData = RepoNode & {
 	[key :string] :unknown
 }

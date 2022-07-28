@@ -2,7 +2,7 @@ import type {PermissionsParams} from '../auth';
 import type {IndexConfig} from './indexConfig.d';
 
 
-export interface NodeCreateParams {
+export type NodeCreateParams = {
 	/**
 	* Name of content.
 	*/

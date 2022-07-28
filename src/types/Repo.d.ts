@@ -2,7 +2,7 @@ import type {PermissionsParams} from './Auth'
 import type {AggregationsResponse} from './node/query/aggregation.d';
 
 
-export interface ElasticSearchIndexSettings {
+export type ElasticSearchIndexSettings = {
 	index?: {
 		// static
 		number_of_shards?: number;
@@ -82,11 +82,11 @@ export interface ElasticSearchIndexSettings {
 	};
 }
 
-export interface IndexDefinition {
+export type IndexDefinition = {
 	settings: ElasticSearchIndexSettings;
 	mapping: unknown; // TODO
 }
-export interface RepositorySettings {
+export type RepositorySettings = {
 	definitions? :{
 		search? :IndexDefinition;
 		version? :IndexDefinition;
@@ -94,7 +94,7 @@ export interface RepositorySettings {
 	};
 }
 
-export interface CreateRepoParams {
+export type CreateRepoParams = {
 	id :string
 	//rootChildOrder? :string
 	rootPermissions? :Array<PermissionsParams>
@@ -103,37 +103,37 @@ export interface CreateRepoParams {
 
 export type EmptyObject = Record<string, never>;
 
-export interface RepositoryConfig<Data = EmptyObject> {
+export type RepositoryConfig<Data = EmptyObject> = {
 	id: string;
 	branches: string[];
 	settings: RepositorySettings;
 	data?: Data;
 }
 
-export interface NodeQueryHit {
+export type NodeQueryHit = {
 	id: string;
 	score: number;
 }
 
-export interface NodeQueryResponse<
+export type NodeQueryResponse<
 	AggregationKeys extends undefined|string = undefined
-> {
+> = {
 	total: number;
 	count: number;
 	hits: Array<NodeQueryHit>;
 	aggregations: AggregationsResponse<AggregationKeys>;
 }
 
-export interface CreateBranchParams {
+export type CreateBranchParams = {
 	branchId: string;
 	repoId: string;
 }
 
-export interface BranchConfig {
+export type BranchConfig = {
 	id: string;
 }
 
-export interface RepoLib {
+export type RepoLib = {
 	create(param :CreateRepoParams) :RepositoryConfig
 	createBranch(params: CreateBranchParams): BranchConfig;
 	get(repoId :string) :RepositoryConfig

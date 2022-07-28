@@ -1,23 +1,23 @@
-export interface ExistsFilter {
+export type ExistsFilter = {
 	exists :{
 		field :string
 	}
 }
 
-export interface NotExistsFilter {
+export type NotExistsFilter = {
 	notExists :{
 		field :string
 	}
 }
 
-export interface HasValueFilter {
+export type HasValueFilter = {
 	hasValue :{
 		field :string
 		values :Array<unknown>
 	}
 }
 
-export interface IdsFilter {
+export type IdsFilter = {
 	ids :{
 		values :Array<string>
 	}
@@ -25,7 +25,7 @@ export interface IdsFilter {
 
 export type BasicFilters = ExistsFilter | NotExistsFilter | HasValueFilter | IdsFilter
 
-export interface BooleanFilter {
+export type BooleanFilter = {
 	boolean :{
 		must? :BasicFilters | Array<BasicFilters>
 		mustNot? :BasicFilters | Array<BasicFilters>
@@ -33,7 +33,7 @@ export interface BooleanFilter {
 	}
 }
 
-export interface QueryFilters {
+export type QueryFilters = {
 	boolean? :{
 		must? :BasicFilters | Array<BasicFilters>
 		mustNot? :BasicFilters | Array<BasicFilters>

@@ -12,11 +12,11 @@ export type SourceWithPrincipals = Omit<Source, "principals"> & {
 	principals: Array<PrincipalKey>;
 };
 
-export interface MultiRepoConnectParams {
+export type MultiRepoConnectParams = {
 	sources: Array<SourceWithPrincipals>;
 }
 
-export interface MultiRepoNodeQueryHit extends NodeQueryHit {
+export type MultiRepoNodeQueryHit = NodeQueryHit & {
 	repoId: string;
 	branch: string;
 }
@@ -30,7 +30,7 @@ export type MultiRepoNodeQueryResponse<
 	hits: Array<MultiRepoNodeQueryHit>;
 };
 
-export interface MultiRepoConnection {
+export type MultiRepoConnection = {
 	query<
 		AggregationKeys extends undefined|string = undefined
 	>(

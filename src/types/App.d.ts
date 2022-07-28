@@ -1,8 +1,8 @@
-interface AppConfigObject {
+type AppConfigObject = {
 	[key :string] :unknown
 }
 
-export interface App {
+export type App = {
 	config :AppConfigObject
 	name :string
 	version :string

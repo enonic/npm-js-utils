@@ -1,4 +1,4 @@
-export interface NodeGetParams {
+export type NodeGetParams = {
 	/**
 	* Path or ID of the node.
 	*/

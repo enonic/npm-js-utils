@@ -9,7 +9,7 @@ export type SortStatement = SortExpression
 	| `${SortExpression},${''|' '}${SortExpression}`
 	| `${SortExpression},${''|' '}${SortExpression},${''|' '}${SortExpression}`;
 
-export interface SortDSLExpression {
+export type SortDSLExpression = {
 	field :string
 	direction? :SortDirection
 }

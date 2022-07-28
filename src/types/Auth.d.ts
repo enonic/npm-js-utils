@@ -23,7 +23,7 @@ export type Permission =
 	| "READ_PERMISSIONS"
 	| "WRITE_PERMISSIONS"
 
-export interface PermissionsParams {
+export type PermissionsParams = {
 	principal: PrincipalKey
 	allow: Array<Permission>
 	deny: Array<Permission>

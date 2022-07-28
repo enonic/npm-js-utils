@@ -1,7 +1,7 @@
 import type { RepoNodeWithData } from './node.d';
 
 
-export interface NodeModifyParams/*<NodeData>*/ {
+export type NodeModifyParams/*<NodeData>*/ = {
 	/**
 	* Path or ID of the node
 	*/
