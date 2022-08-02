@@ -90,7 +90,12 @@ export {
 	uniqueId,
 	updateIndexConfigs
 } from './indexing';
-export {HIGHLIGHT_FIELD_ALLTEXT} from './highlighting';
+export {
+	HIGHLIGHT_OPTION_ENCODER_DEFAULT,
+	HIGHLIGHT_OPTION_ENCODER_HTML,
+	HIGHLIGHT_OPTION_ENCODERS,
+	HIGHLIGHT_FIELD_ALLTEXT
+} from './highlighting';
 export *  as query from './query';
 export {
 	FILTER_CLAUSE_MUST,
