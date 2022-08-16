@@ -116,6 +116,9 @@ export type {
 	RepositorySettings
 } from './Repo.d';
 export type {
+	Portal
+} from './Portal.d';
+export type {
 	AnyString,
 	OptionalSpace
 } from './String.d';
