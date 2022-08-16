@@ -53,9 +53,10 @@ export type QueryExpression = Partial<QueryExpressionFulltext>
 	& Partial<QueryExpressionTerm>;
 
 export type CompoundExpression = {
-	must? :OneOrMore<QueryExpression> & CompoundExpression
-	mustNot? :OneOrMore<QueryExpression> & CompoundExpression
-	should? :OneOrMore<QueryExpression> & CompoundExpression
+	boost ?:number
+	must ?:OneOrMore<QueryExpression> & CompoundExpression
+	mustNot ?:OneOrMore<QueryExpression> & CompoundExpression
+	should ?:OneOrMore<QueryExpression> & CompoundExpression
 }
 
 export type CompoundExpressionBoolean = {
