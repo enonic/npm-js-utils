@@ -10,11 +10,13 @@ export type NotExistsFilter = {
 	}
 }
 
+export type HasValueFilterParams = {
+	field :string
+	values :Array<unknown>
+}
+
 export type HasValueFilter = {
-	hasValue :{
-		field :string
-		values :Array<unknown>
-	}
+	hasValue :HasValueFilterParams
 }
 
 export type IdsFilter = {
@@ -45,11 +47,32 @@ export type QueryFilters = {
 	notExists? :{
 		field :string
 	}
-	hasValue? :{
-		field :string
-		values :Array<unknown>
-	}
+	hasValue? :HasValueFilterParams
 	ids? :{
 		values :Array<string>
 	}
 }
+
+//──────────────────────────────────────────────────────────────────────────
+// Guillotine
+//──────────────────────────────────────────────────────────────────────────
+export namespace Guillotine {
+	export type HasStringValueFilterParams = {
+		field :string
+		stringValues :string[]
+	}
+
+	export type HasValueFilter = {
+		hasValue :HasStringValueFilterParams// |...
+	}
+
+	export type BasicFilters = ExistsFilter | NotExistsFilter | HasValueFilter | IdsFilter
+
+	export type BooleanFilter = {
+		boolean :{
+			must? :BasicFilters | Array<BasicFilters>
+			mustNot? :BasicFilters | Array<BasicFilters>
+			should? :BasicFilters | Array<BasicFilters>
+		}
+	}
+} // namespace Guillotine
