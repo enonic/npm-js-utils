@@ -60,5 +60,5 @@
     "prepack": "yarn test && yarn typedoc",
     "tsc": "npx tsc"
   },
-  "version": "0.40.1"
+  "version": "0.40.2"
 }
