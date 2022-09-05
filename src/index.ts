@@ -15,6 +15,14 @@ export {
 	sortKeysRec
 } from './object';
 
+export {
+	HTTP_REQUEST_MODE_EDIT,
+	HTTP_REQUEST_MODE_INLINE,
+	HTTP_REQUEST_MODE_LIVE,
+	HTTP_REQUEST_MODE_PREVIEW,
+	HTTP_REQUEST_MODES
+} from './http';
+
 export * as storage from './storage';
 export {
 	AGGREGATION_COUNT,
