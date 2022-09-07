@@ -200,6 +200,11 @@
     "@babel/helper-validator-identifier" "^7.18.6"
     to-fast-properties "^2.0.0"
 
+"@enonic-types/lib-auth@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-0.1.1.tgz#f402c93d4d5d522bcf9d6daff823b508ebf92d52"
+  integrity sha512-BQCdw2H4ejYU1xSZLCQ1Tg7mA0UzGCNXJqNCeXFR+qQNiywRnTXoSFbInqDPCacupNnRQ//qT6vFCZktWXDGzg==
+
 "@enonic/test-data@^0.2":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@enonic/test-data/-/test-data-0.2.1.tgz#68dd6374f48060fd9a39c5659edf6e7cb487064a"

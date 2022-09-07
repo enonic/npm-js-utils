@@ -36,7 +36,8 @@
 		"noUnusedParameters": true,
 		"outDir": "dist/cjs",
 		"paths": {
-			"@enonic/js-utils": ["src"]
+			"@enonic/js-utils": ["src"],
+			"/lib/xp/auth": ["node_modules/@enonic-types/lib-auth"],
 		},
 		"removeComments": true,
 		"resolveJsonModule": true,
@@ -51,8 +52,13 @@
 		"strictFunctionTypes": true,
 		"strictNullChecks": true,
 		"target": "ES5",
+		"typeRoots": [
+			"node_modules/@types",
+			"node_modules/@enonic-types",
+		],
 		"types": [
-			//"node" // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
+			//"node", // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
+			"@enonic-types/lib-auth",
 		]
 	},
 	"exclude": [
