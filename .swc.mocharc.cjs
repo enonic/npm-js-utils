@@ -1,11 +1,10 @@
 module.exports = {
-    color: true,
-    extension: [
-        'js',
-        //'cjs',
-        //'mjs', // Included by default
+	color: true,
+	extension: [
+		'js',
+		//'cjs',
+		//'mjs', // Included by default
 		//'ts'
-    ],
-    parallel: true,
-	spec: 'build/swc/test/**'
+		],
+	parallel: true
 }
