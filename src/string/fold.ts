@@ -1244,7 +1244,14 @@ const MAPPING = {
 } as const;
 
 
-export function fold(inStr: string) :string {
+export function fold(
+	inStr: string,
+	{
+		fallback_sign = '-'
+	}: {
+		fallback_sign?: '-' | '_'
+	} = {}
+) :string {
 	return inStr.split('').map(character => {
 		const charCode = character.charCodeAt(0);
 		if (charCode < 128) {
@@ -1253,6 +1260,6 @@ export function fold(inStr: string) :string {
 		if (MAPPING.hasOwnProperty(charCode)) {
 			return MAPPING[charCode as keyof typeof MAPPING];
 		}
-		return '-';
+		return fallback_sign;
 	}).join('');
 }

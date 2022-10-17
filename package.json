@@ -7,6 +7,7 @@
     "@babel/register": "^7",
     "@enonic-types/lib-auth": "^0.1.1",
     "@enonic/test-data": "^0.2",
+    "@types/assert": "^1.5.6",
     "@types/chai": "^4",
     "@types/mocha": "^9",
     "@typescript-eslint/eslint-plugin": "^5",
@@ -52,14 +53,13 @@
     "copy": "mkdir dist && mkdir dist/cjs && cp -r src/types dist/cjs/",
     "docs": "npx typedoc",
     "lint": "npx eslint src test",
-    "mocha": "npx mocha",
-    "test": "npx mocha --config .swc.mocharc.cjs",
+    "mocha": "npx mocha --config .swc.mocharc.cjs",
+    "test": "yarn mocha build/swc/test/**",
     "prebuild": "yarn copy",
     "precopy": "yarn clean",
     "premocha": "yarn build",
-    "pretest": "yarn build",
     "prepack": "yarn test && yarn typedoc",
     "tsc": "npx tsc"
   },
-  "version": "0.42.0"
+  "version": "0.43.0-SNAPSHOT"
 }

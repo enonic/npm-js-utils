@@ -6,6 +6,7 @@ export {isAsciiPrintablePunctuation} from './isAsciiPrintablePunctuation';
 export {isValidGraphQLName} from './isValidGraphQLName'
 export {lpad} from './lpad';
 export {rpad} from './rpad';
+export {sanitize} from './sanitize';
 export {startsWith} from './startsWith';
 export {ucFirst} from './ucFirst';
 export {unStem} from './unStem';

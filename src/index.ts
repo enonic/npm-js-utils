@@ -150,6 +150,7 @@ export {
 	isValidGraphQLName,
 	lpad,
 	rpad,
+	sanitize,
 	startsWith,
 	ucFirst,
 	unStem
