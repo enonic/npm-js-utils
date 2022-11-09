@@ -1,30 +1,60 @@
+import type {
+	GroupKey,
+	PrincipalKey as PrincipalKeyFromCore,
+	RoleKey,
+	UserKey,
+} from '@enonic-types/core';
+import {AccessControlEntry} from '/lib/xp/node';
+
+// This wouldn't break backwards compatibility, but "loosens" the type, loosing good suggestions.
+// Perhaps the best solution would be to move the generics and constans below into @enonic-types/core
+// export type {
+// 	PrincipalKey,
+// } from '@enonic-types/core';
+
+export type {Permission} from '/lib/xp/node';
+
+//──────────────────────────────────────────────────────────────────────────────
+// Generics
+//──────────────────────────────────────────────────────────────────────────────
+export type RoleKeyGeneric<T extends string> = `role:${T}`
+
+export type UserKeyGeneric<
+	IdProvider extends string,
+	Login extends string
+> = `user:${IdProvider}:${Login}`;
+
+
+//──────────────────────────────────────────────────────────────────────────────
+// Constants
+//──────────────────────────────────────────────────────────────────────────────
+export type RoleKeySystemAdmin = RoleKeyGeneric<'system.admin'>
+export type RoleKeySystemAdminLogin = RoleKeyGeneric<'system.admin.login'>
+export type RoleKeySystemAuthenticated = RoleKeyGeneric<'system.authenticated'>
+export type RoleKeySystemAuditlog = RoleKeyGeneric<'system.auditlog'>
+export type RoleKeySystemEveryone = RoleKeyGeneric<'system.everyone'>
+export type RoleKeySystemUserAdmin = RoleKeyGeneric<'system.user.admin'>
+export type RoleKeySystemUserApp = RoleKeyGeneric<'system.user.app'>
+
+export type UserKeySystemSu = UserKeyGeneric<'system','su'>
+
 export type PrincipalKeySystem =
-	| "role:system.everyone"
-	| "role:system.authenticated"
-	| "role:system.admin"
-	| "role:system.admin.login"
-	| "role:system.auditlog"
-	| "role:system.user.admin"
-	| "role:system.user.app"
-	| "user:system:su";
+	| RoleKeySystemEveryone
+	| RoleKeySystemAuthenticated
+	| RoleKeySystemAdmin
+	| RoleKeySystemAdminLogin
+	| RoleKeySystemAuditlog
+	| RoleKeySystemUserAdmin
+	| RoleKeySystemUserApp
+	| UserKeySystemSu;
 
-export type PrincipalKeyUser = `user:${string}:${string}`;
-export type PrincipalKeyGroup = `group:${string}:${string}`;
-export type PrincipalKeyRole = `role:${string}`;
+//──────────────────────────────────────────────────────────────────────────────
+// Backwards compatibility
+//──────────────────────────────────────────────────────────────────────────────
+export type PrincipalKeyUser = UserKey;
+export type PrincipalKeyGroup = GroupKey;
+export type PrincipalKeyRole = RoleKey;
 
-export type PrincipalKey = PrincipalKeySystem | PrincipalKeyUser | PrincipalKeyGroup | PrincipalKeyRole;
+export type PrincipalKey = PrincipalKeySystem | PrincipalKeyFromCore;
 
-export type Permission =
-	| "READ"
-	| "CREATE"
-	| "MODIFY"
-	| "DELETE"
-	| "PUBLISH"
-	| "READ_PERMISSIONS"
-	| "WRITE_PERMISSIONS"
-
-export type PermissionsParams = {
-	principal: PrincipalKey
-	allow: Array<Permission>
-	deny: Array<Permission>
-}
+export type PermissionsParams = AccessControlEntry
