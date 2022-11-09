@@ -1,4 +1,5 @@
-import type {IndexConfigEntry} from '../../types/index.d';
+import type {NodeConfigEntry} from '/lib/xp/node';
+import type {IndexConfigTemplates} from '../../types/index.d';
 
 
 import {isObject} from '../../value';
@@ -17,25 +18,15 @@ import {
 	INDEX_CONFIG_TEMPLATE_FULLTEXT,
 	INDEX_CONFIG_TEMPLATE_PATH,
 	INDEX_CONFIG_TEMPLATE_MINIMAL,
-	INDEX_CONFIG_TEMPLATES
+	// INDEX_CONFIG_TEMPLATES
 } from './constants';
 
 
-type IndexConfigTemplates = typeof INDEX_CONFIG_TEMPLATES[number];
+// type IndexConfigTemplates = typeof INDEX_CONFIG_TEMPLATES[number];
 
-interface IndexConfigEntryUnderConstruction {
-	decideByType?: boolean;
-    enabled?: boolean;
-    nGram?: boolean;
-    fulltext?: boolean;
-    includeInAllText?: boolean;
-    path?: boolean;
-    indexValueProcessors?: Array<unknown>;
-    languages?: Array<unknown>;
-}
 
 interface indexTemplateToConfigParam {
-	template: IndexConfigTemplates | IndexConfigEntry,
+	template: IndexConfigTemplates | NodeConfigEntry,
 	indexValueProcessors?: [],
 	languages? :string[]
 }
@@ -45,16 +36,20 @@ export function indexTemplateToConfig({
 	template,
 	indexValueProcessors,// = [],
 	languages// = []
-}: indexTemplateToConfigParam): IndexConfigEntry {
+}: indexTemplateToConfigParam): NodeConfigEntry {
 	if (isObject(template)) {
-		const configObject:IndexConfigEntry = JSON.parse(JSON.stringify(template)); // dereference
-		configObject.indexValueProcessors = indexValueProcessors;
-		configObject.languages = languages;
+		const configObject:NodeConfigEntry = JSON.parse(JSON.stringify(template)); // dereference
+		if (indexValueProcessors) {
+			configObject.indexValueProcessors = indexValueProcessors;
+		}
+		if (languages) {
+			configObject.languages = languages;
+		}
 		// TODO path: true becomes false
 		return configObject;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_NONE) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :Partial<NodeConfigEntry> = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: false,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -68,10 +63,10 @@ export function indexTemplateToConfig({
 		}
 		rv[INDEX_CONFIG_N_GRAM] = false;
 		rv[INDEX_CONFIG_PATH] = false;
-		return rv as IndexConfigEntry;
+		return rv as NodeConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_BY_TYPE) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :Partial<NodeConfigEntry> = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: true,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -85,10 +80,10 @@ export function indexTemplateToConfig({
 		}
 		rv[INDEX_CONFIG_N_GRAM] = false;
 		rv[INDEX_CONFIG_PATH] = false;
-		return rv as IndexConfigEntry;
+		return rv as NodeConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_FULLTEXT) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :Partial<NodeConfigEntry> = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: true,
@@ -102,10 +97,10 @@ export function indexTemplateToConfig({
 		}
 		rv[INDEX_CONFIG_N_GRAM] = true;
 		rv[INDEX_CONFIG_PATH] = false;
-		return rv as IndexConfigEntry;
+		return rv as NodeConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_PATH) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :Partial<NodeConfigEntry> = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -119,10 +114,10 @@ export function indexTemplateToConfig({
 		}
 		rv[INDEX_CONFIG_N_GRAM] = false;
 		rv[INDEX_CONFIG_PATH] = true;
-		return rv as IndexConfigEntry;
+		return rv as NodeConfigEntry;
 	}
 	if (template === INDEX_CONFIG_TEMPLATE_MINIMAL) {
-		const rv :IndexConfigEntryUnderConstruction = {
+		const rv :Partial<NodeConfigEntry> = {
 			[INDEX_CONFIG_DECIDE_BY_TYPE]: false,
 			[INDEX_CONFIG_ENABLED]: true,
 			[INDEX_CONFIG_FULLTEXT]: false,
@@ -136,7 +131,7 @@ export function indexTemplateToConfig({
 		}
 		rv[INDEX_CONFIG_N_GRAM] = false;
 		rv[INDEX_CONFIG_PATH] = false;
-		return rv as IndexConfigEntry;
+		return rv as NodeConfigEntry;
 	}
 	throw new Error(`Unknown indexing template:${template}!`);
 }
