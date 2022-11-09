@@ -38,6 +38,7 @@
 		"paths": {
 			"@enonic/js-utils": ["src"],
 			"/lib/xp/auth": ["node_modules/@enonic-types/lib-auth"],
+			"/lib/xp/node": ["node_modules/@enonic-types/lib-node"],
 		},
 		"removeComments": true,
 		"resolveJsonModule": true,
@@ -59,6 +60,7 @@
 		"types": [
 			//"node", // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
 			"@enonic-types/lib-auth",
+			"@enonic-types/lib-node",
 		]
 	},
 	"exclude": [

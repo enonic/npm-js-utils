@@ -5,7 +5,8 @@
   "devDependencies": {
     "@babel/core": "^7",
     "@babel/register": "^7",
-    "@enonic-types/lib-auth": "^0.1.1",
+    "@enonic-types/lib-auth": "^7.11.0",
+    "@enonic-types/lib-node": "^7.11.0",
     "@enonic/test-data": "^0.2",
     "@types/assert": "^1.5.6",
     "@types/chai": "^4",
