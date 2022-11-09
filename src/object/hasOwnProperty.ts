@@ -1,6 +1,3 @@
-//import type {AnyObject} from '../types';
-
-
 import {isBasicObject} from '../value/isBasicObject';
 import {isPropertyKey} from '../value/isPropertyKey';
 import {toStr} from '../value/toStr';
