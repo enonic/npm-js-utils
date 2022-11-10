@@ -1,25 +1,25 @@
+import type {SortDirection} from '/lib/xp/node';
 import type {
 	SortDirectionAscending,
 	SortDirectionCaseInsensitive,
 	SortDirectionDescending,
-	SortDirection,
 	SortStatement
 } from '../../types/index.d';
 
 
-export const ASC :SortDirectionAscending = 'ASC';
-export const DESC :SortDirectionDescending = 'DESC';
+export const ASC: SortDirectionAscending = 'ASC';
+export const DESC: SortDirectionDescending = 'DESC';
 
-export const SORT_CREATED :SortStatement = `createdTime ${DESC}`;
-export const SORT_DISPLAYNAME :SortStatement = `displayName ${ASC}`;
-export const SORT_MANUAL :SortStatement = `_manualordervalue ${DESC}, _timestamp ${DESC}`; // _timestamp: The last change to the content version
-export const SORT_MODIFIED :SortStatement = `modifiedTime ${DESC}`;
+export const SORT_CREATED: SortStatement = `createdTime ${DESC}`;
+export const SORT_DISPLAYNAME: SortStatement = `displayName ${ASC}`;
+export const SORT_MANUAL: SortStatement = `_manualordervalue ${DESC}, _timestamp ${DESC}`; // _timestamp: The last change to the content version
+export const SORT_MODIFIED: SortStatement = `modifiedTime ${DESC}`;
 
-export function isDirection(s :string) :s is SortDirection {
+export function isDirection(s: string): s is SortDirection {
 	return s === ASC || s === DESC;
 }
 
-export function isDirectionCaseInsensitive(s :string) :s is SortDirectionCaseInsensitive {
+export function isDirectionCaseInsensitive(s: string): s is SortDirectionCaseInsensitive {
 	const u = s.toUpperCase();
 	return u === ASC || u === DESC;
 }
