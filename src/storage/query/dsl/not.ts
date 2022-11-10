@@ -1,22 +1,19 @@
-import type {
-	CompoundExpression,
-	QueryExpression
-} from '../../../types/index.d';
+import type {QueryDsl} from '/lib/xp/node';
 
 
 import {flatten} from '../../../array/flatten';
 
 
 interface MustNot {
-	mustNot :Array<QueryExpression & CompoundExpression>
+	mustNot: QueryDsl[]
 }
 
-function not(arg :QueryExpression & CompoundExpression) :MustNot;
-function not(...args :Array<QueryExpression & CompoundExpression>) :MustNot;
-function not(args :Array<QueryExpression & CompoundExpression>) :MustNot;
+function not(arg: QueryDsl): MustNot;
+function not(...args: QueryDsl[]): MustNot;
+function not(args: QueryDsl[]): MustNot;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function not(...args :any) :MustNot {
-	const flattened = flatten(args) as Array<QueryExpression & CompoundExpression>;
+function not(...args: any): MustNot {
+	const flattened = flatten(args) as QueryDsl[];
 	return {
 		mustNot: flattened
 	};

@@ -1,6 +1,6 @@
+import type {SortDirection} from '/lib/xp/node';
 import type {
 	OneOrMore,
-	SortDirection,
 	SortDSLExpression
 } from '../../../types/index.d';
 
@@ -8,13 +8,13 @@ import type {
 import {isDirection} from '../sort';
 
 
-function sort(field :string, direction? :SortDirection) :SortDSLExpression;
-function sort(...args :Array<string>) :OneOrMore<SortDSLExpression>;
+function sort(field: string, direction?: SortDirection): SortDSLExpression;
+function sort(...args: string[]): OneOrMore<SortDSLExpression>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function sort(...args :any) :OneOrMore<SortDSLExpression> {
+function sort(...args: any): OneOrMore<SortDSLExpression> {
 	//console.debug('args:%s', toStr(args));
-	const sort :OneOrMore<SortDSLExpression> = [];
-	let param :Partial<SortDSLExpression> = {};
+	const sort: OneOrMore<SortDSLExpression> = [];
+	let param: Partial<SortDSLExpression> = {};
 	for (let i = 0; i < args.length; i++) {
 	    const arg = args[i];
 		if (isDirection(arg)) {

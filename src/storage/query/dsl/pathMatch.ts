@@ -1,28 +1,24 @@
-interface QueryExpressionPathMatchParams {
-	field :string
-	path :string
-	//boost? :number
-	minimumMatch? :number
-}
+import type {PathMatchDslExpression} from '/lib/xp/node';
+
 
 interface QueryExpressionPathMatch {
-	pathMatch :QueryExpressionPathMatchParams
+	pathMatch: PathMatchDslExpression
 }
 
 
 export function pathMatch(
-	field :string,
-	path :string,
-	//boost? :number,
-	minimumMatch? :number
-) :QueryExpressionPathMatch {
-	const pathMatch :QueryExpressionPathMatchParams = {
+	field: string,
+	path: string,
+	boost?: number,
+	minimumMatch?: number
+): QueryExpressionPathMatch {
+	const pathMatch: PathMatchDslExpression = {
 		field,
 		path
 	}
-	/*if (boost) {
+	if (boost) {
 		pathMatch.boost = boost;
-	}*/
+	}
 	if (minimumMatch) {
 		pathMatch.minimumMatch = minimumMatch;
 	}

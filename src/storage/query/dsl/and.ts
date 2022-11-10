@@ -1,8 +1,4 @@
-import type {
-	CompoundExpression,
-	//OneOrMore,
-	QueryExpression
-} from '../../../types/index.d';
+import type {QueryDsl} from '/lib/xp/node';
 
 
 import {flatten} from '../../../array/flatten';
@@ -10,17 +6,17 @@ import {flatten} from '../../../array/flatten';
 
 
 interface Must {
-	must :Array<QueryExpression & CompoundExpression>
+	must: QueryDsl[]
 }
 
 
-function and(arg :QueryExpression & CompoundExpression) :Must;
-function and(...args :Array<QueryExpression & CompoundExpression>) :Must;
-function and(args :Array<QueryExpression & CompoundExpression>) :Must;
+function and(arg: QueryDsl): Must;
+function and(...args: QueryDsl[]): Must;
+function and(args: QueryDsl[]): Must;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function and(...args :any) :Must {
+function and(...args: any): Must {
 	//console.debug('args:%s',toStr(args));
-	const flattened = flatten(args) as Array<QueryExpression & CompoundExpression>;
+	const flattened = flatten(args) as QueryDsl[];
 	//console.debug('flattened:%s',toStr(flattened));
 	return {
 		must: flattened

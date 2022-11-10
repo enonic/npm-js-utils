@@ -1,24 +1,20 @@
-import type {
-	CompoundExpression,
-	//OneOrMore,
-	QueryExpression
-} from '../../../types/index.d';
+import type {QueryDsl} from '/lib/xp/node';
 
 
 import {flatten} from '../../../array/flatten';
 
 
 interface Should {
-	should :Array<QueryExpression & CompoundExpression>
+	should: QueryDsl[]
 }
 
 
-function or(arg :QueryExpression & CompoundExpression) :Should;
-function or(...args :Array<QueryExpression & CompoundExpression>) :Should;
-function or(args :Array<QueryExpression & CompoundExpression>) :Should;
+function or(arg: QueryDsl): Should;
+function or(...args: QueryDsl[]): Should;
+function or(args: QueryDsl[]): Should;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function or(...args :any) :Should {
-	const flattened = flatten(args) as Array<QueryExpression & CompoundExpression>;
+function or(...args: any): Should {
+	const flattened = flatten(args) as QueryDsl[];
 	return {
 		should: flattened
 	};

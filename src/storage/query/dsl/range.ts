@@ -1,4 +1,4 @@
-import type {AnalysedIndexType} from '../../../types/index.d';
+import type {DslQueryType} from '/lib/xp/node';
 
 
 import {isDate} from '../../../value/isDate';
@@ -7,23 +7,23 @@ import {isDate} from '../../../value/isDate';
 interface QueryExpressionRangeParams<
 	IndexType extends number|string
 > {
-	field :string
-	gt? :IndexType
-	gte? :IndexType
-	lt? :IndexType
-	lte? :IndexType
-	boost? :number
-	type? :AnalysedIndexType
+	field: string
+	gt?: IndexType
+	gte?: IndexType
+	lt?: IndexType
+	lte?: IndexType
+	boost?: number
+	type?: DslQueryType
 }
 
 interface QueryExpressionRange<
 	IndexType extends number|string
 > {
-	range :QueryExpressionRangeParams<IndexType>
+	range: QueryExpressionRangeParams<IndexType>
 }
 
 
-function ifDateCastToISOString(v :number|string|Date) :number|string {
+function ifDateCastToISOString(v: number|string|Date): number|string {
 	if (isDate(v)) {
 		return v.toISOString();
 	}
@@ -33,19 +33,19 @@ function ifDateCastToISOString(v :number|string|Date) :number|string {
 
 export function range<
 	InType extends number|string|Date,
-	OutType extends number|string = [InType] extends [number] ? number : string
+	OutType extends number|string = [InType] extends [number] ? number:  string
 >(
-	field :string,
-	limits :{
-		gt? :InType,
-		gte? :InType,
-		lt? :InType,
-		lte? :InType,
+	field: string,
+	limits: {
+		gt?: InType,
+		gte?: InType,
+		lt?: InType,
+		lte?: InType,
 	} = {},
-	boost? :number,
-	type? :AnalysedIndexType
-) :QueryExpressionRange<OutType> {
-	const range :QueryExpressionRangeParams<OutType> = {
+	boost?: number,
+	type?: DslQueryType
+): QueryExpressionRange<OutType> {
+	const range: QueryExpressionRangeParams<OutType> = {
 		field
 	}
 	if (limits.gt) {

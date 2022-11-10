@@ -1,49 +1,57 @@
-import type {OneOrMore} from '../../Utility.d';
+import type {
+	BooleanDslExpression,
+	DslOperator,
+	DslQueryType,
+	FulltextDslExpression,
+	InDslExpression,
+	NgramDslExpression,
+	QueryDsl,
+	StemmedDslExpression,
+	TermDslExpression,
+} from '/lib/xp/node';
 
-// Base primitive value index of a field (number, string, boolean) or
-export type AnalysedIndexType = "time" | "dateTime"
 
-export type QueryExpressionFulltext = {
-	fulltext :{
-		fields :Array<string>
-		operator :string
-		query :string
-	}
-}
-
+//──────────────────────────────────────────────────────────────────────────────
+// Things not yet found in '/lib/xp/node'
+//──────────────────────────────────────────────────────────────────────────────
 export type QueryExpressionIn<ValueType = unknown> = {
-	in :{
-		field :string
-		values :Array<ValueType>
-		type ?:string // 'string'|'number'|'boolean'|'time'|'dateTime'
-		boost ?:number
-	}
-}
-
-export type QueryExpressionNgram = {
-	ngram :{
-		fields :Array<string>
-		operator :string
-		query :string
+	in: {
+		field: InDslExpression['field']
+		values: ValueType[]
+		type?: InDslExpression['type']
+		boost?: InDslExpression['boost']
 	}
 }
 
 export type QueryExpressionStemmed = {
-	stemmed :{
-		fields :Array<string>
-		language :string
-		operator :string
-		query :string
+	stemmed: {
+		fields: StemmedDslExpression['fields']
+		language: StemmedDslExpression['language']
+		query: StemmedDslExpression['query']
+		operator?: DslOperator // TODO Add this to '/lib/xp/node'?
 	}
 }
 
 export type QueryExpressionTerm<ValueType = unknown> = {
-	term :{
-		field :string
+	term: {
+		field: TermDslExpression['field']
 		value :ValueType
-		type ?:string // 'string'|'number'|'boolean'|'time'|'dateTime'
-		boost ?:number
+		type?: TermDslExpression['type']
+		boost?: TermDslExpression['boost']
 	}
+}
+
+//──────────────────────────────────────────────────────────────────────────────
+// Backwards compatibility
+//──────────────────────────────────────────────────────────────────────────────
+export type AnalysedIndexType = DslQueryType
+
+export type QueryExpressionFulltext = {
+	fulltext: FulltextDslExpression
+}
+
+export type QueryExpressionNgram = {
+	ngram: NgramDslExpression
 }
 
 export type QueryExpression = Partial<QueryExpressionFulltext>
@@ -52,15 +60,10 @@ export type QueryExpression = Partial<QueryExpressionFulltext>
 	& Partial<QueryExpressionStemmed>
 	& Partial<QueryExpressionTerm>;
 
-export type CompoundExpression = {
-	boost ?:number
-	must ?:OneOrMore<QueryExpression> & CompoundExpression
-	mustNot ?:OneOrMore<QueryExpression> & CompoundExpression
-	should ?:OneOrMore<QueryExpression> & CompoundExpression
-}
+export type CompoundExpression = BooleanDslExpression
 
 export type CompoundExpressionBoolean = {
-	boolean :CompoundExpression;
+	boolean :BooleanDslExpression;
 }
 
-export type QueryDSL = Partial<CompoundExpressionBoolean> & QueryExpression;
+export type QueryDSL = QueryDsl

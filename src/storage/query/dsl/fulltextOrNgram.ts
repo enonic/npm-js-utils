@@ -1,3 +1,4 @@
+import type {DslOperator} from '/lib/xp/node';
 import type {
 	QueryExpressionFulltext,
 	QueryExpressionNgram
@@ -6,23 +7,23 @@ import type {
 import {buildFieldsArray} from '../buildFields';
 import {
 	QUERY_OPERATOR_OR,
-	QUERY_OPERATORS,
+	// QUERY_OPERATORS,
 	Fields
 } from '../constants';
 
 
-type Operator = typeof QUERY_OPERATORS[number]; // enum
+// type Operator = typeof QUERY_OPERATORS[number]; // enum
 
 type Fulltext = 'fulltext';
 type Ngram = 'ngram';
 
 
 export function fulltextOrNgram(
-	fOrN :Fulltext|Ngram, //= 'fulltext'
-	fields :Fields,
-	query :string,
-	operator :Operator = QUERY_OPERATOR_OR
-) :QueryExpressionFulltext | QueryExpressionNgram  {
+	fOrN: Fulltext|Ngram, //= 'fulltext'
+	fields: Fields,
+	query: string,
+	operator: DslOperator = QUERY_OPERATOR_OR
+): QueryExpressionFulltext | QueryExpressionNgram  {
 	const innerObj = {
 		fields: buildFieldsArray(fields),
 		query,

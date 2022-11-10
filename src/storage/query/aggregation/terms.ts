@@ -1,8 +1,6 @@
+import type {TermsAggregation} from '/lib/xp/node';
 import type {
 	Aggregations,
-	TermsAggregation,
-	TermsAggregationParams,
-	//SortStatement,
 	SortStatementCaseInsensitive
 } from '../../../types/index.d';
 
@@ -20,8 +18,8 @@ function termsParams(
 	size? :number,
 	minDocCount? :number
 
-) :TermsAggregationParams {
-	const terms :TermsAggregationParams = {
+) :TermsAggregation['terms'] {
+	const terms :TermsAggregation['terms'] = {
 		field
 	}
 	if (order) {terms.order = order;}
