@@ -1,11 +1,11 @@
 import type {
-	BasicFilters,
 	BooleanFilter,
 	ExistsFilter,
+	Filter,
 	HasValueFilter,
 	IdsFilter,
 	NotExistsFilter
-} from '../../types/index.d';
+} from '/lib/xp/node';
 
 
 import {
@@ -18,9 +18,9 @@ type FilterClause = typeof FILTER_CLAUSES[number];
 
 interface RelaxedBooleanFilter {
   boolean?: {
-    must?: BasicFilters | Array<BasicFilters>;
-    mustNot?: BasicFilters | Array<BasicFilters>;
-    should?: BasicFilters | Array<BasicFilters>;
+    must?: Filter | Array<Filter>;
+    mustNot?: Filter | Array<Filter>;
+    should?: Filter | Array<Filter>;
   };
 }
 

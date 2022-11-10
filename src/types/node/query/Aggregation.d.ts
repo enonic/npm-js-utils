@@ -1,80 +1,45 @@
+import type {
+	Aggregation,
+	AggregationsResult,
+	DateBucket,
+	DateHistogramAggregation,
+	DateRangeAggregation,
+	GeoDistanceAggregation,
+	MaxAggregation,
+	MinAggregation,
+	NumericBucket,
+	NumericRangeAggregation,
+	StatsAggregation,
+	TermsAggregation,
+	ValueCountAggregation
+} from '/lib/xp/node';
+export type {
+	Aggregation,
+	DateHistogramAggregation,
+	DateRangeAggregation,
+	GeoDistanceAggregation,
+	MaxAggregation,
+	MinAggregation,
+	StatsAggregation,
+	TermsAggregation,
+	ValueCountAggregation
+} from '/lib/xp/node';
+
 //──────────────────────────────────────────────────────────────────────────────
-// Params
+// Params (backwards compatibility)
 //──────────────────────────────────────────────────────────────────────────────
 
-export type DateHistogramAggregationParams = {
-	field :string
-	interval :string
-	minDocCount :number
-	format :string
-}
+export type DateHistogramAggregationParams = DateHistogramAggregation['dateHistogram']
 
-export type DateRangeAggregationParams = {
-	field :string
-	format :string
-	ranges :Array<{
-		from ?:string
-		to ?:string
-	}>
-}
+export type DateRangeAggregationParams = DateRangeAggregation['dateRange']
 
-export type GeoDistanceAggregationParams = {
-	field :string
-	ranges ?:Array<{
-		from ?:number
-		to ?:number
-	}>
-	range ?:{
-		from :number
-		to :number
-	}
-	unit :string
-	origin :{
-		lat :string
-		lon :string
-	}
-}
+export type GeoDistanceAggregationParams = GeoDistanceAggregation['geoDistance']
 
-type MaxAggregationParams = {
-	field :string
-}
+export type StatsAggregationParams = StatsAggregation['stats']
 
-type MinAggregationParams = {
-	field :string
-}
+export type TermsAggregationParams = TermsAggregation['terms']
 
-type RangeAggregationParams = {
-	field :string
-	ranges ?:Array<{
-		from ?:number
-		to ?:number
-	}>
-	range ?:{
-		from :number
-		to :number
-	}
-}
-
-export type StatsAggregationParams = {
-	// Required
-	field :string
-	// Optional
-	order ?:string // Default to ?
-	size ?:number // Default to ?
-}
-
-export type TermsAggregationParams = {
-	// Required
-	field :string
-	// Optional
-	minDocCount ?:number
-	order ?:string // Default to '_term ASC'
-	size ?:number // Default to 10
-}
-
-export type ValueCountAggregationParams = {
-	field :string
-}
+export type ValueCountAggregationParams = ValueCountAggregation['count']
 
 //──────────────────────────────────────────────────────────────────────────────
 // Enonic-XP Multirepo/Repo Connection Query Aggregations Parameter Aggregation Type Names
@@ -95,110 +60,27 @@ export type AggregationType = 'count'
 // GraphQL Schema -> Query -> Args -> Input Type -> Array<...>
 export type AggregationForGraphQLSchemaQueryArgsInputType = {
 	name :string
-	count ?:ValueCountAggregationParams
-	dateHistogram ?:DateHistogramAggregationParams
-	dateRange ?:DateRangeAggregationParams
-	geoDistance ?:GeoDistanceAggregationParams
-	max ?:MaxAggregationParams
-	min ?:MinAggregationParams
-	range ?:RangeAggregationParams
-	stats ?:StatsAggregationParams
-	terms ?:TermsAggregationParams
+	count ?:ValueCountAggregation['count']
+	dateHistogram ?:DateHistogramAggregation['dateHistogram']
+	dateRange ?:DateRangeAggregation['dateRange']
+	geoDistance ?:GeoDistanceAggregation['geoDistance']
+	max ?:MaxAggregation['max']
+	min ?:MinAggregation['min']
+	range ?:NumericRangeAggregation['range']
+	stats ?:StatsAggregation['stats']
+	terms ?:TermsAggregation['terms']
 	subAggregations ?:Array<AggregationForGraphQLSchemaQueryArgsInputType>
 }
 
 //──────────────────────────────────────────────────────────────────────────────
-// Aggregation types
+// Aggregation types (backwards compatibility)
 //──────────────────────────────────────────────────────────────────────────────
+export type RangeAggregation = NumericRangeAggregation
 
-export type DateHistogramAggregation = {
-	dateHistogram :DateHistogramAggregationParams
-	aggregations ?: {
-		[subaggregation :string]: Aggregation
-	}
-}
-
-export type DateRangeAggregation = {
-	dateRange: DateRangeAggregationParams
-	aggregations ?: {
-		[subaggregation :string]: Aggregation
-	}
-}
-
-export type GeoDistanceAggregation = {
-	geoDistance :GeoDistanceAggregationParams
-	aggregations ?:{
-		[subaggregation :string]: Aggregation
-	}
-}
-
-export type RangeAggregation = {
-	range :RangeAggregationParams
-	aggregations ?: {
-		[subaggregation :string] :Aggregation
-	}
-}
-
-export type StatsAggregation = {
-	stats :StatsAggregationParams
-	aggregations ?:{
-		[subaggregation :string] :Aggregation
-	}
-}
-
-export type TermsAggregation = {
-	terms :TermsAggregationParams
-	aggregations ?:{
-		[subaggregation :string] :Aggregation
-	}
-}
-
-/**
-* @since 7.7.0
-*/
-export type MinAggregation = {
-	min :MinAggregationParams
-	aggregations ?:{
-		[subaggregation :string] :Aggregation
-	}
-}
-
-/**
-* @since 7.7.0
-*/
-export type MaxAggregation = {
-	max :MaxAggregationParams
-	aggregations ?:{
-		[subaggregation :string] :Aggregation
-	}
-}
-
-/**
-* @since 7.7.0
-*/
-export type ValueCountAggregation = {
-	count :ValueCountAggregationParams
-	aggregations ?:{
-		[subaggregation :string] :Aggregation
-	}
-}
 
 //──────────────────────────────────────────────────────────────────────────────
 // Enonic-XP Multirepo/Repo Connection Query Aggregations Parameter
 //──────────────────────────────────────────────────────────────────────────────
-
-export type Aggregation =
-	| TermsAggregation
-	| StatsAggregation
-	| RangeAggregation
-	| GeoDistanceAggregation
-	| DateRangeAggregation
-	| DateHistogramAggregation
-	| MinAggregation
-	| MaxAggregation
-	| ValueCountAggregation
-
-
 export type Aggregations<
 	AggregationKeys extends undefined|string = undefined
 > = AggregationKeys extends undefined
@@ -211,36 +93,17 @@ export type Aggregations<
 // Enonic-XP Multirepo/Repo Connection Query Result Aggregations Property
 //──────────────────────────────────────────────────────────────────────────────
 
-export type AggregationsResponseBucket = {
-	docCount :number
-	key :string
-	from ?:number | string
-	to ?:number | string
+export type AggregationsResponseBucket = DateBucket | NumericBucket
 
-	[key2 :string] :unknown // sub aggregations // TODO
-}
-
-export type AggregationsResponseEntry = {
-	buckets :Array<AggregationsResponseBucket>
-
-	// Max, Min, Value Count
-	value ?:number
-
-	// Stats
-	avg ?:number
-	count ?:number
-	max ?:number
-	min ?:number
-	sum ?:number
-}
+export type AggregationsResponseEntry = AggregationsResult
 
 export type AggregationsResponse<
 	AggregationKeys extends undefined|string = undefined
 > = AggregationKeys extends undefined
 	? {} // eslint-disable-line @typescript-eslint/ban-types
 	: AggregationKeys extends string
-		? Record<AggregationKeys, AggregationsResponseEntry>
+		? Record<AggregationKeys, AggregationsResult>
 		/*? {
-			[AggregationKey in AggregationKeys]: AggregationsResponseEntry
+			[AggregationKey in AggregationKeys]: AggregationsResult
 		}*/
 		: never

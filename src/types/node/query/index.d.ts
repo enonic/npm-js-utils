@@ -1,39 +1,47 @@
-import type {Aggregation} from './Aggregation.d';
 import type {QueryDSL} from './Dsl.d';
-import type {
-	BasicFilters,
-	BooleanFilter
-} from './Filters.d';
 import type {Highlight} from './Highlight.d';
 
-
+import type {
+	Aggregation,
+	Filter,
+	MaxAggregation,
+	MinAggregation,
+	NumericRangeAggregation,
+} from '/lib/xp/node'
 export type {
 	Aggregation,
+	DateHistogramAggregation,
+	DateRangeAggregation,
+	GeoDistanceAggregation,
+	MaxAggregation,
+	MinAggregation,
+	StatsAggregation,
+	TermsAggregation,
+	ValueCountAggregation
+} from '/lib/xp/node'
+
+//──────────────────────────────────────────────────────────────────────────────
+// Backwards compatibility)
+//──────────────────────────────────────────────────────────────────────────────
+export type MaxAggregationParams = MaxAggregation['max']
+export type MinAggregationParams = MinAggregation['min']
+export type RangeAggregationParams = NumericRangeAggregation['range']
+export type {
 	AggregationForGraphQLSchemaQueryArgsInputType,
 	Aggregations,
 	AggregationsResponse,
 	AggregationsResponseBucket,
 	AggregationsResponseEntry,
 	AggregationType,
-	DateHistogramAggregation,
 	DateHistogramAggregationParams,
-	DateRangeAggregation,
 	DateRangeAggregationParams,
-	GeoDistanceAggregation,
 	GeoDistanceAggregationParams,
-	MaxAggregation,
-	MaxAggregationParams,
-	MinAggregation,
-	MinAggregationParams,
 	RangeAggregation,
-	RangeAggregationParams,
-	StatsAggregation,
 	StatsAggregationParams,
-	TermsAggregation,
 	TermsAggregationParams,
-	ValueCountAggregation,
 	ValueCountAggregationParams
-} from './Aggregation.d';
+} from './Aggregation.d'
+//──────────────────────────────────────────────────────────────────────────────
 export type {
 	AnalysedIndexType,
 	CompoundExpression,
@@ -95,7 +103,7 @@ export type NodeQueryParams<
 	/**
 	* Query filters
 	*/
-	filters?: BasicFilters | BooleanFilter;
+	filters?: Filter
 
 	/**
 	* Sorting expression.

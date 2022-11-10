@@ -1,60 +1,30 @@
-export type ExistsFilter = {
-	exists :{
-		field :string
-	}
-}
+import type {
+	ExistsFilter,
+	Filter,
+	HasValueFilter,
+	IdsFilter,
+	NotExistsFilter
+} from '/lib/xp/node';
+export type {
+	BooleanFilter,
+	ExistsFilter,
+	HasValueFilter,
+	IdsFilter,
+	NotExistsFilter
+} from '/lib/xp/node';
 
-export type NotExistsFilter = {
-	notExists :{
-		field :string
-	}
-}
 
-export type HasValueFilterParams = {
-	field :string
-	values :Array<unknown>
-}
+//──────────────────────────────────────────────────────────────────────────────
+// Backwards compatibility
+//──────────────────────────────────────────────────────────────────────────────
+export type HasValueFilterParams = HasValueFilter['hasValue']
 
-export type HasValueFilter = {
-	hasValue :HasValueFilterParams
-}
+export type BasicFilters = Filter
 
-export type IdsFilter = {
-	ids :{
-		values :Array<string>
-	}
-}
-
-export type BasicFilters = ExistsFilter | NotExistsFilter | HasValueFilter | IdsFilter
-
-export type BooleanFilter = {
-	boolean :{
-		must? :BasicFilters | Array<BasicFilters>
-		mustNot? :BasicFilters | Array<BasicFilters>
-		should? :BasicFilters | Array<BasicFilters>
-	}
-}
-
-export type QueryFilters = {
-	boolean? :{
-		must? :BasicFilters | Array<BasicFilters>
-		mustNot? :BasicFilters | Array<BasicFilters>
-		should? :BasicFilters | Array<BasicFilters>
-	}
-	exists? :{
-		field :string
-	}
-	notExists? :{
-		field :string
-	}
-	hasValue? :HasValueFilterParams
-	ids? :{
-		values :Array<string>
-	}
-}
+export type QueryFilters = Filter
 
 //──────────────────────────────────────────────────────────────────────────
-// Guillotine
+// Guillotine // TODO: Use types from Guillotine when they are available
 //──────────────────────────────────────────────────────────────────────────
 export namespace Guillotine {
 	export type HasStringValueFilterParams = {
