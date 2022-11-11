@@ -1,9 +1,11 @@
-import type {Node} from '/lib/xp/node';
-import type {IndexConfig} from './indexConfig.d';
+import type {
+	Node,
+	NodeIndexConfigParams,
+} from '/lib/xp/node';
 
 
 export type RepoNode = Omit<Node,'_indexConfig'> & {
-	_indexConfig: IndexConfig;
+	_indexConfig: NodeIndexConfigParams;
 }
 
 export type RepoNodeWithData<Data = Record<string, unknown>> = RepoNode & Data

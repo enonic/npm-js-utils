@@ -205,6 +205,11 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.11.0.tgz#f307e1803656452bb93d8760374563f305175e1a"
   integrity sha512-05u/BLlOaZK9zaqjCTV+w9gsrLkhwnp6oy0/14VXFKOkg3vCWNbqSsuStNAfguGqLSJOB0/nVU0yvbD1g5FT9Q==
 
+"@enonic-types/global@^7.11.0":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/global/-/global-7.11.0.tgz#17fd8890f0bae4041fc472a4f6cbf61d369e9eee"
+  integrity sha512-wVsLS3wmkNWlhVXBmAAYG99LEjI0vKch/oPn0SgQeOioul/2Bo+cPZ1JDjNoHd5mixkddIXvQlHEmAK7nc0wrQ==
+
 "@enonic-types/lib-auth@^7.11.0":
   version "7.11.0"
   resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-7.11.0.tgz#2b267cf3aedf0864d95eae304a462ed20e53d772"

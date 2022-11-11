@@ -1,15 +1,15 @@
+import type {
+	CreateNodeParams,
+	GetActiveVersionParams,
+	NodeVersion,
+} from '/lib/xp/node';
 import type { PrincipalKey } from '../auth';
 
 import type {
 	//RepoNode,
 	RepoNodeWithData
 } from './node.d';
-import type { NodeCreateParams } from './create.d';
 //import type { NodeGetParams } from './get.d';
-import type {
-	GetActiveVersionParamObject,
-	GetActiveVersionResponse
-} from './getActiveVersion.d'
 import type { NodeModifyParams } from './modify.d';
 import type { NodeQueryParams } from './query';
 import type { AggregationsResponse } from './query/aggregation.d';
@@ -52,9 +52,9 @@ export type RepoConnection = {
 	* Creating a node. To create a content where the name is not important and there could be multiple instances under the
 	* same parent content, skip the name parameter and specify a displayName.
 	*/
-	//create<NodeData>(a: NodeData & NodeCreateParams): NodeData & RepoNode;
-	//create<NodeData>(a: NodeData & NodeCreateParams) :RepoNodeWithData
-	create(a: NodeCreateParams) :RepoNodeWithData
+	//create<NodeData>(a: NodeData & CreateNodeParams): NodeData & RepoNode;
+	//create<NodeData>(a: NodeData & CreateNodeParams) :RepoNodeWithData
+	create(a: CreateNodeParams) :RepoNodeWithData
 
 	/**
 	* Deleting a node or nodes.
@@ -111,7 +111,7 @@ export type RepoConnection = {
 	/**
 	* This function returns the active version of a node.
 	*/
-	getActiveVersion(object: GetActiveVersionParamObject): GetActiveVersionResponse;
+	getActiveVersion(object: GetActiveVersionParams): NodeVersion | null;
 
 	/**
 	* This function sets the active version of a node.

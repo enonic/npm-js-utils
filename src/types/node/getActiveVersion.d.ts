@@ -1,16 +1,14 @@
 import type {
 	GetActiveVersionParams,
-	// NodeVersion
+	NodeVersion
 } from '/lib/xp/node';
 
+
+//──────────────────────────────────────────────────────────────────────────────
+// Backwards compatibility: TODO should be removed in 1.0?
+//──────────────────────────────────────────────────────────────────────────────
 export type GetActiveVersionParamObject = GetActiveVersionParams
 
-export type GetActiveVersionResponseObject = {
-	versionId :string
-	nodeId :string
-	nodePath :string
-	timestamp :string
-	//commitId: string; // TODO Found in /lib/xp/node but maybe it should be optional
-}
+export type GetActiveVersionResponseObject = NodeVersion
 
 export type GetActiveVersionResponse = GetActiveVersionResponseObject | null;

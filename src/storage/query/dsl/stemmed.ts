@@ -1,5 +1,7 @@
-import type {DslOperator} from '/lib/xp/node';
-import type {QueryExpressionStemmed} from '../../../types/index.d';
+import type {
+	DslOperator,
+	StemmedDslExpression
+} from '/lib/xp/node';
 
 
 import {
@@ -22,7 +24,9 @@ export function stemmed(
 	query: string,
 	operator: DslOperator = QUERY_OPERATOR_OR,
 	language: StemmingLanguageCodes = STEMMING_LANGUAGE_CODE_ENGLISH
-): QueryExpressionStemmed {
+): {
+	stemmed: StemmedDslExpression
+} {
 	return {
 		stemmed: {
 			fields: buildFieldsArray(fields),

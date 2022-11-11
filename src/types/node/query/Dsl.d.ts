@@ -1,6 +1,5 @@
 import type {
 	BooleanDslExpression,
-	DslOperator,
 	DslQueryType,
 	FulltextDslExpression,
 	InDslExpression,
@@ -20,15 +19,6 @@ export type QueryExpressionIn<ValueType = unknown> = {
 		values: ValueType[]
 		type?: InDslExpression['type']
 		boost?: InDslExpression['boost']
-	}
-}
-
-export type QueryExpressionStemmed = {
-	stemmed: {
-		fields: StemmedDslExpression['fields']
-		language: StemmedDslExpression['language']
-		query: StemmedDslExpression['query']
-		operator?: DslOperator // TODO Add this to '/lib/xp/node'?
 	}
 }
 
@@ -52,6 +42,10 @@ export type QueryExpressionFulltext = {
 
 export type QueryExpressionNgram = {
 	ngram: NgramDslExpression
+}
+
+export type QueryExpressionStemmed = {
+	stemmed: StemmedDslExpression
 }
 
 export type QueryExpression = Partial<QueryExpressionFulltext>

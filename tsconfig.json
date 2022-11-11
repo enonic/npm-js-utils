@@ -36,13 +36,22 @@
 		"noUnusedParameters": true,
 		"outDir": "dist/cjs",
 		"paths": {
+			// Production (should be commented in when commiting)
 			"@enonic/js-utils": ["src"],
 			"/lib/xp/auth": ["node_modules/@enonic-types/lib-auth"],
 			"/lib/xp/node": ["node_modules/@enonic-types/lib-node"],
+			// Development (should be commented out when commiting)
+			//"@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
+			//"/lib/xp/auth": ["../xp/modules/lib/lib-auth/src/main/resources/lib/xp/auth.ts"],
+			//"/lib/xp/node": ["../xp/modules/lib/lib-node/src/main/resources/lib/xp/node.ts"],
+			//"/lib/xp/auth": ["../xp/modules/lib/lib-auth/build/typescript/lib/xp/auth.d.ts"],
+			//"/lib/xp/node": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
+			// Doesn't help:
+			//"node_modules/@enonic-types/lib-node/node.d.ts": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
 		},
 		"removeComments": true,
 		"resolveJsonModule": true,
-		"rootDir": "src",
+		"rootDir": "..",
 		"rootDirs": [
 			"src",
 			"node_modules",
@@ -59,6 +68,7 @@
 		],
 		"types": [
 			//"node", // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
+			"@enonic-types/global",
 			"@enonic-types/lib-auth",
 			"@enonic-types/lib-node",
 		]
@@ -66,6 +76,8 @@
 	"exclude": [
 		"**/*.d.ts",
 		"node_modules"
+		//"./node_modules/**/*", // Doesn't help
+		//"../xp/**/*", // Doesn't help
 	],
 	"files": [
 		"src/index.ts"
