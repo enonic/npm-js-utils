@@ -1,169 +1,53 @@
 import type {
-	CreateNodeParams,
-	GetActiveVersionParams,
-	NodeVersion,
+	ConnectParams,
+	NodeQueryResult,
+	NodeQueryResultHit,
+	RepoConnection,
 } from '/lib/xp/node';
-import type { PrincipalKey } from '../auth';
+import type {AggregationsResponse} from './query/aggregation.d';
 
-import type {
-	//RepoNode,
-	RepoNodeWithData
-} from './node.d';
-//import type { NodeGetParams } from './get.d';
-import type { NodeModifyParams } from './modify.d';
-import type { NodeQueryParams } from './query';
-import type { AggregationsResponse } from './query/aggregation.d';
+export type {RepoConnection} from '/lib/xp/node';
 
 
-export type Source = {
-	repoId: string;
-	branch: string;
-	user?: {
-		login: string;
-		idProvider?: string;
-	};
-	principals?: Array<PrincipalKey>;
+//──────────────────────────────────────────────────────────────────────────────
+// Extensions on @enonic-types
+//──────────────────────────────────────────────────────────────────────────────
+export type RepoReadConnection = {
+	commit: never
+	create: never
+	delete: never
+	diff: RepoConnection['diff']
+	exists: RepoConnection['exists']
+	findChildren: RepoConnection['findChildren']
+	findVersions: RepoConnection['findVersions']
+	get: RepoConnection['get']
+	getActiveVersion: RepoConnection['getActiveVersion']
+	getBinary: RepoConnection['getBinary']
+	getCommit: RepoConnection['getCommit']
+	modify: never
+	move: never
+	push: never
+	query: RepoConnection['get']
+	refresh: never
+	setActiveVersion: never
+	setRootPermissions: never
+	setChildOrder: never
 }
+export type RepoWriteConnection = RepoConnection;
 
-export type NodeQueryHit = {
-	id: string;
-	highlight ?:Record<string,Array<string>>
-	score: number;
-}
+//──────────────────────────────────────────────────────────────────────────────
+// Backwards compatibility // TODO Remove in 1.0?
+//──────────────────────────────────────────────────────────────────────────────
+export type Source = ConnectParams
+
+export type NodeQueryHit = NodeQueryResultHit
 
 export type NodeQueryResponse<
 	AggregationKeys extends undefined|string = undefined
 > = {
-	total: number;
-	count: number;
-	hits: Array<NodeQueryHit>;
-	aggregations: AggregationsResponse<AggregationKeys>;
-}
-
-export type RepoConnection = {
-	/**
-	* Commits the active version of nodes.
-	*/
-	//commit(params: CommitParams): CommitResponse;
-
-	//commit(params: MultiCommitParams): Array<CommitResponse>;
-
-	/**
-	* Creating a node. To create a content where the name is not important and there could be multiple instances under the
-	* same parent content, skip the name parameter and specify a displayName.
-	*/
-	//create<NodeData>(a: NodeData & CreateNodeParams): NodeData & RepoNode;
-	//create<NodeData>(a: NodeData & CreateNodeParams) :RepoNodeWithData
-	create(a: CreateNodeParams) :RepoNodeWithData
-
-	/**
-	* Deleting a node or nodes.
-	*/
-	delete(keys: string | Array<string>): Array<string>;
-
-	/**
-	* Resolves the differences for a node between current and given branch.
-	*/
-	//diff(params: DiffParams): DiffResponse;
-
-	/**
-	* Checking if a node or nodes exist for the current context.
-	*/
-	exists(keys: string | Array<string>): Array<string>;
-
-	/**
-	* Fetch the versions of a node.
-	*/
-	//findVersions(params: FindVersionsParams): NodeVersionQueryResult;
-
-	/**
-	* Fetches a specific node by path or ID.
-	*/
-	//get<NodeData>(key: string | NodeGetParams): NodeData & RepoNode;
-	//get(key: string | NodeGetParams): RepoNodeWithData;
-	//get(key: string): RepoNodeWithData;
-
-	/**
-	* Fetches specific nodes by paths or IDs.
-	*/
-	//get<NodeData>(keys: Array<string | NodeGetParams>): Array<NodeData & RepoNode>;
-	//get(keys: Array<string | NodeGetParams>): Array<RepoNodeWithData>;
-	//get(keys: string[]): RepoNodeWithData | RepoNodeWithData[];
-
-	/**
-	* Fetches specific nodes by path(s) or ID(s).
-	*/
-	/*get<NodeData>(
-		keys: string | NodeGetParams | Array<string | NodeGetParams>
-	): (NodeData & RepoNode) | Array<NodeData & RepoNode>;*/
-	/*get(
-		keys: string | NodeGetParams | Array<string | NodeGetParams>
-	): (RepoNodeWithData) | Array<RepoNodeWithData>;*/
-	//get(keys: string | string[]): RepoNodeWithData | RepoNodeWithData[];
-	get(...keys: string[]): RepoNodeWithData | RepoNodeWithData[];
-
-	/**
-	* This function fetches commit by id.
-	* @since 7.7.0
-	*/
-	//getCommit(params: GetCommitParams): CommitResponse;
-
-	/**
-	* This function returns the active version of a node.
-	*/
-	getActiveVersion(object: GetActiveVersionParams): NodeVersion | null;
-
-	/**
-	* This function sets the active version of a node.
-	*/
-	//setActiveVersion(params: SetActiveVersionParams): boolean;
-
-	/**
-	* This function returns a binary stream.
-	*/
-	//getBinary(params: GetBinaryParams): import("/lib/xp/content").ByteSource;
-
-	/**
-	* This command queries nodes.
-	*/
-	/*query<AggregationKeys extends string = never>(
-		params: NodeQueryParams<AggregationKeys>
-	): NodeQueryResponse<AggregationKeys>;*/
-	query(params: NodeQueryParams) :NodeQueryResponse
-
-	/**
-	* Refresh the index for the current repoConnection
-	*/
-	//refresh(mode?: "ALL" | "SEARCH" | "STORAGE"): void;
-
-	/**
-	* This function modifies a node.
-	*/
-	//modify<NodeData>(params: NodeModifyParams<NodeData>): NodeData & RepoNode;
-	modify(params: NodeModifyParams): RepoNodeWithData;
-
-	/**
-	* Rename a node or move it to a new path.
-	*/
-	//move(params: NodeMoveParams): boolean;
-
-	/**
-	* Pushes a node to a given branch.
-	*/
-	//push(params: PushNodeParams): PushNodeResult;
-
-	/**
-	* Set the order of the node’s children.
-	*/
-	//setChildOrder<NodeData>(params: SetChildOrderParams): NodeData & RepoNode;
-
-	/**
-	* Set the root node permissions and inheritance.
-	*/
-	//setRootPermission<NodeData>(params: SetRootPermissionParams): NodeData & RepoNode;
-
-	/**
-	* Get children for given node.
-	*/
-	//findChildren(params: NodeFindChildrenParams): NodeQueryResponse;
+	total: NodeQueryResult['total']
+	count: NodeQueryResult['count']
+	hits: NodeQueryResult['hits']
+	aggregations: AggregationsResponse<AggregationKeys>
+	suggestions?: NodeQueryResult['suggestions']
 }
