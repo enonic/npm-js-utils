@@ -1,6 +1,18 @@
 import type {AccessControlEntry} from '/lib/xp/node';
-import type {IndexDefinition as IndexDefinitionFromEnonicTypes} from '/lib/xp/repo';
-import type {AggregationsResponse} from './node/query/Aggregation.d';
+import type {
+	BranchResult,
+	IndexDefinition as IndexDefinitionFromEnonicTypes,
+	Repository,
+	createBranch,
+	delete as _delete,
+	deleteBranch,
+	refresh
+} from '/lib/xp/repo';
+
+
+export type {
+	CreateBranchParams
+} from '/lib/xp/repo';
 
 
 export type ElasticSearchIndexSettings = {
@@ -89,59 +101,40 @@ export type IndexDefinition = {
 }
 
 export type RepositorySettings = {
-	definitions? :{
-		search? :IndexDefinition;
-		version? :IndexDefinition;
-		branch? :IndexDefinition;
+	definitions?: {
+		search?: IndexDefinition; // TODO These are UPPERCASE in @enonic-types/lib-repo
+		version?: IndexDefinition;
+		branch?: IndexDefinition;
+		commit?: IndexDefinition;
 	};
 }
 
 export type CreateRepoParams = {
-	id :string
-	//rootChildOrder? :string
+	id: string
+	rootChildOrder?: string
 	rootPermissions?: AccessControlEntry[]
-	settings? :RepositorySettings
+	settings?: RepositorySettings // TODO RepositorySettings from @enonic-types/lib-repo have UPPERCASE properties
 }
 
-export type EmptyObject = Record<string, never>;
 
-export type RepositoryConfig<Data = EmptyObject> = {
-	id: string;
-	branches: string[];
-	settings: RepositorySettings;
+export type RepositoryConfig<Data = Record<string, unknown>> = {
+	id: Repository['id'];
+	branches: Repository['branches'];
+	settings: RepositorySettings; // TODO RepositorySettings from @enonic-types/lib-repo have UPPERCASE properties
 	data?: Data;
 }
 
-export type NodeQueryHit = {
-	id: string;
-	score: number;
-}
-
-export type NodeQueryResponse<
-	AggregationKeys extends undefined|string = undefined
-> = {
-	total: number;
-	count: number;
-	hits: Array<NodeQueryHit>;
-	aggregations: AggregationsResponse<AggregationKeys>;
-}
-
-export type CreateBranchParams = {
-	branchId: string;
-	repoId: string;
-}
-
-export type BranchConfig = {
-	id: string;
-}
-
 export type RepoLib = {
-	create(param :CreateRepoParams) :RepositoryConfig
-	createBranch(params: CreateBranchParams): BranchConfig;
-	get(repoId :string) :RepositoryConfig
-	list() :RepositoryConfig[]
-	/*query<AggregationKeys extends string = never>(
-		params: NodeQueryParams<AggregationKeys>
-	): NodeQueryResponse<AggregationKeys>;*/
-	//query<AggregationKeys extends string = never>() :NodeQueryResponse<AggregationKeys>;
+	create(param: CreateRepoParams): RepositoryConfig
+	createBranch: typeof createBranch
+	delete: typeof _delete
+	deleteBranch: typeof deleteBranch
+	get(repoId: string): RepositoryConfig
+	list(): RepositoryConfig[]
+	refresh: typeof refresh
 }
+
+//──────────────────────────────────────────────────────────────────────────────
+// Backwards compatibility: TODO Remove in 1.0?
+//──────────────────────────────────────────────────────────────────────────────
+export type BranchConfig = BranchResult
