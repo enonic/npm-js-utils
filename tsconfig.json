@@ -39,7 +39,9 @@
 			// Production (should be commented in when commiting)
 			"@enonic/js-utils": ["src"],
 			"/lib/xp/auth": ["node_modules/@enonic-types/lib-auth"],
+			"/lib/xp/event": ["node_modules/@enonic-types/lib-event"],
 			"/lib/xp/node": ["node_modules/@enonic-types/lib-node"],
+			"/lib/xp/repo": ["node_modules/@enonic-types/lib-repo"],
 			// Development (should be commented out when commiting)
 			//"@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
 			//"/lib/xp/auth": ["../xp/modules/lib/lib-auth/src/main/resources/lib/xp/auth.ts"],
@@ -70,7 +72,9 @@
 			//"node", // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
 			"@enonic-types/global",
 			"@enonic-types/lib-auth",
+			"@enonic-types/lib-event",
 			"@enonic-types/lib-node",
+			"@enonic-types/lib-repo",
 		]
 	},
 	"exclude": [

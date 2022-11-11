@@ -1,5 +1,6 @@
-import type {PermissionsParams} from './Auth'
-import type {AggregationsResponse} from './node/query/aggregation.d';
+import type {AccessControlEntry} from '/lib/xp/node';
+import type {IndexDefinition as IndexDefinitionFromEnonicTypes} from '/lib/xp/repo';
+import type {AggregationsResponse} from './node/query/Aggregation.d';
 
 
 export type ElasticSearchIndexSettings = {
@@ -83,9 +84,10 @@ export type ElasticSearchIndexSettings = {
 }
 
 export type IndexDefinition = {
-	settings: ElasticSearchIndexSettings;
-	mapping: unknown; // TODO
+	settings?: ElasticSearchIndexSettings;
+	mapping?: IndexDefinitionFromEnonicTypes['mapping']
 }
+
 export type RepositorySettings = {
 	definitions? :{
 		search? :IndexDefinition;
@@ -97,7 +99,7 @@ export type RepositorySettings = {
 export type CreateRepoParams = {
 	id :string
 	//rootChildOrder? :string
-	rootPermissions? :Array<PermissionsParams>
+	rootPermissions?: AccessControlEntry[]
 	settings? :RepositorySettings
 }
 

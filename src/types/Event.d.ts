@@ -1,3 +1,11 @@
+import type {
+	EnonicEvent,
+	EnonicEventData,
+	ListenerParams,
+	SendParams,
+	listener,
+	send
+} from '/lib/xp/event';
 import type {AnyObject} from './Utility.d';
 
 //──────────────────────────────────────────────────────────────────────────────
@@ -18,13 +26,13 @@ export type EventTypes = EventTypeApplication | EventTypesTask | EventTypesCusto
 //──────────────────────────────────────────────────────────────────────────────
 export type Event<
 	Type extends EventTypes = EventTypes,
-	Data extends object = AnyObject
+	Data extends object = EnonicEventData
 	> = {
-	data :Data
-	distributed :boolean
-	localOrigin :boolean
-	timestamp :number
-	type :Type
+	data: Data
+	distributed: EnonicEvent['distributed']
+	localOrigin: EnonicEvent['localOrigin']
+	timestamp: EnonicEvent['timestamp']
+	type: Type
 }
 
 //──────────────────────────────────────────────────────────────────────────────
@@ -68,13 +76,13 @@ export type EventLib = {
 	listener :<
 		CallbackEvent extends Event
 	>(params :{
-		type :string // Event type pattern
-		localOnly :boolean
-		callback :(event :CallbackEvent) => null
-	}) => null
+		type: ListenerParams['type']
+		localOnly: ListenerParams['localOnly']
+		callback :(event :CallbackEvent) => void
+	}) => ReturnType<typeof listener>
 	send :<Data extends object>(params :{
-		type :string
-		distributed :boolean
+		type: SendParams['type']
+		distributed: SendParams['distributed']
 		data ?:Data
-	}) => null
+	}) => ReturnType<typeof send>
 }
