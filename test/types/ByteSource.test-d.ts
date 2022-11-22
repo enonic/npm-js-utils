@@ -5,6 +5,7 @@ import type {
 } from '/lib/xp/app';
 import type {
 	AddAttachmentParam,
+	CreateMediaParams,
 } from '/lib/xp/content';
 
 import {
@@ -17,6 +18,7 @@ import {
 import {getDescriptor} from '/lib/xp/app';
 import {
 	addAttachment,
+	createMedia,
 	getAttachmentStream
 } from '/lib/xp/content';
 
@@ -56,12 +58,36 @@ if (attachmentStream) {
 	addAttachment(addAttachmentParams);
 	// expectError(addAttachment(addAttachmentParams)); // Expected an error, but found none.
 
-	const illegalAddAttachmentParams = {
-		data: {},
-		key: 'whatever',
+	const createMediaParams = {
+		data: attachmentStream,
+		focalX: '0.5', // CreateMediaParams and CreateMediaHandler has string, but jsdoc and updateMedia has number
+		focalY: '0.5', // CreateMediaParams and CreateMediaHandler has string, but jsdoc and updateMedia has number
+		idGenerator: (v: string) => v,
 		name: 'whatever',
-		mimeType: 'whatever'
-	}
-	expectNotAssignable<AddAttachmentParam>(illegalAddAttachmentParams);
-	expectError(addAttachment(illegalAddAttachmentParams));
+		mimeType: 'whatever',
+		parentPath: 'whatever'
+	};
+	expectAssignable<CreateMediaParams>(addAttachmentParams);
+	createMedia(createMediaParams);
 } // if (attachmentStream)
+
+const illegalAddAttachmentParams = {
+	data: {},
+	key: 'whatever',
+	name: 'whatever',
+	mimeType: 'whatever'
+}
+expectNotAssignable<AddAttachmentParam>(illegalAddAttachmentParams);
+expectError(addAttachment(illegalAddAttachmentParams));
+
+const illegalCreateMediaParams = {
+	data: {},
+	focalX: '0.5',
+	focalY: '0.5',
+	idGenerator: (v: string) => v,
+	name: 'whatever',
+	mimeType: 'whatever',
+	parentPath: 'whatever'
+}
+expectNotAssignable<CreateMediaParams>(illegalCreateMediaParams);
+expectError(createMedia(illegalCreateMediaParams));
