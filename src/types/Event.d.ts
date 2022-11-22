@@ -97,12 +97,12 @@ export type ApplicationClusterEvent = Event<EventTypeApplicationCluster,{
 		| 'stop'
 		| 'uninstall'
 		| 'uninstalled'
-		// | string
+		// | string // Not certain I have covered all eventTypes
 	started?: boolean
 }>
 
 
-export type ApplicationEvent = Event<EventTypeApplication,{
+export interface ApplicationEventData {
 	applicationKey :string
 	systemApplication :boolean
 	eventType:
@@ -110,14 +110,16 @@ export type ApplicationEvent = Event<EventTypeApplication,{
 		| 'STARTED'
 		| 'STOPPED'
 		| 'UNINSTALLED'
-		//| string
-}>
+		// | string // Not certain I have covered all eventTypes
+}
+
+export type ApplicationEvent = Event<EventTypeApplication,ApplicationEventData>;
 
 export type NodeCreatedEvent = NodeEvent<EventTypeNodeCreated>;
 export type NodeDeletedEvent = NodeEvent<EventTypeNodeDeleted>;
 export type NodeUpdatedEvent = NodeEvent<EventTypeNodeUpdated>;
 
-export type TaskEvent = Event<EventTypesTask,{
+export interface TaskEventData {
 	application :string
 	description :string
 	id :string
@@ -130,7 +132,9 @@ export type TaskEvent = Event<EventTypesTask,{
 	startTime :string // Date
 	state :string //'FINISHED'
 	user :string
-}>
+}
+
+export type TaskEvent = Event<EventTypesTask,TaskEventData>
 
 //──────────────────────────────────────────────────────────────────────────────
 //export type Events = ApplicationEvent|TaskEvent|CustomEvent//|GenericEvent
