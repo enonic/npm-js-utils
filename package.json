@@ -6,10 +6,17 @@
     "@babel/core": "^7",
     "@babel/register": "^7",
     "@enonic-types/global": "^7",
+    "@enonic-types/lib-app": "^7",
     "@enonic-types/lib-auth": "^7",
+    "@enonic-types/lib-content": "^7",
     "@enonic-types/lib-event": "^7",
+    "@enonic-types/lib-io": "^7",
+    "@enonic-types/lib-mail": "^7",
     "@enonic-types/lib-node": "^7",
+    "@enonic-types/lib-portal": "^7",
     "@enonic-types/lib-repo": "^7",
+    "@enonic-types/lib-schema": "^7",
+    "@enonic-types/lib-value": "^7",
     "@enonic/test-data": "^0.2",
     "@types/assert": "^1",
     "@types/chai": "^4",
@@ -65,7 +72,9 @@
     "premocha": "yarn build",
     "prepack": "yarn test && yarn typedoc",
     "tsc": "npx tsc",
-    "tsd": "npx tsd -t src/types/index.d.ts -f test/**/*.test-d.ts"
+    "tsd": "yarn tsd:ByteSource && yarn tsd:Event",
+    "tsd:ByteSource": "npx tsd -t src/types/index.d.ts -f test/types/ByteSource.test-d.ts",
+    "tsd:Event": "npx tsd -t src/types/index.d.ts -f test/types/Event.test-d.ts"
   },
   "version": "0.43.0"
 }

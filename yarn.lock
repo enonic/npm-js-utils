@@ -210,10 +210,22 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/global/-/global-7.11.0.tgz#17fd8890f0bae4041fc472a4f6cbf61d369e9eee"
   integrity sha512-wVsLS3wmkNWlhVXBmAAYG99LEjI0vKch/oPn0SgQeOioul/2Bo+cPZ1JDjNoHd5mixkddIXvQlHEmAK7nc0wrQ==
 
+"@enonic-types/lib-app@^7":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-app/-/lib-app-7.11.0.tgz#d8a5f2602a9d91264e606c9f779363266921fed6"
+  integrity sha512-e2IuBQGsyH4m0wkJ8a6F944SHY/Chdfv32+NbwmVi45sJe1gil0xrn0550Ejn4l8uUgYMKWDaoHvBZOcmQQJTw==
+
 "@enonic-types/lib-auth@^7":
   version "7.11.0"
   resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-7.11.0.tgz#2b267cf3aedf0864d95eae304a462ed20e53d772"
   integrity sha512-qdG7yasMfzTJIJmxJONVq7qA/7ThmXbwbHhhRt61or1QY3FzHgzRiY+VL0NT/e2bhWfdMZnzsZnBgdwrMKFOKg==
+  dependencies:
+    "@enonic-types/core" "7.11.0"
+
+"@enonic-types/lib-content@^7":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-content/-/lib-content-7.11.0.tgz#ecca6e25d98513a656a1511a2c18726ac5a367ab"
+  integrity sha512-s1S+P1wzYifrCMxiUnvTUZNJh/NBEM5sRFOJUNEV5qFYp4IkS54iKt6Nw8yznsh2YYQWFCdIevDALZyP+9Fplw==
   dependencies:
     "@enonic-types/core" "7.11.0"
 
@@ -222,6 +234,18 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/lib-event/-/lib-event-7.11.0.tgz#f5964a0d76b0d7e1a23cc5bca7d1b8a74ad12bcb"
   integrity sha512-aihuq2CKQ2BhhIWDDP1I7QKo3LzPv6ptUDucAjVl8St2ndjCAHyAUgTk2nc1P/C0ArNgAsHPoqbIkGfG8UrU2A==
 
+"@enonic-types/lib-io@^7":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-7.11.0.tgz#4a22371d118429d0c93346f1029d6ad52ca4da81"
+  integrity sha512-DDhkM03hRkvKtMixY7wOYsdgeric6yFeAikeULWb16xSfdBB9iRlbIgvYoAo4OVTITFPX3PnkYk9Je9EqMSKbw==
+  dependencies:
+    "@enonic-types/core" "7.11.0"
+
+"@enonic-types/lib-mail@^7":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.11.0.tgz#34da6e0ada0c8179607c950fead3470931931525"
+  integrity sha512-hMlQSx+0dd1Avur0Im2owsjL9kjmhGZjR6r83kJ1UhAP7dHl32BV8YiHniRac/TAVlhZg/8vwjU3GEBTFUFjuA==
+
 "@enonic-types/lib-node@^7":
   version "7.11.0"
   resolved "https://registry.yarnpkg.com/@enonic-types/lib-node/-/lib-node-7.11.0.tgz#8ef1306a92f99e4344d14887e92e9ddd244a36b6"
@@ -229,10 +253,29 @@
   dependencies:
     "@enonic-types/core" "7.11.0"
 
+"@enonic-types/lib-portal@^7":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-portal/-/lib-portal-7.11.0.tgz#7f239fc9a7d60e0daba4f9274f3d65ac7e6d0fdf"
+  integrity sha512-0VLDRx153ppMPYPpY8dHtfWx2/qfWGiOUgugP6vGOzo89DZtN2YO+U26s3rouKvyf6ivgJvuCKAOyhnmcJTgog==
+  dependencies:
+    "@enonic-types/core" "7.11.0"
+
 "@enonic-types/lib-repo@^7":
   version "7.11.0"
   resolved "https://registry.yarnpkg.com/@enonic-types/lib-repo/-/lib-repo-7.11.0.tgz#679dd48351cdc62f10a278727be6ce562f85d0dc"
   integrity sha512-FP2NP90G/Dp7Fqp8RzJsOV9CS3ujK1IB78e5Av49FaSGYen/hOP6pE7WC6sJrhfnX2pSpJg2wplY2nQJM+hzDw==
+
+"@enonic-types/lib-schema@^7":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-schema/-/lib-schema-7.11.0.tgz#f2102f68245f0087a9314f241e2fbbe84e670378"
+  integrity sha512-Bo83JVOjUEeNl8qReh9BymO51IQDK6uVapQ9yo1A1d136CYfHXJi5Cz38tupID0y0Wi60QGi7rlOFR31k6D+9Q==
+  dependencies:
+    "@enonic-types/core" "7.11.0"
+
+"@enonic-types/lib-value@^7":
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-value/-/lib-value-7.11.0.tgz#f7fc5d7d7263988ac94bf004a89087bd4265ac0f"
+  integrity sha512-0/GuKVNuXK8nZ5mQAiPATens5TWx826c7h7n6a6jlLQokseudW1TOX8eeaAlHRQoCNRzrT9Juels0fDJ65iOjg==
 
 "@enonic/test-data@^0.2":
   version "0.2.1"

@@ -38,16 +38,30 @@
 		"paths": {
 			// Production (should be commented in when commiting)
 			"@enonic/js-utils": ["src"],
+			"/lib/xp/app": ["node_modules/@enonic-types/lib-app"],
 			"/lib/xp/auth": ["node_modules/@enonic-types/lib-auth"],
+			"/lib/xp/content": ["node_modules/@enonic-types/lib-content"],
 			"/lib/xp/event": ["node_modules/@enonic-types/lib-event"],
+			"/lib/xp/io": ["node_modules/@enonic-types/lib-io"],
+			"/lib/xp/mail": ["node_modules/@enonic-types/lib-mail"],
 			"/lib/xp/node": ["node_modules/@enonic-types/lib-node"],
+			"/lib/xp/portal": ["node_modules/@enonic-types/lib-portal"],
 			"/lib/xp/repo": ["node_modules/@enonic-types/lib-repo"],
+			"/lib/xp/schema": ["node_modules/@enonic-types/lib-schema"],
+			"/lib/xp/value": ["node_modules/@enonic-types/lib-value"],
 			// Development (should be commented out when commiting)
 			// "@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
+			// "/lib/xp/app": ["../xp/modules/lib/lib-app/src/main/resources/lib/xp/app.ts"],
 			// "/lib/xp/auth": ["../xp/modules/lib/lib-auth/src/main/resources/lib/xp/auth.ts"],
+			// "/lib/xp/content": ["../xp/modules/lib/lib-content/src/main/resources/lib/xp/content.ts"],
+			// "/lib/xp/event": ["../xp/modules/lib/lib-event/src/main/resources/lib/xp/event.ts"],
+			// "/lib/xp/io": ["../xp/modules/lib/lib-io/src/main/resources/lib/xp/io.ts"],
+			// "/lib/xp/mail": ["../xp/modules/lib/lib-mail/src/main/resources/lib/xp/mail.ts"],
 			// "/lib/xp/node": ["../xp/modules/lib/lib-node/src/main/resources/lib/xp/node.ts"],
-			// "/lib/xp/auth": ["../xp/modules/lib/lib-auth/build/typescript/lib/xp/auth.d.ts"],
-			// "/lib/xp/node": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
+			// "/lib/xp/portal": ["../xp/modules/lib/lib-portal/src/main/resources/lib/xp/portal.ts"],
+			// "/lib/xp/repo": ["../xp/modules/lib/lib-repo/src/main/resources/lib/xp/repo.ts"],
+			// "/lib/xp/schema": ["../xp/modules/lib/lib-schema/src/main/resources/lib/xp/schema.ts"],
+			// "/lib/xp/value": ["../xp/modules/lib/lib-value/src/main/resources/lib/xp/value.ts"],
 			// Doesn't help:
 			// "node_modules/@enonic-types/lib-node/node.d.ts": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
 		},
@@ -64,9 +78,14 @@
 		"strictFunctionTypes": true,
 		"strictNullChecks": true,
 		"target": "ES5",
+		"typeRoots": [
+			"node_modules/@types",
+			"node_modules/@enonic-types",
+		],
 		"types": [
 			//"node", // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
-			"@enonic-types/global"
+			"@enonic-types/global",
+			"@enonic-types/lib-app" // Is this still needed?
 		]
 	},
 	"exclude": [
@@ -79,6 +98,7 @@
 		"src/index.ts"
 	],
 	"include": [
-		"src/**/*.ts"
+		"src/**/*.ts",
+		"test/**/*.ts"
 	]
 }
