@@ -3,7 +3,7 @@ const {keys} = Object;
 
 
 //eslint-disable-next-line @typescript-eslint/ban-types
-export function sortKeysRec<T extends Object>(obj :T) :T {
+export function sortKeysRec<T>(obj :T) :T {
 	if (isArray(obj)) {
 		const newArray = [];
 		for (let i = 0, l = obj.length; i < l; i++) {
