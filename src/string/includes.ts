@@ -4,7 +4,7 @@ export function includes(
 	position?: number
 ) :boolean {
 	if ((searchString as unknown) instanceof RegExp) {
-		throw TypeError('second argument must not be a RegExp');
+		throw new TypeError('second argument must not be a RegExp');
 	}
 	if (position === undefined) { position = 0; }
 	return string.indexOf(searchString, position) !== -1;
