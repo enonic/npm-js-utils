@@ -3,7 +3,7 @@ import type {
 	PrincipalKey as PrincipalKeyFromCore,
 	RoleKey,
 	UserKey,
-} from '@enonic-types/core';
+} from '/lib/xp/auth';
 import {AccessControlEntry} from '/lib/xp/node';
 
 // This wouldn't break backwards compatibility, but "loosens" the type, loosing good suggestions.
