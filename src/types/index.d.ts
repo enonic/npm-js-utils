@@ -9,6 +9,20 @@ export type {
 	PrincipalKeyUser
 } from './Auth';
 export type {
+	EventLib,
+	EventTypeApplication,
+	EventTypeTaskFinished,
+	EventTypeTaskRemoved,
+	EventTypeTaskUpdated,
+	EventTypesCustom,
+	EventTypesTask,
+	EventTypes,
+	Event,
+	CustomEvent,
+	ApplicationEvent,
+	TaskEvent
+} from './Event.d'
+export type {
 	GeoPointArray,
 	GeoPointFunction,
 	GeoPointString
@@ -91,20 +105,6 @@ export type {
 	ValueCountAggregation,
 	ValueCountAggregationParams
 } from './node/index.d';
-export type {
-	EventLib,
-	EventTypeApplication,
-	EventTypeTaskFinished,
-	EventTypeTaskRemoved,
-	EventTypeTaskUpdated,
-	EventTypesCustom,
-	EventTypesTask,
-	EventTypes,
-	Event,
-	CustomEvent,
-	ApplicationEvent,
-	TaskEvent
-} from './Event.d'
 export type {
 	BranchConfig,
 	CreateBranchParams,

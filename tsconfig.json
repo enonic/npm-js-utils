@@ -43,13 +43,13 @@
 			"/lib/xp/node": ["node_modules/@enonic-types/lib-node"],
 			"/lib/xp/repo": ["node_modules/@enonic-types/lib-repo"],
 			// Development (should be commented out when commiting)
-			//"@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
-			//"/lib/xp/auth": ["../xp/modules/lib/lib-auth/src/main/resources/lib/xp/auth.ts"],
-			//"/lib/xp/node": ["../xp/modules/lib/lib-node/src/main/resources/lib/xp/node.ts"],
-			//"/lib/xp/auth": ["../xp/modules/lib/lib-auth/build/typescript/lib/xp/auth.d.ts"],
-			//"/lib/xp/node": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
+			// "@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
+			// "/lib/xp/auth": ["../xp/modules/lib/lib-auth/src/main/resources/lib/xp/auth.ts"],
+			// "/lib/xp/node": ["../xp/modules/lib/lib-node/src/main/resources/lib/xp/node.ts"],
+			// "/lib/xp/auth": ["../xp/modules/lib/lib-auth/build/typescript/lib/xp/auth.d.ts"],
+			// "/lib/xp/node": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
 			// Doesn't help:
-			//"node_modules/@enonic-types/lib-node/node.d.ts": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
+			// "node_modules/@enonic-types/lib-node/node.d.ts": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
 		},
 		"removeComments": true,
 		"resolveJsonModule": true,
@@ -64,17 +64,9 @@
 		"strictFunctionTypes": true,
 		"strictNullChecks": true,
 		"target": "ES5",
-		"typeRoots": [
-			"node_modules/@types",
-			"node_modules/@enonic-types",
-		],
 		"types": [
 			//"node", // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
-			"@enonic-types/global",
-			"@enonic-types/lib-auth",
-			"@enonic-types/lib-event",
-			"@enonic-types/lib-node",
-			"@enonic-types/lib-repo",
+			"@enonic-types/global"
 		]
 	},
 	"exclude": [

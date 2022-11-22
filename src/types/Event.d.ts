@@ -12,14 +12,37 @@ import type {AnyObject} from './Utility.d';
 // EventTypes
 //──────────────────────────────────────────────────────────────────────────────
 export type EventTypeApplication = 'application';
+export type EventTypeApplicationCluster = 'application.cluster';
+
+export type EventTypeNodeCreated = 'node.created';
+export type EventTypeNodeDeleted = 'node.deleted';
+export type EventTypeNodeUpdated = 'node.updated';
+
 export type EventTypeTaskFinished = 'task.finished';
 export type EventTypeTaskRemoved = 'task.removed';
 export type EventTypeTaskUpdated = 'task.updated';
 
-export type EventTypesCustom = `custom.${string}`;
-export type EventTypesTask = EventTypeTaskFinished | EventTypeTaskRemoved | EventTypeTaskUpdated;
+export type EventTypesApplication =
+	| EventTypeApplication
+	| EventTypeApplicationCluster;
 
-export type EventTypes = EventTypeApplication | EventTypesTask | EventTypesCustom;
+export type EventTypesCustom = `custom.${string}`;
+
+export type EventTypesNode =
+	| EventTypeNodeCreated
+	| EventTypeNodeDeleted
+	| EventTypeNodeUpdated;
+
+export type EventTypesTask =
+	| EventTypeTaskFinished
+	| EventTypeTaskRemoved
+	| EventTypeTaskUpdated;
+
+export type EventTypes =
+	| EventTypesApplication
+	| EventTypesNode
+	| EventTypesTask
+	| EventTypesCustom;
 
 //──────────────────────────────────────────────────────────────────────────────
 // Event (with generics)
@@ -45,14 +68,54 @@ export type CustomEvent<
 
 export type GenericEvent = Event<EventTypes,AnyObject>
 
+export interface NodeEventData {
+	nodes: {
+		id: string
+		path: string
+		branch:
+			| 'master'
+			| 'draft'
+			| string
+		repo:
+			| 'system-repo'
+			| string
+	}[]
+}
+
+export type NodeEvent<
+	Type extends EventTypesNode = EventTypesNode
+> = Event<Type,NodeEventData>
+
 //──────────────────────────────────────────────────────────────────────────────
 // Specific Events
 //──────────────────────────────────────────────────────────────────────────────
+export type ApplicationClusterEvent = Event<EventTypeApplicationCluster,{
+	key :string
+	eventType :
+		| 'start'
+		| 'state'
+		| 'stop'
+		| 'uninstall'
+		| 'uninstalled'
+		// | string
+	started?: boolean
+}>
+
+
 export type ApplicationEvent = Event<EventTypeApplication,{
 	applicationKey :string
 	systemApplication :boolean
-	eventType :string //'INSTALLED'|'STARTED'
+	eventType:
+		| 'INSTALLED'
+		| 'STARTED'
+		| 'STOPPED'
+		| 'UNINSTALLED'
+		//| string
 }>
+
+export type NodeCreatedEvent = NodeEvent<EventTypeNodeCreated>;
+export type NodeDeletedEvent = NodeEvent<EventTypeNodeDeleted>;
+export type NodeUpdatedEvent = NodeEvent<EventTypeNodeUpdated>;
 
 export type TaskEvent = Event<EventTypesTask,{
 	application :string

@@ -24,6 +24,7 @@
     "q-i": "^2",
     "serialize-javascript": "^6",
     "swc": "^1",
+    "tsd": "^0.24.1",
     "tslib": "^2",
     "typedoc": "^0.23",
     "typescript": "^4"
@@ -63,7 +64,8 @@
     "precopy": "yarn clean",
     "premocha": "yarn build",
     "prepack": "yarn test && yarn typedoc",
-    "tsc": "npx tsc"
+    "tsc": "npx tsc",
+    "tsd": "npx tsd -t src/types/index.d.ts -f test/**/*.test-d.ts"
   },
   "version": "0.43.0"
 }
