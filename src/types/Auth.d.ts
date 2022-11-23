@@ -1,3 +1,4 @@
+import type {LiteralUnion} from 'type-fest';
 import type {
 	GroupKey,
 	RoleKey,
@@ -25,7 +26,7 @@ export type UserKeyGeneric<
 
 
 //──────────────────────────────────────────────────────────────────────────────
-// Constants
+// Extenstions
 //──────────────────────────────────────────────────────────────────────────────
 export type RoleKeySystemAdmin = RoleKeyGeneric<'system.admin'>
 export type RoleKeySystemAdminLogin = RoleKeyGeneric<'system.admin.login'>
@@ -47,17 +48,17 @@ export type PrincipalKeySystem =
 	| RoleKeySystemUserApp
 	| UserKeySystemSu
 
+export type PrincipalKey = LiteralUnion<
+	PrincipalKeySystem,
+	| GroupKey
+	| RoleKey
+	| UserKey
+>
+
 //──────────────────────────────────────────────────────────────────────────────
 // Backwards compatibility
 //──────────────────────────────────────────────────────────────────────────────
 export type PrincipalKeyUser = UserKey;
 export type PrincipalKeyGroup = GroupKey;
 export type PrincipalKeyRole = RoleKey;
-
-export type PrincipalKey =
-	| PrincipalKeySystem
-	| GroupKey & Record<never, never>
-	| RoleKey & Record<never, never>
-	| UserKey & Record<never, never>
-
 export type PermissionsParams = AccessControlEntry

@@ -33,6 +33,7 @@
     "swc": "^1",
     "tsd": "^0",
     "tslib": "^2",
+    "type-fest": "^3.2.0",
     "typedoc": "^0",
     "typescript": "^4"
   },
