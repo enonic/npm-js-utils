@@ -1,6 +1,5 @@
 import type {
 	GroupKey,
-	PrincipalKey as PrincipalKeyFromCore,
 	RoleKey,
 	UserKey,
 } from '/lib/xp/auth';
@@ -46,7 +45,7 @@ export type PrincipalKeySystem =
 	| RoleKeySystemAuditlog
 	| RoleKeySystemUserAdmin
 	| RoleKeySystemUserApp
-	| UserKeySystemSu;
+	| UserKeySystemSu
 
 //──────────────────────────────────────────────────────────────────────────────
 // Backwards compatibility
@@ -55,6 +54,10 @@ export type PrincipalKeyUser = UserKey;
 export type PrincipalKeyGroup = GroupKey;
 export type PrincipalKeyRole = RoleKey;
 
-export type PrincipalKey = PrincipalKeySystem | PrincipalKeyFromCore;
+export type PrincipalKey =
+	| PrincipalKeySystem
+	| GroupKey & Record<never, never>
+	| RoleKey & Record<never, never>
+	| UserKey & Record<never, never>
 
 export type PermissionsParams = AccessControlEntry
