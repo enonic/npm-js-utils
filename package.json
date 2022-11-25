@@ -73,9 +73,10 @@
     "premocha": "yarn build",
     "prepack": "yarn test && yarn typedoc",
     "tsc": "npx tsc",
-    "tsd": "yarn tsd:ByteSource && yarn tsd:Event",
+    "tsd": "yarn tsd:ByteSource && yarn tsd:Event && yarn tsd:Node",
     "tsd:ByteSource": "npx tsd -t src/types/index.d.ts -f test/types/ByteSource.test-d.ts",
-    "tsd:Event": "npx tsd -t src/types/index.d.ts -f test/types/Event.test-d.ts"
+    "tsd:Event": "npx tsd -t src/types/index.d.ts -f test/types/Event.test-d.ts",
+    "tsd:Node": "npx tsd -t src/types/index.d.ts -f test/types/Node.test-d.ts"
   },
   "version": "0.43.0"
 }
