@@ -1,5 +1,14 @@
 export * as aggregation from './aggregation';
 export * as dsl from './dsl';
+export * as filter from './filter';
+export {
+	isBooleanFilter,
+	isFilter,
+	isExistsFilter,
+	isHasValueFilter,
+	isIdsFilter,
+	isNotExistsFilter,
+} from './filter';
 
 export {
 	FILTER_CLAUSE_MUST,
