@@ -46,5 +46,40 @@ describe('pathMatch', () => {
 			)
 		)
 	});
+	it('minimumMatch and boost', () => {
+		deepStrictEqual(
+			{
+				pathMatch: {
+					field: '_path',
+					path: '/mySite/folder1/folder2/images',
+					minimumMatch: 2,
+					boost: 1
+				}
+			},
+			pathMatch(
+				'_path',
+				'/mySite/folder1/folder2/images',
+				2,
+				1
+			)
+		)
+	});
+	it('just boost', () => {
+		deepStrictEqual(
+			{
+				pathMatch: {
+					field: '_path',
+					path: '/mySite/folder1/folder2/images',
+					boost: 2
+				}
+			},
+			pathMatch(
+				'_path',
+				'/mySite/folder1/folder2/images',
+				undefined,
+				2
+			)
+		)
+	});
 
 }); // describe pathMatch

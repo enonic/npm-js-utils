@@ -9,18 +9,18 @@ interface QueryExpressionPathMatch {
 export function pathMatch(
 	field: string,
 	path: string,
+	minimumMatch?: number,
 	boost?: number,
-	minimumMatch?: number
 ): QueryExpressionPathMatch {
 	const pathMatch: PathMatchDslExpression = {
 		field,
 		path
 	}
-	if (boost) {
-		pathMatch.boost = boost;
-	}
 	if (minimumMatch) {
 		pathMatch.minimumMatch = minimumMatch;
+	}
+	if (boost) {
+		pathMatch.boost = boost;
 	}
 	return {
 		pathMatch
