@@ -2,40 +2,40 @@ import {deepStrictEqual} from 'assert';
 import {addQueryFilter} from '../../../src';
 
 describe('addQueryFilter', () => {
-	it('adds under boolean.must by default', () => {
-		deepStrictEqual(
-			{
-				boolean: {
-					must: {
-						exists: {
-							field: 'required'
-						}
-					}
-				}
-			},
-			addQueryFilter({
-				filter:{exists:{field: 'required'}}
-			})
-		)
-	})
-
-	it('adds under boolean.mustNot', () => {
-		deepStrictEqual(
-			{
-				boolean: {
-					mustNot: {
-						exists: {
-							field: 'unwanted'
-						}
-					}
-				}
-			},
-			addQueryFilter({
-				clause: 'mustNot',
-				filter:{exists:{field: 'unwanted'}}
-			})
-		)
-	})
+	// it('adds under boolean.must by default', () => {
+	// 	deepStrictEqual(
+	// 		{
+	// 			boolean: {
+	// 				must: {
+	// 					exists: {
+	// 						field: 'required'
+	// 					}
+	// 				}
+	// 			}
+	// 		},
+	// 		addQueryFilter({
+	// 			filter:{exists:{field: 'required'}}
+	// 		})
+	// 	)
+	// })
+	//
+	// it('adds under boolean.mustNot', () => {
+	// 	deepStrictEqual(
+	// 		{
+	// 			boolean: {
+	// 				mustNot: {
+	// 					exists: {
+	// 						field: 'unwanted'
+	// 					}
+	// 				}
+	// 			}
+	// 		},
+	// 		addQueryFilter({
+	// 			clause: 'mustNot',
+	// 			filter:{exists:{field: 'unwanted'}}
+	// 		})
+	// 	)
+	// })
 
 	it('adds under boolean.should (three filters)', () => {
 		deepStrictEqual(
