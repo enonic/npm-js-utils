@@ -7,13 +7,13 @@ import type {
 	QueryExpressionFulltext,
 	QueryExpressionNgram
 } from '../../../types/index.d';
+import type {Fields} from '../constants';
 
 
 import {buildFieldsArray} from '../buildFields';
 import {
 	QUERY_OPERATOR_OR,
 	// QUERY_OPERATORS,
-	Fields
 } from '../constants';
 
 
@@ -35,7 +35,7 @@ export function fulltextOrNgram(
 		query,
 		operator: operator.toUpperCase() as DslOperator
 	}
-	if (boost) {
+	if (boost && boost !== 1) {
 		innerObj.boost = boost;
 	}
 	if (fOrN === 'fulltext') {

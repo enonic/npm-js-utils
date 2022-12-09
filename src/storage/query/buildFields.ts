@@ -21,7 +21,7 @@ export function buildFieldsArray(fields :Fields) {
 			field = stringOrObj as string;
 		}
 		//console.debug('field', field);
-		return `${field}${boost ? `^${boost}`: ''}`;
+		return `${field}${boost && boost !== 1 ? `^${boost}`: ''}`;
 	});
 }
 

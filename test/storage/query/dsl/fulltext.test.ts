@@ -63,6 +63,29 @@ describe('fulltext', () => {
 			)
 		)
 	});
+	it('flat boost', () => {
+		deepStrictEqual(
+			{
+				fulltext: {
+					fields: ['title','text'],
+					query: 'searchString',
+					operator: 'OR'
+				}
+			},
+			fulltext(
+				[
+					{
+						field: 'title',
+						boost: 1
+					},
+					'text'
+				],
+				'searchString',
+				'oR',
+				1
+			)
+		)
+	});
 	it('zero boost', () => {
 		deepStrictEqual(
 			{
