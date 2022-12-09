@@ -63,4 +63,27 @@ describe('ngram', () => {
 			)
 		)
 	});
+	it('zero boost', () => {
+		deepStrictEqual(
+			{
+				ngram: {
+					fields: ['title','text'],
+					query: 'searchString',
+					operator: 'OR'
+				}
+			},
+			ngram(
+				[
+					{
+						field: 'title',
+						boost: 0
+					},
+					'text'
+				],
+				'searchString',
+				'oR',
+				0
+			)
+		)
+	});
 });

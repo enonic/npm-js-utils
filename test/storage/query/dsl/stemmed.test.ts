@@ -72,4 +72,29 @@ describe('stemmed', () => {
 			)
 		)
 	});
+	it('zero boost', () => {
+		deepStrictEqual(
+			{
+				stemmed: {
+					fields: ['title','text'],
+					language: 'es',
+					operator: 'OR',
+					query: 'searchString'
+				}
+			},
+			stemmed(
+				[
+					{
+						field: 'title',
+						boost: 0
+					},
+					'text'
+				],
+				'searchString',
+				'oR',
+				STEMMING_LANGUAGE_CODE_SPANISH,
+				0
+			)
+		)
+	});
 });

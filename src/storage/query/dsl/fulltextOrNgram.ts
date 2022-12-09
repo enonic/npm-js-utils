@@ -9,7 +9,6 @@ import type {
 } from '../../../types/index.d';
 
 
-import {isSet} from '../../../value/isSet';
 import {buildFieldsArray} from '../buildFields';
 import {
 	QUERY_OPERATOR_OR,
@@ -36,7 +35,7 @@ export function fulltextOrNgram(
 		query,
 		operator: operator.toUpperCase() as DslOperator
 	}
-	if (isSet(boost)) {
+	if (boost) {
 		innerObj.boost = boost;
 	}
 	if (fOrN === 'fulltext') {

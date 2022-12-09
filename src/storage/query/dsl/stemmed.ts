@@ -28,13 +28,16 @@ export function stemmed(
 ): {
 	stemmed: StemmedDslExpression
 } {
+	const stemmed: StemmedDslExpression = {
+		fields: buildFieldsArray(fields),
+		query,
+		operator: operator.toUpperCase() as DslOperator,
+		language
+	};
+	if (boost) {
+		stemmed.boost = boost;
+	}
 	return {
-		stemmed: {
-			boost,
-			fields: buildFieldsArray(fields),
-			query,
-			operator: operator.toUpperCase() as DslOperator,
-			language
-		}
+		stemmed
 	};
 }
