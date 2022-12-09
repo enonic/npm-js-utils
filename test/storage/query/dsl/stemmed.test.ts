@@ -28,11 +28,23 @@ describe('stemmed', () => {
 	it('two fields', () => {
 		deepStrictEqual(
 			{
-				stemmed: {
-					fields: ['title^2','text'],
-					language: 'no',
-					operator: 'AND',
-					query: 'searchString'
+				boolean: {
+					should: [{
+						stemmed: {
+							boost: 2,
+							fields: ['title'],
+							language: 'no',
+							operator: 'AND',
+							query: 'searchString'
+						}
+					},{
+						stemmed: {
+							fields: ['text'],
+							language: 'no',
+							operator: 'AND',
+							query: 'searchString'
+						}
+					}]
 				}
 			},
 			stemmed(
@@ -49,12 +61,24 @@ describe('stemmed', () => {
 	it('two fields with boost', () => {
 		deepStrictEqual(
 			{
-				stemmed: {
-					boost: 1.1,
-					fields: ['title^2','text'],
-					language: 'es',
-					operator: 'OR',
-					query: 'searchString'
+				boolean: {
+					should: [{
+						stemmed: {
+							boost: 2.2,
+							fields: ['title'],
+							language: 'es',
+							operator: 'OR',
+							query: 'searchString'
+						}
+					},{
+						stemmed: {
+							boost: 1.1,
+							fields: ['text'],
+							language: 'es',
+							operator: 'OR',
+							query: 'searchString'
+						}
+					}]
 				}
 			},
 			stemmed(

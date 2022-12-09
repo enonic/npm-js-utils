@@ -17,7 +17,8 @@ const f = fulltext('_allText^3',SEARCH_STRING,QUERY_OPERATOR_AND);
 
 const resF = {
 	fulltext: {
-		fields: ['_allText^3'],
+		boost: 3,
+		fields: ['_allText'],
 		operator: 'AND',
 		query: SEARCH_STRING
 	}

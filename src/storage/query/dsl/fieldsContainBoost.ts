@@ -1,7 +1,4 @@
-import type {
-	FieldObject,
-	Fields,
-} from '../constants';
+import type {Fields} from '../constants';
 
 
 import {isObject} from '../../../value/isObject';
@@ -13,7 +10,7 @@ export function fieldsContainBoost(fields: Fields): boolean {
 	if (Array.isArray(fields)) {
 		return fields.some((field) => fieldsContainBoost(field));
 	} else if (isObject(fields)) {
-		const {boost} = fields as FieldObject;
+		const {boost} = fields;
 		if (
 			boost // not undefined, null, or 0, -0 and so on
 			&& boost !== 1

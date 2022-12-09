@@ -4,13 +4,20 @@ import type {
 	NgramDslExpression,
 } from '/lib/xp/node';
 import type {
+	CompoundExpressionBoolean,
 	QueryExpressionFulltext,
 	QueryExpressionNgram
 } from '../../../types/index.d';
 import type {Fields} from '../constants';
 
 
+import {includes as stringIncludes} from '../../../string/includes';
+import {isObject} from '../../../value/isObject';
+import {isString} from '../../../value/isString';
 import {buildFieldsArray} from '../buildFields';
+import {bool} from './bool';
+import {fieldsContainBoost} from './fieldsContainBoost';
+import {or} from './or';
 import {
 	QUERY_OPERATOR_OR,
 	// QUERY_OPERATORS,
@@ -29,7 +36,56 @@ export function fulltextOrNgram(
 	query: string,
 	operator: DslOperator = QUERY_OPERATOR_OR,
 	boost?: number // = 1
-): QueryExpressionFulltext | QueryExpressionNgram  {
+): QueryExpressionFulltext | QueryExpressionNgram | CompoundExpressionBoolean {
+	if (fieldsContainBoost(fields)) {
+		if (Array.isArray(fields)) {
+			return bool(or(fields.map((field) => fulltextOrNgram(
+				fOrN,
+				field,
+				query,
+				operator,
+				boost
+			))));
+		} else if (isObject(fields)) {
+			const {boost: fieldBoost, field} = fields;
+			if (fieldBoost && fieldBoost !== 1) {
+				if (boost && boost !== 1) {
+					boost = boost * fieldBoost;
+				} else {
+					boost = fieldBoost;
+				}
+			}
+			return fulltextOrNgram(
+				fOrN,
+				field,
+				query,
+				operator,
+				boost
+			);
+		} else if (isString(fields)) {
+			if (stringIncludes(fields, '^')) {
+				const caretIndex = fields.indexOf('^');
+				const field = fields.substring(0,caretIndex);
+				const fieldBoost = parseFloat(fields.substring(caretIndex + 1));
+				if (fieldBoost && fieldBoost !== 1) {// (parseFloat('1.0') === 1) === true
+					if (boost && boost !== 1) {
+						boost = boost * fieldBoost;
+					} else {
+						boost = fieldBoost;
+					}
+				}
+				return fulltextOrNgram(
+					fOrN,
+					field,
+					query,
+					operator,
+					boost
+				);
+			}
+		} else {
+			throw new Error(`${fOrN}: fields is not array, object or string!`);
+		}
+	}
 	const innerObj: FulltextDslExpression | NgramDslExpression = {
 		fields: buildFieldsArray(fields),
 		query,

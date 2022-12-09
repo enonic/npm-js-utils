@@ -23,10 +23,21 @@ describe('fulltext', () => {
 	it('two fields', () => {
 		deepStrictEqual(
 			{
-				fulltext: {
-					fields: ['title^2','text'],
-					query: 'searchString',
-					operator: 'AND'
+				boolean: {
+					should: [{
+						fulltext: {
+							boost: 2,
+							fields: ['title'],
+							query: 'searchString',
+							operator: 'AND'
+						}
+					},{
+						fulltext: {
+							fields: ['text'],
+							query: 'searchString',
+							operator: 'AND'
+						}
+					}]
 				}
 			},
 			fulltext(
@@ -42,11 +53,22 @@ describe('fulltext', () => {
 	it('two fields with boost', () => {
 		deepStrictEqual(
 			{
-				fulltext: {
-					boost: 1.1,
-					fields: ['title^2','text'],
-					query: 'searchString',
-					operator: 'OR'
+				boolean: {
+					should: [{
+						fulltext: {
+							boost: 2.2,
+							fields: ['title'],
+							query: 'searchString',
+							operator: 'OR'
+						}
+					},{
+						fulltext: {
+							boost: 1.1,
+							fields: ['text'],
+							query: 'searchString',
+							operator: 'OR'
+						}
+					}]
 				}
 			},
 			fulltext(

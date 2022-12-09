@@ -23,10 +23,21 @@ describe('ngram', () => {
 	it('two fields', () => {
 		deepStrictEqual(
 			{
-				ngram: {
-					fields: ['title^2','text'],
-					query: 'searchString',
-					operator: 'AND'
+				boolean: {
+					should:[{
+						ngram: {
+							boost: 2,
+							fields: ['title'],
+							query: 'searchString',
+							operator: 'AND'
+						}
+					}, {
+						ngram: {
+							fields: ['text'],
+							query: 'searchString',
+							operator: 'AND'
+						}
+					}]
 				}
 			},
 			ngram(
@@ -42,11 +53,22 @@ describe('ngram', () => {
 	it('two fields with boost', () => {
 		deepStrictEqual(
 			{
-				ngram: {
-					boost: 1.1,
-					fields: ['title^2','text'],
-					query: 'searchString',
-					operator: 'OR'
+				boolean: {
+					should:[{
+						ngram: {
+							boost: 2.2,
+							fields: ['title'],
+							query: 'searchString',
+							operator: 'OR'
+						}
+					},{
+						ngram: {
+							boost: 1.1,
+							fields: ['text'],
+							query: 'searchString',
+							operator: 'OR'
+						}
+					}]
 				}
 			},
 			ngram(

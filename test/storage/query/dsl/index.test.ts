@@ -25,7 +25,8 @@ const n = ngram('_allText',SEARCH_STRING,QUERY_OPERATOR_AND);
 
 const resF = {
 	fulltext: {
-		fields: ['_allText^3'],
+		boost: 3,
+		fields: ['_allText'],
 		operator: 'AND',
 		query: SEARCH_STRING
 	}
@@ -33,7 +34,8 @@ const resF = {
 
 const resS = {
 	stemmed: {
-		fields: ['_allText^2'],
+		boost: 2,
+		fields: ['_allText'],
 		language: 'en',
 		operator: 'AND',
 		query: SEARCH_STRING,
