@@ -2,6 +2,10 @@ import type {DslQueryType} from '/lib/xp/node';
 
 
 import {isDate} from '../../../value/isDate';
+import {
+	DSL_EXPRESSION_VALUE_TYPE_DATE_TIME,
+	DSL_EXPRESSION_VALUE_TYPE_TIME,
+} from './term';
 
 
 interface QueryExpressionRangeParams<
@@ -63,7 +67,10 @@ export function range<
 	if (boost) {
 		range.boost = boost;
 	}
-	if (type) {
+	if (
+		type === DSL_EXPRESSION_VALUE_TYPE_TIME
+		|| type === DSL_EXPRESSION_VALUE_TYPE_DATE_TIME
+	) {
 		range.type = type;
 	}
 	return {

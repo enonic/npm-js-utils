@@ -98,6 +98,8 @@ export {
 } from './highlighting';
 export *  as query from './query';
 export {
+	DSL_EXPRESSION_VALUE_TYPE_DATE_TIME,
+	DSL_EXPRESSION_VALUE_TYPE_TIME,
 	FILTER_CLAUSE_MUST,
 	FILTER_CLAUSE_MUST_NOT,
 	FILTER_CLAUSE_SHOULD,

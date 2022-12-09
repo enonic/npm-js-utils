@@ -4,6 +4,12 @@ import type {
 } from '/lib/xp/node';
 
 
+import {
+	DSL_EXPRESSION_VALUE_TYPE_DATE_TIME,
+	DSL_EXPRESSION_VALUE_TYPE_TIME,
+} from './term';
+
+
 interface QueryExpressionInParams<ValueType> extends InDslExpression {
 	field: InDslExpression['field']
 	values: ValueType[]
@@ -31,7 +37,10 @@ export function inQuery<
 	if (boost) {
 		obj.boost = boost;
 	}
-	if (type) {
+	if (
+		type === DSL_EXPRESSION_VALUE_TYPE_TIME
+		|| type === DSL_EXPRESSION_VALUE_TYPE_DATE_TIME
+	) {
 		obj.type = type;
 	}
 	return {

@@ -1,4 +1,13 @@
-import type {LikeDslExpression} from '/lib/xp/node';
+import type {
+	DslQueryType,
+	LikeDslExpression,
+} from '/lib/xp/node';
+
+
+import {
+	DSL_EXPRESSION_VALUE_TYPE_DATE_TIME,
+	DSL_EXPRESSION_VALUE_TYPE_TIME,
+} from './term';
 
 
 interface QueryExpressionLikeParams<ValueType extends string> extends LikeDslExpression {
@@ -18,7 +27,8 @@ export function like<
 >(
 	field: string,
 	value: ValueType,
-	boost?: number
+	boost?: number,
+	type?: DslQueryType
 ): QueryExpressionLike<ValueType> {
 	const like: QueryExpressionLikeParams<ValueType> = {
 		field,
@@ -26,6 +36,12 @@ export function like<
 	}
 	if (boost) {
 		like.boost = boost;
+	}
+	if (
+		type === DSL_EXPRESSION_VALUE_TYPE_TIME
+		|| type === DSL_EXPRESSION_VALUE_TYPE_DATE_TIME
+	) {
+		like.type = type;
 	}
 	return {
 		like

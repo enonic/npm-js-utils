@@ -70,4 +70,49 @@ describe('inQuery', () => {
 			)
 		)
 	});
+	it('type time', () => {
+		deepStrictEqual(
+			{
+				in: {
+					field: 'myTime',
+					values: [
+						"12:00",
+						"13:00"
+					],
+					boost: 1,
+					type: 'time'
+				}
+			},
+			inQuery(
+				'myTime',
+				[
+					"12:00",
+					"13:00"
+				],
+				1,
+				'time'
+			)
+		)
+	});
+	it('type whatever', () => {
+		deepStrictEqual(
+			{
+				in: {
+					field: 'whatever',
+					values: [
+						"whatever",
+					],
+					boost: 1.1
+				}
+			},
+			inQuery(
+				'whatever',
+				[
+					"whatever",
+				],
+				1.1,
+				'whatever'
+			)
+		)
+	});
 }); // describe inQuery

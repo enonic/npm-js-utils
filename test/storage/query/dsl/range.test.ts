@@ -62,4 +62,45 @@ describe('range', () => {
 			)
 		)
 	});
+	it('type time', () => {
+		const time = '12:00';
+		deepStrictEqual(
+			{
+				range: {
+					field: 'myTime',
+					gt: time,
+					boost: 1,
+					type: 'time'
+				}
+			},
+			range(
+				'myTime',
+				{
+					gt: time
+				},
+				1,
+				'time'
+			)
+		)
+	});
+	it('type whatever', () => {
+		const whatever = 'whatever';
+		deepStrictEqual(
+			{
+				range: {
+					field: 'whatever',
+					gt: whatever,
+					boost: 1.1
+				}
+			},
+			range(
+				'whatever',
+				{
+					gt: whatever
+				},
+				1.1,
+				'whatever'
+			)
+		)
+	});
 }); // describe range

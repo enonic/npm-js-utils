@@ -28,4 +28,42 @@ describe('term', () => {
 			term('myBoolean', true, 2)
 		)
 	});
+	it('type time', () => {
+		deepStrictEqual(
+			{
+				term: {
+					field: 'myTime',
+					type: 'time',
+					value: '12:00',
+					boost: 2
+				}
+			},
+			term('myTime', '12:00', 2, 'time')
+		)
+	});
+	it('type dateTime', () => {
+		deepStrictEqual(
+			{
+				term: {
+					field: 'myDateTime',
+					type: 'dateTime',
+					value: '2022-12-09T11:04Z',
+					boost: 1.1
+				}
+			},
+			term('myDateTime', '2022-12-09T11:04Z', 1.1, 'dateTime')
+		)
+	});
+	it('type whatever', () => {
+		deepStrictEqual(
+			{
+				term: {
+					field: 'myString',
+					value: 'myStringValue',
+					boost: -1.1
+				}
+			},
+			term('myString', 'myStringValue', -1.1, 'whatever')
+		)
+	});
 }); // describe term

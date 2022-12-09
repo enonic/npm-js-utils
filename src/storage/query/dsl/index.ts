@@ -19,4 +19,8 @@ export {pathMatch} from './pathMatch';
 export {range} from './range';
 export {stemmed} from './stemmed';
 export {sort} from './sort';
-export {term} from './term';
+export {
+	DSL_EXPRESSION_VALUE_TYPE_DATE_TIME,
+	DSL_EXPRESSION_VALUE_TYPE_TIME,
+	term
+} from './term';

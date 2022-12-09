@@ -1,5 +1,9 @@
 export * as aggregation from './aggregation';
 export * as dsl from './dsl';
+export {
+	DSL_EXPRESSION_VALUE_TYPE_DATE_TIME,
+	DSL_EXPRESSION_VALUE_TYPE_TIME,
+} from './dsl';
 export * as filter from './filter';
 export {
 	isBooleanFilter,
