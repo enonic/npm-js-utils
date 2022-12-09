@@ -16,7 +16,8 @@ import {fulltextOrNgram} from './fulltextOrNgram';
 export function ngram(
 	fields: Fields,
 	query: string,
-	operator: DslOperator = QUERY_OPERATOR_OR
+	operator: DslOperator = QUERY_OPERATOR_OR,
+	boost?: number // = 1
 ): QueryExpressionNgram {
-	return fulltextOrNgram('ngram', fields, query, operator) as QueryExpressionNgram;
+	return fulltextOrNgram('ngram', fields, query, operator, boost) as QueryExpressionNgram;
 }

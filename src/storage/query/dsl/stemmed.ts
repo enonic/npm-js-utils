@@ -23,12 +23,14 @@ export function stemmed(
 	fields: Fields,
 	query: string,
 	operator: DslOperator = QUERY_OPERATOR_OR,
-	language: StemmingLanguageCodes = STEMMING_LANGUAGE_CODE_ENGLISH
+	language: StemmingLanguageCodes = STEMMING_LANGUAGE_CODE_ENGLISH,
+	boost?: number // = 1
 ): {
 	stemmed: StemmedDslExpression
 } {
 	return {
 		stemmed: {
+			boost,
 			fields: buildFieldsArray(fields),
 			query,
 			operator: operator.toUpperCase() as DslOperator,

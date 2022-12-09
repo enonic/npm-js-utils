@@ -1,9 +1,15 @@
-import type {DslOperator} from '/lib/xp/node';
+import type {
+	DslOperator,
+	FulltextDslExpression,
+	NgramDslExpression,
+} from '/lib/xp/node';
 import type {
 	QueryExpressionFulltext,
 	QueryExpressionNgram
 } from '../../../types/index.d';
 
+
+import {isSet} from '../../../value/isSet';
 import {buildFieldsArray} from '../buildFields';
 import {
 	QUERY_OPERATOR_OR,
@@ -22,12 +28,16 @@ export function fulltextOrNgram(
 	fOrN: Fulltext|Ngram, //= 'fulltext'
 	fields: Fields,
 	query: string,
-	operator: DslOperator = QUERY_OPERATOR_OR
+	operator: DslOperator = QUERY_OPERATOR_OR,
+	boost?: number // = 1
 ): QueryExpressionFulltext | QueryExpressionNgram  {
-	const innerObj = {
+	const innerObj: FulltextDslExpression | NgramDslExpression = {
 		fields: buildFieldsArray(fields),
 		query,
-		operator: operator.toUpperCase()
+		operator: operator.toUpperCase() as DslOperator
+	}
+	if (isSet(boost)) {
+		innerObj.boost = boost;
 	}
 	if (fOrN === 'fulltext') {
 		return {

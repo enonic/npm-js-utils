@@ -50,6 +50,7 @@ describe('stemmed', () => {
 		deepStrictEqual(
 			{
 				stemmed: {
+					boost: 1.1,
 					fields: ['title^2','text'],
 					language: 'es',
 					operator: 'OR',
@@ -66,7 +67,8 @@ describe('stemmed', () => {
 				],
 				'searchString',
 				'oR',
-				STEMMING_LANGUAGE_CODE_SPANISH
+				STEMMING_LANGUAGE_CODE_SPANISH,
+				1.1
 			)
 		)
 	});

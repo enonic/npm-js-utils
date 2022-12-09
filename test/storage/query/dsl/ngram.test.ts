@@ -43,6 +43,7 @@ describe('ngram', () => {
 		deepStrictEqual(
 			{
 				ngram: {
+					boost: 1.1,
 					fields: ['title^2','text'],
 					query: 'searchString',
 					operator: 'OR'
@@ -57,7 +58,8 @@ describe('ngram', () => {
 					'text'
 				],
 				'searchString',
-				'oR'
+				'oR',
+				1.1
 			)
 		)
 	});

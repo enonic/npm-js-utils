@@ -43,6 +43,7 @@ describe('fulltext', () => {
 		deepStrictEqual(
 			{
 				fulltext: {
+					boost: 1.1,
 					fields: ['title^2','text'],
 					query: 'searchString',
 					operator: 'OR'
@@ -57,7 +58,8 @@ describe('fulltext', () => {
 					'text'
 				],
 				'searchString',
-				'oR'
+				'oR',
+				1.1
 			)
 		)
 	});
