@@ -1,6 +1,9 @@
 import type {
-	DslOperator,
 	StemmedDslExpression
+} from '../../../types/node/query/Dsl';
+import type {
+	DslOperator,
+	// StemmedDslExpression // TODO 7_11_1 is missing boost
 } from '/lib/xp/node';
 import type {
 	CompoundExpressionBoolean,
