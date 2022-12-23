@@ -67,12 +67,21 @@
 		},
 		"removeComments": true,
 		"resolveJsonModule": true,
-		"rootDir": "..",
-		"rootDirs": [
-			"src",
-			"node_modules",
-			"test"
-		],
+
+		// It's important to set rootDir, or it will be inferred:
+		// The inferred value for rootDir is the longest common path of all non-declaration input files
+		"rootDir": "src",
+		//"rootDir": "..", // This affects the output!
+
+		// Using rootDirs, you can inform the compiler that there are many
+		// “virtual” directories acting as a single root. This allows the
+		// compiler to resolve relative module imports within these “virtual”
+		// directories, as if they were merged in to one directory.
+		//"rootDirs": [
+		//	"src",
+		//	"node_modules",
+		//	"test"
+		//],
 
 		// Skip type checking of declaration files.
 		//
@@ -98,17 +107,40 @@
 			"@enonic-types/lib-app" // Is this still needed?
 		]
 	},
+
+	// Specifies an array of filenames or patterns that should be skipped when
+	// resolving include.
+	// Important: exclude only changes which files are included as a result of
+	// the include setting. A file specified by exclude can still become part of
+	// your codebase due to an import statement in your code, a types inclusion,
+	// a /// <reference directive, or being specified in the files list.
+	// It is not a mechanism that prevents a file from being included in the
+	// codebase - it simply changes what the include setting finds.
 	"exclude": [
 		"**/*.d.ts",
-		"node_modules"
-		//"./node_modules/**/*", // Doesn't help
-		//"../xp/**/*", // Doesn't help
+		// After reading the explanatio above, these make no sense, since they are not part of include:
+		// "node_modules"
+		// "./node_modules/**/*", // Doesn't help
+		// "../xp/**/*", // Doesn't help
 	],
-	"files": [
-		"src/index.ts"
-	],
+
+	// Specifies an allowlist of files to include in the program.
+	// An error occurs if any of the files can’t be found.
+	// This is useful when you only have a small number of files and don’t need
+	// to use a glob to reference many files. If you need that then use include.
+	//"files": [
+	//	"src/index.ts"
+	//],
+
+	// Specifies an array of filenames or patterns to include in the program.
+	// These filenames are resolved relative to the directory containing the
+	// tsconfig.json file.
 	"include": [
+
+		// This produces the same amount of files as "files":["src/index.ts"].
+		// Maybe because the index file references everything...
 		"src/**/*.ts",
+
 		// "test/**/*.ts"
 	]
 }
