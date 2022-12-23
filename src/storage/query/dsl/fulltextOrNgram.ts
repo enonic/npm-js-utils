@@ -67,7 +67,15 @@ export function fulltextOrNgram(
 				boost
 			);
 		} else if (isString(fields)) {
-			if (stringIncludes(fields, '^')) {
+			if (stringIncludes(fields, ',')) {
+				return fulltextOrNgram(
+					fOrN,
+					fields.split(','),
+					query,
+					operator,
+					boost
+				);
+			} else if (stringIncludes(fields, '^')) {
 				const caretIndex = fields.indexOf('^');
 				const field = fields.substring(0,caretIndex);
 				const fieldBoost = parseFloat(fields.substring(caretIndex + 1));
