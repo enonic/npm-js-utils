@@ -1,11 +1,11 @@
 import type {
 	BooleanDslExpression,
 	DslQueryType,
-	FulltextDslExpression,
+	FulltextDslExpression as FulltextDslExpression_7_11_1,
 	InDslExpression,
-	NgramDslExpression,
+	NgramDslExpression as NgramDslExpression_7_11_1,
 	QueryDsl,
-	StemmedDslExpression,
+	StemmedDslExpression as StemmedDslExpression_7_11_1,
 	TermDslExpression,
 } from '/lib/xp/node';
 
@@ -29,6 +29,21 @@ export type QueryExpressionTerm<ValueType = unknown> = {
 		type?: TermDslExpression['type']
 		boost?: TermDslExpression['boost']
 	}
+}
+
+//──────────────────────────────────────────────────────────────────────────────
+// TODO: Missing in 7.11.1, fixed but not released yet
+//──────────────────────────────────────────────────────────────────────────────
+export type NgramDslExpression = NgramDslExpression_7_11_1 & {
+	boost?: number
+}
+
+export type FulltextDslExpression = FulltextDslExpression_7_11_1 & {
+	boost?: number
+}
+
+export type StemmedDslExpression = StemmedDslExpression_7_11_1 & {
+	boost?: number
 }
 
 //──────────────────────────────────────────────────────────────────────────────

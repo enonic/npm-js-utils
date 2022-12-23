@@ -1,7 +1,11 @@
 import type {
-	DslOperator,
 	FulltextDslExpression,
 	NgramDslExpression,
+} from '../../../types/node/query/Dsl';
+import type {
+	DslOperator,
+	// FulltextDslExpression, // TODO 7_11_1 is missing boost
+	// NgramDslExpression, // TODO 7_11_1 is missing boost
 } from '/lib/xp/node';
 import type {
 	CompoundExpressionBoolean,
