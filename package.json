@@ -54,7 +54,7 @@
   "main": "dist/cjs/index.js",
   "name": "@enonic/js-utils",
   "scripts": {
-    "build": "yarn build:swc & yarn build:tsc:cjs & yarn buildEsm",
+    "build": "yarn build:swc && yarn build:tsc:cjs && yarn buildEsm",
     "buildCjsForOldestNode": "find src -type f -not -name '*.d.ts' | xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=node --target=node6.4.0",
     "build:esbuild:cjs": "find src -type f -not -name '*.d.ts'| xargs npx esbuild --bundle --format=cjs --outbase=src --outdir=dist/cjs --platform=neutral --target=es2015",
     "buildEsm": "find src -type f -not -name '*.d.ts'| xargs npx esbuild --bundle --format=esm --outbase=src --outdir=dist/esm --out-extension:.js=.mjs --platform=neutral --target=es2015",
