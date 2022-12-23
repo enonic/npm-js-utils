@@ -79,5 +79,5 @@
     "tsd:Event": "npx tsd -t src/types/index.d.ts -f test/types/Event.test-d.ts",
     "tsd:Node": "npx tsd -t src/types/index.d.ts -f test/types/Node.test-d.ts"
   },
-  "version": "0.43.0"
+  "version": "0.44.0"
 }
