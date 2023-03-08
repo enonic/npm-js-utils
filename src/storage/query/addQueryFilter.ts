@@ -1,8 +1,6 @@
 import type {
-	BooleanFilter,
 	Filter,
 } from '/lib/xp/node';
-
 
 import {
 	FILTER_CLAUSE_MUST,
@@ -54,7 +52,7 @@ export function addQueryFilter({
 		&& !isIdsFilter(returnedFilters)
 	) {
 		if (!returnedFilters.boolean) {
-			returnedFilters.boolean = {} as BooleanFilter['boolean'];
+			returnedFilters.boolean = {};
 		}
 	}
 
@@ -62,9 +60,14 @@ export function addQueryFilter({
 		if (!returnedFilters.boolean[clause]) {
 			returnedFilters.boolean[clause] = filter;
 		} else if (Array.isArray(returnedFilters.boolean[clause])) {
+			// TypeScript unable to narrow type of object properties https://github.com/microsoft/TypeScript/issues/33391
 			(returnedFilters.boolean[clause] as Filter[]).push(filter);
 		} else {
-			returnedFilters.boolean[clause] = [(returnedFilters.boolean[clause] as Filter),filter];
+			returnedFilters.boolean[clause] = [
+				// TypeScript unable to narrow type of object properties https://github.com/microsoft/TypeScript/issues/33391
+				(returnedFilters.boolean[clause] as Filter),
+				filter
+			];
 		}
 	}
 	return returnedFilters;
