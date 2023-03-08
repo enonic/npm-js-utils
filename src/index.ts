@@ -153,6 +153,7 @@ export * as string from './string'; // for example string.includes
 export {
 	camelize,
 	cleanAnyDoubleQuoteWrap,
+	endsWith,
 	fold,
 	includes as stringIncludes, // Conflicts with array.includes
 	isAsciiPrintablePunctuation,

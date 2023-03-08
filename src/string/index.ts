@@ -1,5 +1,8 @@
+import endsWith from './endsWith';
+
 export {camelize} from './camelize';
 export {cleanAnyDoubleQuoteWrap} from './cleanAnyDoubleQuoteWrap';
+export {endsWith};
 export {fold} from './fold';
 export {includes} from './includes';
 export {isAsciiPrintablePunctuation} from './isAsciiPrintablePunctuation';
