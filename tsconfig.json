@@ -127,20 +127,21 @@
 		//──────────────────────────────────────────────────────────────────────
 		// Language and Environment
 		//──────────────────────────────────────────────────────────────────────
-		"lib": [
-			//"es3",
-			"es5",
-			//"es6", // alias for es2015
-			//"es7", // alias for es2016
-			//"es2015",
+		// "lib": [
+		// 	//"es3",
+		// 	"es5",
+		// 	//"es6", // alias for es2015
+		// 	//"es7", // alias for es2016
+		// 	//"es2015",
 
-			// enonic/js-utils is supposed to run "anywhere", but target is
-			// currently set to es5, to including es5 should be fine:
-			// Number.isInteger
-			// string.endsWith
-			// string.startsWith
-			"ES2015.Core"
-		],
+		// 	// enonic/js-utils is supposed to run "anywhere", but target is
+		// 	// currently set to es5, to including es5 should be fine:
+		// 	// Number.isInteger
+		// 	// string.endsWith
+		// 	// string.startsWith
+		// 	"ES2015.Core"
+		// ],
+		"noLib": true, // Avoid types that doesn't exist in Nashorn
 		"target": "ES5",
 
 		//──────────────────────────────────────────────────────────────────────
