@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {forceArray} from '../../src';
+import {forceArray} from '@enonic/js-utils';
 
 describe('forceArray', () => {
 	it('Keeps arrays as is', () => {

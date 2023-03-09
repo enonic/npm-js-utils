@@ -1,5 +1,5 @@
 import * as assert from 'assert';
-import { setIn } from '../../src';
+import { setIn } from '@enonic/js-utils';
 
 //const deepStrictEqual = assert.deepStrictEqual;
 const throws = assert.throws;
@@ -43,6 +43,7 @@ describe('setIn', () => {
 	it('should set on the root of the object', () => {
 		const o = {};
 		setIn(o, 'foo', 'bar');
+		//@ts-expect-error TS2339: Property 'foo' does not exist on type '{}'.
 		assert.equal(o.foo, 'bar');
 	});
 
@@ -53,12 +54,14 @@ describe('setIn', () => {
 	it('should set a nested property', () => {
 		const o = {};
 		setIn(o, 'a.b', 'c');
+		//@ts-expect-error TS2339: Property 'a' does not exist on type '{}'.
 		assert.equal(o.a.b, 'c');
 	});
 
 	it('should set a nested property where the last key is a symbol', () => {
 		const o = {};
 		setIn(o, 'a.b', 'c');
+		//@ts-expect-error TS2339: Property 'a' does not exist on type '{}'.
 		assert.equal(o.a.b, 'c');
 	});
 
@@ -87,6 +90,7 @@ describe('setIn', () => {
 	it('should allow keys to be whitespace', () => {
 		const o = {};
 		setIn(o, 'a. .a', { y: 'z' });
+		//@ts-expect-error TS2339: Property 'a' does not exist on type '{}'.
 		assert.deepEqual(o.a[' '].a, { y: 'z' });
 	});
 
@@ -119,7 +123,9 @@ describe('setIn', () => {
 
 		setIn(o, 'helpers.foo', log);
 		setIn(o, 'helpers.foo.warning', warning);
+		//@ts-expect-error TS2339: Property 'helpers' does not exist on type '{}'.
 		assert.equal(typeof o.helpers.foo, 'function');
+		//@ts-expect-error TS2339: Property 'helpers' does not exist on type '{}'.
 		assert.equal(typeof o.helpers.foo.warning, 'function');
 	});
 
@@ -129,14 +135,18 @@ describe('setIn', () => {
 		setIn(o, 'a.1.b', { y: 'z' });
 		setIn(o, 'a.2.c', { y: 'z' });
 		assert.ok(Array.isArray(o.a));
+		//@ts-expect-error TS2339: Property 'a' does not exist on type '{}'.
 		assert.deepEqual(o.a[0].a, { y: 'z' });
+		//@ts-expect-error TS2339: Property 'b' does not exist on type '{}'.
 		assert.deepEqual(o.a[1].b, { y: 'z' });
+		//@ts-expect-error TS2339: Property c' does not exist on type '{}'.
 		assert.deepEqual(o.a[2].c, { y: 'z' });
 	});
 
 	it('should create a deeply nested property if it does not already exist', () => {
 		const o = {};
 		setIn(o, 'a.b.c.d.e', 'c');
+		//@ts-expect-error TS2339: Property 'a' does not exist on type '{}'.
 		assert.equal(o.a.b.c.d.e, 'c');
 	});
 
@@ -144,6 +154,7 @@ describe('setIn', () => {
 		const first = { name: 'Halle' };
 		const o = { a: first };
 		setIn(o, 'a.b', 'c');
+		//@ts-expect-error TS2339: Property 'b' does not exist on type '{ name: string}'.
 		assert.equal(o.a.b, 'c');
 		assert.equal(o.a, first);
 		assert.equal(o.a.name, 'Halle');
@@ -152,6 +163,7 @@ describe('setIn', () => {
 	it('should support immediate properties', () => {
 		const o = {};
 		setIn(o, 'a', 'b');
+		//@ts-expect-error TS2339: Property 'a' does not exist on type '{}'.
 		assert.equal(o.a, 'b');
 	});
 
@@ -171,6 +183,7 @@ describe('setIn', () => {
 	});
 
 	it('should return the entire object if no property is passed.', () => {
+		//@ts-expect-error TS2554: Expected 2-3 arguments, but got 1.
 		assert.deepEqual(setIn({ a: 'a', b: { c: 'd' } }), { a: 'a', b: { c: 'd' } });
 	});
 
@@ -178,10 +191,12 @@ describe('setIn', () => {
 		const o = {};
 
 		setIn(o, 'a.b', new Date());
+		//@ts-expect-error TS2339: Property 'a' does not exist on type '{}'.
 		const firstDate = o.a.b.getTime();
 
 		setTimeout(function() {
 			setIn(o, 'a.b', new Date());
+			//@ts-expect-error TS2339: Property 'a' does not exist on type '{}'.
 			const secondDate = o.a.b.getTime();
 
 			assert.notDeepEqual(firstDate, secondDate);

@@ -3,7 +3,7 @@ import {
 	//throws // For some reason this gets borked by swc
 } from 'assert';
 import * as assert from 'assert';
-import {uniqueId} from '../../../src';
+import {uniqueId} from '@enonic/js-utils';
 
 
 describe('uniqueId', () => {

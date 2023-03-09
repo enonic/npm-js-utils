@@ -6,7 +6,7 @@ import {
 } from './constants';
 
 
-export function or(...args :string[]) :string {
+export function or(...args: (string|string[])[]): string {
 	const flattened = flatten(args);
 	if (Array.isArray(flattened)) {
 		if (flattened.length === 1) {

@@ -3,13 +3,18 @@ import {
 	isDateString,
 	isInfinity,
 	isNumber
-} from '../../src';
+} from '@enonic/js-utils';
 
 
 const TESTS_TRUE = [
 	'2011-12-03T10:15:30Z',
 	new Date().toDateString(),
-	new Date().toGMTString(),
+
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString
+	// Just an alias to toUTCString
+	// For some reason TypeScript doesn't include typings for it
+	// new Date().toGMTString(),
+
 	new Date().toJSON(),
 	new Date().toLocaleDateString(),
 	new Date().toLocaleString(),
@@ -27,7 +32,7 @@ const TESTS_FALSE = [
 	new Date().toTimeString(),
 	Date.now(),
 	Date.parse('2011-12-03T10:15:30Z'),
-	Date.UTC(),
+	Date.UTC(2023, 3),
 	// Invalid input
 	'',
 	true,

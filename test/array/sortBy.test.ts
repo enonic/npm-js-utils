@@ -1,6 +1,6 @@
 import {deepStrictEqual} from 'assert';
 import * as assert from 'assert';
-import {sortByProperty} from '../../src';
+import {sortByProperty} from '@enonic/js-utils';
 
 describe('array', () => {
 	describe('sortByProperty', () => {

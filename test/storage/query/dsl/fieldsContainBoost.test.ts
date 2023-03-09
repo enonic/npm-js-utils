@@ -1,7 +1,7 @@
-import type {Fields} from '../../../../src/storage/query/dsl/constants';
+import type {Fields} from '@enonic/js-utils/storage/query/constants';
 
 import {equal} from 'assert';
-import {fieldsContainBoost} from '../../../../src/storage/query/dsl/fieldsContainBoost';
+import {fieldsContainBoost} from '@enonic/js-utils/storage/query/dsl/fieldsContainBoost';
 
 const TESTS_NEGATIVE = [
 	'_allText',

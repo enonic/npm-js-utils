@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {cleanAnyDoubleQuoteWrap} from '../../src';
+import {cleanAnyDoubleQuoteWrap} from '@enonic/js-utils';
 
 
 describe('string', () => {

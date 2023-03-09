@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {fulltext} from '../../../src';
+import {fulltext} from '@enonic/js-utils';
 
 
 describe('fulltext', () => {
@@ -21,6 +21,7 @@ describe('fulltext', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"aNd"' is not assignable to parameter of type 'DslOperator'.
 				'aNd'
 			)
 		)
@@ -37,6 +38,7 @@ describe('fulltext', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"oR"' is not assignable to parameter of type 'DslOperator'.
 				'oR'
 			)
 		)

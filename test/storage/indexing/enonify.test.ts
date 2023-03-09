@@ -2,7 +2,7 @@ import {deepStrictEqual} from 'assert';
 //import {print} from 'q-i';
 //import serialize from 'serialize-javascript';
 
-import {enonify} from '../../../src';
+import {enonify} from '@enonic/js-utils';
 
 // Unable to clone functions
 /*import v8 from 'v8';

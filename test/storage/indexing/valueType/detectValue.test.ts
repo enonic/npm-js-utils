@@ -14,7 +14,7 @@ import {
 	VALUE_TYPE_STRING,
 	detectCommonValueType,
 	detectValueType
-} from '../../../../src';
+} from '@enonic/js-utils';
 import {
 	BOOLEANS,
 	EMPTY_ARRAY,

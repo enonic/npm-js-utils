@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '../../../../src';
+import {storage} from '@enonic/js-utils';
 
 const term = storage.query.dsl.term;
 
@@ -63,7 +63,13 @@ describe('term', () => {
 					boost: -1.1
 				}
 			},
-			term('myString', 'myStringValue', -1.1, 'whatever')
+			term(
+				'myString',
+				'myStringValue',
+				-1.1,
+				//@ts-expect-error TS2345: Argument of type '"whatever"' is not assignable to parameter of type 'DslQueryType'.
+				'whatever'
+			)
 		)
 	});
 }); // describe term

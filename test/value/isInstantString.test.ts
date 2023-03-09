@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {isInstantString} from '../../src';
+import {isInstantString} from '@enonic/js-utils';
 import {
 	INSTANT_STRINGS,
 	//INSTANT_STRINGS_INVALID

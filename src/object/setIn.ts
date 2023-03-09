@@ -35,9 +35,9 @@ export function setIn<
 	//V extends O[K]
 	V/* extends unknown*/
 >(
-	target :O,
-	path :K | Array<K>,
-	value :V
+	target: O,
+	path: K | Array<K>,
+	value?: V
 ) :O {
 	if (!path || !isObject(target)) return target;
 

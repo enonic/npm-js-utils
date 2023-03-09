@@ -1,0 +1,75 @@
+{ // https://www.typescriptlang.org/tsconfig
+	//"extends": "../tsconfig.json",
+	"compilerOptions": {
+		//──────────────────────────────────────────────────────────────────────
+		// Type Checking
+		//──────────────────────────────────────────────────────────────────────
+		"strictNullChecks": false,
+
+		//──────────────────────────────────────────────────────────────────────
+		// Modules
+		//──────────────────────────────────────────────────────────────────────
+		"baseUrl": ".",
+		"moduleResolution": "node",
+		"paths": {
+			"@enonic/js-utils": ["../src"],
+			"@enonic/js-utils/*": ["../src/*"],
+			"/lib/xp/*": ["../node_modules/@enonic-types/lib-*"],
+		},
+		"rootDir": "..",
+		// "rootDirs": [
+		// 	".",
+		// 	".."
+		// ],
+		"typeRoots": [
+			"../node_modules/@enonic-types",
+			"../node_modules/@types",
+		],
+		"types": [
+			"mocha",
+			"node"
+		],
+
+		//──────────────────────────────────────────────────────────────────────
+		// Emit
+		//──────────────────────────────────────────────────────────────────────
+		"declaration": false,
+
+		//──────────────────────────────────────────────────────────────────────
+		// Language and Environment
+		//──────────────────────────────────────────────────────────────────────
+		"lib": [
+			// "DOM", // console
+			// "ES5",
+			// "ES2015",
+			// "ES2016",
+			// "ES2017",
+			// "ES2018",
+			// "ES2019",
+			// "ES2020",
+			// "ES2021",
+			"ESNext"
+		],
+		"target": "ESNext",
+
+		//──────────────────────────────────────────────────────────────────────
+		// Completeness
+		//──────────────────────────────────────────────────────────────────────
+		// Skip type checking of declaration files.
+		//
+		// This can save time during compilation at the expense of type-system
+		// accuracy. For example, two libraries could define two copies of the
+		// same type in an inconsistent way. Rather than doing a full check of
+		// all d.ts files, TypeScript will type check the code you specifically
+		// refer to in your app’s source code.
+		"skipLibCheck": true
+	},
+	"exclude": [
+		// "../**/*.d.ts"
+		"./**/*.test-d.ts" // TODO Fix typings and remove line?
+	],
+	"include": [
+		"../node_modules/typescript/lib/lib.es2015.d.ts",
+		"./**/*.ts"
+	]
+}

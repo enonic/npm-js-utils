@@ -4,7 +4,7 @@ import {
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
 	storage
-} from '../../../../src';
+} from '@enonic/js-utils';
 
 /*const not = storage.query.dsl.not;
 const fulltext = storage.query.dsl.fulltext;

@@ -1,6 +1,6 @@
 import {deepStrictEqual} from 'assert';
 import * as assert from 'assert';
-import {storage} from '../../../../src';
+import {storage} from '@enonic/js-utils';
 
 const sort = storage.query.dsl.sort;
 

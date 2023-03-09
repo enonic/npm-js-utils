@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '../../../../src';
+import {storage} from '@enonic/js-utils';
 
 const like = storage.query.dsl.like;
 
@@ -63,7 +63,13 @@ describe('like', () => {
 					boost: 2.2
 				}
 			},
-			like('whatever', '*whatever', 2.2, 'whatever')
+			like(
+				'whatever',
+				'*whatever',
+				2.2,
+				//@ts-expect-error Argument of type '"whatever"' is not assignable to parameter of type 'DslQueryType'.
+				'whatever'
+			)
 		)
 	});
 }); // describe like

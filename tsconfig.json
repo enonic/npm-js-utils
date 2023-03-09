@@ -37,17 +37,7 @@
 		"paths": {
 			// Production (should be commented in when commiting)
 			"@enonic/js-utils": ["src"],
-			"/lib/xp/app": ["node_modules/@enonic-types/lib-app"],
-			"/lib/xp/auth": ["node_modules/@enonic-types/lib-auth"],
-			"/lib/xp/content": ["node_modules/@enonic-types/lib-content"],
-			"/lib/xp/event": ["node_modules/@enonic-types/lib-event"],
-			"/lib/xp/io": ["node_modules/@enonic-types/lib-io"],
-			"/lib/xp/mail": ["node_modules/@enonic-types/lib-mail"],
-			"/lib/xp/node": ["node_modules/@enonic-types/lib-node"],
-			"/lib/xp/portal": ["node_modules/@enonic-types/lib-portal"],
-			"/lib/xp/repo": ["node_modules/@enonic-types/lib-repo"],
-			"/lib/xp/schema": ["node_modules/@enonic-types/lib-schema"],
-			"/lib/xp/value": ["node_modules/@enonic-types/lib-value"],
+			"/lib/xp/*": ["node_modules/@enonic-types/lib-*"],
 			// Development (should be commented out when commiting)
 			// "@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
 			// "/lib/xp/app": ["../xp/modules/lib/lib-app/src/main/resources/lib/xp/app.ts"],
@@ -127,21 +117,6 @@
 		//──────────────────────────────────────────────────────────────────────
 		// Language and Environment
 		//──────────────────────────────────────────────────────────────────────
-		// "lib": [
-		// 	//"es3",
-		// 	"es5",
-		// 	//"es6", // alias for es2015
-		// 	//"es7", // alias for es2016
-		// 	//"es2015",
-
-		// 	// enonic/js-utils is supposed to run "anywhere", but target is
-		// 	// currently set to es5, to including es5 should be fine:
-		// 	// Number.isInteger
-		// 	// string.endsWith
-		// 	// string.startsWith
-		// 	"ES2015.Core"
-		// ],
-		"noLib": true, // Avoid types that doesn't exist in Nashorn
 		"target": "ES5",
 
 		//──────────────────────────────────────────────────────────────────────
@@ -177,7 +152,10 @@
 	// It is not a mechanism that prevents a file from being included in the
 	// codebase - it simply changes what the include setting finds.
 	"exclude": [
-		"**/*.d.ts",
+		"./test/**/*"
+		// This will exclude node_modules/typescript/lib/lib.es5.d.ts, which we need!
+		// "**/*.d.ts",
+
 		// After reading the explanatio above, these make no sense, since they are not part of include:
 		// "node_modules"
 		// "./node_modules/**/*", // Doesn't help
@@ -196,11 +174,11 @@
 	// These filenames are resolved relative to the directory containing the
 	// tsconfig.json file.
 	"include": [
+		// Make sure default types matches Nashorn
+		"node_modules/typescript/lib/lib.es5.d.ts",
 
 		// This produces the same amount of files as "files":["src/index.ts"].
 		// Maybe because the index file references everything...
 		"src/**/*.ts",
-
-		// "test/**/*.ts"
 	]
 }

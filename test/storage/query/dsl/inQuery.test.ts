@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '../../../../src';
+import {storage} from '@enonic/js-utils';
 
 const inQuery = storage.query.dsl.inQuery;
 
@@ -111,6 +111,7 @@ describe('inQuery', () => {
 					"whatever",
 				],
 				1.1,
+				//@ts-expect-error Argument of type '"whatever"' is not assignable to parameter of type 'DslQueryType'.
 				'whatever'
 			)
 		)

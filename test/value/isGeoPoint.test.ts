@@ -4,7 +4,7 @@ import {
 } from '@enonic/test-data';
 import {deepStrictEqual} from 'assert';
 
-import {isGeoPoint} from '../../src';
+import {isGeoPoint} from '@enonic/js-utils';
 import {toStr} from '../toStr';
 
 

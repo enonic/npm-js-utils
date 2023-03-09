@@ -1,10 +1,16 @@
+import type {
+	// BooleanDslExpression,
+	QueryDsl
+	// QueryDsl,
+} from '/lib/xp/node';
+
 import {deepStrictEqual} from 'assert';
 import {
 	QUERY_OPERATOR_AND,
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
 	storage
-} from '../../../../src';
+} from '@enonic/js-utils';
 
 /*const and = storage.query.dsl.and;
 const fulltext = storage.query.dsl.fulltext;
@@ -33,9 +39,9 @@ const resF = {
 		operator: 'AND',
 		query: SEARCH_STRING
 	}
-};
+} satisfies QueryDsl;
 
-const resS = {
+const resS: QueryDsl = {
 	stemmed: {
 		boost: 2,
 		fields: ['_allText'],
@@ -43,7 +49,7 @@ const resS = {
 		operator: 'AND',
 		query: SEARCH_STRING,
 	}
-};
+} satisfies QueryDsl;
 
 describe('and', () => {
 	it('minimal', () => {

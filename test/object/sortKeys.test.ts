@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {sortKeys} from '../../src';
+import {sortKeys} from '@enonic/js-utils';
 
 
 const {keys} = Object;

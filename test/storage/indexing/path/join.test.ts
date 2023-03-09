@@ -1,9 +1,9 @@
 import {deepStrictEqual} from 'assert';
 
-import {join} from '../../../../src';
+import {join} from '@enonic/js-utils';
 
 
-const SIMPLE_TESTS = [[
+const SIMPLE_TESTS: [string[],string][] = [[
 	[],
 	'.'
 ], [

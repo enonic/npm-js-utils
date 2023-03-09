@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {string} from '../../src';
+import {string} from '@enonic/js-utils';
 const {includes} = string;
 
 describe('string', () => {

@@ -1,5 +1,5 @@
 import {assert} from 'chai';
-import { getIn } from '../../src';
+import { getIn } from '@enonic/js-utils';
 
 
 const {

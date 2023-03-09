@@ -4,10 +4,11 @@ import {
 	//STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	//STEMMING_LANGUAGE_CODE_SPANISH,
 	storage
-} from '../../../../src';
+} from '@enonic/js-utils';
 
 
 const and = storage.query.dsl.and;
+const bool = storage.query.dsl.bool;
 const or = storage.query.dsl.or;
 const not = storage.query.dsl.not;
 const fulltext = storage.query.dsl.fulltext;
@@ -76,21 +77,25 @@ describe('dsl', () => {
 				must: [
 					resF,
 					{
-						mustNot: [
-							resS,
-							{
-								should: [resN]
-							}
-						]
+						boolean: {
+							mustNot: [
+								resS,
+								{
+									boolean: {
+										should: [resN]
+									}
+								}
+							]
+						}
 					}
 				],
 			},
 			and(
 				f,
-				not(
+				bool(not(
 					s,
-					or(n)
-				)
+					bool(or(n))
+				))
 			)
 		)
 	}); // it

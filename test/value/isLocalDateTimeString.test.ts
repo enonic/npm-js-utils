@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {isLocalDateTimeString} from '../../src';
+import {isLocalDateTimeString} from '@enonic/js-utils';
 import {
 	LOCAL_DATE_TIME_STRINGS,
 	//LOCAL_DATE_TIME_STRINGS_INVALID

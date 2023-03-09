@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '../../../../src';
+import {storage} from '@enonic/js-utils';
 
 const fulltext = storage.query.dsl.fulltext;
 
@@ -46,6 +46,7 @@ describe('fulltext', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"aNd"' is not assignable to parameter of type 'DslOperator'.
 				'aNd'
 			)
 		)
@@ -80,6 +81,7 @@ describe('fulltext', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"oR"' is not assignable to parameter of type 'DslOperator'.
 				'oR',
 				1.1
 			)
@@ -103,6 +105,7 @@ describe('fulltext', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"oR"' is not assignable to parameter of type 'DslOperator'.
 				'oR',
 				1
 			)
@@ -126,6 +129,7 @@ describe('fulltext', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"oR"' is not assignable to parameter of type 'DslOperator'.
 				'oR',
 				0
 			)

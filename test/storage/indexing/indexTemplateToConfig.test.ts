@@ -6,7 +6,7 @@ import {
 	INDEX_CONFIG_TEMPLATE_PATH,
 	INDEX_CONFIG_TEMPLATE_MINIMAL,
 	indexTemplateToConfig
-} from '../../../src';
+} from '@enonic/js-utils';
 
 
 describe('indexTemplateToConfig', () => {

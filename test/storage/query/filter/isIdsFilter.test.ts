@@ -1,5 +1,5 @@
 import {strictEqual} from 'assert';
-import {isIdsFilter} from '../../../../src';
+import {isIdsFilter} from '@enonic/js-utils';
 
 describe('isIdsFilter', () => {
 	it('returns true when shape is correct', () => {

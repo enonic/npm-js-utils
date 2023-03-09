@@ -1,16 +1,17 @@
 import {deepStrictEqual} from 'assert';
 //import {print} from 'q-i';
 
-import {updateIndexConfigs} from '../../../src';
+import {updateIndexConfigs} from '@enonic/js-utils';
 
 const CONFIG_ALL_FALSE = {
 	enabled: false,
 	decideByType: false,
 	fulltext: false,
 	includeInAllText: false,
-	languages: false,
-	ngram: false,
-	path: false
+	indexValueProcessors: [],
+	languages: [],
+	nGram: false,
+	path: false,
 };
 
 const CONFIG_ALL_TRUE = {
@@ -18,9 +19,10 @@ const CONFIG_ALL_TRUE = {
 	decideByType: true,
 	fulltext: true,
 	includeInAllText: true,
-	languages: true,
-	ngram: true,
-	path: true
+	indexValueProcessors: [],
+	languages: [],
+	nGram: true,
+	path: true,
 };
 
 

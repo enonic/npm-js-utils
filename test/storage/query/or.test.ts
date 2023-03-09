@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {or} from '../../../src';
+import {or} from '@enonic/js-utils';
 
 
 describe('or', () => {

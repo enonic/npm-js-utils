@@ -1,4 +1,5 @@
 import type {
+	BooleanFilter,
 	Filter,
 } from '/lib/xp/node';
 
@@ -52,7 +53,7 @@ export function addQueryFilter({
 		&& !isIdsFilter(returnedFilters)
 	) {
 		if (!returnedFilters.boolean) {
-			returnedFilters.boolean = {};
+			returnedFilters.boolean = {} as BooleanFilter['boolean'];
 		}
 	}
 

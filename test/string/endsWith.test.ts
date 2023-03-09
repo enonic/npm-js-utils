@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {endsWith} from '../../src';
+import {endsWith} from '@enonic/js-utils';
 
 
 describe('string', () => {

@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {and} from '../../../src';
+import {and} from '@enonic/js-utils';
 
 
 describe('and', () => {

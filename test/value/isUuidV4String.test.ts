@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {isUuidV4String} from '../../src';
+import {isUuidV4String} from '@enonic/js-utils';
 import {
 	UUID_V4,
 	NOT_UUID_V4

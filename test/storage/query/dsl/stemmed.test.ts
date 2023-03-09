@@ -3,7 +3,7 @@ import {
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
 	storage
-} from '../../../../src';
+} from '@enonic/js-utils';
 
 const stemmed = storage.query.dsl.stemmed;
 
@@ -53,6 +53,7 @@ describe('stemmed', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"aNd"' is not assignable to parameter of type 'DslOperator'.
 				'aNd',
 				STEMMING_LANGUAGE_CODE_NORWEGIAN
 			)
@@ -90,6 +91,7 @@ describe('stemmed', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"oR"' is not assignable to parameter of type 'DslOperator'.
 				'oR',
 				STEMMING_LANGUAGE_CODE_SPANISH,
 				1.1
@@ -115,6 +117,7 @@ describe('stemmed', () => {
 					'text'
 				],
 				'searchString',
+				//@ts-expect-error TS2345: Argument of type '"oR"' is not assignable to parameter of type 'DslOperator'.
 				'oR',
 				STEMMING_LANGUAGE_CODE_SPANISH,
 				0

@@ -2,7 +2,7 @@ import {deepStrictEqual} from 'assert';
 import {
 	isInfinity,
 	isNumber
-} from '../../src';
+} from '@enonic/js-utils';
 
 
 const NUMBERS = [

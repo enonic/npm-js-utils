@@ -1,5 +1,5 @@
 import {strictEqual} from 'assert';
-import {isBooleanFilter} from '../../../../src';
+import {isBooleanFilter} from '@enonic/js-utils';
 
 
 const AN_EXISTS_FILTER = {
