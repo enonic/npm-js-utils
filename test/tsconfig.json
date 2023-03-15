@@ -11,9 +11,12 @@
 		//──────────────────────────────────────────────────────────────────────
 		"baseUrl": ".",
 		"moduleResolution": "node",
+		"outDir": "build/tsup/test",
 		"paths": {
-			"@enonic/js-utils": ["../src"],
-			"@enonic/js-utils/*": ["../src/*"],
+			"@enonic/js-utils": ["../"],
+			"@enonic/js-utils/*": ["../*"],
+			// "/lib/xp/app": ["../node_modules/@enonic-types/lib-app/app.d.ts"],
+			// "/lib/xp/content": ["../node_modules/@enonic-types/lib-content/content.d.ts"],
 			"/lib/xp/*": ["../node_modules/@enonic-types/lib-*"],
 		},
 		"rootDir": "..",
@@ -26,8 +29,11 @@
 			"../node_modules/@types",
 		],
 		"types": [
+			// "@enonic-types/global",
+			// "@enonic-types/lib-app",
+			// "@enonic-types/lib-content",
 			"mocha",
-			"node"
+			"node",
 		],
 
 		//──────────────────────────────────────────────────────────────────────
@@ -66,7 +72,6 @@
 	},
 	"exclude": [
 		// "../**/*.d.ts"
-		"./**/*.test-d.ts" // TODO Fix typings and remove line?
 	],
 	"include": [
 		"../node_modules/typescript/lib/lib.es2015.d.ts",

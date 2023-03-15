@@ -29,8 +29,8 @@ export type EventTypesApplication =
 export type EventTypesCustom = `custom.${string}`;
 
 export type EventTypesNode =
-	| EventTypeNodeCreated
-	| EventTypeNodeDeleted
+	| EventTypeNodeCreated
+	| EventTypeNodeDeleted
 	| EventTypeNodeUpdated;
 
 export type EventTypesTask =
@@ -90,8 +90,8 @@ export type NodeEvent<
 // Specific Events
 //──────────────────────────────────────────────────────────────────────────────
 export type ApplicationClusterEvent = Event<EventTypeApplicationCluster,{
-	key :string
-	eventType :
+	key: string
+	eventType:
 		| 'start'
 		| 'state'
 		| 'stop'
@@ -103,8 +103,8 @@ export type ApplicationClusterEvent = Event<EventTypeApplicationCluster,{
 
 
 export interface ApplicationEventData {
-	applicationKey :string
-	systemApplication :boolean
+	applicationKey: string
+	systemApplication: boolean
 	eventType:
 		| 'INSTALLED'
 		| 'STARTED'
@@ -120,18 +120,18 @@ export type NodeDeletedEvent = NodeEvent<EventTypeNodeDeleted>;
 export type NodeUpdatedEvent = NodeEvent<EventTypeNodeUpdated>;
 
 export interface TaskEventData {
-	application :string
-	description :string
-	id :string
-	name :string
-	progress :{
-		current :number
-		info :string
-		total :number
+	application: string
+	description: string
+	id: string
+	name: string
+	progress: {
+		current: number
+		info: string
+		total: number
 	}
-	startTime :string // Date
-	state :string //'FINISHED'
-	user :string
+	startTime: string // Date
+	state: string //'FINISHED'
+	user: string
 }
 
 export type TaskEvent = Event<EventTypesTask,TaskEventData>
@@ -140,16 +140,16 @@ export type TaskEvent = Event<EventTypesTask,TaskEventData>
 //export type Events = ApplicationEvent|TaskEvent|CustomEvent//|GenericEvent
 
 export type EventLib = {
-	listener :<
+	listener: <
 		CallbackEvent extends Event
-	>(params :{
-		type: ListenerParams['type']
-		localOnly: ListenerParams['localOnly']
-		callback :(event :CallbackEvent) => void
+	>(params: {
+		type: ListenerParams<CallbackEvent['data']>['type']
+		localOnly: ListenerParams<CallbackEvent['data']>['localOnly']
+		callback: (event: CallbackEvent) => void
 	}) => ReturnType<typeof listener>
-	send :<Data extends object>(params :{
-		type: SendParams['type']
-		distributed: SendParams['distributed']
+	send: <Data extends object>(params: {
+		type: SendParams<Data>['type']
+		distributed: SendParams<Data>['distributed']
 		data ?:Data
 	}) => ReturnType<typeof send>
 }
