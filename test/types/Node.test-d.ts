@@ -8,7 +8,7 @@ import type {
 	NodePropertiesOnCreate,
 	NodePropertiesOnModify,
 	NodePropertiesOnRead,
-	ModifyNode,
+	ModifiedNode,
 	ModifyNodeParams,
 	// RepoConnection,
 } from '/lib/xp/node';
@@ -131,8 +131,8 @@ expectNotAssignable<CreateNodeParams<MyData>>(createMyNodeWithoutMyString);
 expectAssignable<Node<MyData>>(getMyNode);
 expectNotAssignable<Node<MyData>>(getMyNodeWithoutMyString);
 
-expectAssignable<ModifyNode<MyData>>(modifyMyNode);
-expectNotAssignable<ModifyNode<MyData>>(modifyMyNodeWithoutMystring);
+expectAssignable<ModifiedNode<MyData>>(modifyMyNode);
+expectNotAssignable<ModifiedNode<MyData>>(modifyMyNodeWithoutMystring);
 
 expectNotAssignable<Node<MyData>>(modifyMyNode);
 expectAssignable<ModifyNodeParams<MyData>>({

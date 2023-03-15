@@ -19,7 +19,7 @@
 			"tsx": false
 		},
 		"paths": {
-			"@enonic/js-utils": ["src"]
+			"@enonic/js-utils": ["."]
 		},
 		"target": "es3",
 		"transform": null

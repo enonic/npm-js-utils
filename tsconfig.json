@@ -36,7 +36,8 @@
 		"moduleResolution": "node",
 		"paths": {
 			// Production (should be commented in when commiting)
-			"@enonic/js-utils": ["src"],
+			"@enonic/js-utils": ["."],
+			"@enonic/js-utils/*": ["./*"],
 			"/lib/xp/*": ["node_modules/@enonic-types/lib-*"],
 			// Development (should be commented out when commiting)
 			// "@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
@@ -58,7 +59,7 @@
 
 		// It's important to set rootDir, or it will be inferred:
 		// The inferred value for rootDir is the longest common path of all non-declaration input files
-		"rootDir": "src",
+		"rootDir": ".",
 		//"rootDir": "..", // This affects the output!
 
 		// Using rootDirs, you can inform the compiler that there are many
@@ -66,7 +67,7 @@
 		// compiler to resolve relative module imports within these “virtual”
 		// directories, as if they were merged in to one directory.
 		//"rootDirs": [
-		//	"src",
+		//	".",
 		//	"node_modules",
 		//	"test"
 		//],
@@ -98,6 +99,7 @@
 		// Emit
 		//──────────────────────────────────────────────────────────────────────
 		"declaration": true,
+		"declarationDir": "./",
 		"declarationMap": false,
 		"downlevelIteration": true,
 		"importHelpers": true,
@@ -117,7 +119,7 @@
 		//──────────────────────────────────────────────────────────────────────
 		// Language and Environment
 		//──────────────────────────────────────────────────────────────────────
-		"target": "ES5",
+		// "target": "ES5", // target set in tsup.config.ts
 
 		//──────────────────────────────────────────────────────────────────────
 		// Compiler Diagnostics
@@ -152,6 +154,10 @@
 	// It is not a mechanism that prevents a file from being included in the
 	// codebase - it simply changes what the include setting finds.
 	"exclude": [
+		"./build/**/*",
+		"./docs/**/*",
+		"./dist/**/*",
+		"./node_modules/**/*",
 		"./test/**/*"
 		// This will exclude node_modules/typescript/lib/lib.es5.d.ts, which we need!
 		// "**/*.d.ts",
@@ -167,7 +173,7 @@
 	// This is useful when you only have a small number of files and don’t need
 	// to use a glob to reference many files. If you need that then use include.
 	//"files": [
-	//	"src/index.ts"
+	//	"index.ts"
 	//],
 
 	// Specifies an array of filenames or patterns to include in the program.
@@ -177,8 +183,8 @@
 		// Make sure default types matches Nashorn
 		"node_modules/typescript/lib/lib.es5.d.ts",
 
-		// This produces the same amount of files as "files":["src/index.ts"].
+		// This produces the same amount of files as "files":["index.ts"].
 		// Maybe because the index file references everything...
-		"src/**/*.ts",
+		"**/*.ts",
 	]
 }

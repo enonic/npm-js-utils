@@ -31,7 +31,7 @@ const TESTS_FALSE = [].concat(
 		['a','b'],
 	]
 );
-console.debug('TESTS_FALSE:', TESTS_FALSE);
+// console.debug('TESTS_FALSE:', TESTS_FALSE);
 
 
 describe('value', () => {
