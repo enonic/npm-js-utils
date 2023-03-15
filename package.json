@@ -43,9 +43,38 @@
     "typescript": "^4"
   },
   "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/esm/index.mjs",
-    "require": "./dist/cjs/index.cjs"
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs"
+    },
+    "./array/includes": {
+      "import": "./dist/esm/array/includes.mjs"
+    },
+    "./array/forceArray": {
+      "import": "./dist/esm/array/forceArray.mjs"
+    },
+    "./string/endsWith": {
+      "import": "./dist/esm/string/endsWith.mjs"
+    },
+    "./string/startsWith": {
+      "import": "./dist/esm/string/startsWith.mjs"
+    },
+    "./value/isNumber": {
+      "import": "./dist/esm/value/isNumber.mjs"
+    },
+    "./value/isObject": {
+      "import": "./dist/esm/value/isObject.mjs"
+    },
+    "./value/isSet": {
+      "import": "./dist/esm/value/isSet.mjs"
+    },
+    "./value/isString": {
+      "import": "./dist/esm/value/isString.mjs"
+    },
+    "./value/toStr": {
+      "import": "./dist/esm/value/toStr.mjs"
+    }
   },
   "files": [
     "array",
