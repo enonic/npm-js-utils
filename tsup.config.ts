@@ -74,6 +74,11 @@ export default defineConfig((options: MyOptions) => {
 			entry: TS_FILES_WITHOUT_TESTS,
 			format: 'esm',
 			minify: false,
+			outExtension() {
+				return {
+					js: '.mjs'
+				}
+			},
 			platform: 'neutral',
 			target: 'es2015',
 			splitting: false, // avoid chunk files
