@@ -86,10 +86,19 @@
     }
   },
   "files": [
+    "array",
+    "constants.ts",
     "dist",
     "docs",
+    "http",
     "index.d.ts",
-    "src"
+    "index.ts",
+    "object",
+    "storage",
+    "string",
+    "task",
+    "types",
+    "value"
   ],
   "keywords": [
     "enonic",
@@ -123,7 +132,7 @@
     "premocha": "yarn test:tsup",
     "prepack": "yarn build && yarn test && yarn docs",
     "verify": "yarn verify:syntax && yarn verify:types && yarn verify:type:definitions",
-    "verify:syntax": "npx eslint src test",
+    "verify:syntax": "npx eslint array constants.ts http index.ts object storage string test task types value",
     "verify:type:definitions": "yarn verify:type:definitions:ByteSource && yarn verify:type:definitions:Event && yarn verify:type:definitions:Node",
     "verify:type:definitions:ByteSource": "npx tsd -t types/index.d.ts -f test/types/ByteSource.test-d.ts",
     "verify:type:definitions:Event": "npx tsd -t types/index.d.ts -f test/types/Event.test-d.ts",

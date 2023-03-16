@@ -36,8 +36,8 @@
 		"moduleResolution": "node",
 		"paths": {
 			// Production (should be commented in when commiting)
-			"@enonic/js-utils": ["./src"],
-			"@enonic/js-utils/*": ["./src/*"],
+			"@enonic/js-utils": ["."],
+			"@enonic/js-utils/*": ["./*"],
 			"/lib/xp/*": ["./node_modules/@enonic-types/lib-*"],
 			// Development (should be commented out when commiting)
 			// "@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
@@ -57,7 +57,7 @@
 
 		// It's important to set rootDir, or it will be inferred:
 		// The inferred value for rootDir is the longest common path of all non-declaration input files
-		"rootDir": "./src",
+		"rootDir": ".",
 		//"rootDir": "..", // This affects the output!
 
 		// Using rootDirs, you can inform the compiler that there are many
@@ -151,7 +151,11 @@
 	// It is not a mechanism that prevents a file from being included in the
 	// codebase - it simply changes what the include setting finds.
 	"exclude": [
-		// "./src/types/**/*.d.ts",
+		"./build/**/*",
+		"./docs/**/*",
+		"./dist/**/*",
+		"./node_modules/**/*",
+		"./test/**/*"
 	],
 
 	// Specifies an allowlist of files to include in the program.
@@ -171,6 +175,6 @@
 
 		// This produces the same amount of files as "files":["index.ts"].
 		// Maybe because the index file references everything...
-		"./src/**/*.ts",
+		"./**/*.ts",
 	]
 }
