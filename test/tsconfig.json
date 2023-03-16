@@ -13,8 +13,8 @@
 		"moduleResolution": "node",
 		"outDir": "build/tsup/test",
 		"paths": {
-			"@enonic/js-utils": ["../"],
-			"@enonic/js-utils/*": ["../*"],
+			"@enonic/js-utils": ["../src"],
+			"@enonic/js-utils/*": ["../src/*"],
 			"/lib/xp/*": ["../node_modules/@enonic-types/lib-*"],
 		},
 		"rootDir": "..",

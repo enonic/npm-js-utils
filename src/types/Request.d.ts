@@ -1,4 +1,4 @@
-import {StringObject} from './Utility';
+import {StringObject} from './Utility.d';
 
 
 export namespace Enonic {

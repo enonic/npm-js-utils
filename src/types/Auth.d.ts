@@ -4,7 +4,7 @@ import type {
 	RoleKey,
 	UserKey,
 } from '/lib/xp/auth';
-import {AccessControlEntry} from '/lib/xp/node';
+import type {AccessControlEntry} from '/lib/xp/node';
 
 // This wouldn't break backwards compatibility, but "loosens" the type, loosing good suggestions.
 // Perhaps the best solution would be to move the generics and constans below into @enonic-types/core
