@@ -48,17 +48,26 @@
       "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.cjs"
     },
+    "./array": {
+      "import": "./dist/esm/array/index.mjs"
+    },
     "./array/includes": {
       "import": "./dist/esm/array/includes.mjs"
     },
     "./array/forceArray": {
       "import": "./dist/esm/array/forceArray.mjs"
     },
+    "./string": {
+      "import": "./dist/esm/string/index.mjs"
+    },
     "./string/endsWith": {
       "import": "./dist/esm/string/endsWith.mjs"
     },
     "./string/startsWith": {
       "import": "./dist/esm/string/startsWith.mjs"
+    },
+    "./value": {
+      "import": "./dist/esm/value/index.mjs"
     },
     "./value/isNumber": {
       "import": "./dist/esm/value/isNumber.mjs"
@@ -77,19 +86,10 @@
     }
   },
   "files": [
-    "array",
-    "constants.ts",
     "dist",
     "docs",
-    "http",
     "index.d.ts",
-    "index.ts",
-    "object",
-    "storage",
-    "string",
-    "task",
-    "types",
-    "value"
+    "src"
   ],
   "keywords": [
     "enonic",
@@ -107,8 +107,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn build:copy && yarn build:tsup",
-    "build:copy": "mkdir dist && mkdir dist/cjs && cp -r types dist/cjs/",
+    "build": "yarn build:tsup",
     "build:tsup": "yarn build:tsup:cjs && yarn build:tsup:esm && yarn build:tsup:types",
     "build:tsup:cjs": "npx tsup -d dist/cjs --silent",
     "build:tsup:esm": "npx tsup -d dist/esm --silent",
@@ -124,7 +123,7 @@
     "premocha": "yarn test:tsup",
     "prepack": "yarn build && yarn test && yarn docs",
     "verify": "yarn verify:syntax && yarn verify:types && yarn verify:type:definitions",
-    "verify:syntax": "npx eslint array constants.ts http index.ts object storage string test task types value",
+    "verify:syntax": "npx eslint src test",
     "verify:type:definitions": "yarn verify:type:definitions:ByteSource && yarn verify:type:definitions:Event && yarn verify:type:definitions:Node",
     "verify:type:definitions:ByteSource": "npx tsd -t types/index.d.ts -f test/types/ByteSource.test-d.ts",
     "verify:type:definitions:Event": "npx tsd -t types/index.d.ts -f test/types/Event.test-d.ts",

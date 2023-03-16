@@ -36,9 +36,9 @@
 		"moduleResolution": "node",
 		"paths": {
 			// Production (should be commented in when commiting)
-			"@enonic/js-utils": ["."],
-			"@enonic/js-utils/*": ["./*"],
-			"/lib/xp/*": ["node_modules/@enonic-types/lib-*"],
+			"@enonic/js-utils": ["./src"],
+			"@enonic/js-utils/*": ["./src/*"],
+			"/lib/xp/*": ["./node_modules/@enonic-types/lib-*"],
 			// Development (should be commented out when commiting)
 			// "@enonic-types/core": ["../xp/modules/lib/core/index.d.ts"],
 			// "/lib/xp/app": ["../xp/modules/lib/lib-app/src/main/resources/lib/xp/app.ts"],
@@ -57,7 +57,7 @@
 
 		// It's important to set rootDir, or it will be inferred:
 		// The inferred value for rootDir is the longest common path of all non-declaration input files
-		"rootDir": ".",
+		"rootDir": "./src",
 		//"rootDir": "..", // This affects the output!
 
 		// Using rootDirs, you can inform the compiler that there are many
@@ -76,8 +76,8 @@
 		// ../node_modules/@types/, ../../node_modules/@types/, and so on.
 		// If typeRoots is specified, only packages under typeRoots will be included.
 		"typeRoots": [
-			"node_modules/@types",
-			"node_modules/@enonic-types",
+			"./node_modules/@types",
+			"./node_modules/@enonic-types",
 		],
 
 		// By default all visible ”@types” packages are included in your compilation.
@@ -87,11 +87,10 @@
 		// If types is specified, only packages listed will be included in the global scope.
 		// This feature differs from typeRoots in that it is about specifying only the exact
 		// types you want included, whereas typeRoots supports saying you want particular folders.
-		"types": [
-			//"node", // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
-			"@enonic-types/global",
-			"@enonic-types/lib-app" // Is this still needed?
-		],
+		// "types": [
+		// 	//"node", // Since @enonic/js-utils is supposed to run anywhere we can't depend on node...
+		// 	"@enonic-types/global",
+		// ],
 
 		//──────────────────────────────────────────────────────────────────────
 		// Emit
@@ -152,13 +151,7 @@
 	// It is not a mechanism that prevents a file from being included in the
 	// codebase - it simply changes what the include setting finds.
 	"exclude": [
-		"./build/**/*",
-		"./docs/**/*",
-		"./dist/**/*",
-		"./node_modules/**/*",
-		"./test/**/*"
-		// This will exclude node_modules/typescript/lib/lib.es5.d.ts, which we need!
-		// "**/*.d.ts",
+		// "./src/types/**/*.d.ts",
 	],
 
 	// Specifies an allowlist of files to include in the program.
@@ -174,10 +167,10 @@
 	// tsconfig.json file.
 	"include": [
 		// Make sure default types matches Nashorn
-		"node_modules/typescript/lib/lib.es5.d.ts",
+		"./node_modules/typescript/lib/lib.es5.d.ts",
 
 		// This produces the same amount of files as "files":["index.ts"].
 		// Maybe because the index file references everything...
-		"**/*.ts",
+		"./src/**/*.ts",
 	]
 }
