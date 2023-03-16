@@ -8,8 +8,16 @@ interface MyOptions extends Options {
 	dtsOnly?: boolean
 }
 
-const TS_FILES_WITHOUT_TESTS = globSync(`./src/**/*.ts`, {
+const TS_FILES_WITHOUT_TESTS = globSync(`./**/*.ts`, {
 	absolute: false,
+	ignore: [
+		'build/**',
+		'docs/**',
+		'node_modules/**',
+		'test/**',
+		'**/*.d.ts',
+		'tsup.config.ts'
+	]
 }).map(dir => dir.replace(/\\/g,'/'));
 
 
@@ -17,7 +25,7 @@ export default defineConfig((options: MyOptions) => {
 	// print(options, { maxItems: Infinity });
 	if (options.dtsOnly) {
 		return {
-			entry: ['src/index.ts'],
+			entry: ['index.ts'],
 			outDir: '.'
 		};
 	} else if (options.d === 'build/tsup') {
