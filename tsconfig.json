@@ -52,8 +52,6 @@
 			// "/lib/xp/repo": ["../xp/modules/lib/lib-repo/src/main/resources/lib/xp/repo.ts"],
 			// "/lib/xp/schema": ["../xp/modules/lib/lib-schema/src/main/resources/lib/xp/schema.ts"],
 			// "/lib/xp/value": ["../xp/modules/lib/lib-value/src/main/resources/lib/xp/value.ts"],
-			// Doesn't help:
-			// "node_modules/@enonic-types/lib-node/node.d.ts": ["../xp/modules/lib/lib-node/build/typescript/lib/xp/node.d.ts"],
 		},
 		"resolveJsonModule": true,
 
@@ -161,11 +159,6 @@
 		"./test/**/*"
 		// This will exclude node_modules/typescript/lib/lib.es5.d.ts, which we need!
 		// "**/*.d.ts",
-
-		// After reading the explanatio above, these make no sense, since they are not part of include:
-		// "node_modules"
-		// "./node_modules/**/*", // Doesn't help
-		// "../xp/**/*", // Doesn't help
 	],
 
 	// Specifies an allowlist of files to include in the program.

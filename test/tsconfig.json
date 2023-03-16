@@ -1,5 +1,5 @@
 { // https://www.typescriptlang.org/tsconfig
-	//"extends": "../tsconfig.json",
+	//"extends": "../tsconfig.json", // Nope, let's have full control
 	"compilerOptions": {
 		//──────────────────────────────────────────────────────────────────────
 		// Type Checking
@@ -15,23 +15,14 @@
 		"paths": {
 			"@enonic/js-utils": ["../"],
 			"@enonic/js-utils/*": ["../*"],
-			// "/lib/xp/app": ["../node_modules/@enonic-types/lib-app/app.d.ts"],
-			// "/lib/xp/content": ["../node_modules/@enonic-types/lib-content/content.d.ts"],
 			"/lib/xp/*": ["../node_modules/@enonic-types/lib-*"],
 		},
 		"rootDir": "..",
-		// "rootDirs": [
-		// 	".",
-		// 	".."
-		// ],
 		"typeRoots": [
 			"../node_modules/@enonic-types",
 			"../node_modules/@types",
 		],
 		"types": [
-			// "@enonic-types/global",
-			// "@enonic-types/lib-app",
-			// "@enonic-types/lib-content",
 			"mocha",
 			"node",
 		],
@@ -45,15 +36,6 @@
 		// Language and Environment
 		//──────────────────────────────────────────────────────────────────────
 		"lib": [
-			// "DOM", // console
-			// "ES5",
-			// "ES2015",
-			// "ES2016",
-			// "ES2017",
-			// "ES2018",
-			// "ES2019",
-			// "ES2020",
-			// "ES2021",
 			"ESNext"
 		],
 		"target": "ESNext",
@@ -70,11 +52,8 @@
 		// refer to in your app’s source code.
 		"skipLibCheck": true
 	},
-	"exclude": [
-		// "../**/*.d.ts"
-	],
+	"exclude": [],
 	"include": [
-		"../node_modules/typescript/lib/lib.es2015.d.ts",
 		"./**/*.ts"
 	]
 }
