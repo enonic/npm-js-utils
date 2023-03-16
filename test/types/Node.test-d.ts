@@ -2,24 +2,18 @@ import type {
 	CommonNodeProperties,
 	CreateNodeParams,
 	Node,
-	// NodeConfigEntry,
-	// NodeIndexConfigParams,
 	NodeIndexConfigTemplates,
 	NodePropertiesOnCreate,
 	NodePropertiesOnModify,
 	NodePropertiesOnRead,
 	ModifiedNode,
 	ModifyNodeParams,
-	// RepoConnection,
 } from '/lib/xp/node';
 
 
 import {
 	expectAssignable,
-	// expectError,
 	expectNotAssignable,
-	// expectType,
-	// printType,
 } from 'tsd';
 
 const commonNodeProperties = {
