@@ -129,7 +129,7 @@
     "clean": "rimraf build dist index.d.ts enonic-js-utils-v*.tgz",
     "docs": "npx typedoc",
     "mocha": "npx mocha --config .swc.mocharc.cjs",
-    "prepublishOnly": "node setversion.js",
+    "prepublishOnly": "node setversion.cjs",
     "test": "yarn mocha -R min build/tsup/test/**/*.test.cjs",
     "test:tsup": "yarn test:tsup:sources && yarn test:tsup:tests",
     "test:tsup:sources": "npx tsup -d build/tsup --silent",
