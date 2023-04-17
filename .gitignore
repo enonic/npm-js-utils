@@ -5,3 +5,4 @@
 /index.d.ts
 /yarn-error.log
 *.tgz
+.idea

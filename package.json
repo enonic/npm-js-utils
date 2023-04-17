@@ -1,7 +1,9 @@
 {
+  "name": "@enonic/js-utils-test",
+  "description": "Enonic XP JavaScript Utils",
+  "version": "0.0.0",
   "author": "Christian Westgaard <cwe@enonic.com>",
   "contributors": [],
-  "description": "Enonic XP JavaScript Utils",
   "devDependencies": {
     "@babel/core": "^7",
     "@babel/register": "^7",
@@ -108,12 +110,15 @@
     "typescript",
     "commonjs"
   ],
-  "license": "GPL-3.0",
+  "license": "Apache-2.0",
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
-  "name": "@enonic/js-utils",
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:enonic/enonic-js-utils.git"
   },
   "scripts": {
     "build": "yarn build:tsup",
@@ -124,6 +129,7 @@
     "clean": "rimraf build dist index.d.ts enonic-js-utils-v*.tgz",
     "docs": "npx typedoc",
     "mocha": "npx mocha --config .swc.mocharc.cjs",
+    "prepublishOnly": "node setversion.js",
     "test": "yarn mocha -R min build/tsup/test/**/*.test.cjs",
     "test:tsup": "yarn test:tsup:sources && yarn test:tsup:tests",
     "test:tsup:sources": "npx tsup -d build/tsup --silent",
@@ -142,6 +148,5 @@
     "verify:types:tests": "npx tsc -p test/tsconfig.json --noEmit"
   },
   "type": "module",
-  "types": "index.d.ts",
-  "version": "1.0.0"
+  "types": "index.d.ts"
 }
