@@ -1,5 +1,5 @@
 {
-  "name": "@enonic/js-utils-test",
+  "name": "@enonic/js-utils",
   "description": "Enonic XP JavaScript Utils",
   "version": "0.0.0",
   "author": "Christian Westgaard <cwe@enonic.com>",
