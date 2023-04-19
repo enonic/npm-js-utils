@@ -1,4 +1,4 @@
-import type { PrincipalKey } from '../auth';
+import type { PrincipalKey } from '../Auth';
 import type {
 	NodeQueryHit,
 	NodeQueryResponse,

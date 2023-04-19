@@ -18,16 +18,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Run install
+      - name: Install Yarn
         uses: borales/actions-yarn@v4
         with:
           cmd: install # will run `yarn install` command
 
-      - run: npm publish --dry-run
+      - name: Publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+            name: Enonic JS Utils ${{ github.ref_name }}
