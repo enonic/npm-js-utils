@@ -100,7 +100,6 @@
 		"declarationMap": false,
 		"downlevelIteration": true,
 		"importHelpers": true,
-		"importsNotUsedAsValues": "error",
 		"inlineSourceMap": false,
 		"inlineSources": false,
 		"noEmitOnError": true,
@@ -112,6 +111,11 @@
 		// JavaScript Support
 		//──────────────────────────────────────────────────────────────────────
 		"allowJs": false,
+
+		//──────────────────────────────────────────────────────────────────────
+		// Interop Constraints
+		//──────────────────────────────────────────────────────────────────────
+		"verbatimModuleSyntax": false, // TODO Set to true and fix errors?
 
 		//──────────────────────────────────────────────────────────────────────
 		// Language and Environment
