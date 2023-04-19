@@ -27,7 +27,6 @@
 		// where a concrete value is expected.
 		// NOTE: Setting it to true gives errors which are NOT really errors in lib/xp/node.ts
 		"strictNullChecks": false,
-		"forceConsistentCasingInFileNames": true,
 
 		//──────────────────────────────────────────────────────────────────────
 		// Modules
@@ -116,6 +115,7 @@
 		//──────────────────────────────────────────────────────────────────────
 		// Interop Constraints
 		//──────────────────────────────────────────────────────────────────────
+		"forceConsistentCasingInFileNames": true,
 		"verbatimModuleSyntax": false, // TODO Set to true and fix errors?
 
 		//──────────────────────────────────────────────────────────────────────
