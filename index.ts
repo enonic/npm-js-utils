@@ -10,6 +10,8 @@ export {
 export {
 	getIn,
 	hasOwnProperty,
+	lcKeys,
+	mapKeys,
 	setIn,
 	sortKeys,
 	sortKeysRec
