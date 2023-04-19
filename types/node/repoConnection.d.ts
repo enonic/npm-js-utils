@@ -4,7 +4,7 @@ import type {
 	NodeQueryResultHit,
 	RepoConnection,
 } from '/lib/xp/node';
-import type {AggregationsResponse} from './query/aggregation.d';
+import type {AggregationsResponse} from './query/Aggregation.d';
 
 export type {RepoConnection} from '/lib/xp/node';
 
