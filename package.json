@@ -51,40 +51,72 @@
       "require": "./dist/cjs/index.cjs"
     },
     "./array": {
-      "import": "./dist/esm/array/index.mjs"
+      "import": "./dist/esm/array/index.mjs",
+      "require": "./dist/cjs/array/index.cjs"
     },
-    "./array/includes": {
-      "import": "./dist/esm/array/includes.mjs"
+    "./array/flatten": {
+      "import": "./dist/esm/array/flatten.mjs",
+      "require": "./dist/cjs/array/flatten.cjs"
     },
     "./array/forceArray": {
-      "import": "./dist/esm/array/forceArray.mjs"
+      "import": "./dist/esm/array/forceArray.mjs",
+      "require": "./dist/cjs/array/forceArray.cjs"
+    },
+    "./array/includes": {
+      "import": "./dist/esm/array/includes.mjs",
+      "require": "./dist/cjs/array/includes.cjs"
+    },
+    "./object": {
+      "import": "./dist/esm/object/index.mjs",
+      "require": "./dist/cjs/object/index.cjs"
+    },
+    "./object/sortKeys": {
+      "import": "./dist/esm/object/sortKeys.mjs",
+      "require": "./dist/cjs/object/sortKeys.cjs"
     },
     "./string": {
-      "import": "./dist/esm/string/index.mjs"
+      "import": "./dist/esm/string/index.mjs",
+      "require": "./dist/cjs/string/index.cjs"
     },
     "./string/endsWith": {
-      "import": "./dist/esm/string/endsWith.mjs"
+      "import": "./dist/esm/string/endsWith.mjs",
+      "require": "./dist/cjs/string/endsWith.cjs"
+    },
+    "./string/lpad": {
+      "import": "./dist/esm/string/lpad.mjs",
+      "require": "./dist/cjs/string/lpad.cjs"
     },
     "./string/startsWith": {
-      "import": "./dist/esm/string/startsWith.mjs"
+      "import": "./dist/esm/string/startsWith.mjs",
+      "require": "./dist/cjs/string/startsWith.cjs"
     },
     "./value": {
-      "import": "./dist/esm/value/index.mjs"
+      "import": "./dist/esm/value/index.mjs",
+      "require": "./dist/cjs/value/index.cjs"
     },
     "./value/isNumber": {
-      "import": "./dist/esm/value/isNumber.mjs"
+      "import": "./dist/esm/value/isNumber.mjs",
+      "require": "./dist/cjs/value/isNumber.cjs"
     },
     "./value/isObject": {
-      "import": "./dist/esm/value/isObject.mjs"
+      "import": "./dist/esm/value/isObject.mjs",
+      "require": "./dist/cjs/value/isObject.cjs"
     },
     "./value/isSet": {
-      "import": "./dist/esm/value/isSet.mjs"
+      "import": "./dist/esm/value/isSet.mjs",
+      "require": "./dist/cjs/value/isSet.cjs"
     },
     "./value/isString": {
-      "import": "./dist/esm/value/isString.mjs"
+      "import": "./dist/esm/value/isString.mjs",
+      "require": "./dist/cjs/value/isString.cjs"
+    },
+    "./value/isUuidV4String": {
+      "import": "./dist/esm/value/isUuidV4String.mjs",
+      "require": "./dist/cjs/value/isUuidV4String.cjs"
     },
     "./value/toStr": {
-      "import": "./dist/esm/value/toStr.mjs"
+      "import": "./dist/esm/value/toStr.mjs",
+      "require": "./dist/cjs/value/toStr.cjs"
     }
   },
   "files": [
