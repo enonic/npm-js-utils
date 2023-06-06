@@ -8,6 +8,7 @@ export {
 } from './array';
 
 export {
+	deleteIn,
 	getIn,
 	hasOwnProperty,
 	lcKeys,
