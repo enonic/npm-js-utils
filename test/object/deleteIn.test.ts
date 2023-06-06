@@ -15,14 +15,13 @@ describe('object', () => {
 		it('returns undefined when any param is missing or false', () => {
 			// @ts-expect-error Expected 2 arguments, but got 0.ts(2554)
 			equal(deleteIn(), undefined);
-			// @ts-expect-error Expected 2 arguments, but got 1.ts(2554)
 			equal(deleteIn({}), undefined);
 			equal(deleteIn({}, ''), undefined);
 			equal(deleteIn({}, []), undefined);
 			equal(deleteIn({}, ['']), undefined);
 		}); // it returns undefined when any param is missing or false
 
-		it('deletes array path', () => {
+		it('deletes rest path', () => {
 			const obj = {
 				one: {
 					two: {
@@ -30,13 +29,13 @@ describe('object', () => {
 					}
 				}
 			}
-			equal(deleteIn(obj, ['one', 'two', 'three']), undefined);
+			equal(deleteIn(obj, 'one', 'two', 'three'), undefined);
 			// @ts-expect-error ts(2741)
 			deepStrictEqual(obj, {one: {two: {}}});
-			equal(deleteIn(obj, ['one', 'two']), undefined);
+			equal(deleteIn(obj, 'one', 'two'), undefined);
 			// @ts-expect-error ts(2741)
 			deepStrictEqual(obj, {one: {}});
-			equal(deleteIn(obj, ['one']), undefined);
+			equal(deleteIn(obj, 'one'), undefined);
 			// @ts-expect-error ts(2741)
 			deepStrictEqual(obj, {});
 		}); // it deletes array path
@@ -58,6 +57,39 @@ describe('object', () => {
 			equal(deleteIn(obj, 'one'), undefined);
 			// @ts-expect-error ts(2741)
 			deepStrictEqual(obj, {});
+		}); // it deletes array path
+
+		it('deletes array path', () => {
+			const obj = {
+				one: {
+					two: {
+						three: 'three'
+					}
+				}
+			}
+			equal(deleteIn(obj, ['one', 'two', 'three']), undefined);
+			// @ts-expect-error ts(2741)
+			deepStrictEqual(obj, {one: {two: {}}});
+			equal(deleteIn(obj, ['one', 'two']), undefined);
+			// @ts-expect-error ts(2741)
+			deepStrictEqual(obj, {one: {}});
+			equal(deleteIn(obj, ['one']), undefined);
+			// @ts-expect-error ts(2741)
+			deepStrictEqual(obj, {});
+		}); // it deletes array path
+
+		it('handles number and symbol path', () => {
+			const sym2 = Symbol("key");
+			const obj = {
+				1: {
+					[sym2]: {
+						three: 'three'
+					}
+				}
+			}
+			equal(deleteIn(obj, 1, sym2, 'three'), undefined);
+			// @ts-expect-error ts(2741)
+			deepStrictEqual(obj, {1: {[sym2]: {}}});
 		}); // it deletes array path
 
 		it('does not traverse undefined', () => {

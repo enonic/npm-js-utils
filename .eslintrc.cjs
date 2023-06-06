@@ -76,6 +76,7 @@ module.exports = {
 	],
 	root: true,
 	rules: { // https://eslint.org/docs/rules
+		"@typescript-eslint/no-explicit-any": ['warn', {ignoreRestArgs: true }],
 		'@typescript-eslint/no-inferrable-types': ['off'],
 		indent: ['warn', 'tab'],
 		'prefer-rest-params': ['off'], // This rule should not be used in ES3/5 environments.
