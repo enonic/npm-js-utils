@@ -100,5 +100,19 @@ describe('object', () => {
 			deepStrictEqual(obj, {one: undefined});
 		}); // it does not traverse undefined
 
+		it('handles circular objects', () => {
+			const circularObj = {
+				one: {}
+			}
+			// @ts-expect-error TS2339
+			circularObj.myself = circularObj;
+			equal(deleteIn(circularObj, 'myself', 'myself', 'myself', 'myself', 'myself', 'one'), undefined);
+			deepStrictEqual(circularObj, {
+				// @ts-expect-error TS2345
+				myself: circularObj,
+			});
+			// console.info('circularObj: %s', circularObj);
+		});
+
 	}); // describe deleteIn
 }); // describe object
