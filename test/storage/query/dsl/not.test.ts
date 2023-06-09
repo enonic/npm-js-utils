@@ -3,20 +3,15 @@ import {
 	QUERY_OPERATOR_AND,
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
-	storage
-} from '@enonic/js-utils';
-
-/*const not = storage.query.dsl.not;
-const fulltext = storage.query.dsl.fulltext;
-const ngram = storage.query.dsl.ngram;
-const stemmed = storage.query.dsl.stemmed;*/
-const {
-	fulltext,
-	ngram,
+} from '../../../../index';
+import {
 	mustNot,
 	not,
+	fulltext,
+	ngram,
 	stemmed
-} = storage.query.dsl;
+} from '../../../../storage/query/dsl/index';
+
 
 const SEARCH_STRING = 'searchString';
 

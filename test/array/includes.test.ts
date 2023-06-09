@@ -1,6 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {array} from '@enonic/js-utils';
-const {includes} = array;
+import {arrayIncludes as includes} from '../../index';
 
 describe('array', () => {
 	describe('includes', () => {

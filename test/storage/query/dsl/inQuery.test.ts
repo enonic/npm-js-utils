@@ -1,7 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '@enonic/js-utils';
-
-const inQuery = storage.query.dsl.inQuery;
+import { inQuery } from '../../../../storage/query/dsl/index';
 
 
 describe('inQuery', () => {

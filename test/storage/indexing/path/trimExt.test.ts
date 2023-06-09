@@ -1,6 +1,5 @@
 import {deepStrictEqual} from 'assert';
-
-import {trimExt} from '@enonic/js-utils';
+import { trimExt } from '../../../../index';
 
 
 describe('trimExt', () => {

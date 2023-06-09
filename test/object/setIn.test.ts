@@ -1,5 +1,5 @@
 import * as assert from 'assert';
-import { setIn } from '@enonic/js-utils';
+import { setIn } from '../../index';
 
 //const deepStrictEqual = assert.deepStrictEqual;
 const throws = assert.throws;

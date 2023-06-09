@@ -1,7 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '@enonic/js-utils';
-
-const pathMatch = storage.query.dsl.pathMatch;
+import { pathMatch } from '../../../../storage/query/dsl/index';
 
 
 describe('pathMatch', () => {

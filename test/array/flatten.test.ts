@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {flatten} from '@enonic/js-utils';
+import {flatten} from '../../index';
 
 
 describe('array', () => {

@@ -1,7 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '@enonic/js-utils';
-
-const term = storage.query.dsl.term;
+import { term } from '../../../../storage/query/dsl/index';
 
 
 describe('term', () => {

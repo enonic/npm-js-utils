@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { lcKeys } from '@enonic/js-utils';
+import { lcKeys } from '../../index';
 
 
 describe('lcKeys', () => {

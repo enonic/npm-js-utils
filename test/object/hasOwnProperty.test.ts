@@ -1,5 +1,5 @@
 import {equal, ok} from 'assert';
-import { hasOwnProperty } from '@enonic/js-utils';
+import { hasOwnProperty } from '../../index';
 
 
 describe('hasOwnProperty', () => {
