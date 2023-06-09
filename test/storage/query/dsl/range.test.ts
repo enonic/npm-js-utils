@@ -1,7 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '@enonic/js-utils';
-
-const range = storage.query.dsl.range;
+import { range } from '../../../../storage/query/dsl/index';
 
 
 describe('range', () => {

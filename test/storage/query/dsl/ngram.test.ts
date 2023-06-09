@@ -1,7 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '@enonic/js-utils';
-
-const ngram = storage.query.dsl.ngram;
+import { ngram } from '../../../../storage/query/dsl/index';
 
 
 describe('ngram', () => {

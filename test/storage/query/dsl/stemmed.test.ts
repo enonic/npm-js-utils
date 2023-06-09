@@ -2,10 +2,8 @@ import {deepStrictEqual} from 'assert';
 import {
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
-	storage
-} from '@enonic/js-utils';
-
-const stemmed = storage.query.dsl.stemmed;
+} from '../../../../index';
+import { stemmed } from '../../../../storage/query/dsl/index';
 
 
 describe('stemmed', () => {

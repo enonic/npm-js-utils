@@ -1,14 +1,13 @@
-type FindIndexCallback = (
-	element :unknown,
-	index? :number,
-	array? :unknown[]
-) => boolean;
-
-
-export function findIndex(
-	array :unknown[],
-	callbackFn :FindIndexCallback
-) :number {
+export function findIndex<
+	Element = unknown
+>(
+	array: Element[],
+	callbackFn: (
+		element: Element,
+		index?: number,
+		array?: Element[]
+	) => boolean
+): number {
 	const length = array.length >>> 0;
 	//const thisArg = arguments[1];
 	for (let i = 0; i < length; i++) {

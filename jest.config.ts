@@ -1,17 +1,19 @@
 module.exports = {
-	// collectCoverageFrom: [
-	// 	'array/**/*.{ts,tsx}',
-	// 	'http/**/*.{ts,tsx}',
-	// 	'object/**/*.{ts,tsx}',
-	// 	'storage/**/*.{ts,tsx}',
-	// 	'string/**/*.{ts,tsx}',
-	// 	'task/**/*.{ts,tsx}',
-	// 	'value/**/*.{ts,tsx}',
-	// ],
+	collectCoverageFrom: [
+		'array/**/*.{ts,tsx}',
+		'http/**/*.{ts,tsx}',
+		'object/**/*.{ts,tsx}',
+		'storage/**/*.{ts,tsx}',
+		'string/**/*.{ts,tsx}',
+		'task/**/*.{ts,tsx}',
+		'value/**/*.{ts,tsx}',
+		'constants.ts',
+		'index.ts'
+	],
 	coveragePathIgnorePatterns: [
 		'<rootDir>/dist/'
 	],
-	// coverageProvider: 'v8', // Changes Uncovered Lines
+	coverageProvider: 'v8', // Changes Uncovered Lines
 
 	// preset: 'ts-jest/presets/js-with-babel-legacy',
 	// preset: 'ts-jest/presets/js-with-babel',

@@ -1,7 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '@enonic/js-utils';
-
-const like = storage.query.dsl.like;
+import { like } from '../../../../storage/query/dsl/index';
 
 
 describe('like', () => {

@@ -1,7 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '@enonic/js-utils';
-
-const fulltext = storage.query.dsl.fulltext;
+import { fulltext } from '../../../../storage/query/dsl/index';
 
 
 describe('fulltext', () => {

@@ -1,8 +1,5 @@
 import {assert} from 'chai';
-// import {deleteIn} from '@enonic/js-utils';
-// import {deleteIn} from '@enonic/js-utils/object';
-// import deleteIn from '@enonic/js-utils/object/deleteIn';
-import deleteIn from '../../object/deleteIn'; // Gives correct Uncovered Line numbers
+import { deleteIn } from '../../index';
 
 const {
 	equal,

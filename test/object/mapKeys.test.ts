@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { mapKeys } from '@enonic/js-utils';
+import { mapKeys } from '../../index';
 
 
 describe('mapKeys', () => {

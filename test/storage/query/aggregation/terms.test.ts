@@ -1,12 +1,8 @@
 import {deepStrictEqual} from 'assert';
-import {storage} from '@enonic/js-utils';
-
-
-const {
+import {
 	stats,
 	terms
-} = storage.query.aggregation;
-
+} from '../../../../storage/query/aggregation/index';
 
 describe('terms', () => {
 	it('minimal', () => {

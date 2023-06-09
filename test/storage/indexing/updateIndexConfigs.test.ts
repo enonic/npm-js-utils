@@ -1,7 +1,7 @@
 import {deepStrictEqual} from 'assert';
 //import {print} from 'q-i';
+import {updateIndexConfigs} from '../../../index';
 
-import {updateIndexConfigs} from '@enonic/js-utils';
 
 const CONFIG_ALL_FALSE = {
 	enabled: false,

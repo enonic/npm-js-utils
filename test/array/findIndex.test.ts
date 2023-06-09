@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {findIndex} from '@enonic/js-utils';
+import {findIndex} from '../../index';
 
 const ARRAY_OF_OBJ = [{
 	path: 'a'
