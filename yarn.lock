@@ -547,10 +547,10 @@
   dependencies:
     "@enonic-types/core" "7.12.2"
 
-"@enonic/test-data@^0.3":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@enonic/test-data/-/test-data-0.3.1.tgz#565a2387613453d6695f8342a03cc6b0c9b276ce"
-  integrity sha512-HKYPGnYlznIFJ1kQE4dnsv9N6kxvjMECyJ1iaJz1gPtezfWN2egdVI32MeNdQpgUnVr9EZXdLNV4Nfkp1JrlFw==
+"@enonic/test-data@^1":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@enonic/test-data/-/test-data-1.1.0.tgz#2dbbdbd1c1ab73f149b48b7dde009b384e4cd412"
+  integrity sha512-aH7bnR9CXYKVDB2y8D3b3292oW+R4d6t4yvrWp090MBnCh7QFUnd/2o+pB2pxIpC/b72DBNVUyPk4PQjtfXdDA==
 
 "@esbuild/android-arm64@0.17.17":
   version "0.17.17"

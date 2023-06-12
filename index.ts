@@ -178,6 +178,7 @@ export {
 
 export {
 	isBasicObject,
+	isBigInt,
 	isBoolean,
 	isDate,
 	isDateString,
