@@ -3,7 +3,7 @@ import {
 	isString,
 	toStr,
 	validateRepoId
-} from '@enonic/js-utils';
+} from '../../../index';
 
 const VALID = [
 	'0123456789',

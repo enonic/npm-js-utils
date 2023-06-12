@@ -1,4 +1,4 @@
-import type {Fields} from '@enonic/js-utils/storage/query/constants';
+import type {Fields} from '../../../../storage/query/constants';
 
 import {equal} from 'assert';
 import {fieldsContainBoost} from '../../../../storage/query/dsl/fieldsContainBoost';

@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {isObject} from '@enonic/js-utils';
+import { isObject } from '../../index';
 import {toStr} from '../toStr';
 
 

@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {addQueryFilter} from '@enonic/js-utils';
+import { addQueryFilter } from '../../../index';
 
 describe('addQueryFilter', () => {
 	// it('adds under boolean.must by default', () => {

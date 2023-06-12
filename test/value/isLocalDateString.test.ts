@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {isLocalDateString} from '@enonic/js-utils';
+import { isLocalDateString } from '../../index';
 import {
 	LOCAL_DATE_STRINGS,
 	//LOCAL_DATES // contains DATE_OBJECTS

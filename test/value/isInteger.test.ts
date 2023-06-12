@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {isInteger} from '@enonic/js-utils';
+import { isInteger } from '../../index';
 import {
 	INTEGERS,
 	NOT_INTEGERS

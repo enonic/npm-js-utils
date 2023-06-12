@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {fulltext} from '@enonic/js-utils';
+import { fulltext } from '../../../index';
 
 
 describe('fulltext', () => {

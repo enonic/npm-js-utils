@@ -3,7 +3,7 @@ import {
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
 	stemmed
-} from '@enonic/js-utils';
+} from '../../../index';
 
 
 describe('stemmed', () => {

@@ -3,7 +3,7 @@ import {
 	isDateString,
 	isInfinity,
 	isNumber
-} from '@enonic/js-utils';
+} from '../../index';
 
 
 const TESTS_TRUE = [

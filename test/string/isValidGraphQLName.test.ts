@@ -1,6 +1,6 @@
 import {deepStrictEqual} from 'assert';
 import {NOT_STRINGS} from '@enonic/test-data';
-import {isValidGraphQLName} from '@enonic/js-utils';
+import { isValidGraphQLName } from '../../index';
 import {toStr} from '../toStr';
 
 

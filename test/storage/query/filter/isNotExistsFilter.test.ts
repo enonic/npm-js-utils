@@ -1,5 +1,5 @@
 import {strictEqual} from 'assert';
-import {isNotExistsFilter} from '@enonic/js-utils';
+import { isNotExistsFilter } from '../../../../index';
 
 describe('isNotExistsFilter', () => {
 	it('returns true when shape is correct', () => {

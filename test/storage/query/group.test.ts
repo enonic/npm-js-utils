@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {group} from '@enonic/js-utils';
+import { group } from '../../../index';
 
 
 describe('group', () => {

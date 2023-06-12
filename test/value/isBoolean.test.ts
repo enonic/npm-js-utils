@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {isBoolean} from '@enonic/js-utils';
+import { isBoolean } from '../../index';
 
 
 describe('isBoolean', () => {

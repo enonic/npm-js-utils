@@ -2,7 +2,7 @@ import {deepStrictEqual} from 'assert';
 import {
 	//toStr,
 	unStem
-} from '@enonic/js-utils';
+} from '../../index';
 
 
 describe('unStemEnglish', () => {
