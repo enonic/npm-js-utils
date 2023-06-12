@@ -19,7 +19,7 @@
     "@enonic-types/lib-repo": "^7",
     "@enonic-types/lib-schema": "^7",
     "@enonic-types/lib-value": "^7",
-    "@enonic/test-data": "^0.3",
+    "@enonic/test-data": "^1",
     "@jest/globals": "^29",
     "@swc/core": "^1",
     "@types/assert": "^1",

@@ -1,4 +1,7 @@
+import isBigInt from './isBigInt';
+
 export {isBasicObject} from './isBasicObject';
+export { isBigInt };
 export {isBoolean} from './isBoolean';
 export {isDate} from './isDate';
 export {isDateString} from './isDateString';
