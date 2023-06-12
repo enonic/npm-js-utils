@@ -3,8 +3,7 @@ import {
 	GEOPOINTS_INVALID
 } from '@enonic/test-data';
 import {deepStrictEqual} from 'assert';
-
-import {isGeoPoint} from '@enonic/js-utils';
+import { isGeoPoint } from '../../index';
 import {toStr} from '../toStr';
 
 

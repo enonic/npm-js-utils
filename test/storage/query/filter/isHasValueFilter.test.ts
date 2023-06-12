@@ -1,5 +1,5 @@
 import {strictEqual} from 'assert';
-import {isHasValueFilter} from '@enonic/js-utils';
+import { isHasValueFilter } from '../../../../index';
 
 describe('isHasValueFilter', () => {
 	it('returns true when shape is correct', () => {

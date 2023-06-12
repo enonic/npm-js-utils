@@ -3,7 +3,7 @@ import {
 	isInfinity,
 	isNumber,
 	isPositiveInteger
-} from '@enonic/js-utils';
+} from '../../index';
 
 import {
 	FLOATS,

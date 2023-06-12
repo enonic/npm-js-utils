@@ -7,7 +7,7 @@ import type {
 	NodeDeletedEvent,
 	NodeUpdatedEvent,
 	TaskEvent,
-} from '@enonic/js-utils/types/Event.d';
+} from '../../types/Event.d';
 
 
 import {expectType} from 'tsd';

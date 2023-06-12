@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {ngram} from '@enonic/js-utils';
+import { ngram } from '../../../index';
 
 
 describe('fulltext', () => {

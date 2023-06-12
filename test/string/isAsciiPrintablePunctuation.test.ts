@@ -2,7 +2,7 @@ import {
 	ASCII_PUNCTUATION
 } from '@enonic/test-data';
 import {deepStrictEqual} from 'assert';
-import {isAsciiPrintablePunctuation} from '@enonic/js-utils';
+import { isAsciiPrintablePunctuation } from '../../index';
 
 
 const TESTS_TRUE = ASCII_PUNCTUATION;

@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {isTimeString} from '@enonic/js-utils';
+import { isTimeString } from '../../index';
 import {toStr} from '../toStr';
 
 

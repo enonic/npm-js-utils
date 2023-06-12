@@ -5,7 +5,7 @@ import {
 	ASCII_PUNCTUATION
 } from '@enonic/test-data/dist/String';
 import {strictEqual} from 'assert';
-import {sanitize} from '@enonic/js-utils';
+import { sanitize } from '../../index';
 
 
 const TESTS = [

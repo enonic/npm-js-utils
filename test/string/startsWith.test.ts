@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {startsWith} from '@enonic/js-utils';
+import { startsWith } from '../../index';
 
 
 describe('string', () => {

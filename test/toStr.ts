@@ -1,7 +1,7 @@
 import {
 	isInfinity,
 	isNumber
-} from '@enonic/js-utils';
+} from '../index';
 
 
 export function toStr(v :unknown) {

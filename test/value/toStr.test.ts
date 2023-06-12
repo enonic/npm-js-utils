@@ -1,5 +1,5 @@
 import {deepStrictEqual} from 'assert';
-import {toStr} from '@enonic/js-utils';
+import { toStr } from '../../index';
 
 describe('toStr', () => {
 	it('indents by default', () => {
