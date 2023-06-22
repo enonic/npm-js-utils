@@ -1,4 +1,9 @@
 import {assert} from 'chai';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { getIn } from '../../index';
 
 
@@ -20,20 +25,20 @@ describe('getIn', () => {
 	};
 	const arr = [INDEX_ZERO, obj];
 
-	it('should get value using dot notation', () => {
+	test('should get value using dot notation', () => {
 		equal(getIn(obj, 'very.deep.key'), VERY_DEEP_KEY_VALUE);
 	});
 
-	it('should get value without dot', () => {
+	test('should get value without dot', () => {
 		equal(getIn(obj, 'simple'), 2);
 	});
 
-	it('should accept a default value', () => {
+	test('should accept a default value', () => {
 		isUndefined(getIn(obj, 'not exist'));
 		equal(getIn(obj, 'not exist', ''), '');
 	});
 
-	it('should support array with objects, and object with arrays', () => {
+	test('should support array with objects, and object with arrays', () => {
 		isUndefined(getIn([], 0));
 		equal(getIn([], 'not exist', ''), '');
 

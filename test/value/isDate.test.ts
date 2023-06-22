@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	isDate,
 	isInfinity,
 	isNumber
@@ -61,7 +66,7 @@ describe('value', () => {
 	describe('isDate()', () => {
 		describe('--> true', () => {
 			TESTS_TRUE.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						true,
 						isDate(params)
@@ -71,7 +76,7 @@ describe('value', () => {
 		});
 		describe('--> false', () => {
 			TESTS_FALSE.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						false,
 						isDate(params)

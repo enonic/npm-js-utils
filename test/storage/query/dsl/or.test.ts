@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	QUERY_OPERATOR_AND,
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
@@ -41,7 +46,7 @@ const resS = {
 };
 
 describe('or', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				should: [resF]
@@ -49,7 +54,7 @@ describe('or', () => {
 			or(f)
 		)
 	});
-	it('two params', () => {
+	test('two params', () => {
 		deepStrictEqual(
 			{
 				should: [resF, resS]
@@ -57,7 +62,7 @@ describe('or', () => {
 			should(f,s)
 		)
 	});
-	it('array with one item', () => {
+	test('array with one item', () => {
 		deepStrictEqual(
 			{
 				should: [resF]
@@ -65,7 +70,7 @@ describe('or', () => {
 			or([f])
 		)
 	});
-	it('array with two items', () => {
+	test('array with two items', () => {
 		deepStrictEqual(
 			{
 				should: [resF, resS]
@@ -73,7 +78,7 @@ describe('or', () => {
 			should([f,s])
 		)
 	});
-	it('combo', () => {
+	test('combo', () => {
 		deepStrictEqual(
 			{
 				should: [

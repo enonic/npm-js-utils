@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	//VALUE_TYPE_ANY,
 	//VALUE_TYPE_BOOLEAN,
 	VALUE_TYPE_DOUBLE,
@@ -54,13 +59,13 @@ const SET = [].concat(
 
 describe('value', () => {
 	describe('detectCommonValueType()', () => {
-		it('geoStrs --> geo', () => {
+		test('geoStrs --> geo', () => {
 			deepStrictEqual(
 				VALUE_TYPE_GEO_POINT,
 				detectCommonValueType(GEOPOINT_STRINGS)
 			); // deepStrictEqual
 		}); // it
-		it('[...geoArrs, ...geoStrs] --> geo', () => {
+		test('[...geoArrs, ...geoStrs] --> geo', () => {
 			deepStrictEqual(
 				VALUE_TYPE_GEO_POINT,
 				detectCommonValueType([
@@ -69,7 +74,7 @@ describe('value', () => {
 				])
 			); // deepStrictEqual
 		}); // it
-		it('[...geoStrs, ...geoArrs] --> geo', () => {
+		test('[...geoStrs, ...geoArrs] --> geo', () => {
 			deepStrictEqual(
 				VALUE_TYPE_GEO_POINT,
 				detectCommonValueType([
@@ -78,7 +83,7 @@ describe('value', () => {
 				])
 			); // deepStrictEqual
 		}); // it
-		it('[...geoArrs,...nums] --> double', () => {
+		test('[...geoArrs,...nums] --> double', () => {
 			deepStrictEqual(
 				VALUE_TYPE_DOUBLE,
 				detectCommonValueType([
@@ -87,7 +92,7 @@ describe('value', () => {
 				])
 			); // deepStrictEqual
 		}); // it
-		it('[...nums,...geoArrs] --> double', () => {
+		test('[...nums,...geoArrs] --> double', () => {
 			deepStrictEqual(
 				VALUE_TYPE_DOUBLE,
 				detectCommonValueType([
@@ -96,7 +101,7 @@ describe('value', () => {
 				])
 			); // deepStrictEqual
 		}); // it
-		it('[...geoArrs,...geoStrs,...nums] --> string', () => {
+		test('[...geoArrs,...geoStrs,...nums] --> string', () => {
 			deepStrictEqual(
 				VALUE_TYPE_STRING,
 				detectCommonValueType([
@@ -106,7 +111,7 @@ describe('value', () => {
 				])
 			); // deepStrictEqual
 		}); // it
-		it('[...nums,...geoStrs,...geoArrs] --> string', () => {
+		test('[...nums,...geoStrs,...geoArrs] --> string', () => {
 			deepStrictEqual(
 				VALUE_TYPE_STRING,
 				detectCommonValueType([
@@ -123,14 +128,14 @@ describe('value', () => {
 		describe('--> boolean', () => {
 			for (let i = 0; i < BOOLEANS.length; i++) {
 				const param = BOOLEANS[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'boolean',
 						detectValueType(param)
 					);
 				});
 			} //for
-			it(`${toStr(BOOLEANS)}`, () => {
+			test(`${toStr(BOOLEANS)}`, () => {
 				deepStrictEqual(
 					'boolean',
 					detectValueType(BOOLEANS)
@@ -141,28 +146,28 @@ describe('value', () => {
 		describe('--> double', () => {
 			for (let i = 0; i < NUMBERS_FINITE.length; i++) {
 				const param = NUMBERS_FINITE[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'double',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(NUMBERS_FINITE)}`, () => {
+			test(`${toStr(NUMBERS_FINITE)}`, () => {
 				deepStrictEqual(
 					'double',
 					detectValueType(NUMBERS_FINITE)
 				);
 			});
 			const shouldResolveToDouble = GEOPOINT_ARRAYS.concat([0,0,0]);
-			it(`${toStr(shouldResolveToDouble)}`, () => {
+			test(`${toStr(shouldResolveToDouble)}`, () => {
 				deepStrictEqual(
 					'double',
 					detectValueType(shouldResolveToDouble)
 				);
 			});
 			const shouldResolveToString = GEOPOINTS.concat([0,0,0]);
-			it(`${toStr(shouldResolveToString)}`, () => {
+			test(`${toStr(shouldResolveToString)}`, () => {
 				deepStrictEqual(
 					VALUE_TYPE_STRING,
 					detectValueType(shouldResolveToString)
@@ -173,14 +178,14 @@ describe('value', () => {
 		describe('--> geoPoint', () => {
 			for (let i = 0; i < GEOPOINTS.length; i++) {
 				const param = GEOPOINTS[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'geoPoint',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(GEOPOINTS)}`, () => {
+			test(`${toStr(GEOPOINTS)}`, () => {
 				deepStrictEqual(
 					'geoPoint',
 					detectValueType(GEOPOINTS)
@@ -191,14 +196,14 @@ describe('value', () => {
 		describe('--> instant', () => {
 			for (let i = 0; i < INSTANTS.length; i++) {
 				const param = INSTANTS[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'instant',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(INSTANTS)}`, () => {
+			test(`${toStr(INSTANTS)}`, () => {
 				deepStrictEqual(
 					'instant',
 					detectValueType(INSTANTS)
@@ -209,14 +214,14 @@ describe('value', () => {
 		describe('--> localDate', () => {
 			for (let i = 0; i < LOCAL_DATE_STRINGS.length; i++) {
 				const param = LOCAL_DATE_STRINGS[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'localDate',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(LOCAL_DATE_STRINGS)}`, () => {
+			test(`${toStr(LOCAL_DATE_STRINGS)}`, () => {
 				deepStrictEqual(
 					'localDate',
 					detectValueType(LOCAL_DATE_STRINGS)
@@ -227,14 +232,14 @@ describe('value', () => {
 		describe('--> localDateTime', () => {
 			for (let i = 0; i < LOCAL_DATE_TIME_STRINGS.length; i++) {
 				const param = LOCAL_DATE_TIME_STRINGS[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'localDateTime',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(LOCAL_DATE_TIME_STRINGS)}`, () => {
+			test(`${toStr(LOCAL_DATE_TIME_STRINGS)}`, () => {
 				deepStrictEqual(
 					'localDateTime',
 					detectValueType(LOCAL_DATE_TIME_STRINGS)
@@ -245,14 +250,14 @@ describe('value', () => {
 		describe('--> localTime', () => {
 			for (let i = 0; i < LOCAL_TIME_STRINGS.length; i++) {
 				const param = LOCAL_TIME_STRINGS[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'localTime',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(LOCAL_TIME_STRINGS)}`, () => {
+			test(`${toStr(LOCAL_TIME_STRINGS)}`, () => {
 				deepStrictEqual(
 					'localTime',
 					detectValueType(LOCAL_TIME_STRINGS)
@@ -263,14 +268,14 @@ describe('value', () => {
 		describe('--> reference', () => {
 			for (let i = 0; i < UUID_V4.length; i++) {
 				const param = UUID_V4[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'reference',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(UUID_V4)}`, () => {
+			test(`${toStr(UUID_V4)}`, () => {
 				deepStrictEqual(
 					'reference',
 					detectValueType(UUID_V4)
@@ -281,14 +286,14 @@ describe('value', () => {
 		describe('--> set', () => {
 			for (let i = 0; i < SET.length; i++) {
 				const param = SET[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'set',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(SET)}`, () => {
+			test(`${toStr(SET)}`, () => {
 				deepStrictEqual(
 					'set',
 					detectValueType(SET)
@@ -299,14 +304,14 @@ describe('value', () => {
 		describe('--> string', () => {
 			for (let i = 0; i < STRINGS.length; i++) {
 				const param = STRINGS[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'string',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(STRINGS)}`, () => {
+			test(`${toStr(STRINGS)}`, () => {
 				deepStrictEqual(
 					'string',
 					detectValueType(STRINGS)
@@ -317,14 +322,14 @@ describe('value', () => {
 		describe('--> any', () => {
 			for (let i = 0; i < ANY.length; i++) {
 				const param = ANY[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						'any',
 						detectValueType(param)
 					);
 				});
 			} // for
-			it(`${toStr(ANY)}`, () => {
+			test(`${toStr(ANY)}`, () => {
 				deepStrictEqual(
 					'any',
 					detectValueType(ANY)

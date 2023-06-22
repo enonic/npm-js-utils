@@ -5,6 +5,11 @@ import {
 	ASCII_PUNCTUATION
 } from '@enonic/test-data/dist/String';
 import {strictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { sanitize } from '../../index';
 
 
@@ -15,10 +20,10 @@ const TESTS = [
 	[
 		ASCII_DIGITS.join(''),
 		ASCII_DIGITS.join('')
-	], [
+	], [
 		ASCII_PRINTABLE_LETTERS_LOWERCASE.join(''),
 		ASCII_PRINTABLE_LETTERS_LOWERCASE.join('')
-	], [
+	], [
 		ASCII_PRINTABLE_LETTERS_CAPITAL.join(''),
 		ASCII_PRINTABLE_LETTERS_CAPITAL.join('')
 	], [
@@ -37,10 +42,10 @@ const TESTS_HYPHEN = [
 	[
 		ASCII_DIGITS.join(''),
 		ASCII_DIGITS.join('')
-	], [
+	], [
 		ASCII_PRINTABLE_LETTERS_LOWERCASE.join(''),
 		ASCII_PRINTABLE_LETTERS_LOWERCASE.join('')
-	], [
+	], [
 		ASCII_PRINTABLE_LETTERS_CAPITAL.join(''),
 		ASCII_PRINTABLE_LETTERS_CAPITAL.join('')
 	], [
@@ -57,7 +62,7 @@ describe('string', () => {
 	describe('sanitize', () => {
 		describe('fallback_sign the default underscore _', () => {
 			TESTS.forEach(([string, expected]) => {
-				it(`sanitize(${string}) --> ${expected}`, () => {
+				test(`sanitize(${string}) --> ${expected}`, () => {
 					strictEqual(
 						expected,
 						sanitize(string)
@@ -67,7 +72,7 @@ describe('string', () => {
 		}); // describe fallback_sign the default underscore _
 		describe('fallback_sign hyphen -', () => {
 			TESTS_HYPHEN.forEach(([string, expected]) => {
-				it(`sanitize(${string},{fallback_sign: '-'}) --> ${expected}`, () => {
+				test(`sanitize(${string},{fallback_sign: '-'}) --> ${expected}`, () => {
 					strictEqual(
 						expected,
 						sanitize(string,{fallback_sign: '-'})

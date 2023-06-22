@@ -1,33 +1,38 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { or } from '../../../index';
 
 
 describe('or', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			"OR a",
 			or('a')
 		)
 	});
-	it('two params', () => {
+	test('two params', () => {
 		deepStrictEqual(
 			"a OR b",
 			or('a','b')
 		)
 	});
-	it('array with one item', () => {
+	test('array with one item', () => {
 		deepStrictEqual(
 			"OR a",
 			or(['a'])
 		)
 	});
-	it('array with two items', () => {
+	test('array with two items', () => {
 		deepStrictEqual(
 			"a OR b",
 			or(['a','b'])
 		)
 	});
-	it('combo', () => {
+	test('combo', () => {
 		deepStrictEqual(
 			"a OR b OR c OR d OR e",
 			or('a',['b'],['c','d'],'e')

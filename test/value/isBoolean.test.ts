@@ -1,18 +1,23 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isBoolean } from '../../index';
 
 
 describe('isBoolean', () => {
-	it('isBoolean(true) is true', () => {
+	test('isBoolean(true) is true', () => {
 		deepStrictEqual(true,isBoolean(true))
 	});
-	it('isBoolean(false) is true', () => {
+	test('isBoolean(false) is true', () => {
 		deepStrictEqual(true,isBoolean(false))
 	});
-	it('isBoolean({}) is false', () => {
+	test('isBoolean({}) is false', () => {
 		deepStrictEqual(false,isBoolean({}))
 	});
-	it('isBoolean([]) is false', () => {
+	test('isBoolean([]) is false', () => {
 		deepStrictEqual(false,isBoolean([]))
 	});
 });

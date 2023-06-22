@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { fulltext } from '../../../index';
 
 
 describe('fulltext', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			"fulltext('_allText','searchString')",
 			fulltext(
@@ -12,7 +17,7 @@ describe('fulltext', () => {
 			)
 		)
 	});
-	it('two fields', () => {
+	test('two fields', () => {
 		deepStrictEqual(
 			"fulltext('title^2,text','searchString','AND')",
 			fulltext(
@@ -26,7 +31,7 @@ describe('fulltext', () => {
 			)
 		)
 	});
-	it('two fields with boost', () => {
+	test('two fields with boost', () => {
 		deepStrictEqual(
 			"fulltext('title^2,text','searchString')",
 			fulltext(

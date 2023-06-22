@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { like } from '../../../../storage/query/dsl/index';
 
 
 describe('like', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				like: {
@@ -14,7 +19,7 @@ describe('like', () => {
 			like('myString', 'start*')
 		)
 	});
-	it('boost', () => {
+	test('boost', () => {
 		deepStrictEqual(
 			{
 				like: {
@@ -26,7 +31,7 @@ describe('like', () => {
 			like('myString', '*end', 2.2)
 		)
 	});
-	it('type dateTime', () => {
+	test('type dateTime', () => {
 		deepStrictEqual(
 			{
 				like: {
@@ -39,7 +44,7 @@ describe('like', () => {
 			like('myDateTime', '2022-12-09T11:*', 2.2, 'dateTime')
 		)
 	});
-	it('type time', () => {
+	test('type time', () => {
 		deepStrictEqual(
 			{
 				like: {
@@ -52,7 +57,7 @@ describe('like', () => {
 			like('myTime', '12:0*', 2.2, 'time')
 		)
 	});
-	it('type whatever', () => {
+	test('type whatever', () => {
 		deepStrictEqual(
 			{
 				like: {

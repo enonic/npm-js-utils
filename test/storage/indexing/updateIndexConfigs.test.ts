@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 //import {print} from 'q-i';
 import {updateIndexConfigs} from '../../../index';
 
@@ -27,7 +32,7 @@ const CONFIG_ALL_TRUE = {
 
 
 describe('updateIndexConfigs', () => {
-	it('orders an existing indexConfigs', () => {
+	test('orders an existing indexConfigs', () => {
 		deepStrictEqual(
 			[{
 				path: 'a',
@@ -48,7 +53,7 @@ describe('updateIndexConfigs', () => {
 			})
 		);
 	});
-	it('adds and orders to an empty indexConfigs', () => {
+	test('adds and orders to an empty indexConfigs', () => {
 		deepStrictEqual(
 			[{
 				path: 'a',
@@ -69,7 +74,7 @@ describe('updateIndexConfigs', () => {
 			})
 		);
 	});
-	it('adds, replaces, orderd and leaves previous alone in an non-empty indexConfigs', () => {
+	test('adds, replaces, orderd and leaves previous alone in an non-empty indexConfigs', () => {
 		deepStrictEqual(
 			[{
 				path: 'a',

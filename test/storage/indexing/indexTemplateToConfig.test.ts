@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	INDEX_CONFIG_TEMPLATE_NONE,
 	INDEX_CONFIG_TEMPLATE_BY_TYPE,
 	INDEX_CONFIG_TEMPLATE_FULLTEXT,
@@ -10,7 +15,7 @@ import {
 
 
 describe('indexTemplateToConfig', () => {
-	it(`${INDEX_CONFIG_TEMPLATE_NONE}`, () => {
+	test(`${INDEX_CONFIG_TEMPLATE_NONE}`, () => {
 		deepStrictEqual(
 			{
 				decideByType: false,
@@ -25,7 +30,7 @@ describe('indexTemplateToConfig', () => {
 			})
 		);
 	});
-	it(`${INDEX_CONFIG_TEMPLATE_BY_TYPE}`, () => {
+	test(`${INDEX_CONFIG_TEMPLATE_BY_TYPE}`, () => {
 		deepStrictEqual(
 			{
 				decideByType: true,
@@ -40,7 +45,7 @@ describe('indexTemplateToConfig', () => {
 			})
 		);
 	});
-	it(`${INDEX_CONFIG_TEMPLATE_FULLTEXT}`, () => {
+	test(`${INDEX_CONFIG_TEMPLATE_FULLTEXT}`, () => {
 		deepStrictEqual(
 			{
 				decideByType: false,
@@ -55,7 +60,7 @@ describe('indexTemplateToConfig', () => {
 			})
 		);
 	});
-	it(`${INDEX_CONFIG_TEMPLATE_PATH}`, () => {
+	test(`${INDEX_CONFIG_TEMPLATE_PATH}`, () => {
 		deepStrictEqual(
 			{
 				decideByType: false,
@@ -70,7 +75,7 @@ describe('indexTemplateToConfig', () => {
 			})
 		);
 	});
-	it(`${INDEX_CONFIG_TEMPLATE_MINIMAL}`, () => {
+	test(`${INDEX_CONFIG_TEMPLATE_MINIMAL}`, () => {
 		deepStrictEqual(
 			{
 				decideByType: false,

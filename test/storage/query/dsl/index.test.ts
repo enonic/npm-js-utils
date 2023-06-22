@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	QUERY_OPERATOR_AND,
 	//STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	//STEMMING_LANGUAGE_CODE_SPANISH,
@@ -71,7 +76,7 @@ const resN = {
 
 
 describe('dsl', () => {
-	it('nested', () => {
+	test('nested', () => {
 		deepStrictEqual(
 			{
 				must: [

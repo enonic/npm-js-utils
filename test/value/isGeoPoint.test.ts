@@ -3,6 +3,11 @@ import {
 	GEOPOINTS_INVALID
 } from '@enonic/test-data';
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isGeoPoint } from '../../index';
 import {toStr} from '../toStr';
 
@@ -37,7 +42,7 @@ describe('value', () => {
 	describe('isGeoPoint()', () => {
 		describe('--> true', () => {
 			GEOPOINTS.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						true,
 						isGeoPoint(params)
@@ -47,7 +52,7 @@ describe('value', () => {
 		});
 		describe('--> false', () => {
 			TESTS_FALSE.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						false,
 						isGeoPoint(params)

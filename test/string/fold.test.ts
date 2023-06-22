@@ -4,6 +4,11 @@ import {
 	//notStrictEqual
 } from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	fold//,
 	//toStr
 } from '../../index';
@@ -364,15 +369,15 @@ describe('string', () => {
 		/*for (var i = 0; i < ASCII_FOLDING.length; i++) {
 			const unicodeChar = ASCII_FOLDING[i];
 			const res = fold(unicodeChar);
-			//it(`['${unicodeChar}', '${res}'],`, () => { // Used to write tests
-			//it(`fold(${unicodeChar}) --> ${res},`, () => {
-			/*it(`fold(${unicodeChar}) != ${unicodeChar}`, () => {
+			//test(`['${unicodeChar}', '${res}'],`, () => { // Used to write tests
+			//test(`fold(${unicodeChar}) --> ${res},`, () => {
+			/*test(`fold(${unicodeChar}) != ${unicodeChar}`, () => {
 				notEqual(
 					unicodeChar,
 					fold(unicodeChar)
 				)
 			});*
-			it(`fold(${unicodeChar}) !== ${unicodeChar}`, () => {
+			test(`fold(${unicodeChar}) !== ${unicodeChar}`, () => {
 				notStrictEqual(
 					unicodeChar,
 					res
@@ -380,7 +385,7 @@ describe('string', () => {
 			});
 		}*/
 		TESTS.forEach(([unicodeChar, folded]) => {
-			it(`fold(${unicodeChar}) --> ${folded}`, () => {
+			test(`fold(${unicodeChar}) --> ${folded}`, () => {
 				deepStrictEqual(
 					folded,
 					fold(unicodeChar)

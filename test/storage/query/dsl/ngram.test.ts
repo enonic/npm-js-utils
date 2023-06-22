@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { ngram } from '../../../../storage/query/dsl/index';
 
 
 describe('ngram', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				ngram: {
@@ -18,7 +23,7 @@ describe('ngram', () => {
 			)
 		)
 	});
-	it('two fields', () => {
+	test('two fields', () => {
 		deepStrictEqual(
 			{
 				boolean: {
@@ -49,7 +54,7 @@ describe('ngram', () => {
 			)
 		)
 	});
-	it('two fields with boost', () => {
+	test('two fields with boost', () => {
 		deepStrictEqual(
 			{
 				boolean: {
@@ -85,7 +90,7 @@ describe('ngram', () => {
 			)
 		)
 	});
-	it('zero boost', () => {
+	test('zero boost', () => {
 		deepStrictEqual(
 			{
 				ngram: {

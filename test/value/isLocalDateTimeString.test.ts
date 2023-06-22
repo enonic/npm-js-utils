@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isLocalDateTimeString } from '../../index';
 import {
 	LOCAL_DATE_TIME_STRINGS,
@@ -13,7 +18,7 @@ describe('value', () => {
 	describe('isLocalDateTimeString()', () => {
 		describe('--> true', () => {
 			LOCAL_DATE_TIME_STRINGS.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						true,
 						isLocalDateTimeString(params)
@@ -23,7 +28,7 @@ describe('value', () => {
 		});
 		describe('--> false', () => {
 			NOT_LOCAL_DATE_TIME_STRINGS.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						false,
 						isLocalDateTimeString(params)

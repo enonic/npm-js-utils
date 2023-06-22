@@ -1,13 +1,18 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { ucFirst } from '../../index';
 
 
 describe('string', () => {
 	describe('ucFirst', () => {
-		it("ucFirst('word') --> 'Word'", () => {
+		test("ucFirst('word') --> 'Word'", () => {
 			deepStrictEqual('Word',ucFirst('word'))
 		});
-		it("ucFirst('worD') --> 'WorD'", () => {
+		test("ucFirst('worD') --> 'WorD'", () => {
 			deepStrictEqual('WorD',ucFirst('worD'))
 		});
 	});

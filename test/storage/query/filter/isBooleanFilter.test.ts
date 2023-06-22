@@ -1,4 +1,9 @@
 import {strictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isBooleanFilter } from '../../../../index';
 
 
@@ -48,7 +53,7 @@ const A_FILTER_ARRAY = [
 
 
 describe('isBooleanFilter', () => {
-	it('returns true when boolean is an empty object', () => {
+	test('returns true when boolean is an empty object', () => {
 		strictEqual(
 			true,
 			isBooleanFilter({
@@ -56,7 +61,7 @@ describe('isBooleanFilter', () => {
 			})
 		)
 	});
-	it('returns true when must, mustNot and should are a single filter', () => {
+	test('returns true when must, mustNot and should are a single filter', () => {
 		strictEqual(
 			true,
 			isBooleanFilter({
@@ -68,7 +73,7 @@ describe('isBooleanFilter', () => {
 			})
 		)
 	});
-	it('returns true when must, mustNot and should are filter arrays', () => {
+	test('returns true when must, mustNot and should are filter arrays', () => {
 		strictEqual(
 			true,
 			isBooleanFilter({
@@ -80,7 +85,7 @@ describe('isBooleanFilter', () => {
 			})
 		)
 	});
-	it('returns false when boolean not an object', () => {
+	test('returns false when boolean not an object', () => {
 		strictEqual(
 			false,
 			isBooleanFilter({
@@ -88,13 +93,13 @@ describe('isBooleanFilter', () => {
 			})
 		)
 	});
-	it('returns false when boolean is missing', () => {
+	test('returns false when boolean is missing', () => {
 		strictEqual(
 			false,
 			isBooleanFilter({})
 		)
 	});
-	it('returns false when params not an object', () => {
+	test('returns false when params not an object', () => {
 		strictEqual(
 			false,
 			isBooleanFilter(null)

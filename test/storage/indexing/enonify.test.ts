@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 //import {print} from 'q-i';
 //import serialize from 'serialize-javascript';
 import {enonify} from '../../../index';
@@ -143,7 +148,7 @@ const OBJECT = {
 //print(OBJECT, { maxItems: Infinity });
 
 describe('enonify', () => {
-	it('returns what Enonic XP stores', () => {
+	test('returns what Enonic XP stores', () => {
 		deepStrictEqual(
 			{
 				//[nameOf(() => ARRAY_EMPTY)]: ARRAY_EMPTY, // Deleted by Enonic XP
@@ -193,56 +198,56 @@ describe('enonify', () => {
 		)
 	})
 
-	it('Deletes a property with the value null from an object', () => {
+	test('Deletes a property with the value null from an object', () => {
 		deepStrictEqual(
 			{},
 			enonify({[nameOf(() => NULL)]: NULL})
 		)
 	})
 
-	it('Deletes a property with the value undefined from an object', () => {
+	test('Deletes a property with the value undefined from an object', () => {
 		deepStrictEqual(
 			{},
 			enonify({prop: undefined})
 		)
 	})
 
-	it('Deletes a property with the value NaN from an object', () => {
+	test('Deletes a property with the value NaN from an object', () => {
 		deepStrictEqual(
 			{},
 			enonify({prop: NaN})
 		)
 	})
 
-	it('Flattens an array', () => {
+	test('Flattens an array', () => {
 		deepStrictEqual(
 			[false, 0, 'a'],
 			enonify([false, [0], 'a'])
 		)
 	})
 
-	it('Turns an array with a single boolean false item, into just the boolean false', () => {
+	test('Turns an array with a single boolean false item, into just the boolean false', () => {
 		deepStrictEqual(
 			false,
 			enonify([false])
 		)
 	})
 
-	it('Turns an array with a single boolean false item, into just the boolean true', () => {
+	test('Turns an array with a single boolean false item, into just the boolean true', () => {
 		deepStrictEqual(
 			true,
 			enonify([true])
 		)
 	})
 
-	it('Turns an array with a single string item, into just the string', () => {
+	test('Turns an array with a single string item, into just the string', () => {
 		deepStrictEqual(
 			'a',
 			enonify(['a'])
 		)
 	})
 
-	it('Turns an array with a single Date Object item, into just a Date ISO String', () => {
+	test('Turns an array with a single Date Object item, into just a Date ISO String', () => {
 		const now = new Date();
 		const isoString = now.toISOString()
 		deepStrictEqual(
@@ -251,14 +256,14 @@ describe('enonify', () => {
 		)
 	})
 
-	it("Turns Inifity into undefined", () => {
+	test("Turns Inifity into undefined", () => {
 		deepStrictEqual(
 			undefined,
 			enonify(Infinity)
 		)
 	})
 
-	it("Turns Date object into Date ISO String", () => {
+	test("Turns Date object into Date ISO String", () => {
 		const now = new Date();
 		const isoString = now.toISOString()
 		deepStrictEqual(
@@ -267,63 +272,63 @@ describe('enonify', () => {
 		)
 	})
 
-	it("Turns NaN into undefined", () => {
+	test("Turns NaN into undefined", () => {
 		deepStrictEqual(
 			undefined,
 			enonify(NaN)
 		)
 	})
 
-	it("Doesn't affect the boolean false", () => {
+	test("Doesn't affect the boolean false", () => {
 		deepStrictEqual(
 			false,
 			enonify(false)
 		)
 	})
 
-	it("Doesn't affect the boolean true", () => {
+	test("Doesn't affect the boolean true", () => {
 		deepStrictEqual(
 			true,
 			enonify(true)
 		)
 	})
 
-	it("Doesn't affect the number 0", () => {
+	test("Doesn't affect the number 0", () => {
 		deepStrictEqual(
 			0,
 			enonify(0)
 		)
 	})
 
-	it("Doesn't affect the number -0", () => {
+	test("Doesn't affect the number -0", () => {
 		deepStrictEqual(
 			-0,
 			enonify(-0)
 		)
 	})
 
-	it("Doesn't affect the floating point number 3.14", () => {
+	test("Doesn't affect the floating point number 3.14", () => {
 		deepStrictEqual(
 			3.14,
 			enonify(3.14)
 		)
 	})
 
-	it("Doesn't affect the floating point number -3.14", () => {
+	test("Doesn't affect the floating point number -3.14", () => {
 		deepStrictEqual(
 			-3.14,
 			enonify(-3.14)
 		)
 	})
 
-	it("Doesn't affect the string 'false'", () => {
+	test("Doesn't affect the string 'false'", () => {
 		deepStrictEqual(
 			'false',
 			enonify('false')
 		)
 	})
 
-	it("Doesn't affect the string '0'", () => {
+	test("Doesn't affect the string '0'", () => {
 		deepStrictEqual(
 			'0',
 			enonify('0')

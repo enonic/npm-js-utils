@@ -1,11 +1,16 @@
 import {deepStrictEqual} from 'assert';
 import * as assert from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import {sortByProperty} from '../../index';
 
 describe('array', () => {
 	describe('sortByProperty', () => {
 		describe('throws', () => {
-			it("when object doesn't have property", () => {
+			test("when object doesn't have property", () => {
 				assert.throws(() => {
 					sortByProperty([{
 						age: 2
@@ -17,7 +22,7 @@ describe('array', () => {
 					message: /doesn't have a property named/
 				});
 			}); // it
-			it('when values are not both strings or both numbers', () => {
+			test('when values are not both strings or both numbers', () => {
 				assert.throws(() => {
 					sortByProperty([{
 						name: 'John'
@@ -32,7 +37,7 @@ describe('array', () => {
 		}); // describe throws
 
 		describe('sorts', () => {
-			it('numeric values', () => {
+			test('numeric values', () => {
 				deepStrictEqual(
 					[{
 						age: 1
@@ -46,7 +51,7 @@ describe('array', () => {
 					}], 'age')
 				)
 			}); // it
-			it('string values', () => {
+			test('string values', () => {
 				deepStrictEqual(
 					[{
 						name: 'Jane'
@@ -60,7 +65,7 @@ describe('array', () => {
 					}], 'name')
 				)
 			}); // it
-			it('stringLiteral and stringObject values', () => {
+			test('stringLiteral and stringObject values', () => {
 				deepStrictEqual(
 					[{
 						name: 'Jane'

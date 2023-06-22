@@ -1,4 +1,9 @@
 import {assert} from 'chai';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { deleteIn } from '../../index';
 
 const {
@@ -9,7 +14,7 @@ const {
 describe('object', () => {
 	describe('deleteIn', () => {
 
-		it('returns undefined when any param is missing or false', () => {
+		test('returns undefined when any param is missing or false', () => {
 			// @ts-expect-error Expected 2 arguments, but got 0.ts(2554)
 			equal(deleteIn(), undefined);
 			equal(deleteIn({}), undefined);
@@ -18,7 +23,7 @@ describe('object', () => {
 			equal(deleteIn({}, ['']), undefined);
 		}); // it returns undefined when any param is missing or false
 
-		it('deletes rest path', () => {
+		test('deletes rest path', () => {
 			const obj = {
 				one: {
 					two: {
@@ -37,7 +42,7 @@ describe('object', () => {
 			deepStrictEqual(obj, {});
 		}); // it deletes array path
 
-		it('deletes string path', () => {
+		test('deletes string path', () => {
 			const obj = {
 				one: {
 					two: {
@@ -56,7 +61,7 @@ describe('object', () => {
 			deepStrictEqual(obj, {});
 		}); // it deletes array path
 
-		it('deletes array path', () => {
+		test('deletes array path', () => {
 			const obj = {
 				one: {
 					two: {
@@ -75,7 +80,7 @@ describe('object', () => {
 			deepStrictEqual(obj, {});
 		}); // it deletes array path
 
-		it('handles number and symbol path', () => {
+		test('handles number and symbol path', () => {
 			const sym2 = Symbol("key");
 			const obj = {
 				1: {
@@ -89,7 +94,7 @@ describe('object', () => {
 			deepStrictEqual(obj, {1: {[sym2]: {}}});
 		}); // it deletes array path
 
-		it('does not traverse undefined', () => {
+		test('does not traverse undefined', () => {
 			const obj = {
 				one: undefined
 			}
@@ -97,7 +102,7 @@ describe('object', () => {
 			deepStrictEqual(obj, {one: undefined});
 		}); // it does not traverse undefined
 
-		it('handles circular objects', () => {
+		test('handles circular objects', () => {
 			const circularObj = {
 				one: {}
 			}

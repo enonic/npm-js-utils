@@ -1,22 +1,27 @@
 import {equal, ok} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { hasOwnProperty } from '../../index';
 
 
 describe('hasOwnProperty', () => {
 	const value = undefined;
-	it('works for string', () => {
+	test('works for string', () => {
 		equal(false, hasOwnProperty({}, 'string'));
 		ok(hasOwnProperty({ string: value }, 'string'));
 	});
-	it('works for whitespace', () => {
+	test('works for whitespace', () => {
 		equal(false, hasOwnProperty({}, ' '));
 		ok(hasOwnProperty({ ' ': value }, ' '));
 	});
-	it('works for number', () => {
+	test('works for number', () => {
 		equal(false, hasOwnProperty({}, 0));
 		ok(hasOwnProperty({ 0: value }, 0));
 	});
-	it('works for symbol', () => {
+	test('works for symbol', () => {
 		const symbol = Symbol('foo');
 		equal(false, hasOwnProperty({}, symbol));
 		ok(hasOwnProperty({ [symbol]: value }, symbol));

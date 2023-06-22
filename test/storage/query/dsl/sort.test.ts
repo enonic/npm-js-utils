@@ -1,10 +1,15 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import * as assert from 'assert';
 import { sort } from '../../../../storage/query/dsl/index';
 
 
 describe('sort', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				field: '_score'
@@ -12,7 +17,7 @@ describe('sort', () => {
 			sort('_score')
 		)
 	});
-	it('ascending', () => {
+	test('ascending', () => {
 		deepStrictEqual(
 			{
 				field: '_score',
@@ -21,7 +26,7 @@ describe('sort', () => {
 			sort('_score','ASC')
 		)
 	});
-	it('descending', () => {
+	test('descending', () => {
 		deepStrictEqual(
 			{
 				field: '_score',
@@ -30,7 +35,7 @@ describe('sort', () => {
 			sort('_score','DESC')
 		)
 	});
-	it('two fields without direction', () => {
+	test('two fields without direction', () => {
 		deepStrictEqual(
 			[{
 				field: '_score'
@@ -40,7 +45,7 @@ describe('sort', () => {
 			sort('_score', '_name')
 		)
 	});
-	it('two fields with direction', () => {
+	test('two fields with direction', () => {
 		deepStrictEqual(
 			[{
 				field: '_score',
@@ -53,7 +58,7 @@ describe('sort', () => {
 		)
 	});
 	describe('throws', () => {
-		it('when single item direction', () => {
+		test('when single item direction', () => {
 			assert.throws(() => {
 				sort('DESC')
 			}, {
@@ -61,7 +66,7 @@ describe('sort', () => {
 				message: 'sort: direction:DESC is optional, but must come after field parameter!'
 			}); // throws
 		}); // it
-		it('when two directions', () => {
+		test('when two directions', () => {
 			assert.throws(() => {
 				sort('_score', 'ASC', 'DESC')
 			}, {

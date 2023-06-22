@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	QUERY_OPERATOR_AND,
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
@@ -41,7 +46,7 @@ const resS = {
 };
 
 describe('not', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				mustNot: [resF]
@@ -49,7 +54,7 @@ describe('not', () => {
 			not(f)
 		)
 	});
-	it('two params', () => {
+	test('two params', () => {
 		deepStrictEqual(
 			{
 				mustNot: [resF, resS]
@@ -57,7 +62,7 @@ describe('not', () => {
 			mustNot(f,s)
 		)
 	});
-	it('array with one item', () => {
+	test('array with one item', () => {
 		deepStrictEqual(
 			{
 				mustNot: [resF]
@@ -65,7 +70,7 @@ describe('not', () => {
 			not([f])
 		)
 	});
-	it('array with two items', () => {
+	test('array with two items', () => {
 		deepStrictEqual(
 			{
 				mustNot: [resF, resS]
@@ -73,7 +78,7 @@ describe('not', () => {
 			mustNot([f,s])
 		)
 	});
-	it('combo', () => {
+	test('combo', () => {
 		deepStrictEqual(
 			{
 				mustNot: [

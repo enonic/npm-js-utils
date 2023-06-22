@@ -1,8 +1,13 @@
 import {strictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isHasValueFilter } from '../../../../index';
 
 describe('isHasValueFilter', () => {
-	it('returns true when shape is correct', () => {
+	test('returns true when shape is correct', () => {
 		strictEqual(
 			true,
 			isHasValueFilter({
@@ -13,7 +18,7 @@ describe('isHasValueFilter', () => {
 			})
 		)
 	});
-	it('returns false when hasValue.field is not a string', () => {
+	test('returns false when hasValue.field is not a string', () => {
 		strictEqual(
 			false,
 			isHasValueFilter({
@@ -24,7 +29,7 @@ describe('isHasValueFilter', () => {
 			})
 		)
 	});
-	it('returns false when hasValue.field is missing', () => {
+	test('returns false when hasValue.field is missing', () => {
 		strictEqual(
 			false,
 			isHasValueFilter({
@@ -35,7 +40,7 @@ describe('isHasValueFilter', () => {
 			})
 		)
 	});
-	it('returns false when hasValue.values is not an array', () => {
+	test('returns false when hasValue.values is not an array', () => {
 		strictEqual(
 			false,
 			isHasValueFilter({
@@ -46,7 +51,7 @@ describe('isHasValueFilter', () => {
 			})
 		)
 	});
-	it('returns false when hasValue.values is missing', () => {
+	test('returns false when hasValue.values is missing', () => {
 		strictEqual(
 			false,
 			isHasValueFilter({
@@ -57,7 +62,7 @@ describe('isHasValueFilter', () => {
 			})
 		)
 	});
-	it('returns false when hasValue not an object', () => {
+	test('returns false when hasValue not an object', () => {
 		strictEqual(
 			false,
 			isHasValueFilter({
@@ -65,13 +70,13 @@ describe('isHasValueFilter', () => {
 			})
 		)
 	});
-	it('returns false when hasValue is missing', () => {
+	test('returns false when hasValue is missing', () => {
 		strictEqual(
 			false,
 			isHasValueFilter({})
 		)
 	});
-	it('returns false when params not an object', () => {
+	test('returns false when params not an object', () => {
 		strictEqual(
 			false,
 			isHasValueFilter(null)

@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	isInfinity,
 	isNumber,
 	isNonNegativeIntegerString
@@ -59,7 +64,7 @@ describe('value', () => {
 	describe('isNonNegativeIntegerString()', () => {
 		describe('--> true', () => {
 			TESTS_TRUE.forEach((params) => {
-				it(`'${params}'`, () => {
+				test(`'${params}'`, () => {
 					deepStrictEqual(
 						true,
 						isNonNegativeIntegerString(`${params}`)
@@ -69,7 +74,7 @@ describe('value', () => {
 		}); // describe true
 		describe('--> false', () => {
 			TESTS_FALSE.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						false,
 						isNonNegativeIntegerString(params)

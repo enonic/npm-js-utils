@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	isInfinity,
 	isNumber
 } from '../../index';
@@ -59,12 +64,12 @@ function toStr(v) {
 
 describe('isNumber', () => {
 	NUMBERS.forEach((num) => {
-		it(`isNumber(${toStr(num)}) is true`, () => {
+		test(`isNumber(${toStr(num)}) is true`, () => {
 			deepStrictEqual(true,isNumber(num))
 		});
 	});
 	NOT_NUMBERS.forEach((v) => {
-		it(`isNumber(${toStr(v)}) is false`, () => {
+		test(`isNumber(${toStr(v)}) is false`, () => {
 			deepStrictEqual(false,isNumber(v))
 		});
 	});

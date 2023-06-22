@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { fulltext } from '../../../../storage/query/dsl/index';
 
 
 describe('fulltext', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				fulltext: {
@@ -18,7 +23,7 @@ describe('fulltext', () => {
 			)
 		)
 	});
-	it('two fields', () => {
+	test('two fields', () => {
 		deepStrictEqual(
 			{
 				boolean: {
@@ -49,7 +54,7 @@ describe('fulltext', () => {
 			)
 		)
 	});
-	it('two fields with boost', () => {
+	test('two fields with boost', () => {
 		deepStrictEqual(
 			{
 				boolean: {
@@ -85,7 +90,7 @@ describe('fulltext', () => {
 			)
 		)
 	});
-	it('flat boost', () => {
+	test('flat boost', () => {
 		deepStrictEqual(
 			{
 				fulltext: {
@@ -109,7 +114,7 @@ describe('fulltext', () => {
 			)
 		)
 	});
-	it('zero boost', () => {
+	test('zero boost', () => {
 		deepStrictEqual(
 			{
 				fulltext: {

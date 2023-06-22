@@ -1,8 +1,13 @@
 import {strictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isIdsFilter } from '../../../../index';
 
 describe('isIdsFilter', () => {
-	it('returns true when shape is correct', () => {
+	test('returns true when shape is correct', () => {
 		strictEqual(
 			true,
 			isIdsFilter({
@@ -12,7 +17,7 @@ describe('isIdsFilter', () => {
 			})
 		)
 	});
-	it('returns false when ids.values is not an array', () => {
+	test('returns false when ids.values is not an array', () => {
 		strictEqual(
 			false,
 			isIdsFilter({
@@ -22,7 +27,7 @@ describe('isIdsFilter', () => {
 			})
 		)
 	});
-	it('returns false when ids.values is missing', () => {
+	test('returns false when ids.values is missing', () => {
 		strictEqual(
 			false,
 			isIdsFilter({
@@ -32,7 +37,7 @@ describe('isIdsFilter', () => {
 			})
 		)
 	});
-	it('returns false when ids not an object', () => {
+	test('returns false when ids not an object', () => {
 		strictEqual(
 			false,
 			isIdsFilter({
@@ -40,13 +45,13 @@ describe('isIdsFilter', () => {
 			})
 		)
 	});
-	it('returns false when ids is missing', () => {
+	test('returns false when ids is missing', () => {
 		strictEqual(
 			false,
 			isIdsFilter({})
 		)
 	});
-	it('returns false when params not an object', () => {
+	test('returns false when params not an object', () => {
 		strictEqual(
 			false,
 			isIdsFilter(null)

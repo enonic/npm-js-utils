@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { ngram } from '../../../index';
 
 
 describe('fulltext', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			"ngram('_allText','searchString')",
 			ngram(
@@ -12,7 +17,7 @@ describe('fulltext', () => {
 			)
 		)
 	});
-	it('two fields', () => {
+	test('two fields', () => {
 		deepStrictEqual(
 			"ngram('title^2,text','searchString','AND')",
 			ngram(
@@ -26,7 +31,7 @@ describe('fulltext', () => {
 			)
 		)
 	});
-	it('two fields with boost', () => {
+	test('two fields with boost', () => {
 		deepStrictEqual(
 			"ngram('title^2,text','searchString')",
 			ngram(

@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isUuidV4String } from '../../index';
 import {
 	UUID_V4,
@@ -12,7 +17,7 @@ describe('value', () => {
 		describe('--> true', () => {
 			for (let i = 0; i < UUID_V4.length; i++) {
 				const param = UUID_V4[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						true,
 						isUuidV4String(param)
@@ -24,7 +29,7 @@ describe('value', () => {
 		describe('--> false', () => {
 			for (let i = 0; i < NOT_UUID_V4.length; i++) {
 				const param = NOT_UUID_V4[i];
-				it(`${toStr(param)}`, () => {
+				test(`${toStr(param)}`, () => {
 					deepStrictEqual(
 						false,
 						isUuidV4String(param)
