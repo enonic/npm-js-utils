@@ -79,6 +79,14 @@
       "import": "./dist/esm/object/deleteIn.mjs",
       "require": "./dist/cjs/object/deleteIn.cjs"
     },
+    "./object/lcKeys": {
+      "import": "./dist/esm/object/lcKeys.mjs",
+      "require": "./dist/cjs/object/lcKeys.cjs"
+    },
+    "./object/mapKeys": {
+      "import": "./dist/esm/object/mapKeys.mjs",
+      "require": "./dist/cjs/object/mapKeys.cjs"
+    },
     "./object/sortKeys": {
       "import": "./dist/esm/object/sortKeys.mjs",
       "require": "./dist/cjs/object/sortKeys.cjs"

@@ -18,5 +18,5 @@
 // object was introduced in TypeScript 2.2. It is any non-primitive type.
 // You can't assign to it any primitive type like bool, number, string, symbol.
 
-export const isObject = (value :object | unknown) :value is object =>
+export const isObject = (value: object | unknown): value is object =>
 	Object.prototype.toString.call(value).slice(8,-1) === 'Object';
