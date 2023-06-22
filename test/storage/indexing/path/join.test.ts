@@ -1,6 +1,12 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	expect,
+	test
+} from '@jest/globals';
 
 import {join} from '../../../../index';
+import {join as nodeJoin} from 'path';
 
 
 const SIMPLE_TESTS: [string[],string][] = [[
@@ -54,6 +60,27 @@ describe('storage', () => {
 						'a\\b',
 						join(['a', 'b'], '\\')
 					)
+				});
+
+				// test("nodeJoin('../..', '..') --> '../../..'", () => {
+				// 	expect(nodeJoin('../..', '..')).toBe('../../..');
+				// });
+				test("join('../..', '..') --> '../../..'", () => {
+					expect(join(['../..', '..'])).toBe('../../..');
+				});
+
+				// test("nodeJoin('/', '..') --> '/'", () => {
+				// 	expect(nodeJoin('/', '..')).toBe('/');
+				// });
+				test("join('/', '..') --> '/'", () => {
+					expect(join(['/', '..'])).toBe('/');
+				});
+
+				test("nodeJoin('.', '..') --> '..'", () => {
+					expect(nodeJoin('.', '..')).toBe('..');
+				});
+				test("join(['.', '..']) --> '..'", () => {
+					expect(join(['.', '..'])).toBe('..');
 				});
 			});
 		});
