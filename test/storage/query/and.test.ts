@@ -1,33 +1,38 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { and } from '../../../index';
 
 
 describe('and', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			"AND a",
 			and('a')
 		)
 	});
-	it('two params', () => {
+	test('two params', () => {
 		deepStrictEqual(
 			"a AND b",
 			and('a','b')
 		)
 	});
-	it('array with one item', () => {
+	test('array with one item', () => {
 		deepStrictEqual(
 			"AND a",
 			and(['a'])
 		)
 	});
-	it('array with two items', () => {
+	test('array with two items', () => {
 		deepStrictEqual(
 			"a AND b",
 			and(['a','b'])
 		)
 	});
-	it('combo', () => {
+	test('combo', () => {
 		deepStrictEqual(
 			"a AND b AND c AND d AND e",
 			and('a',['b'],['c','d'],'e')

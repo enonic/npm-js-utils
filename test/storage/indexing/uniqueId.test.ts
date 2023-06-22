@@ -3,11 +3,16 @@ import {
 	//throws // For some reason this gets borked by swc
 } from 'assert';
 import * as assert from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import {uniqueId} from '../../../index';
 
 
 describe('uniqueId', () => {
-	it('joins all parts with a dot', () => {
+	test('joins all parts with a dot', () => {
 		deepStrictEqual(
 			'repo.branch.node.version',
 			uniqueId({
@@ -18,7 +23,7 @@ describe('uniqueId', () => {
 			})
 		)
 	});
-	it('branchId and versionKey are optional', () => {
+	test('branchId and versionKey are optional', () => {
 		deepStrictEqual(
 			'repo.node',
 			uniqueId({
@@ -27,7 +32,7 @@ describe('uniqueId', () => {
 			})
 		)
 	});
-	it('throws TypeError "Cannot destructure" when no params', () => {
+	test('throws TypeError "Cannot destructure" when no params', () => {
 		assert.throws(() => {
 			//eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			//@ts-ignore
@@ -40,7 +45,7 @@ describe('uniqueId', () => {
 			message: /^Cannot (destructure|read) propert.* 'repoId'/
 		});
 	});
-	it('throws TypeError when required named parameter repoId is missing', () => {
+	test('throws TypeError when required named parameter repoId is missing', () => {
 		assert.throws(() => {
 			//eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			//@ts-ignore
@@ -50,7 +55,7 @@ describe('uniqueId', () => {
 			message: 'uniqueId: Missing required named parameter repoId!'
 		});
 	});
-	it('throws TypeError when required named parameter nodeId is missing', () => {
+	test('throws TypeError when required named parameter nodeId is missing', () => {
 		assert.throws(() => {
 			//eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			//@ts-ignore

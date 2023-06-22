@@ -1,16 +1,21 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { cleanAnyDoubleQuoteWrap } from '../../index';
 
 
 describe('string', () => {
 	describe('cleanAnyDoubleQuoteWrap', () => {
-		it(`('"wrapped"') --> 'wrapped'`, () => {
+		test(`('"wrapped"') --> 'wrapped'`, () => {
 			deepStrictEqual(
 				'wrapped',
 				cleanAnyDoubleQuoteWrap('"wrapped"')
 			) // deepStrictEqual
 		}); // it
-		it(`('unwrapped') --> 'unwrapped'`, () => {
+		test(`('unwrapped') --> 'unwrapped'`, () => {
 			deepStrictEqual(
 				'unwrapped',
 				cleanAnyDoubleQuoteWrap('unwrapped')

@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isFunction } from '../../index';
 import {toStr} from '../toStr';
 
@@ -50,19 +55,19 @@ const NOT_FUNCTIONS = [].concat(
 
 describe('value', () => {
 	describe('isFunction --> true', () => {
-		it('isFunction(()=>{/**/}) --> true', () => {
+		test('isFunction(()=>{/**/}) --> true', () => {
 			deepStrictEqual(
 				true,
 				isFunction(()=>{/**/})
 			);
 		});
-		it('isFunction(function(){/**/}) --> true', () => {
+		test('isFunction(function(){/**/}) --> true', () => {
 			deepStrictEqual(
 				true,
 				isFunction(function(){/**/})
 			);
 		});
-		it('isFunction(toStr) --> true', () => {
+		test('isFunction(toStr) --> true', () => {
 			deepStrictEqual(
 				true,
 				isFunction(toStr)
@@ -71,7 +76,7 @@ describe('value', () => {
 	});
 	describe('isFunction --> false', () => {
 		NOT_FUNCTIONS.forEach((value) => {
-			it(`isFunction(${toStr(value)}) --> false`, () => {
+			test(`isFunction(${toStr(value)}) --> false`, () => {
 				deepStrictEqual(
 					false,
 					isFunction(value)

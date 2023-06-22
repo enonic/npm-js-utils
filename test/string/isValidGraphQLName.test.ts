@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import {NOT_STRINGS} from '@enonic/test-data';
 import { isValidGraphQLName } from '../../index';
 import {toStr} from '../toStr';
@@ -30,7 +35,7 @@ describe('string', () => {
 	describe('isValidGraphQLName()', () => {
 		describe('--> true', () => {
 			TESTS_TRUE.forEach((s) => {
-				it(`${toStr(s)}`, () => {
+				test(`${toStr(s)}`, () => {
 					deepStrictEqual(
 						true,
 						isValidGraphQLName(s)
@@ -40,7 +45,7 @@ describe('string', () => {
 		});
 		describe('--> false', () => {
 			TESTS_FALSE.forEach((s) => {
-				it(`${toStr(s)}`, () => {
+				test(`${toStr(s)}`, () => {
 					deepStrictEqual(
 						false,
 						isValidGraphQLName(s)

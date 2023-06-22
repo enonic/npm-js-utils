@@ -1,8 +1,13 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { addQueryFilter } from '../../../index';
 
 describe('addQueryFilter', () => {
-	// it('adds under boolean.must by default', () => {
+	// test('adds under boolean.must by default', () => {
 	// 	deepStrictEqual(
 	// 		{
 	// 			boolean: {
@@ -19,7 +24,7 @@ describe('addQueryFilter', () => {
 	// 	)
 	// })
 	//
-	// it('adds under boolean.mustNot', () => {
+	// test('adds under boolean.mustNot', () => {
 	// 	deepStrictEqual(
 	// 		{
 	// 			boolean: {
@@ -37,7 +42,7 @@ describe('addQueryFilter', () => {
 	// 	)
 	// })
 
-	it('adds under boolean.should (three filters)', () => {
+	test('adds under boolean.should (three filters)', () => {
 		deepStrictEqual(
 			{
 				boolean: {

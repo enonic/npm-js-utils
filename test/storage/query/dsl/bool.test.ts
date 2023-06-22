@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	QUERY_OPERATOR_AND,
 	//STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	//STEMMING_LANGUAGE_CODE_SPANISH,
@@ -27,7 +32,7 @@ const resF = {
 };
 
 describe('bool', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				boolean: {
@@ -37,7 +42,7 @@ describe('bool', () => {
 			bool(and(f))
 		)
 	});
-	it('normal', () => {
+	test('normal', () => {
 		const fields = 'url^1.2,title^1.1,text';
 		const searchString = 'fun video';
 		const operator = 'OR';

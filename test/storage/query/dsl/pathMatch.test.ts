@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { pathMatch } from '../../../../storage/query/dsl/index';
 
 
 describe('pathMatch', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				pathMatch: {
@@ -14,7 +19,7 @@ describe('pathMatch', () => {
 			pathMatch('_path', '/mySite/folder1/folder2/images')
 		)
 	});
-	/*it('boost', () => {
+	/*test('boost', () => {
 		deepStrictEqual(
 			{
 				pathMatch: {
@@ -26,7 +31,7 @@ describe('pathMatch', () => {
 			pathMatch('_path', '/mySite/folder1/folder2/images',2)
 		)
 	});*/
-	it('minimumMatch', () => {
+	test('minimumMatch', () => {
 		deepStrictEqual(
 			{
 				pathMatch: {
@@ -44,7 +49,7 @@ describe('pathMatch', () => {
 			)
 		)
 	});
-	it('minimumMatch and boost', () => {
+	test('minimumMatch and boost', () => {
 		deepStrictEqual(
 			{
 				pathMatch: {
@@ -62,7 +67,7 @@ describe('pathMatch', () => {
 			)
 		)
 	});
-	it('just boost', () => {
+	test('just boost', () => {
 		deepStrictEqual(
 			{
 				pathMatch: {

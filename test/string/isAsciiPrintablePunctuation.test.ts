@@ -2,6 +2,11 @@ import {
 	ASCII_PUNCTUATION
 } from '@enonic/test-data';
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isAsciiPrintablePunctuation } from '../../index';
 
 
@@ -27,7 +32,7 @@ describe('string', () => {
 		describe('--> true', () => {
 			for (let i = 0; i < TESTS_TRUE.length; i++) {
 			    const value = TESTS_TRUE[i];
-				it(`${value}`, () => {
+				test(`${value}`, () => {
 					deepStrictEqual(
 						true,
 						isAsciiPrintablePunctuation(value)
@@ -38,7 +43,7 @@ describe('string', () => {
 		describe('--> false', () => {
 			for (let i = 0; i < TESTS_FALSE.length; i++) {
 			    const value = TESTS_FALSE[i];
-				it(`${value}`, () => {
+				test(`${value}`, () => {
 					deepStrictEqual(
 						false,
 						isAsciiPrintablePunctuation(value)

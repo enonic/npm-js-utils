@@ -1,9 +1,14 @@
 import { expect } from 'chai';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { mapKeys } from '../../index';
 
 
 describe('mapKeys', () => {
-	it('can be used to transform keys', () => {
+	test('can be used to transform keys', () => {
 		expect(mapKeys({
 			Accept: 'text/html',
 			'Accept-Encoding': 'gzip, deflate, br'

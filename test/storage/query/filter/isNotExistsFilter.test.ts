@@ -1,8 +1,13 @@
 import {strictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isNotExistsFilter } from '../../../../index';
 
 describe('isNotExistsFilter', () => {
-	it('returns true when shape is correct', () => {
+	test('returns true when shape is correct', () => {
 		strictEqual(
 			true,
 			isNotExistsFilter({
@@ -12,7 +17,7 @@ describe('isNotExistsFilter', () => {
 			})
 		)
 	});
-	it('returns false when notExists.field is not a string', () => {
+	test('returns false when notExists.field is not a string', () => {
 		strictEqual(
 			false,
 			isNotExistsFilter({
@@ -22,7 +27,7 @@ describe('isNotExistsFilter', () => {
 			})
 		)
 	});
-	it('returns false when notExists.field is missing', () => {
+	test('returns false when notExists.field is missing', () => {
 		strictEqual(
 			false,
 			isNotExistsFilter({
@@ -30,7 +35,7 @@ describe('isNotExistsFilter', () => {
 			})
 		)
 	});
-	it('returns false when notExists not an object', () => {
+	test('returns false when notExists not an object', () => {
 		strictEqual(
 			false,
 			isNotExistsFilter({
@@ -38,13 +43,13 @@ describe('isNotExistsFilter', () => {
 			})
 		)
 	});
-	it('returns false when notExists is missing', () => {
+	test('returns false when notExists is missing', () => {
 		strictEqual(
 			false,
 			isNotExistsFilter({})
 		)
 	});
-	it('returns false when params not an object', () => {
+	test('returns false when params not an object', () => {
 		strictEqual(
 			false,
 			isNotExistsFilter(null)

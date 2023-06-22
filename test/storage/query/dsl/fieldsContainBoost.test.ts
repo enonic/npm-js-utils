@@ -1,6 +1,11 @@
 import type {Fields} from '../../../../storage/query/constants';
 
 import {equal} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import {fieldsContainBoost} from '../../../../storage/query/dsl/fieldsContainBoost';
 
 const TESTS_NEGATIVE = [
@@ -89,7 +94,7 @@ describe('fieldsContainBoost', () => {
 	describe('--> false', () => {
 		for (let i = 0; i < TESTS_NEGATIVE.length; i++) {
 			const fields = TESTS_NEGATIVE[i] as Fields;
-			it(JSON.stringify(fields), () => {
+			test(JSON.stringify(fields), () => {
 				equal(
 					false,
 					fieldsContainBoost(fields)
@@ -100,7 +105,7 @@ describe('fieldsContainBoost', () => {
 	describe('--> true', () => {
 		for (let i = 0; i < TESTS_POSITIVE.length; i++) {
 			const fields = TESTS_POSITIVE[i] as Fields;
-			it(JSON.stringify(fields), () => {
+			test(JSON.stringify(fields), () => {
 				equal(
 					true,
 					fieldsContainBoost(fields)

@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isObject } from '../../index';
 import {toStr} from '../toStr';
 
@@ -36,7 +41,7 @@ describe('value', () => {
 	describe('isObject()', () => {
 		describe('--> true', () => {
 			TESTS_TRUE.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						true,
 						isObject(params)
@@ -46,7 +51,7 @@ describe('value', () => {
 		});
 		describe('--> false', () => {
 			TESTS_FALSE.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						false,
 						isObject(params)

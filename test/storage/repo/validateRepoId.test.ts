@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	isString,
 	toStr,
 	validateRepoId
@@ -91,7 +96,7 @@ const ASCII_FOLDING = 'ÆÐƎƏƐƔĲŊŒẞÞǷȜæðǝəɛɣĳŋœĸſßþƿȝ
 describe('validateRepoId()', () => {
 	describe('returns null when repoId is valid', () => {
 		VALID.forEach((valid) => {
-			it(`validateRepoId(${toStr(valid)}) --> null`, () => {
+			test(`validateRepoId(${toStr(valid)}) --> null`, () => {
 				deepStrictEqual(
 					null,
 					validateRepoId(valid)
@@ -101,7 +106,7 @@ describe('validateRepoId()', () => {
 	});
 	describe('returns a string with an error message when repoId is invalid', () => {
 		INVALID.forEach((invalid) => {
-			it(`validateRepoId(${toStr(invalid)}) --> errorStr`, () => {
+			test(`validateRepoId(${toStr(invalid)}) --> errorStr`, () => {
 				const res = validateRepoId(invalid);
 				//console.debug(`res:${toStr(res)}`);
 				deepStrictEqual(
@@ -112,7 +117,7 @@ describe('validateRepoId()', () => {
 		});
 		INVALID_ASCII_CHARS.forEach((invalid) => {
 			const repoId = `a${invalid}a`;
-			it(`validateRepoId(${toStr(repoId)}) --> errorStr`, () => {
+			test(`validateRepoId(${toStr(repoId)}) --> errorStr`, () => {
 				const res = validateRepoId(repoId);
 				//console.debug(`res:${toStr(res)}`);
 				deepStrictEqual(
@@ -123,7 +128,7 @@ describe('validateRepoId()', () => {
 		});
 		for (let i = 0; i < ASCII_FOLDING.length; i++) {
 			const repoId = `a${ASCII_FOLDING[i]}a`;
-			it(`validateRepoId(${toStr(repoId)}) --> errorStr`, () => {
+			test(`validateRepoId(${toStr(repoId)}) --> errorStr`, () => {
 				const res = validateRepoId(repoId);
 				//console.debug(`res:${toStr(res)}`);
 				deepStrictEqual(

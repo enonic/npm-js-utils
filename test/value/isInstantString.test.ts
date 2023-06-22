@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { isInstantString } from '../../index';
 import {
 	INSTANT_STRINGS,
@@ -31,7 +36,7 @@ describe('value', () => {
 	describe('isInstantString()', () => {
 		describe('--> true', () => {
 			INSTANT_STRINGS.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						true,
 						isInstantString(params)
@@ -41,7 +46,7 @@ describe('value', () => {
 		});
 		describe('--> false', () => {
 			NOT_INSTANT_STRINGS.forEach((params) => {
-				it(`${toStr(params)}`, () => {
+				test(`${toStr(params)}`, () => {
 					deepStrictEqual(
 						false,
 						isInstantString(params)

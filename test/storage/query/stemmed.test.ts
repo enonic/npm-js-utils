@@ -1,5 +1,10 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
 	stemmed
@@ -7,7 +12,7 @@ import {
 
 
 describe('stemmed', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			"stemmed('_allText','searchString','OR','en')",
 			stemmed(
@@ -16,7 +21,7 @@ describe('stemmed', () => {
 			)
 		)
 	});
-	it('two fields', () => {
+	test('two fields', () => {
 		deepStrictEqual(
 			"stemmed('title^2,text','searchString','AND','no')",
 			stemmed(
@@ -31,7 +36,7 @@ describe('stemmed', () => {
 			)
 		)
 	});
-	it('two fields with boost', () => {
+	test('two fields with boost', () => {
 		deepStrictEqual(
 			"stemmed('title^2,text','searchString','OR','es')",
 			stemmed(

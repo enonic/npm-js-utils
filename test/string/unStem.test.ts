@@ -1,12 +1,17 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	//toStr,
 	unStem
 } from '../../index';
 
 
 describe('unStemEnglish', () => {
-	it('Returns a list of words, with Norwegian endings added', () => {
+	test('Returns a list of words, with Norwegian endings added', () => {
 		const expected = ['cararsen','carcommun','cargener',"car's'","car's",
 			'caried','cars','caries','carsses','carss','carus','car','carbb',
 			'cardd','carff','cargg','carbl','carmm','carnn','carpp','carrr',
@@ -35,7 +40,7 @@ describe('unStemEnglish', () => {
 });
 
 describe('unStemNorwegian', () => {
-	it('Returns a list of words, with Norwegian endings added', () => {
+	test('Returns a list of words, with Norwegian endings added', () => {
 		const expected = ['bila','bile','bilede','bilande','bilende','bilane',
 			'bilene','bilhetene','bilerte','bilen','bilheten','bilar','biler',
 			'bilheter','bils','bilas','biles','biledes','bilendes','bilenes',

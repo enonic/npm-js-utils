@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { group } from '../../../index';
 
 
 describe('group', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			"(a)",
 			group('a')

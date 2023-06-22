@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { sortKeys } from '../../index';
 
 
@@ -14,7 +19,7 @@ describe('sortKeys', () => {
 			b,
 			a
 		});
-		it('object is deepStrictEqual', () => {
+		test('object is deepStrictEqual', () => {
 			deepStrictEqual(
 				{
 					a,
@@ -23,7 +28,7 @@ describe('sortKeys', () => {
 				res
 			);
 		});
-		it('object keys are sorted', () => {
+		test('object keys are sorted', () => {
 			deepStrictEqual(
 				['a', 'b'],
 				keys(res)
@@ -39,7 +44,7 @@ describe('sortKeys', () => {
 			b,
 			a
 		});
-		it('object is deepStrictEqual', () => {
+		test('object is deepStrictEqual', () => {
 			deepStrictEqual(
 				{
 					a,
@@ -52,13 +57,13 @@ describe('sortKeys', () => {
 				res
 			);
 		});
-		it('keys are sorted', () => {
+		test('keys are sorted', () => {
 			deepStrictEqual(
 				['a', 'b', 'c'],
 				keys(res)
 			);
 		});
-		it('nested keys are NOT sorted', () => {
+		test('nested keys are NOT sorted', () => {
 			deepStrictEqual(
 				['b', 'a'],
 				keys(res.c)

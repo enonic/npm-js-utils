@@ -6,6 +6,11 @@ import type {
 
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	QUERY_OPERATOR_AND,
 	STEMMING_LANGUAGE_CODE_NORWEGIAN,
 	STEMMING_LANGUAGE_CODE_SPANISH,
@@ -46,7 +51,7 @@ const resS: QueryDsl = {
 } satisfies QueryDsl;
 
 describe('and', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				must: [resF]
@@ -54,7 +59,7 @@ describe('and', () => {
 			and(f)
 		)
 	});
-	it('two params', () => {
+	test('two params', () => {
 		deepStrictEqual(
 			{
 				must: [resF, resS]
@@ -62,7 +67,7 @@ describe('and', () => {
 			must(f,s)
 		)
 	});
-	it('array with one item', () => {
+	test('array with one item', () => {
 		deepStrictEqual(
 			{
 				must: [resF]
@@ -70,7 +75,7 @@ describe('and', () => {
 			and([f])
 		)
 	});
-	it('array with two items', () => {
+	test('array with two items', () => {
 		deepStrictEqual(
 			{
 				must: [resF, resS]
@@ -78,7 +83,7 @@ describe('and', () => {
 			must([f,s])
 		)
 	});
-	it('combo', () => {
+	test('combo', () => {
 		deepStrictEqual(
 			{
 				must: [

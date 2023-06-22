@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { range } from '../../../../storage/query/dsl/index';
 
 
 describe('range', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				range: {
@@ -19,7 +24,7 @@ describe('range', () => {
 			)
 		)
 	});
-	it('boost', () => {
+	test('boost', () => {
 		deepStrictEqual(
 			{
 				range: {
@@ -39,7 +44,7 @@ describe('range', () => {
 			)
 		)
 	});
-	it('analysed index type', () => {
+	test('analysed index type', () => {
 		const date = new Date();
 		deepStrictEqual(
 			{
@@ -60,7 +65,7 @@ describe('range', () => {
 			)
 		)
 	});
-	it('type time', () => {
+	test('type time', () => {
 		const time = '12:00';
 		deepStrictEqual(
 			{
@@ -81,7 +86,7 @@ describe('range', () => {
 			)
 		)
 	});
-	it('type whatever', () => {
+	test('type whatever', () => {
 		const whatever = 'whatever';
 		deepStrictEqual(
 			{

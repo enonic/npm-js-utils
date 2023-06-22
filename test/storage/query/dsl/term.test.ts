@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { term } from '../../../../storage/query/dsl/index';
 
 
 describe('term', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				term: {
@@ -14,7 +19,7 @@ describe('term', () => {
 			term('myNumber', 4.2)
 		)
 	});
-	it('boost', () => {
+	test('boost', () => {
 		deepStrictEqual(
 			{
 				term: {
@@ -26,7 +31,7 @@ describe('term', () => {
 			term('myBoolean', true, 2)
 		)
 	});
-	it('type time', () => {
+	test('type time', () => {
 		deepStrictEqual(
 			{
 				term: {
@@ -39,7 +44,7 @@ describe('term', () => {
 			term('myTime', '12:00', 2, 'time')
 		)
 	});
-	it('type dateTime', () => {
+	test('type dateTime', () => {
 		deepStrictEqual(
 			{
 				term: {
@@ -52,7 +57,7 @@ describe('term', () => {
 			term('myDateTime', '2022-12-09T11:04Z', 1.1, 'dateTime')
 		)
 	});
-	it('type whatever', () => {
+	test('type whatever', () => {
 		deepStrictEqual(
 			{
 				term: {

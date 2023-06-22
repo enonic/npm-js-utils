@@ -1,4 +1,9 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { sortKeysRec } from '../../index';
 
 const {keys} = Object;
@@ -8,7 +13,7 @@ const b = '2';
 
 describe('sortKeysRec', () => {
 	describe('object', () => {
-		it('object is deepStrictEqual', () => {
+		test('object is deepStrictEqual', () => {
 			deepStrictEqual(
 				{
 					a,
@@ -17,7 +22,7 @@ describe('sortKeysRec', () => {
 				sortKeysRec({b,a})
 			);
 		});
-		it('keys are sorted', () => {
+		test('keys are sorted', () => {
 			deepStrictEqual(
 				['a', 'b'],
 				keys(sortKeysRec({b,a}))
@@ -34,7 +39,7 @@ describe('sortKeysRec', () => {
 			b,
 			a
 		});
-		it('object is deepStrictEqual', () => {
+		test('object is deepStrictEqual', () => {
 			deepStrictEqual(
 				{
 					a,
@@ -47,13 +52,13 @@ describe('sortKeysRec', () => {
 				res
 			);
 		});
-		it('keys are sorted', () => {
+		test('keys are sorted', () => {
 			deepStrictEqual(
 				['a', 'b', 'c'],
 				keys(res)
 			);
 		});
-		it('nested keys are sorted', () => {
+		test('nested keys are sorted', () => {
 			deepStrictEqual(
 				['a', 'b'],
 				keys(res.c)
@@ -70,7 +75,7 @@ describe('sortKeysRec', () => {
 			b,
 			a
 		}]);
-		it('array is deepStrictEqual', () => {
+		test('array is deepStrictEqual', () => {
 			deepStrictEqual(
 				[{
 					a,
@@ -83,13 +88,13 @@ describe('sortKeysRec', () => {
 				res
 			);
 		});
-		it('keys are sorted', () => {
+		test('keys are sorted', () => {
 			deepStrictEqual(
 				['a', 'b', 'c'],
 				keys(res[0])
 			);
 		});
-		it('nested keys are sorted', () => {
+		test('nested keys are sorted', () => {
 			deepStrictEqual(
 				['a', 'b'],
 				keys(res[0].c)
@@ -97,19 +102,19 @@ describe('sortKeysRec', () => {
 		});
 	});
 	describe('leaves non objects alone', () => {
-		it('boolean false', () => {
+		test('boolean false', () => {
 			deepStrictEqual(
 				false,
 				sortKeysRec(false)
 			);
 		});
-		it('boolean true', () => {
+		test('boolean true', () => {
 			deepStrictEqual(
 				true,
 				sortKeysRec(true)
 			);
 		});
-		it('null', () => {
+		test('null', () => {
 			deepStrictEqual(
 				null,
 				sortKeysRec(null)

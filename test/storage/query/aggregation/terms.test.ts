@@ -1,11 +1,16 @@
 import {deepStrictEqual} from 'assert';
 import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
+import {
 	stats,
 	terms
 } from '../../../../storage/query/aggregation/index';
 
 describe('terms', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				terms: {
@@ -15,7 +20,7 @@ describe('terms', () => {
 			terms('myField')
 		)
 	}); // it
-	it('just field and aggregations', () => {
+	test('just field and aggregations', () => {
 		deepStrictEqual(
 			{
 				products: {
@@ -38,7 +43,7 @@ describe('terms', () => {
 			}
 		)
 	}); // it
-	it('just field, size and minDocCount', () => {
+	test('just field, size and minDocCount', () => {
 		deepStrictEqual(
 			{
 				products: {
@@ -54,7 +59,7 @@ describe('terms', () => {
 			}
 		)
 	}); // it
-	it('just field and size', () => {
+	test('just field and size', () => {
 		deepStrictEqual(
 			{
 				products: {
@@ -69,7 +74,7 @@ describe('terms', () => {
 			}
 		)
 	}); // it
-	it('just field and order', () => {
+	test('just field and order', () => {
 		deepStrictEqual(
 			{
 				products: {
@@ -84,7 +89,7 @@ describe('terms', () => {
 			}
 		)
 	}); // it
-	it('everything in order', () => {
+	test('everything in order', () => {
 		deepStrictEqual(
 			{
 				products: {
@@ -110,7 +115,7 @@ describe('terms', () => {
 			}
 		)
 	}); // it
-	it('everything backwards except size and minDocCount', () => {
+	test('everything backwards except size and minDocCount', () => {
 		deepStrictEqual(
 			{
 				products: {

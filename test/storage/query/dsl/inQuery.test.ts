@@ -1,9 +1,14 @@
 import {deepStrictEqual} from 'assert';
+import {
+	describe,
+	// expect,
+	test
+} from '@jest/globals';
 import { inQuery } from '../../../../storage/query/dsl/index';
 
 
 describe('inQuery', () => {
-	it('minimal', () => {
+	test('minimal', () => {
 		deepStrictEqual(
 			{
 				in: {
@@ -22,7 +27,7 @@ describe('inQuery', () => {
 			])
 		)
 	});
-	it('boost', () => {
+	test('boost', () => {
 		deepStrictEqual(
 			{
 				in: {
@@ -44,7 +49,7 @@ describe('inQuery', () => {
 			)
 		)
 	});
-	it('analysed index type', () => {
+	test('analysed index type', () => {
 		deepStrictEqual(
 			{
 				in: {
@@ -68,7 +73,7 @@ describe('inQuery', () => {
 			)
 		)
 	});
-	it('type time', () => {
+	test('type time', () => {
 		deepStrictEqual(
 			{
 				in: {
@@ -92,7 +97,7 @@ describe('inQuery', () => {
 			)
 		)
 	});
-	it('type whatever', () => {
+	test('type whatever', () => {
 		deepStrictEqual(
 			{
 				in: {
