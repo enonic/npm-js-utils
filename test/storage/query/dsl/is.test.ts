@@ -178,7 +178,7 @@ describe('isBooleanDslExpression', () => {
 		expect(isBooleanDslExpression({})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isBooleanDslExpression()).toBe(false)
 		expect(isBooleanDslExpression({
 			boost: 'Not a number'
@@ -194,7 +194,7 @@ describe('isExistsDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isExistsDslExpression()).toBe(false)
 		expect(isExistsDslExpression({})).toBe(false)
 	});
@@ -212,7 +212,7 @@ describe('isFulltextDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isFulltextDslExpression()).toBe(false)
 		expect(isFulltextDslExpression({})).toBe(false)
 	});
@@ -230,7 +230,7 @@ describe('isInDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isInDslExpression()).toBe(false)
 		expect(isInDslExpression({})).toBe(false)
 	});
@@ -245,7 +245,7 @@ describe('isLikeDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isLikeDslExpression()).toBe(false)
 		expect(isLikeDslExpression({})).toBe(false)
 	});
@@ -257,7 +257,7 @@ describe('isMatchAllDslExpression', () => {
 		expect(isMatchAllDslExpression({})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isMatchAllDslExpression()).toBe(false)
 	});
 });
@@ -274,7 +274,7 @@ describe('isNgramDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isNgramDslExpression()).toBe(false)
 		expect(isNgramDslExpression({})).toBe(false)
 	});
@@ -289,7 +289,7 @@ describe('isPathMatchDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isPathMatchDslExpression()).toBe(false);
 		expect(isPathMatchDslExpression({})).toBe(false);
 		expect(isPathMatchDslExpression({
@@ -343,7 +343,7 @@ describe('isQueryDsl', () => {
 
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isQueryDsl()).toBe(false);
 		expect(isQueryDsl({})).toBe(false);
 	});
@@ -361,7 +361,7 @@ describe('isRangeDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isRangeDslExpression()).toBe(false);
 		expect(isRangeDslExpression({})).toBe(false);
 		expect(isRangeDslExpression({ // without field
@@ -399,7 +399,7 @@ describe('isStemmedDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isStemmedDslExpression()).toBe(false)
 		expect(isStemmedDslExpression({})).toBe(false)
 	});
@@ -414,7 +414,7 @@ describe('isTermDslExpression', () => {
 		})).toBe(true)
 	});
 	it('returns false when the value has the wrong shape', () => {
-		// @ts-ignore
+		// @ts-expect-error TS2554: Expected 1 arguments, but got 0.
 		expect(isTermDslExpression()).toBe(false)
 		expect(isTermDslExpression({})).toBe(false)
 	});
