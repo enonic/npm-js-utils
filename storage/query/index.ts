@@ -3,6 +3,18 @@ export * as dsl from './dsl';
 export {
 	DSL_EXPRESSION_VALUE_TYPE_DATE_TIME,
 	DSL_EXPRESSION_VALUE_TYPE_TIME,
+	isBooleanDslExpression,
+	isExistsDslExpression,
+	isFulltextDslExpression,
+	isInDslExpression,
+	isLikeDslExpression,
+	isMatchAllDslExpression,
+	isNgramDslExpression,
+	isPathMatchDslExpression,
+	isQueryDsl,
+	isRangeDslExpression,
+	isStemmedDslExpression,
+	isTermDslExpression
 } from './dsl';
 export * as filter from './filter';
 export {
