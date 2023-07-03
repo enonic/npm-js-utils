@@ -5,7 +5,9 @@ import {isString} from './isString';
 
 const REGEXP_INSTANT = /^\d{4}-\d{2}-\d{2}T\d{2}\:\d{2}\:\d{2}(\.\d{0,9})?Z$/; // Same as localDateTimeString, but with a Z on the end.
 
-export function isInstantString(v :unknown) :boolean {
+// /lib/xp/value instant(value: string | Date): Instant
+// TODO Use Branding or template string to narrow string?
+export function isInstantString(v: unknown): v is string {
 	if (!isString(v)) { return false; }
 	const matches = (v as string).match(REGEXP_INSTANT);
 	//console.debug('matches', matches);

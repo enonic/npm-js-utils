@@ -11,9 +11,9 @@ import {isString} from './isString';
 const REGEXP_TIME = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\.\d{0,9})?)?$/
 
 
-export function isTimeString(
-	v :unknown
-) :boolean {
+// /lib/xp/value localTime(value: string | Date): LocalTime
+// TODO Use Branding or template string to narrow string?
+export function isTimeString(v :unknown): v is string {
 	if (!isString(v)) { return false; }
 	return REGEXP_TIME.test(v as string);
 	//return !!(v as string).match(REGEXP_TIME);

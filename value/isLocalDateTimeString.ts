@@ -4,7 +4,9 @@ import {isString} from './isString';
 const REGEXP_DATE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d{0,9})?)?$/ // Same as instant, but no Z on the end.
 
 
-export function isLocalDateTimeString(v :unknown) :boolean {
+// /lib/xp/value localDateTime(value: string | Date): LocalDateTime
+// TODO Use Branding or template string to narrow string?
+export function isLocalDateTimeString(v: unknown): v is string {
 	if (!isString(v)) { return false; }
 	const matches = (v as string).match(REGEXP_DATE);
 	//console.debug('matches', matches);
