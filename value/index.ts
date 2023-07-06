@@ -36,11 +36,11 @@ export {isUuidV4String} from './isUuidV4String';
 export {toStr} from './toStr';
 
 
-export function isNotFalse(value :unknown): boolean {
+export function isNotFalse(value: unknown): boolean {
 	return value !== false;
 }
 
 
-export function isNotTrue(value :unknown): boolean {
+export function isNotTrue(value: unknown): boolean {
 	return value !== true;
 }

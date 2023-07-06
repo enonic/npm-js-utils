@@ -71,6 +71,10 @@
       "import": "./dist/esm/array/includes.mjs",
       "require": "./dist/cjs/array/includes.cjs"
     },
+    "./array/isStringArray": {
+      "import": "./dist/esm/array/isStringArray.mjs",
+      "require": "./dist/cjs/array/isStringArray.cjs"
+    },
     "./object": {
       "import": "./dist/esm/object/index.mjs",
       "require": "./dist/cjs/object/index.cjs"

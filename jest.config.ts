@@ -11,7 +11,8 @@ module.exports = {
 		'index.ts'
 	],
 	coveragePathIgnorePatterns: [
-		'<rootDir>/dist/'
+		'<rootDir>/dist/',
+		'<rootDir>/node_modules/'
 	],
 	coverageProvider: 'v8', // Changes Uncovered Lines
 

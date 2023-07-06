@@ -4,6 +4,7 @@ export {
 	flatten,
 	forceArray,
 	includes as arrayIncludes, // Conflicts with string.includes
+	isStringArray,
 	sortByProperty
 } from './array';
 
