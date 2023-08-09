@@ -119,6 +119,9 @@ export type {
 	Portal
 } from './Portal.d';
 export type {
+	StemmingLanguageCode
+} from './Stemming.d';
+export type {
 	AnyString,
 	OptionalSpace
 } from './String.d';

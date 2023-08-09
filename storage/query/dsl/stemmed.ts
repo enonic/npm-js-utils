@@ -9,12 +9,9 @@ import type {
 	CompoundExpressionBoolean,
 	QueryExpressionStemmed,
 } from '../../../types/index.d';
+import type { StemmingLanguageCode } from '../../../types/Stemming';
 
-
-import {
-	STEMMING_LANGUAGE_CODE_ENGLISH,
-	StemmingLanguageCodes
-} from '../../indexing/stemming';
+import { STEMMING_LANGUAGE_CODE_ENGLISH } from '../../indexing/stemming';
 import {includes as stringIncludes} from '../../../string/includes';
 import {isObject} from '../../../value/isObject';
 import {isString} from '../../../value/isString';
@@ -36,7 +33,7 @@ export function stemmed(
 	fields: Fields,
 	query: string,
 	operator: DslOperator = QUERY_OPERATOR_OR,
-	language: StemmingLanguageCodes = STEMMING_LANGUAGE_CODE_ENGLISH,
+	language: StemmingLanguageCode = STEMMING_LANGUAGE_CODE_ENGLISH,
 	boost?: number // = 1
 ): QueryExpressionStemmed | CompoundExpressionBoolean {
 	if (fieldsContainBoost(fields)) {

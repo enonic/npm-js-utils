@@ -1,7 +1,5 @@
-interface Language {
-	code:string,
-	language:string
-}
+import type { StemmingLanguage } from '../../types/Stemming';
+
 
 export const STEMMING_LANGUAGE_CODE_ARABIC = 'ar';
 export const STEMMING_LANGUAGE_CODE_BULGARIAN = 'bg';
@@ -78,10 +76,8 @@ export const STEMMING_LANGUAGE_CODES = [
 	STEMMING_LANGUAGE_CODE_CHINESE
 ] as const;
 
-export type StemmingLanguageCodes = typeof STEMMING_LANGUAGE_CODES[number];
-
 // https://developer.enonic.com/docs/xp/stable/storage/indexing#languages
-export const STEMMING_LANGUAGES:Array<Language> = [
+export const STEMMING_LANGUAGES: StemmingLanguage[] = [
 	{
 		code: STEMMING_LANGUAGE_CODE_ARABIC,
 		language: 'Arabic'
