@@ -139,6 +139,10 @@
       "import": "./dist/esm/string/endsWith.mjs",
       "require": "./dist/cjs/string/endsWith.cjs"
     },
+    "./string/includes": {
+      "import": "./dist/esm/string/includes.mjs",
+      "require": "./dist/cjs/string/includes.cjs"
+    },
     "./string/lpad": {
       "import": "./dist/esm/string/lpad.mjs",
       "require": "./dist/cjs/string/lpad.cjs"
