@@ -218,3 +218,14 @@ const filters = addQueryFilter({
 	}
 }*/
 ```
+
+
+## Release
+
+````
+git tag vX.Y.Z
+git push origin vX.Y.Z
+````
+
+This will trigger release & publish on NPM.
+

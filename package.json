@@ -215,7 +215,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:enonic/enonic-js-utils.git"
+    "url": "git+ssh://git@github.com:enonic/npm-js-utils.git"
   },
   "scripts": {
     "build": "yarn build:tsup",
@@ -225,10 +225,10 @@
     "build:tsup:types": "npx tsup --dts-only --silent",
     "clean": "rimraf build dist index.d.ts enonic-js-utils-v*.tgz",
     "docs": "npx typedoc",
-    "prepublishOnly": "node setversion.cjs",
-    "test": "jest --no-cache --coverage",
     "prebuild": "yarn clean && yarn verify:syntax && yarn verify:types",
     "prepack": "yarn build && yarn test && yarn docs",
+    "prepublishOnly": "node setversion.cjs",
+    "test": "jest --no-cache --coverage",
     "verify": "yarn verify:syntax && yarn verify:types && yarn verify:type:definitions",
     "verify:syntax": "npx eslint array constants.ts http index.ts object storage string test task types value",
     "verify:type:definitions": "yarn verify:type:definitions:ByteSource && yarn verify:type:definitions:Event && yarn verify:type:definitions:Node",
