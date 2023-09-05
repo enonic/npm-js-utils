@@ -83,6 +83,10 @@
       "import": "./dist/esm/object/deleteIn.mjs",
       "require": "./dist/cjs/object/deleteIn.cjs"
     },
+    "./object/entries": {
+      "import": "./dist/esm/object/entries.mjs",
+      "require": "./dist/cjs/object/entries.cjs"
+    },
     "./object/lcKeys": {
       "import": "./dist/esm/object/lcKeys.mjs",
       "require": "./dist/cjs/object/lcKeys.cjs"
@@ -94,6 +98,10 @@
     "./object/sortKeys": {
       "import": "./dist/esm/object/sortKeys.mjs",
       "require": "./dist/cjs/object/sortKeys.cjs"
+    },
+    "./object/values": {
+      "import": "./dist/esm/object/values.mjs",
+      "require": "./dist/cjs/object/values.cjs"
     },
     "./string": {
       "import": "./dist/esm/string/index.mjs",

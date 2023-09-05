@@ -10,13 +10,15 @@ export {
 
 export {
 	deleteIn,
+	entries,
 	getIn,
 	hasOwnProperty,
 	lcKeys,
 	mapKeys,
 	setIn,
 	sortKeys,
-	sortKeysRec
+	sortKeysRec,
+	values
 } from './object';
 
 export {
