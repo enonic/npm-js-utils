@@ -116,6 +116,9 @@ export type {
 	RepositorySettings
 } from './Repo.d';
 export type {
+	ArrayLike
+} from './Object.d';
+export type {
 	Portal
 } from './Portal.d';
 export type {
