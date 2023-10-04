@@ -119,6 +119,10 @@
       "import": "./dist/esm/storage/indexing/enonify.mjs",
       "require": "./dist/cjs/storage/indexing/enonify.cjs"
     },
+    "./storage/query/addQueryFilter": {
+      "import": "./dist/esm/storage/query/addQueryFilter.mjs",
+      "require": "./dist/cjs/storage/query/addQueryFilter.cjs"
+    },
     "./storage/query/filter": {
       "import": "./dist/esm/storage/query/filter/index.mjs",
       "require": "./dist/cjs/storage/query/filter/index.cjs"
