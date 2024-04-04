@@ -402,11 +402,11 @@
   integrity sha512-5EQgGKWf4kLJC/zg5IArWr+SVUx5+fERUXv0HGdbNMcSq5I1eiq9/TwWPU3zfnpf6xH88YyCqBm72wsAYPk2iQ==
 
 "@enonic-types/lib-schema@^7":
-  version "7.13.3"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-schema/-/lib-schema-7.13.3.tgz#271edb6d6c2978406bf3ca38f95abcbff9692513"
-  integrity sha512-h0AjV3JuI13+nXYRVoJ+GzepU0IZp+Izeq7wBToN+TX3ck0hS/ZsYHsj0oPbomd81cIuwbESou5xqqGg0eathA==
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-schema/-/lib-schema-7.14.0.tgz#fed162a49291b2e7b2cf77bceba3415fe462b61d"
+  integrity sha512-rCaNyCemLWl3K12LlNqO6oAIzxI8fw+MTap6k862XjYK/S7XASZ7xgtSlCcjJDv0nm5QCmqssZogGZem+PEc3w==
   dependencies:
-    "@enonic-types/core" "7.13.3"
+    "@enonic-types/core" "7.14.0"
 
 "@enonic-types/lib-value@^7":
   version "7.14.0"
