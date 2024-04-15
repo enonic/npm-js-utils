@@ -338,6 +338,11 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.14.0.tgz#9b92ec3acb403cde14e587eabb6493a455c92e76"
   integrity sha512-3AQSeJ7Taf7/xlzAeapwk8h+i3q7zHFWiESq/uU0sfVUo2pJYVo16mGfh8buHA657QvpDZKq+j4AhVWBrwl56w==
 
+"@enonic-types/core@7.14.1":
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.14.1.tgz#47af2161da03b3b18b3b3f7211830ac4f75bdbe4"
+  integrity sha512-KHohZGwfpEEN1s/8fBAmD7qSAG9sX2B1/pGA9BWv6cxsvi+NNwh0VM3JAgLAC96yYpjFggliZF7187Lj4XcQ0A==
+
 "@enonic-types/global@^7":
   version "7.14.1"
   resolved "https://registry.yarnpkg.com/@enonic-types/global/-/global-7.14.1.tgz#42996cef8cc0299010605b7ab3c1512f6c4cceeb"
@@ -377,11 +382,11 @@
     "@enonic-types/core" "7.13.3"
 
 "@enonic-types/lib-mail@^7":
-  version "7.13.3"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.13.3.tgz#8153e20a9b9fdb06d184fa25145d7cd43d2a8679"
-  integrity sha512-p9ql1X3qNwlYZwNyMxOd7U/wNTd4K0d5zsJAQX+TjLMeJSdrjDSQFPP4rCjyMG7NU9mM5tFpFLemSqzN017E7A==
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.14.1.tgz#2b7ede3ae28ef3093db2f3355992205db9ef5181"
+  integrity sha512-HFRvCvZfL8dH4ExWRhZv50xYTOkCSi3X42H48n2gozo9RzE5bqjoU9qHr61aAKmVh7AIxI47UeIW+oQxx0oY6g==
   dependencies:
-    "@enonic-types/core" "7.13.3"
+    "@enonic-types/core" "7.14.1"
 
 "@enonic-types/lib-node@^7":
   version "7.13.3"
