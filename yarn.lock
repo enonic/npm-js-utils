@@ -403,9 +403,9 @@
     "@enonic-types/core" "7.14.1"
 
 "@enonic-types/lib-repo@^7":
-  version "7.13.3"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-repo/-/lib-repo-7.13.3.tgz#d1d121f45ab05878a5b9cb1d447b0b6875a5f138"
-  integrity sha512-5EQgGKWf4kLJC/zg5IArWr+SVUx5+fERUXv0HGdbNMcSq5I1eiq9/TwWPU3zfnpf6xH88YyCqBm72wsAYPk2iQ==
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-repo/-/lib-repo-7.14.1.tgz#192e847e657502246cf6b3e1bf1d92e204efad6b"
+  integrity sha512-3bvjA4S5cwguJpteADdjqQMxlys0IQsjy54SUahYRyL1m80AKcaXQCSqbGe4/w1yF3OcwWq5Qpra9d8raanitg==
 
 "@enonic-types/lib-schema@^7":
   version "7.14.0"
