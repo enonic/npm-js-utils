@@ -370,9 +370,9 @@
     "@enonic-types/core" "7.13.3"
 
 "@enonic-types/lib-event@^7":
-  version "7.13.3"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-event/-/lib-event-7.13.3.tgz#a4a56f9867784b558625a23340aa659791c9e323"
-  integrity sha512-G994ZPWUfj6rFUIiI8Q74V+ECZCtovqa2VNYadxplm30jguQVjhgAL7Cm2xp/Hfz0iqBIcBfkxOzcS9TYX550w==
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-event/-/lib-event-7.14.1.tgz#8b45997f57a7628854cfe17db5760b5b8e6f7181"
+  integrity sha512-Dmb9VlOtIrAWLPRc7t9QoVUI90WNdPJT2FuSzxoFy5yqQVxyCOJE5ubUMoGAwquvMUr34WgztAl9WJRkkzNfBQ==
 
 "@enonic-types/lib-io@^7":
   version "7.14.1"
