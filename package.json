@@ -7,6 +7,7 @@
   "devDependencies": {
     "@babel/core": "^7",
     "@babel/register": "^7",
+    "@enonic-types/core": "^7",
     "@enonic-types/global": "^7",
     "@enonic-types/lib-app": "^7",
     "@enonic-types/lib-auth": "^7",
@@ -74,6 +75,10 @@
     "./array/isStringArray": {
       "import": "./dist/esm/array/isStringArray.mjs",
       "require": "./dist/cjs/array/isStringArray.cjs"
+    },
+    "./array/sortBy": {
+      "import": "./dist/esm/array/sortBy.mjs",
+      "require": "./dist/cjs/array/sortBy.cjs"
     },
     "./object": {
       "import": "./dist/esm/object/index.mjs",
