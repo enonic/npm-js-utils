@@ -331,10 +331,15 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@enonic-types/core@7.14.2", "@enonic-types/core@^7":
+"@enonic-types/core@7.14.2":
   version "7.14.2"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.14.2.tgz#668d2dcd62a67e280046304c4305f0d54ce3d82c"
   integrity sha512-eLGEDYIj4OPTLx0w6AhuJngb0iRtOA9KIjrGf931kgk9Y1XWXn9HiVQtfZXoI/J2qR87bgyYiRaeCD4v6EQUjQ==
+
+"@enonic-types/core@7.14.3", "@enonic-types/core@^7":
+  version "7.14.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.14.3.tgz#87fa5407c065a9d1548b00e4f1e301e223026b1f"
+  integrity sha512-w1WiJhgGKjadky6sZa/QikMy9rRy31LKs52FyNjY8i33xvKiG+ofYF33JPU53PTiR3RZyDoTiSlewF3ppGPMfA==
 
 "@enonic-types/global@^7":
   version "7.14.2"
@@ -342,11 +347,11 @@
   integrity sha512-BPK1IWDpCXu3V0jlH8zjAnNMqBz922bCcqevdVN2oFcwRW1Vaut8aYZOtZgEzQ1vrHm3DuRFNurwa2VGLFp+mQ==
 
 "@enonic-types/lib-app@^7":
-  version "7.14.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-app/-/lib-app-7.14.2.tgz#0e8280ca7c835428f4713578ee8aa823a65e3f4b"
-  integrity sha512-hXEoGCaxBHX4MXkJo+b3kEUbXNDi+BT3QV/6ImWPOS6RkZe8k8mkRvniqiqE9ZfLLknm8zEF5oOe02BpT2LZ0w==
+  version "7.14.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-app/-/lib-app-7.14.3.tgz#970724179fa09ac5665c48a74e9a2df62c1d6816"
+  integrity sha512-g9iB9Yw5GHQCTieEbRYRFkudbFGpN2n/J+GASHKjvDYq1Zs/6t0AUd/MpInVQcEzL/jsydHKh+4fdplzy6M8Pw==
   dependencies:
-    "@enonic-types/core" "7.14.2"
+    "@enonic-types/core" "7.14.3"
 
 "@enonic-types/lib-auth@^7":
   version "7.14.2"
