@@ -331,10 +331,15 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@enonic-types/core@7.14.2", "@enonic-types/core@^7":
+"@enonic-types/core@7.14.2":
   version "7.14.2"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.14.2.tgz#668d2dcd62a67e280046304c4305f0d54ce3d82c"
   integrity sha512-eLGEDYIj4OPTLx0w6AhuJngb0iRtOA9KIjrGf931kgk9Y1XWXn9HiVQtfZXoI/J2qR87bgyYiRaeCD4v6EQUjQ==
+
+"@enonic-types/core@7.14.3", "@enonic-types/core@^7":
+  version "7.14.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.14.3.tgz#87fa5407c065a9d1548b00e4f1e301e223026b1f"
+  integrity sha512-w1WiJhgGKjadky6sZa/QikMy9rRy31LKs52FyNjY8i33xvKiG+ofYF33JPU53PTiR3RZyDoTiSlewF3ppGPMfA==
 
 "@enonic-types/global@^7":
   version "7.14.2"
@@ -368,11 +373,11 @@
   integrity sha512-DyLtNS9oGXZgfVzGSTVhfjgWMIWsvoU8WZsRLv+ojBRVIUyFNB4XpxzXrVYnG7Clr4Ae+0Ru8Gf+cLLEV1pg7Q==
 
 "@enonic-types/lib-io@^7":
-  version "7.14.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-7.14.2.tgz#b710e84569a3d20ec3772c211a2933d4314eb2c0"
-  integrity sha512-jO605zkuc53/uOWDW1LWjRHWnTjZur6v1vwXzU5P0n1jDa22ISx7nfTFrPzC9i5Hq/NcSp2hxfF2SceiNS4mPw==
+  version "7.14.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-7.14.3.tgz#ccfe04e40fa2611a3c72f1a0259cbdac92cfc599"
+  integrity sha512-T0gq0pA1QjVMivdBeQ5Beq/sCzORkfam7vSy75+3AToONmMAjk5xKJ7PD1JKEXrIp/0jRSf3KsqZR/tT38Dp4Q==
   dependencies:
-    "@enonic-types/core" "7.14.2"
+    "@enonic-types/core" "7.14.3"
 
 "@enonic-types/lib-mail@^7":
   version "7.14.2"
