@@ -168,6 +168,10 @@
       "import": "./dist/esm/storage/query/filter/isNotExistsFilter.mjs",
       "require": "./dist/cjs/storage/query/filter/isNotExistsFilter.cjs"
     },
+    "./string/camelize": {
+      "import": "./dist/esm/string/camelize.mjs",
+      "require": "./dist/cjs/string/camelize.cjs"
+    },
     "./string/endsWith": {
       "import": "./dist/esm/string/endsWith.mjs",
       "require": "./dist/cjs/string/endsWith.cjs"
@@ -184,6 +188,10 @@
       "import": "./dist/esm/string/startsWith.mjs",
       "require": "./dist/cjs/string/startsWith.cjs"
     },
+    "./string/ucFirst": {
+      "import": "./dist/esm/string/ucFirst.mjs",
+      "require": "./dist/cjs/string/ucFirst.cjs"
+    },
     "./value": {
       "import": "./dist/esm/value/index.mjs",
       "require": "./dist/cjs/value/index.cjs"
@@ -191,6 +199,10 @@
     "./value/isBoolean": {
       "import": "./dist/esm/value/isBoolean.mjs",
       "require": "./dist/cjs/value/isBoolean.cjs"
+    },
+    "./value/isNotSet": {
+      "import": "./dist/esm/value/isNotSet.mjs",
+      "require": "./dist/cjs/value/isNotSet.cjs"
     },
     "./value/isNumber": {
       "import": "./dist/esm/value/isNumber.mjs",
