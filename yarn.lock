@@ -280,10 +280,15 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.14.4.tgz#f9f8ca6ea2127c373289637205ad47c4da0303e7"
   integrity sha512-AzMe/DixiaNH8X3OEvy0AREwr3GcmmcQ5lQ3k8AQWK4rQVKmSVatuNslkQFvzakjc7BOcTHGSBxr5lhN9+qD8g==
 
-"@enonic-types/core@7.15.0", "@enonic-types/core@^7":
+"@enonic-types/core@7.15.0":
   version "7.15.0"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.0.tgz#907bff773a834c4e99d099a74d37b5a12689018a"
   integrity sha512-I0NG8tcb1vW5zBnzqBvF2B7uJExI9holuQrrREXI+qPiZ0e9HHNxDKRWMQ6+VY5p4X8ishxmbRhoBbHv5CUyeA==
+
+"@enonic-types/core@7.15.1", "@enonic-types/core@^7":
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.1.tgz#81bc15179eda1e8622293e4c5efbbfd1db1c07b5"
+  integrity sha512-FvWrHFoZvVCInQ2OSKAcUg0rOiYbFXfr9KTl0J36ZnToTMnNq6PTfBBpeab5j+OwuPSQ5dYzAW7cSNR1xpUA8A==
 
 "@enonic-types/global@^7":
   version "7.15.0"
@@ -326,11 +331,11 @@
     "@enonic-types/core" "7.15.0"
 
 "@enonic-types/lib-mail@^7":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.15.0.tgz#edd0e0bec197be34dbeb92ebea75b38b120d4714"
-  integrity sha512-sish671AmVT+IlCMcyRmv8Kww/wcuO0w2FKVLPplB6pREsG/K/oLJQQDfeG1F73LlZRrFYxAvAdf4Ck0/07wjg==
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.15.1.tgz#d2ac3d95066508c3c57f73af684b148a033f250e"
+  integrity sha512-taF+fr9zDxBAqpScMtrNjTv925gaWzGXJguRIfmOe+JWwWLD2dHvtMPcXyHFWiMAKsELPco7H8a69iDIM6dhPw==
   dependencies:
-    "@enonic-types/core" "7.15.0"
+    "@enonic-types/core" "7.15.1"
 
 "@enonic-types/lib-node@^7":
   version "7.15.0"
