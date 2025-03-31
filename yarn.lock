@@ -354,11 +354,11 @@
     "@enonic-types/core" "7.15.1"
 
 "@enonic-types/lib-schema@^7":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-schema/-/lib-schema-7.15.0.tgz#f6416b0cd5895dac2d254744645f5748c00f8901"
-  integrity sha512-XE2apa/mGOXx7cC/a36RYGOh4DLA2OK48yuBbrBeRHXyZ8JPgRaEafRs2/WtzQ/hrQq3LxhfKe7N8BViogL5Ow==
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-schema/-/lib-schema-7.15.1.tgz#9681568041999e909300198eac3a03ff845c3526"
+  integrity sha512-K18mMz+MAeDwQVNdAPhC8khGC5eBVopOne7MzBGKodTt/QuAmKaz+JuhB//CTkYifOK0lL4BJxVKdGbv6zDV+A==
   dependencies:
-    "@enonic-types/core" "7.15.0"
+    "@enonic-types/core" "7.15.1"
 
 "@enonic-types/lib-value@^7":
   version "7.15.0"
