@@ -319,11 +319,11 @@
   integrity sha512-tfkq0u7DzyXtC3BF9AgZIoWKH9jVJgMuYxoD1h6bAOYX3dZdd2iXj7e2XpEn+5Dfa2qmMB7CBV7IaX7vLGtBJQ==
 
 "@enonic-types/lib-io@^7":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-7.15.0.tgz#a917787976357ca35cfb9ddc0ae05e3a742ad347"
-  integrity sha512-AcQtNCsUsKzrMY91UtXuwVRPZ3Eqr8Aa8Ztn5xg85ip6QR95Jp3to0nBH6wq/F0+QiX6Ma7TRA90DNbl0pyEEg==
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-7.15.1.tgz#de29b9b6cd4a19fba3cfb50128d3fcf6e0f1d047"
+  integrity sha512-Pj6L/MT4ucjkmoMWbKW3nP8qwj88NVYMzvXSBXXLGPAJJlP0M7UpuK1MXisiyItE1mFq794A5ByxSQze5s/RSw==
   dependencies:
-    "@enonic-types/core" "7.15.0"
+    "@enonic-types/core" "7.15.1"
 
 "@enonic-types/lib-mail@^7":
   version "7.15.1"
