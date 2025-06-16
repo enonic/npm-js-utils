@@ -308,11 +308,6 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@enonic-types/core@7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.0.tgz#907bff773a834c4e99d099a74d37b5a12689018a"
-  integrity sha512-I0NG8tcb1vW5zBnzqBvF2B7uJExI9holuQrrREXI+qPiZ0e9HHNxDKRWMQ6+VY5p4X8ishxmbRhoBbHv5CUyeA==
-
 "@enonic-types/core@7.15.1":
   version "7.15.1"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.1.tgz#81bc15179eda1e8622293e4c5efbbfd1db1c07b5"
@@ -338,11 +333,11 @@
     "@enonic-types/core" "7.15.2"
 
 "@enonic-types/lib-auth@^7":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-7.15.0.tgz#1397e6a0ebe68ae0e7052c8f846cb628637b06a9"
-  integrity sha512-Dm4F7/EeGMGHUZB55EFqcql3o14UfkxeKjy1VTw1fl9elZlbqsT1PyIn2brZtj5N9Aa0FvU0yRtb+TqgSegh+w==
+  version "7.15.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-7.15.2.tgz#4583f2f5c4e99a3453a459effffa2755b89fe777"
+  integrity sha512-45EU3x7yPv1B5gPny57J3ISoj8ipTrGyxrfqICgHJ7jSd6a0eRkm6BIViMj+EC3dh/zYjeJvgwvDcnri7iVDCw==
   dependencies:
-    "@enonic-types/core" "7.15.0"
+    "@enonic-types/core" "7.15.2"
 
 "@enonic-types/lib-content@^7":
   version "7.15.1"
