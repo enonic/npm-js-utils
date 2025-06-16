@@ -21,7 +21,7 @@
     "@enonic-types/lib-schema": "^7",
     "@enonic-types/lib-value": "^7",
     "@enonic/test-data": "^1",
-    "@jest/globals": "^29",
+    "@jest/globals": "^30",
     "@swc/core": "^1",
     "@types/assert": "^1",
     "@types/chai": "^4",
