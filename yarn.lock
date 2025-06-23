@@ -313,10 +313,15 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.1.tgz#81bc15179eda1e8622293e4c5efbbfd1db1c07b5"
   integrity sha512-FvWrHFoZvVCInQ2OSKAcUg0rOiYbFXfr9KTl0J36ZnToTMnNq6PTfBBpeab5j+OwuPSQ5dYzAW7cSNR1xpUA8A==
 
-"@enonic-types/core@7.15.2", "@enonic-types/core@^7":
+"@enonic-types/core@7.15.2":
   version "7.15.2"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.2.tgz#a0cc5183113a5a0282ede73ae635dfb00dbdc0bf"
   integrity sha512-xdzI47vdrvrBy3j9GAKfWoD+5CXlk/fIdAHriLjAcvn8IZlBnWyp276/DCa6T3BshDTJXylEQIL0tsRkznnXgQ==
+
+"@enonic-types/core@7.15.3", "@enonic-types/core@^7":
+  version "7.15.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.3.tgz#5c971692225eafee4912928052789e975f694f46"
+  integrity sha512-c7fxoK6mp5tluTBlddxWIyFVR6BpJ191zyE32GrsfZb9b8+ikudWjU+h6+F+2QeIk4zKGdNnXV6M/Q5m4tX+mw==
 
 "@enonic-types/global@^7":
   version "7.15.1"
@@ -340,11 +345,11 @@
     "@enonic-types/core" "7.15.2"
 
 "@enonic-types/lib-content@^7":
-  version "7.15.1"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-content/-/lib-content-7.15.1.tgz#069df180ca1090da851d7568c66850b0ab8860cd"
-  integrity sha512-/X6+LeKG2bMSNDx6kD0rCuK2T2BrfzLTVSsEfsAoKwyhfFeQBNqpRAiznPPvnz+uDJc+sfAdHK4Ybf01KRoBsg==
+  version "7.15.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-content/-/lib-content-7.15.3.tgz#bcb0f43a60822e271acf6ee096447889cf70359a"
+  integrity sha512-eP2VCmuo+hSM2rA88VCboWyGhm2R9WXTzZDOFIE+K4sh06CcX6h+IRozykQGdriBQq3144a6PHbfa2WvzhAHjA==
   dependencies:
-    "@enonic-types/core" "7.15.1"
+    "@enonic-types/core" "7.15.3"
 
 "@enonic-types/lib-event@^7":
   version "7.15.2"
