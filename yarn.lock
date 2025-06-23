@@ -428,11 +428,11 @@
     "@enonic-types/core" "7.15.3"
 
 "@enonic-types/lib-mail@^7":
-  version "7.15.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.15.2.tgz#e3adddfc4fd7daed7ab2e652ceef99cb764c41ae"
-  integrity sha512-BqWe3cPDeblQnfxAkjvNi/iCcBQ5sKh/RIAapCKfCrEs/20VmiTA2p/wb/WX7bIHdWD4Ytw5nP+1myMdBD9PyA==
+  version "7.15.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.15.3.tgz#95b69ef7b6cc3133b3392c5ede4d90e20d5f9b02"
+  integrity sha512-sFjVEkImpZ260dgreU6xiDKCWyM3cQMQITD0lpFlBwbkuTfepL8KhuEdo40K9dchMDLu3ajMLvRp6hoNKJ26pg==
   dependencies:
-    "@enonic-types/core" "7.15.2"
+    "@enonic-types/core" "7.15.3"
 
 "@enonic-types/lib-node@^7":
   version "7.15.3"
