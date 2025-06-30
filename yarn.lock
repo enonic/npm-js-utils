@@ -372,11 +372,6 @@
   resolved "https://registry.yarnpkg.com/@csstools/css-tokenizer/-/css-tokenizer-3.0.4.tgz#333fedabc3fd1a8e5d0100013731cf19e6a8c5d3"
   integrity sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==
 
-"@enonic-types/core@7.15.1":
-  version "7.15.1"
-  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.1.tgz#81bc15179eda1e8622293e4c5efbbfd1db1c07b5"
-  integrity sha512-FvWrHFoZvVCInQ2OSKAcUg0rOiYbFXfr9KTl0J36ZnToTMnNq6PTfBBpeab5j+OwuPSQ5dYzAW7cSNR1xpUA8A==
-
 "@enonic-types/core@7.15.2":
   version "7.15.2"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.2.tgz#a0cc5183113a5a0282ede73ae635dfb00dbdc0bf"
@@ -1649,9 +1644,9 @@
   integrity sha512-ZYFzrvyWUNhaPomn80dsMNgMeXxNWZBdkuG/hWlUvXvbdUH8ZERNBGXnU87McuGcWDsyzX2aChCv/SVN348k3A==
 
 "@types/node@*", "@types/node@^24.0.2":
-  version "24.0.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.0.2.tgz#35ae563eec65e0210ec667ebd1a43c1730ab4f3d"
-  integrity sha512-Kv1shWMfCUnzbQTosAHrF2p8AzccoLODqJ0XqGPRA/mGVZR86KCk8I+fyh6B5+kcLtAKS9BquXUxVO79jU9UGg==
+  version "24.0.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.0.7.tgz#ee580f7850c7eabaeef61ef96b8d8c04fdf94f53"
+  integrity sha512-YIEUUr4yf8q8oQoXPpSlnvKNVKDQlPMWrmOcgzoduo7kvA2UF0/BwJ/eMKFTiTtkNL17I0M6Xe2tvwFU7be6iw==
   dependencies:
     undici-types "~7.8.0"
 
