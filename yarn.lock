@@ -399,11 +399,11 @@
     "@enonic-types/core" "7.15.3"
 
 "@enonic-types/lib-content@^7":
-  version "7.15.3"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-content/-/lib-content-7.15.3.tgz#bcb0f43a60822e271acf6ee096447889cf70359a"
-  integrity sha512-eP2VCmuo+hSM2rA88VCboWyGhm2R9WXTzZDOFIE+K4sh06CcX6h+IRozykQGdriBQq3144a6PHbfa2WvzhAHjA==
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-content/-/lib-content-7.15.4.tgz#d5672258278a1c7312ab4189bd71325e53352010"
+  integrity sha512-Lzi+ffkxq1wMQiYWEc+GNLbwUImd5M0r/3pPIb65DsjlN+ukBAUPqhs7vuFFrRisle+6QwrhF/6vkbuENFa2lw==
   dependencies:
-    "@enonic-types/core" "7.15.3"
+    "@enonic-types/core" "7.15.4"
 
 "@enonic-types/lib-event@^7":
   version "7.15.4"
