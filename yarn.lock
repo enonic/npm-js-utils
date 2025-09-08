@@ -384,11 +384,11 @@
     "@enonic-types/core" "7.15.4"
 
 "@enonic-types/lib-auth@^7":
-  version "7.15.3"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-7.15.3.tgz#d90fa971e73a276334aa06045c8de5f9264367b2"
-  integrity sha512-42zyLf7ZFvmyOelwhGbDg5n1IroEN4cfFwEBopiv/X5FxbGowFFHCOLoCF47AZ6qO7OdWlv5eq4fH3hmJyQjrw==
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-7.15.4.tgz#f129f7510fbbc183ee697a7d87615f3085bda501"
+  integrity sha512-Ct5ovpbB4Kk6CN4Ya+kZyKdeHMGvoqbImCifLa0ShX6Oe9vOW+yAVpya9PO6BDInbfXExnsKA5YhtdyZHhG2uQ==
   dependencies:
-    "@enonic-types/core" "7.15.3"
+    "@enonic-types/core" "7.15.4"
 
 "@enonic-types/lib-content@^7":
   version "7.15.4"
