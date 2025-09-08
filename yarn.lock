@@ -367,15 +367,15 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@7.15.2":
-  version "7.15.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.2.tgz#a0cc5183113a5a0282ede73ae635dfb00dbdc0bf"
-  integrity sha512-xdzI47vdrvrBy3j9GAKfWoD+5CXlk/fIdAHriLjAcvn8IZlBnWyp276/DCa6T3BshDTJXylEQIL0tsRkznnXgQ==
-
-"@enonic-types/core@7.15.3", "@enonic-types/core@^7":
+"@enonic-types/core@7.15.3":
   version "7.15.3"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.3.tgz#5c971692225eafee4912928052789e975f694f46"
   integrity sha512-c7fxoK6mp5tluTBlddxWIyFVR6BpJ191zyE32GrsfZb9b8+ikudWjU+h6+F+2QeIk4zKGdNnXV6M/Q5m4tX+mw==
+
+"@enonic-types/core@7.15.4", "@enonic-types/core@^7":
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.4.tgz#f2c5d17a9ffafb42105968724764326a6d8f4fc2"
+  integrity sha512-XiPAhgTEzYQSCXlMYiQlmXpRj3hHqI/c1waC4ctm6bbt4O4y+dOAQQ0rnUROc9ZrjOEqVtvZ1dcSWHJ6JAGwsw==
 
 "@enonic-types/global@^7":
   version "7.15.3"
@@ -385,11 +385,11 @@
     "@enonic-types/core" "7.15.3"
 
 "@enonic-types/lib-app@^7":
-  version "7.15.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-app/-/lib-app-7.15.2.tgz#f96fc2108735c2b0b5ba95c071b4b79054ceb20c"
-  integrity sha512-G60K85IqnTQ7QP7Sg0nDQsdfCo5cF8f5MvaScha2wuh2D5P05mY5RmVCmTYUQv5gouUacX00lK1yaRoXXtgAnA==
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-app/-/lib-app-7.15.4.tgz#e80772ee986607817c167ba89d8268bed1d04552"
+  integrity sha512-GeJq3F9yfwffhIQT3C7R05vXUQAQaUSbMSmQN/CNz5ootEFISkrqlIc9yEj9kDyzFFp+HwTpB+hjaqwA0hfZPw==
   dependencies:
-    "@enonic-types/core" "7.15.2"
+    "@enonic-types/core" "7.15.4"
 
 "@enonic-types/lib-auth@^7":
   version "7.15.3"
