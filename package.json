@@ -46,7 +46,7 @@
     "tsd": "^0",
     "tslib": "^2",
     "tsup": "^8",
-    "type-fest": "^4",
+    "type-fest": "^5",
     "typedoc": "^0",
     "typescript": "^5"
   },
