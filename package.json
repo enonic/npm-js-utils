@@ -39,7 +39,7 @@
     "jest-environment-jsdom": "^30",
     "q-i": "^2",
     "rimraf": "^6",
-    "serialize-javascript": "^6",
+    "serialize-javascript": "^7",
     "swc": "^1",
     "ts-jest": "^29",
     "ts-node": "^10.9.1",
