@@ -364,11 +364,6 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@7.15.4":
-  version "7.15.4"
-  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.15.4.tgz#f2c5d17a9ffafb42105968724764326a6d8f4fc2"
-  integrity sha512-XiPAhgTEzYQSCXlMYiQlmXpRj3hHqI/c1waC4ctm6bbt4O4y+dOAQQ0rnUROc9ZrjOEqVtvZ1dcSWHJ6JAGwsw==
-
 "@enonic-types/core@7.16.0", "@enonic-types/core@^7":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.16.0.tgz#2624701faa05a348dc56c8f23a926c47fe54eb33"
@@ -6197,9 +6192,9 @@ semver@^7.3.4, semver@^7.3.5, semver@^7.3.8, semver@^7.5.3, semver@^7.5.4, semve
   integrity sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==
 
 serialize-javascript@^7:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-7.0.1.tgz#deb54bc9e2a9441aebe557c3998d81c831b26816"
-  integrity sha512-ZLk39cj/i4KVhAPoLcAbqq38U6GaJchno7g+GPTn6F4HYdCT4u4p41l+DvKQHOR+TkanbSOCkrHJW1Zp60LYkw==
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-7.0.2.tgz#3939e695db5adff30b282bb36466b58e518008bb"
+  integrity sha512-Y/agDAqbUWRYFWLF5pMT9Rb8wN5ERPMbQH7oq6R+4YgFdMNO4+ELo4PjFCW3H+2CbXirPr/XUgYT+3iXJfTbZQ==
 
 set-function-length@^1.2.1, set-function-length@^1.2.2:
   version "1.2.2"
