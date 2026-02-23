@@ -359,10 +359,15 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@7.16.1", "@enonic-types/core@^7":
+"@enonic-types/core@7.16.1":
   version "7.16.1"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.16.1.tgz#1dc92a2265f6c2ad86725e74f9dafcb06eb4e060"
   integrity sha512-wd5St7YUVZnsl062JpMZ7Jh7j/HleiwUAaAwx+6BmuRRL9ff1XKU00c50HG6JyqEM5FGFENCgdxC1I75vgGrPQ==
+
+"@enonic-types/core@7.16.2", "@enonic-types/core@^7":
+  version "7.16.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.16.2.tgz#dfd19e2e8a56edb1b0b153bc0e9e2a4a1da2f996"
+  integrity sha512-rOhH1Xh2u7Nt/4SYsQbPn8uc/GxM5tciYNYTN8+Grn/YMM71abaBiC/zb9c2KY37lZOoLRWbelZrLp/SpaDtHw==
 
 "@enonic-types/global@^7":
   version "7.16.1"
@@ -398,11 +403,11 @@
   integrity sha512-+sOsP2JGxcHKX83L/eEYTSaglUt33wlopgJua3ZPMDK/EeJf4DbH+7iu3iyktkCq5BG8NJnkE+vY3UbEnS+p3w==
 
 "@enonic-types/lib-io@^7":
-  version "7.16.1"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-7.16.1.tgz#92617e4f0a7aafa9bd73341a0f13b6c844597dc2"
-  integrity sha512-+qDJBCzVXY9J8/0Pgr4YXZZXYOBc+u0TWPV7+0ARvIr0jO70ip0SfogF/HeZgqm+pH/Esb8qJFGruzsrqPlp9A==
+  version "7.16.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-7.16.2.tgz#a44db377b441cfce43bbd27f4390a92d61f7aed2"
+  integrity sha512-s6Gwa/JYiAagS8q/QiTtp43wrycLGSxCOS1wL1OOp0XB0ir0BOfpaQkRndqT5Pqd3zxNBMqXO5/IZtj0QTnaAg==
   dependencies:
-    "@enonic-types/core" "7.16.1"
+    "@enonic-types/core" "7.16.2"
 
 "@enonic-types/lib-mail@^7":
   version "7.16.1"
