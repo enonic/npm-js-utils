@@ -359,10 +359,15 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@7.16.1", "@enonic-types/core@^7":
+"@enonic-types/core@7.16.1":
   version "7.16.1"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.16.1.tgz#1dc92a2265f6c2ad86725e74f9dafcb06eb4e060"
   integrity sha512-wd5St7YUVZnsl062JpMZ7Jh7j/HleiwUAaAwx+6BmuRRL9ff1XKU00c50HG6JyqEM5FGFENCgdxC1I75vgGrPQ==
+
+"@enonic-types/core@7.16.2", "@enonic-types/core@^7":
+  version "7.16.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.16.2.tgz#dfd19e2e8a56edb1b0b153bc0e9e2a4a1da2f996"
+  integrity sha512-rOhH1Xh2u7Nt/4SYsQbPn8uc/GxM5tciYNYTN8+Grn/YMM71abaBiC/zb9c2KY37lZOoLRWbelZrLp/SpaDtHw==
 
 "@enonic-types/global@^7":
   version "7.16.1"
@@ -412,11 +417,11 @@
     "@enonic-types/core" "7.16.1"
 
 "@enonic-types/lib-node@^7":
-  version "7.16.1"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-node/-/lib-node-7.16.1.tgz#d3a29ce8e046220b240f4e40b0dd5ad3268716cc"
-  integrity sha512-WToRGobDeZbWBrFOOmNvrI03XI7vdZt8ljDylvO/azW2ikOl55aBeatszIlvwyUL6iMcTATzClb7pg/D2Fsgjw==
+  version "7.16.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-node/-/lib-node-7.16.2.tgz#ea64cc906cc916532fb101d831b8e214bd4a21fa"
+  integrity sha512-rcuL7y6Tjo9t7IIz8NLzB+bmjyAqSgHpxujiHfcVqWhkGeB22fj6CFj09Ya6uR5ToFo0ZiD6JCxTdqQbjLkdpQ==
   dependencies:
-    "@enonic-types/core" "7.16.1"
+    "@enonic-types/core" "7.16.2"
 
 "@enonic-types/lib-portal@^7":
   version "7.16.1"
