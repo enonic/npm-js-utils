@@ -424,11 +424,11 @@
     "@enonic-types/core" "7.16.2"
 
 "@enonic-types/lib-portal@^7":
-  version "7.16.1"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-portal/-/lib-portal-7.16.1.tgz#f0fcbe64f72aac9670f6cef3a02ba5222e21ad79"
-  integrity sha512-MKMUAFLyivGghktCnIzglEBF+f2RmslzEiBN1MIwY6fsOSEOuTschRzIYHyAmnxFe0+eHZNIPmpasP4OK9JicQ==
+  version "7.16.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-portal/-/lib-portal-7.16.2.tgz#a98178b862f3d1062043fd7962ff4c3f3c80f023"
+  integrity sha512-Uf9tB2hq2Qb4XVZaycu/ewQClwQp3SESEMMQ2RDDIBv6PJm9/UEeJxW6BIh8F4aOSbLPFiIjFRwlKWi1rwMhHw==
   dependencies:
-    "@enonic-types/core" "7.16.1"
+    "@enonic-types/core" "7.16.2"
 
 "@enonic-types/lib-repo@^7":
   version "7.16.2"
