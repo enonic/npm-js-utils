@@ -359,10 +359,15 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@7.16.2", "@enonic-types/core@^7":
+"@enonic-types/core@7.16.2":
   version "7.16.2"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.16.2.tgz#dfd19e2e8a56edb1b0b153bc0e9e2a4a1da2f996"
   integrity sha512-rOhH1Xh2u7Nt/4SYsQbPn8uc/GxM5tciYNYTN8+Grn/YMM71abaBiC/zb9c2KY37lZOoLRWbelZrLp/SpaDtHw==
+
+"@enonic-types/core@7.16.3", "@enonic-types/core@^7":
+  version "7.16.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-7.16.3.tgz#071d57bb3f6de7a0fe82a508badb7410005c35ae"
+  integrity sha512-0TbkNHMO9xir/m92RavXL6XIM4L4zA5J4Tk1ettODrX+3YfcoFAXiGlPQanD0k4o3s79D0ZYPw2QKPhA2/OAdw==
 
 "@enonic-types/global@^7":
   version "7.16.2"
@@ -405,11 +410,11 @@
     "@enonic-types/core" "7.16.2"
 
 "@enonic-types/lib-mail@^7":
-  version "7.16.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.16.2.tgz#45f13b1f1f18a91c0f8e06991137be71718dd711"
-  integrity sha512-Fxun205mtQ/8Z0/aMyeDWMFwlz3SxEQY3pb2rQ7kCaKigFgRDcTllvL42LTe3LMupD++hw8ZXVvvB1BnLJitmQ==
+  version "7.16.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-7.16.3.tgz#49052aa1b8c579b4f790ed49e1b7f1e7795534a5"
+  integrity sha512-mAmTq4sytmaaP+I9pOvvUQyk6qyCyTNY8So7J311gdgLv4w16OmOBda9oqPSkqpeIFbwmuMK5yHG5kMYp61IYQ==
   dependencies:
-    "@enonic-types/core" "7.16.2"
+    "@enonic-types/core" "7.16.3"
 
 "@enonic-types/lib-node@^7":
   version "7.16.2"
