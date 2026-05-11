@@ -431,11 +431,11 @@
     "@enonic-types/core" "7.16.2"
 
 "@enonic-types/lib-repo@^7":
-  version "7.16.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-repo/-/lib-repo-7.16.2.tgz#2878c401448c9e4b80ef66d901335c8039074149"
-  integrity sha512-rcH+dv1lVFHLsLVO23z2U1Pz1tjLIwYSHFBjiVZstLyYxit4LBB9hz9XdCh7Fyp8Bw04O4xXR8B+R08yq/TdRw==
+  version "7.16.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-repo/-/lib-repo-7.16.3.tgz#4cbadc7170ac10a74ec6f2bb8b104acbfb20f3c0"
+  integrity sha512-l8q2IUyro8DvaOZpIdb8iVsUkSkGS3itzaIiTFdHWi9h97zy8lAaKfLxEsRKcuFk5f7D4Hp6/rQaK5/74nqmig==
   dependencies:
-    "@enonic-types/core" "7.16.2"
+    "@enonic-types/core" "7.16.3"
 
 "@enonic-types/lib-schema@^7":
   version "7.16.2"
