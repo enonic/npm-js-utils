@@ -1575,11 +1575,6 @@
     "@types/node" "*"
     "@types/responselike" "^1.0.0"
 
-"@types/chai@^4":
-  version "4.3.7"
-  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.3.7.tgz#5457bc3dce72f20ae533366682a6298471d1c610"
-  integrity sha512-/k+vesl92vMvMygmQrFe9Aimxi6oQXFUX9mA5HanTrKUSAMoLauSi6PNFOdRw0oeqilaW600GNx2vSaT2f8aIQ==
-
 "@types/eslint@^7.2.13":
   version "7.29.0"
   resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-7.29.0.tgz#e56ddc8e542815272720bb0b4ccc2aff9c3e1c78"
@@ -2451,11 +2446,6 @@ caniuse-lite@^1.0.30001663:
   version "1.0.30001667"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001667.tgz#99fc5ea0d9c6e96897a104a8352604378377f949"
   integrity sha512-7LTwJjcRkzKFmtqGsibMeuXmvFDfZq/nzIjnmgCGzKKRVzjD72selLDK1oPF/Oxzmt4fNcPvTDvGqSDG4tCALw==
-
-chai@^6:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/chai/-/chai-6.2.2.tgz#ae41b52c9aca87734505362717f3255facda360e"
-  integrity sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==
 
 chalk@4.1.2, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
