@@ -18,5 +18,4 @@
 // object was introduced in TypeScript 2.2. It is any non-primitive type.
 // You can't assign to it any primitive type like bool, number, string, symbol.
 
-//eslint-disable-next-line @typescript-eslint/ban-types
 export const isBasicObject = (value :Object|unknown) :value is Object => typeof value === 'object';

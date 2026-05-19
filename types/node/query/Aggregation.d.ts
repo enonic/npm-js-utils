@@ -84,7 +84,7 @@ export type RangeAggregation = NumericRangeAggregation
 export type Aggregations<
 	AggregationKeys extends undefined|string = undefined
 > = AggregationKeys extends undefined
-	? {} // eslint-disable-line @typescript-eslint/ban-types
+	? {}
 	: AggregationKeys extends string
 		? Record<AggregationKeys, Aggregation>
 		: never
@@ -100,7 +100,7 @@ export type AggregationsResponseEntry = AggregationsResult
 export type AggregationsResponse<
 	AggregationKeys extends undefined|string = undefined
 > = AggregationKeys extends undefined
-	? {} // eslint-disable-line @typescript-eslint/ban-types
+	? {}
 	: AggregationKeys extends string
 		? Record<AggregationKeys, AggregationsResult>
 		/*? {

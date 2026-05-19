@@ -4,7 +4,6 @@ import {toStr} from '../value/toStr';
 
 
 export function hasOwnProperty<
-	//eslint-disable-next-line @typescript-eslint/ban-types
 	X extends Object,//Record<PropertyKey,unknown|never>, // TODO Does this include arrays? It needs to because a basic Object includes Array.
 	Y extends PropertyKey
 > (

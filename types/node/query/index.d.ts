@@ -114,7 +114,7 @@ export type NodeQueryParams<
 	* Aggregations expression.
 	*/
 	aggregations ?:AggregationKeys extends undefined
-		? {} // eslint-disable-line @typescript-eslint/ban-types
+		? {}
 		: AggregationKeys extends string
 			? Record<AggregationKeys, Aggregation>
 			: never

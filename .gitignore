@@ -4,6 +4,7 @@
 /docs/
 /node_modules/
 /index.d.ts
+/index.d.cts
 /yarn-error.log
 *.tgz
 .idea

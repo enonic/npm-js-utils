@@ -4,7 +4,7 @@ import {hasOwnProperty} from './hasOwnProperty';
 
 
 export function getIn<
-	O extends Object, // eslint-disable-line @typescript-eslint/ban-types
+	O extends Object,
 	K extends keyof O,
 	V extends O[K],
 	D/* extends unknown*/

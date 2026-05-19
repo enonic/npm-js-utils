@@ -14,6 +14,5 @@ import {isStringLiteral} from './isStringLiteral';
 import {isStringObject} from './isStringObject';
 
 
-//eslint-disable-next-line @typescript-eslint/ban-types
 export const isString = (value: string | unknown) :value is string|String =>
 	isStringLiteral(value) || isStringObject(value);
