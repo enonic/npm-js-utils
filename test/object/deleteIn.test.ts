@@ -1,15 +1,12 @@
-import {assert} from 'chai';
 import {
 	describe,
-	// expect,
+	expect,
 	test
 } from '@jest/globals';
 import { deleteIn } from '../../index';
 
-const {
-	equal,
-	deepStrictEqual
-} = assert;
+const equal = <T>(actual: T, expected: T) => expect(actual).toBe(expected);
+const deepStrictEqual = <T>(actual: T, expected: T) => expect(actual).toEqual(expected);
 
 describe('object', () => {
 	describe('deleteIn', () => {
