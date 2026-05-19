@@ -1,16 +1,13 @@
-import {assert} from 'chai';
 import {
 	describe,
-	// expect,
+	expect,
 	test
 } from '@jest/globals';
 import { getIn } from '../../index';
 
 
-const {
-	equal,
-	isUndefined
-} = assert;
+const equal = <T>(actual: T, expected: T) => expect(actual).toBe(expected);
+const isUndefined = (actual: unknown) => expect(actual).toBeUndefined();
 
 const VERY_DEEP_KEY_VALUE = 'veryDeepKeyValue';
 

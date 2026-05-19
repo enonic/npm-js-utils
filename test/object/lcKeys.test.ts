@@ -1,7 +1,6 @@
-import { expect } from 'chai';
 import {
 	describe,
-	// expect,
+	expect,
 	test
 } from '@jest/globals';
 import { lcKeys } from '../../index';
@@ -12,9 +11,9 @@ describe('lcKeys', () => {
 		expect(lcKeys({
 			Accept: 'text/html',
 			'Accept-Encoding': 'gzip, deflate, br'
-		})).to.deep.equal({
+		})).toEqual({
 			accept: 'text/html',
 			'accept-encoding': 'gzip, deflate, br'
-		}, )
+		})
 	});
 });

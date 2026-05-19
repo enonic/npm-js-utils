@@ -1,7 +1,6 @@
-import { expect } from 'chai';
 import {
 	describe,
-	// expect,
+	expect,
 	test
 } from '@jest/globals';
 // import { mapKeys } from '../../index';
@@ -19,7 +18,7 @@ describe('mapKeys', () => {
 			value
 		}) => {
 			result[String(key).toLowerCase()] = value;
-		})).to.deep.equal({
+		})).toEqual({
 			accept: 'text/html',
 			'accept-encoding': 'gzip, deflate, br'
 		})
@@ -31,21 +30,21 @@ describe('mapKeys', () => {
 			value
 		}) => {
 			result[String(key).toLowerCase()] = value;
-		})).to.deep.equal({})
+		})).toEqual({})
 	});
 	test('throws when first param is missing', () => {
 		const fn = () =>
 			// @ts-expect-error Expected 2 arguments, but got 0
 			mapKeys();
-		expect(fn).to.throw(TypeError);
-		expect(fn).to.throw('mapKeys: First param must be an object! got:undefined');
+		expect(fn).toThrow(TypeError);
+		expect(fn).toThrow('mapKeys: First param must be an object! got:undefined');
 	});
 	test('throws when first param is not an object, but []', () => {
 		const fn = () =>
 			// @ts-expect-error Expected 2 arguments, but got 1
 			mapKeys([]);
-		expect(fn).to.throw(TypeError);
-		expect(fn).to.throw('mapKeys: First param must be an object! got:[]');
+		expect(fn).toThrow(TypeError);
+		expect(fn).toThrow('mapKeys: First param must be an object! got:[]');
 	});
 	test('throws when first param is not an object, but 1', () => {
 		const fn = () =>
@@ -57,7 +56,7 @@ describe('mapKeys', () => {
 			}) => {
 				result[String(key).toLowerCase()] = value;
 			});
-		expect(fn).to.throw(TypeError);
-		expect(fn).to.throw('mapKeys: First param must be an object! got:1');
+		expect(fn).toThrow(TypeError);
+		expect(fn).toThrow('mapKeys: First param must be an object! got:1');
 	});
 });
