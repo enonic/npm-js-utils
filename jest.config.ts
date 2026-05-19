@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	collectCoverageFrom: [
 		'array/**/*.{ts,tsx}',
 		'http/**/*.{ts,tsx}',

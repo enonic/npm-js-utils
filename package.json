@@ -96,7 +96,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:enonic/npm-js-utils.git"
+    "url": "git+ssh://git@github.com/enonic/npm-js-utils.git"
   },
   "scripts": {
     "build": "yarn build:tsup",
