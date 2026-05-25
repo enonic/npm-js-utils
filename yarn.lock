@@ -410,11 +410,11 @@
     "@enonic-types/core" "8.0.0-B4"
 
 "@enonic-types/lib-mail@^8.0.0-B4":
-  version "8.0.0-B4"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-8.0.0-B4.tgz#a856df975893c842c04918287f122fd6f9cce9ef"
-  integrity sha512-D5dnrQtHOlnOVUuNpIacnbFVnfXEUe+BG2puDhbFvuaXv/bdeHZGtAH2fr2cFkPt0xfAj7HK9hjVh1XiXsljbA==
+  version "8.0.0-B5"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-8.0.0-B5.tgz#a16f574abfde72119a62f68d44f5aac60781e0b9"
+  integrity sha512-hFt5Sx9yI9NTXS+FdH8DAzDkbTyb7SfF83+/44X/au9q7OIvRVx+0nSLE2UDIjSoQDM3WG2lnkV6J9hMkFjwsg==
   dependencies:
-    "@enonic-types/core" "8.0.0-B4"
+    "@enonic-types/core" "8.0.0-B5"
 
 "@enonic-types/lib-node@^8.0.0-B4":
   version "8.0.0-B5"
