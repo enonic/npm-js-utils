@@ -364,10 +364,15 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.0-B4.tgz#7f03b893198f8d9a5568d24f38b934ae77ead9d8"
   integrity sha512-UGq6ixxLMOEQm5NYdjilWUIXugcGiEKAmzuzM1vBCltdJLJfqgJYjVgrziXhbiulpYdxcMoDTe0N8uF7R6j25w==
 
-"@enonic-types/core@8.0.0-B5", "@enonic-types/core@^8.0.0-B4":
+"@enonic-types/core@8.0.0-B5":
   version "8.0.0-B5"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.0-B5.tgz#fb7bb631421c7560d4370f43acf11581a4ea7923"
   integrity sha512-kN17TYr6pNqqggdo4/k5sMLoDPJ2SYM6DjXJq1u3jOMshr1tjOl90wvcefg65leBwLcvyqlrdcSmYdiB2G3rCQ==
+
+"@enonic-types/core@8.0.0-RC2", "@enonic-types/core@^8.0.0-B4":
+  version "8.0.0-RC2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.0-RC2.tgz#e72f8a54510d1f40dbbf9d5281080e8e9a8a9ce7"
+  integrity sha512-zE10jGrjUTlqAzmxZ7QvQkIO64e2yvMNRv15YusvmWT2v0a5+zpPIee1CXm0oQEpeRFf/tDdfmMA9r9ylDpMjw==
 
 "@enonic-types/global@^8.0.0-B4":
   version "8.0.0-B5"
@@ -391,11 +396,11 @@
     "@enonic-types/core" "8.0.0-B5"
 
 "@enonic-types/lib-content@^8.0.0-B4":
-  version "8.0.0-B4"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-content/-/lib-content-8.0.0-B4.tgz#654f449d849a26127d50f7c26cf384677c28d004"
-  integrity sha512-KguGnlIpQRTTIXxeRQtKw0hQLn8cs03Jilfji8k0jFIWnxZ6zkSn3dK/9Ckivle8lq+sXKPRh2F+LlxLOd5sDA==
+  version "8.0.0-RC2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-content/-/lib-content-8.0.0-RC2.tgz#17c1766d8a23c4db0cb4e064488ca295aa3fe38f"
+  integrity sha512-cDl3qKR5cRoRQRxf/3QWGKqkRb32UnFIlAXvoFXkvLt1EUnvzpVkjPSPWZX4KBCZkT9V+KNi8AxNjDDaoKraSg==
   dependencies:
-    "@enonic-types/core" "8.0.0-B4"
+    "@enonic-types/core" "8.0.0-RC2"
 
 "@enonic-types/lib-event@^8.0.0-B4":
   version "8.0.0-B5"
