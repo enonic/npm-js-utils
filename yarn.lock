@@ -403,11 +403,11 @@
   integrity sha512-ZfOpIb+mH2SUM6Fnj7Qj4UC1y/JFtXvs66N7F1uXniLl9XfaF90p5oXx3CfEvzVwIGBk1e/DvuF1mbqNihvYiQ==
 
 "@enonic-types/lib-io@^8":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-8.0.0.tgz#fce7208c55a05b39b67ca14884e0a8b27bb7292a"
-  integrity sha512-5f0Nju3rhGm+uy/xriVJpQEZah+yJo73ezziayjZIiBrcRzukdr+Qhf0HlYAi01yjIYUeQMi4XdCSwbZQtbkDg==
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-8.0.2.tgz#a28d55715c5d84bf1f18139e320a2a624213e76b"
+  integrity sha512-JWtDBccEIlyP8QvQNwZca1/ho61joLKY34928wE3dCxNPi0tQeWMEOnYjoQb/Fpzcp9lgHVXd+HjBMJw/grilg==
   dependencies:
-    "@enonic-types/core" "8.0.0"
+    "@enonic-types/core" "8.0.2"
 
 "@enonic-types/lib-mail@^8":
   version "8.0.2"
