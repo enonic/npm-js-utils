@@ -5,8 +5,8 @@
   "author": "Christian Westgaard <cwe@enonic.com>",
   "contributors": [],
   "devDependencies": {
-    "@babel/core": "^7",
-    "@babel/register": "^7",
+    "@babel/core": "^8",
+    "@babel/register": "^8",
     "@enonic-types/core": "^8",
     "@enonic-types/global": "^8",
     "@enonic-types/lib-app": "^8",
