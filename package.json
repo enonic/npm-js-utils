@@ -24,7 +24,7 @@
     "@jest/globals": "^30",
     "@swc/core": "^1",
     "@types/assert": "^1",
-    "@types/node": "^25.0.2",
+    "@types/node": "^26.0.0",
     "typescript-eslint": "^8",
     "babel-jest": "^30.0.0",
     "concurrently": "^10",
