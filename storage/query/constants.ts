@@ -22,10 +22,4 @@ export const QUERY_OPERATORS = [
 	QUERY_OPERATOR_OR
 ] as const;
 
-export interface FieldObject {
-	boost? :number,
-	field :string,
-}
-
-type Field = (string | FieldObject);
-export type Fields = (Field | Field[]);
+export type { FieldObject, Fields } from './types';

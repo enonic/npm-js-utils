@@ -17,6 +17,7 @@ export {isInteger} from './isInteger';
 export {isLocalDateString} from './isLocalDateString';
 export {isLocalDateTimeString} from './isLocalDateTimeString';
 export {isNonNegativeIntegerString} from './isNonNegativeIntegerString';
+export { isNotNil } from './isNotNil';
 export {isNotSet} from './isNotSet';
 export {isNull} from './isNull';
 export {isNumber} from './isNumber';
