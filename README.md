@@ -6,25 +6,45 @@ A library of constants and functions that should work in any
 * javascript
 
 The intention is that the library should not depend upon any node-module that doesn't work in at least these environments:
-* Enonic XP serverside code
+* Enonic XP serverside code (Nashorn/GraalJS)
 * Modern browser
 * Newest LTS version of Node
 
 It should work in at least these frameworks:
 * React
 
+## Changelog
+
+### 1.11
+
+* Deprecate `forceArray()` which has several known issues!
+* Provide `noNilsArray()` which is an improved typesafe alternative to forceArray.
+* Provide `filterNils()` which is used by noNilsArray to remove nil values from an array.
+* Provide `isNotNil()` typeguard.
+* Implement [#682](https://github.com/enonic/npm-js-utils/issues/682) Provide functions (fulltext, ngram, stemmed) where boost is handeled correctly.
+* Bugfix: STEMMING_LANGUAGE_CODE_BRAZILIAN changed from pt-br to `pt-BR`.
+
+#### New functions:
+
+| Path                      | Description |
+| ------------------------- | --- |
+| array/filterNils          | Removes null and undefined values from an array. |
+| array/noNilsArray         | Turns any value into an array of non-nullish items. |
+| storage/querying/fulltext | Search for words in a field. |
+| storage/querying/ngram    | Search for words that begin with letters in a field. |
+| storage/querying/stemmed  | Search for stemmed words in a field. |
+| value/isNotNil            | Check if a value is not `null` or `undefined`. |
+
 ## Examples
 
 ### DSL
 
 ```typescript
-import {storage} from '@enonic/js-utils';
-
-const and = storage.query.dsl.and;
-const bool = storage.query.dsl.bool;
-const fulltext = storage.query.dsl.fulltext;
-const ngram = storage.query.dsl.ngram;
-const stemmed = storage.query.dsl.stemmed;
+import { and } from '@enonic/js-utils/storage/query/dsl/and';
+import { bool } from '@enonic/js-utils/storage/query/dsl/bool';
+import { fulltext } from '@enonic/js-utils/storage/querying/fulltext';
+import { ngram } from '@enonic/js-utils/storage/querying/ngram';
+import { stemmed } from '@enonic/js-utils/storage/querying/stemmed';
 
 const fields = 'url^1.2,title^1.1,text';
 const searchString = 'fun video';
@@ -41,155 +61,10 @@ console.debug(JSON.stringify(query, null, 4));
 {
 	"boolean": {
 		"must": [
-			{
-				"boolean": {
-					"should": [
-						{
-							"fulltext": {
-								"fields": [
-									"url"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"boost": 1.2
-							}
-						},
-						{
-							"fulltext": {
-								"fields": [
-									"title"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"boost": 1.1
-							}
-						},
-						{
-							"fulltext": {
-								"fields": [
-									"text"
-								],
-								"query": "fun video",
-								"operator": "OR"
-							}
-						}
-					]
-				}
-			},
-			{
-				"boolean": {
-					"should": [
-						{
-							"stemmed": {
-								"fields": [
-									"url"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"language": "no",
-								"boost": 1.08
-							}
-						},
-						{
-							"stemmed": {
-								"fields": [
-									"title"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"language": "no",
-								"boost": 0.9900000000000001
-							}
-						},
-						{
-							"stemmed": {
-								"fields": [
-									"text"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"language": "no",
-								"boost": 0.9
-							}
-						}
-					]
-				}
-			},
-			{
-				"boolean": {
-					"should": [
-						{
-							"stemmed": {
-								"fields": [
-									"url"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"language": "en",
-								"boost": 0.96
-							}
-						},
-						{
-							"stemmed": {
-								"fields": [
-									"title"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"language": "en",
-								"boost": 0.8800000000000001
-							}
-						},
-						{
-							"stemmed": {
-								"fields": [
-									"text"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"language": "en",
-								"boost": 0.8
-							}
-						}
-					]
-				}
-			},
-			{
-				"boolean": {
-					"should": [
-						{
-							"ngram": {
-								"fields": [
-									"url"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"boost": 0.84
-							}
-						},
-						{
-							"ngram": {
-								"fields": [
-									"title"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"boost": 0.77
-							}
-						},
-						{
-							"ngram": {
-								"fields": [
-									"text"
-								],
-								"query": "fun video",
-								"operator": "OR",
-								"boost": 0.7
-							}
-						}
-					]
-				}
-			}
+			// fulltext
+			// stemmed_no
+			// stemmed_en
+			// ngram
 		]
 	}
 };
@@ -199,7 +74,7 @@ console.debug(JSON.stringify(query, null, 4));
 ### Filter
 
 ```javascript
-import {addQueryFilter} from '@enonic/js-utils';
+import { addQueryFilter } from '@enonic/js-utils/storage/query/addQueryFilter';
 
 const filters = addQueryFilter({
 	filter: {
@@ -219,8 +94,9 @@ const filters = addQueryFilter({
 }*/
 ```
 
-
 ## Release
+
+*  Remember to update changelog above.
 
 ````
 git tag vX.Y.Z

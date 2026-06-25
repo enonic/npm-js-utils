@@ -97,6 +97,7 @@ export {
 	HIGHLIGHT_FIELD_ALLTEXT
 } from './highlighting';
 export *  as query from './query';
+export *  as querying from './querying';
 export {
 	DSL_EXPRESSION_VALUE_TYPE_DATE_TIME,
 	DSL_EXPRESSION_VALUE_TYPE_TIME,
