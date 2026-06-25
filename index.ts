@@ -1,9 +1,11 @@
 export * as array from './array'; // for example array.includes
 export {
+	filterNils,
 	findIndex,
 	flatten,
 	forceArray,
 	includes as arrayIncludes, // Conflicts with string.includes
+	noNilsArray,
 	isStringArray,
 	sortByProperty
 } from './array';
@@ -210,6 +212,7 @@ export {
 	isLocalDateTimeString,
 	isNonNegativeIntegerString,
 	isNotFalse,
+	isNotNil,
 	isNotSet,
 	isNotTrue,
 	isNull,
