@@ -482,11 +482,6 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.0.tgz#147d715bdf966555d349b599e2db1093fda559ec"
-  integrity sha512-t93pLDJbyoJGRJ1Qlm+EWpRyClRo2sA5cn+mDS9zoN5687zqroUr2+kAlX0FarHx5bwnRqZq8Pdf1nRnEaVDNw==
-
 "@enonic-types/core@8.0.2", "@enonic-types/core@^8":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.2.tgz#b4a00e90cbd46bfda2c0c502278711ae203c13bf"
@@ -1834,9 +1829,9 @@
   integrity sha512-ZYFzrvyWUNhaPomn80dsMNgMeXxNWZBdkuG/hWlUvXvbdUH8ZERNBGXnU87McuGcWDsyzX2aChCv/SVN348k3A==
 
 "@types/node@*", "@types/node@^26.0.0":
-  version "26.0.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.0.0.tgz#d4aece9e9412e9f2008d59bc2d74f5279316b665"
-  integrity sha512-vf2YFi1iY9lHGwNJMs01biZFbKJkrZR1T6/MlzjhJLPdntOHLhTrDSnSVcdtvjihi4VQNlrFRIxLsDBlQpAipA==
+  version "26.0.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.0.1.tgz#4a60e2c7a6d68bd261e265f8983bfe1601263ce3"
+  integrity sha512-fc3KiUoBt6kie0N9bIW3E47vZsuaMf0PM2AaUpLCLT0s/LvX1nxAim6Fc049cNxODPpGm6qRAuUOB86SkRuPQw==
   dependencies:
     undici-types "~8.3.0"
 
