@@ -482,10 +482,15 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@8.0.2", "@enonic-types/core@^8":
+"@enonic-types/core@8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.2.tgz#b4a00e90cbd46bfda2c0c502278711ae203c13bf"
   integrity sha512-UTOB1AeuVRhY/M+l+dGsduAnVzBrWlgPSdw4PHMIKrJbuAUmZxCl8DBeSB8a+CJzlFmsM5CVK6150UDgdW1zpA==
+
+"@enonic-types/core@8.0.3", "@enonic-types/core@^8":
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.3.tgz#a7b5292e92260c9458a2ac378be2c63fffb012fd"
+  integrity sha512-8A5loeFE6KNV/1yEtQpWK1gAc914LdTHGl4+1HbCM4qYFq1XvjSNgFUpRnPvDP6CQXpB0j4zWsUu883ULSKTjg==
 
 "@enonic-types/global@^8":
   version "8.0.2"
@@ -521,11 +526,11 @@
   integrity sha512-lyTS5jHjqMetQl0Agr6JcmM0IaCpKOqaXDz4zGNg/LCuLsKZmG/kI3ljykFgLFuIjjUUcBQ6vFJCjxv2FEA1xw==
 
 "@enonic-types/lib-io@^8":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-8.0.2.tgz#a28d55715c5d84bf1f18139e320a2a624213e76b"
-  integrity sha512-JWtDBccEIlyP8QvQNwZca1/ho61joLKY34928wE3dCxNPi0tQeWMEOnYjoQb/Fpzcp9lgHVXd+HjBMJw/grilg==
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-8.0.3.tgz#6ec5dc0f7fc5e9c0ad5b4860c15fabaf3f47aae4"
+  integrity sha512-2hl8soV3x5xE0FEz9wOyFBowWLnmDdWy6ktG8y07eO/mva93m1vm2j8Nt4gvucx0vIMo++jsraQbNvRIBgJx8A==
   dependencies:
-    "@enonic-types/core" "8.0.2"
+    "@enonic-types/core" "8.0.3"
 
 "@enonic-types/lib-mail@^8":
   version "8.0.2"
