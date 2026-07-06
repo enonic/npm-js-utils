@@ -493,11 +493,11 @@
   integrity sha512-8A5loeFE6KNV/1yEtQpWK1gAc914LdTHGl4+1HbCM4qYFq1XvjSNgFUpRnPvDP6CQXpB0j4zWsUu883ULSKTjg==
 
 "@enonic-types/global@^8":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/global/-/global-8.0.2.tgz#a727f24bca3a844db98603068268dfab046922d0"
-  integrity sha512-pJ2LDLqJcf371hPD1LmMWxrGMCAol4OgdWQiE4/sA0xKUHYTRncxdNR73XQEZ0i6r0pzUelBVBx91/AN8oX+YA==
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/global/-/global-8.0.3.tgz#5c900a477a333183fc18db83da04a280c388d5c1"
+  integrity sha512-ZHiTuBlcCVvjL7SLnJZ0or3GXEwFN5BAYaGQnG+jv3j8WBkqa/2yG9qUif/cTIY7W2/kLgy3ZoSPxM+0ekEPrA==
   dependencies:
-    "@enonic-types/core" "8.0.2"
+    "@enonic-types/core" "8.0.3"
 
 "@enonic-types/lib-app@^8":
   version "8.0.2"
