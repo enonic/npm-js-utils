@@ -554,11 +554,11 @@
     "@enonic-types/core" "8.0.2"
 
 "@enonic-types/lib-repo@^8":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-repo/-/lib-repo-8.0.2.tgz#6f383e29d69b97220688695f0172c209981a1b70"
-  integrity sha512-lB14Nxr0mxoqigo6XDaB5EQvlCcCAsZqg+jeEJZ+DuxKHUUfWL030NHAlxRXcWO1uFp2Mni2LbEUGEE/gTgoUQ==
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-repo/-/lib-repo-8.0.3.tgz#e12bcfd151a38f5a05b55cf95fd16bb2ec0183ec"
+  integrity sha512-MGzVXmn4qCFjF9Oag7+qzPJprTdp9sjYLj7OT4s7QO9Q2UdNqh1DN95mZd69IgbnFqUZQYfAE+fcRXDhJB5Kdg==
   dependencies:
-    "@enonic-types/core" "8.0.2"
+    "@enonic-types/core" "8.0.3"
 
 "@enonic-types/lib-schema@^8":
   version "8.0.3"
