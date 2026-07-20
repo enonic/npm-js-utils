@@ -482,11 +482,6 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.2.tgz#b4a00e90cbd46bfda2c0c502278711ae203c13bf"
-  integrity sha512-UTOB1AeuVRhY/M+l+dGsduAnVzBrWlgPSdw4PHMIKrJbuAUmZxCl8DBeSB8a+CJzlFmsM5CVK6150UDgdW1zpA==
-
 "@enonic-types/core@8.0.3", "@enonic-types/core@^8":
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.3.tgz#a7b5292e92260c9458a2ac378be2c63fffb012fd"
@@ -533,11 +528,11 @@
     "@enonic-types/core" "8.0.3"
 
 "@enonic-types/lib-mail@^8":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-8.0.2.tgz#d30e0ad82f48901d907aff67f9d8f764f9510d09"
-  integrity sha512-hC2VJHbK0BnSxxV5DbdQDCmeMpjb8yqqFU4tDS37TAm/o/D5qpckmFJCt7qtuZlbJeGLfQ/vezGJey4LM+rw7A==
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-8.0.3.tgz#1a4f0ea4869dc154675e1b8a10f39440fa20e368"
+  integrity sha512-/OcomJ/tQbZZ9KRhM1LJvdv/bAYumzYbcxBs2MdXOWSBev7v6/D5XwwFuIagvOYPCGcTzhcd3KgBpOiL2eJ2GQ==
   dependencies:
-    "@enonic-types/core" "8.0.2"
+    "@enonic-types/core" "8.0.3"
 
 "@enonic-types/lib-node@^8":
   version "8.0.3"
