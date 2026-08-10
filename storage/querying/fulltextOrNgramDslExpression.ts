@@ -37,19 +37,6 @@ import { hasCaret } from './hasCaret';
 // https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl-query-string-query.html#_boosting
 
 
-function cleanCaretOne(fieldStr: string) {
-	if (hasCaret) {
-		const caretIndex = fieldStr.indexOf('^');
-		const caretBoost = parseFloat(fieldStr.substring(caretIndex + 1));
-		if (caretBoost === 1) {
-			const fieldNameWithoutCaret = fieldStr.substring(0, caretIndex);
-			return fieldNameWithoutCaret; // Remove the 1
-		}
-	}
-	return fieldStr;
-}
-
-
 function handleObject(fieldObj: FieldObject) {
 	const { field: fieldAndMaybeCaret, boost: fieldBoost } = fieldObj;
 	if (isSet(fieldBoost)) {
@@ -57,11 +44,10 @@ function handleObject(fieldObj: FieldObject) {
 			throw new Error(`Field has both caret and boost! ${toStr(fieldObj)}`);
 		}
 		// At this point Field only has fieldboost.
-		if (fieldBoost === 1) return fieldAndMaybeCaret; // Remove the 1
 		return `${fieldAndMaybeCaret}^${fieldBoost}`;
 	}
 
-	return cleanCaretOne(fieldAndMaybeCaret);
+	return fieldAndMaybeCaret;
 }
 
 
@@ -72,7 +58,7 @@ function mapFields(fields: Fields) {
 	return fieldsArr.map((aField) => {
 		if (isObject(aField)) return handleObject(aField);
 
-		if (isString(aField)) return cleanCaretOne(aField);
+		if (isString(aField)) aField;
 
 		throw new Error(`fulltextOrNgramDslExpression: field neither object nor string!`);
 	});
