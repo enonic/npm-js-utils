@@ -36,12 +36,25 @@ import { hasCaret } from './hasCaret';
 // https://developer.enonic.com/docs/code/stable/storage/querying#boosting
 // https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl-query-string-query.html#_boosting
 
+function validateStr(fieldStr: string) {
+	if (!hasCaret(fieldStr)) return fieldStr;
+	const caretIndex = fieldStr.indexOf('^');
+	const caretBoost = parseFloat(fieldStr.substring(caretIndex + 1));
+	if (caretBoost < 0) {
+		throw new Error('fulltextOrNgramDslExpression: Negative caret boost is invalid!');
+	}
+	return fieldStr;
+}
+
 
 function handleObject(fieldObj: FieldObject) {
 	const { field: fieldAndMaybeCaret, boost: fieldBoost } = fieldObj;
 	if (isSet(fieldBoost)) {
 		if (hasCaret(fieldAndMaybeCaret)) {
 			throw new Error(`Field has both caret and boost! ${toStr(fieldObj)}`);
+		}
+		if (fieldBoost < 0) {
+			throw new Error('fulltextOrNgramDslExpression: Negative boost is invalid!');
 		}
 		// At this point Field only has fieldboost.
 		return `${fieldAndMaybeCaret}^${fieldBoost}`;
@@ -57,11 +70,17 @@ function mapFields(fields: Fields) {
 
 	return fieldsArr.map((aField) => {
 		if (isObject(aField)) return handleObject(aField);
-
-		if (isString(aField)) aField;
-
-		throw new Error(`fulltextOrNgramDslExpression: field neither object nor string!`);
+		if (isString(aField)) return validateStr(aField);
+		throw new Error(`fulltextOrNgramDslExpression: field isneither an object nor a string!`);
 	});
+}
+
+
+function getFields(fields: Fields) {
+	if (Array.isArray(fields)) return mapFields(fields);
+	if (isObject(fields)) return [handleObject(fields)];
+	if (isString(fields)) return [validateStr(fields)];
+	throw new Error(`fulltextOrNgramDslExpression: fields is neither an object nor a string or an array of those!`);
 }
 
 
@@ -72,11 +91,11 @@ export function fulltextOrNgramDslExpression(
 	expressionBoost?: number
 ): FulltextDslExpression | NgramDslExpression {
 	const dslExpression: FulltextDslExpression | NgramDslExpression = {
-		fields: mapFields(fields),
+		fields: getFields(fields),
 		query,
 	};
 
-	if (isSet(expressionBoost) && expressionBoost !== 1) dslExpression.boost = expressionBoost;
+	if (isSet(expressionBoost)) dslExpression.boost = expressionBoost;
 
 	if (operator && operator.toLocaleUpperCase() === QUERY_OPERATOR_AND) {
 		dslExpression.operator = QUERY_OPERATOR_AND;
