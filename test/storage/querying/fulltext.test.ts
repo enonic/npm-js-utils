@@ -62,9 +62,10 @@ describe('storage/querying/fulltext', () => {
 			),
 			{
 				fulltext: {
+					boost: 1.1,
 					fields: [
-						'title^2.2',
-						'text^1.1'
+						'title^2',
+						'text'
 					],
 					query: 'searchString',
 				}
@@ -89,7 +90,8 @@ describe('storage/querying/fulltext', () => {
 			),
 			{
 				fulltext: {
-					fields: ['title','text'],
+					boost: 0,
+					fields: ['title^0','text'],
 					query: 'searchString',
 				}
 			},
@@ -110,6 +112,7 @@ describe('storage/querying/fulltext', () => {
 			),
 			{
 				fulltext: {
+					boost: 1,
 					fields: ['title^1'],
 					query: 'searchString',
 				}
@@ -131,7 +134,8 @@ describe('storage/querying/fulltext', () => {
 			),
 			{
 				fulltext: {
-					fields: ['title^1'],
+					boost: 1,
+					fields: ['title'],
 					query: 'searchString',
 				}
 			},
@@ -162,7 +166,7 @@ describe('storage/querying/fulltext', () => {
 	});
 
 	test('throws no fields', () => {
-		expect(() => fulltext([],'query')).toThrow();
+		expect(() => fulltext([], 'query')).toThrow();
 	});
 
 	test('throws when both caret and field boost', () => {
@@ -175,5 +179,20 @@ describe('storage/querying/fulltext', () => {
 	test('throws when field is not object nor string', () => {
 		// @ts-expect-error Testing invalid input
 		expect(() => fulltext([42],'query')).toThrow();
+	});
+
+	test('throws when caret boost is negative', () => {
+		expect(() => fulltext('title^-1', 'query')).toThrow();
+	});
+
+	test('throws when object boost is negative', () => {
+		expect(() => fulltext({
+			field: 'title',
+			boost: -1,
+		}, 'query')).toThrow();
+	});
+
+	test('throws when fields is neither an object nor a string or an array of those', () => {
+		expect(() => fulltext(undefined, 'query')).toThrow();
 	});
 });
