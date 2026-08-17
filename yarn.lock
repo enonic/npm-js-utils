@@ -547,11 +547,11 @@
     "@enonic-types/core" "8.0.4"
 
 "@enonic-types/lib-portal@^8":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-portal/-/lib-portal-8.0.3.tgz#12a02494584b6f4593cb1f332037c37f442279f2"
-  integrity sha512-/T0uSjJcTMwD02E7tJ5RO8tSEm9/zuBZEr4eEXQcSivLy8vjCd0ecv//32OuHyBnVAFeKsYp+xPfRFjmj/p2Ag==
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-portal/-/lib-portal-8.0.4.tgz#d9bc2b26421ed928ee1e43a462b16086ebcecdd0"
+  integrity sha512-XetDnczRi2JnpDxj14hsjcTPgtTrMiZhOVij+RB4JXwnWmidgZv1WuDXVsOdJcPLh/41V9LGTqT8I1wbrkfoCQ==
   dependencies:
-    "@enonic-types/core" "8.0.3"
+    "@enonic-types/core" "8.0.4"
 
 "@enonic-types/lib-repo@^8":
   version "8.0.4"
