@@ -568,11 +568,11 @@
     "@enonic-types/core" "8.0.4"
 
 "@enonic-types/lib-value@^8":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-value/-/lib-value-8.0.3.tgz#cccdd1eb4571ccf2e72ef8fee77d634d45e1cf72"
-  integrity sha512-JH8+MEOkA0jM0ozECAQz64u/iyoLvjJvV+rlI8qSft3mrfWDOI+HIf2KdFwjrUJ7A8n7RUlxlb2ezjzkE4lWvg==
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-value/-/lib-value-8.0.4.tgz#4ca7af1a74e8117724e323a2d2b9eb60d6af817e"
+  integrity sha512-3GOc1OZdo+KZGnFtW77hofjsBkBxCn3HG/b5Zb8y4jQa5LC1JFNB1dyWvN1fC/dasc8Ah9W8l2F2smEQc526ig==
   dependencies:
-    "@enonic-types/core" "8.0.3"
+    "@enonic-types/core" "8.0.4"
 
 "@enonic/test-data@^1":
   version "1.2.0"
