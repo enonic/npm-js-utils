@@ -56,7 +56,13 @@ const indexConfigWithoutTemplates = {
 	configs: [{
 		path: 'whatever',
 		config: nodeConfigEntry
-	}]
+	}],
+	allText: {
+		enabled: true,
+		nGram: true,
+		fulltext: true,
+		languages: ['whatever'],
+	}
 }
 
 const createNodeProperties = {

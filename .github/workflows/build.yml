@@ -24,8 +24,8 @@ jobs:
         with:
           cmd: install # will run `yarn install` command
 
-      - name: Test
-        run: yarn test
+      - name: Build, test and docs (same as prepack on publish)
+        run: yarn prepack
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v7
