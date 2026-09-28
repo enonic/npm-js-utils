@@ -2433,12 +2433,25 @@ arrify@^1.0.1:
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
   integrity sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==
 
-babel-jest@30.5.1, babel-jest@^30.0.0:
+babel-jest@30.5.1:
   version "30.5.1"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-30.5.1.tgz#b20da241e3d525e17a1cda61eadbc2e13230baeb"
   integrity sha512-ge1xUVZS91ml09YRMgRGgeKJ4YJpcOiuwteAxFBYLugQyp7cRw+hHej6Ho0vPjvLrjq60bb7JPHH9LAMA1/krA==
   dependencies:
     "@jest/transform" "30.5.1"
+    "@types/babel__core" "^7.20.5"
+    babel-plugin-istanbul "^8.0.0"
+    babel-preset-jest "30.5.0"
+    chalk "^4.1.2"
+    graceful-fs "^4.2.11"
+    slash "^3.0.0"
+
+babel-jest@^30.0.0:
+  version "30.5.2"
+  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-30.5.2.tgz#ee4b3b265baf9dad68e6275bc813ef35d1736e6d"
+  integrity sha512-ES8WeJ2fNWPEDunyAtUfJ12nHyaWUloCHdkfK2oW5uSoQSUmjNKdWiGaXJITJwvFEWoD/evHEg/QoCXAvLaQqQ==
+  dependencies:
+    "@jest/transform" "30.5.2"
     "@types/babel__core" "^7.20.5"
     babel-plugin-istanbul "^8.0.0"
     babel-preset-jest "30.5.0"
