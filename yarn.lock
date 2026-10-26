@@ -505,10 +505,15 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.0.4.tgz#09f1313f66d5cd7955b76b582ded52ce1ce3c74d"
   integrity sha512-8ZNsk4Yb0MZwq2DW9T6XUxKWCIedt0CUR2bCOriUge3LrY0diwJX2QwaZYrQQ7A4bF8g3dTczO3DDnDRQuPhFg==
 
-"@enonic-types/core@8.1.0", "@enonic-types/core@^8":
+"@enonic-types/core@8.1.0":
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.1.0.tgz#fe1286d357391a850bdbcccf71e3a230f36c50a3"
   integrity sha512-XLcdaYU2z7H9rMqwjR6FQyWKETLmdTwEhWUiwAGSiqrCHr/8LG0lVkf9HHsMBn/sWg2MmxioColYrpN+0NRxvQ==
+
+"@enonic-types/core@8.1.1", "@enonic-types/core@^8":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.1.1.tgz#d1aa55dad78025bdfbdb880e4d03d7d74a2112ca"
+  integrity sha512-doqfZ7GSm5Q0IIZYED+J/b6KalGAYIcCkTjE6wCzFIVJivlUiJIQMg6hw18G280Vx7ovtVj5oOZgPjPou8SCNw==
 
 "@enonic-types/global@^8":
   version "8.0.4"
@@ -544,11 +549,11 @@
   integrity sha512-RBmAE/n3EOvrnru/RTvvYFWk0hjahO5rJBD8LycQkBO/Zg8Q5fKFh7dKZpPb9LwbXWPJfJSa6uJZFPsONb606Q==
 
 "@enonic-types/lib-io@^8":
-  version "8.0.4"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-8.0.4.tgz#32212b501c03d4add030cf32914772c27e7186a8"
-  integrity sha512-nrcExEXKGu1DiLfAhrm7/X2w+O4nXa08VJsA/CP2GPkdWUDHdpjDUPmfIYwzRxiRzT2DNUPf0/0B/eENbr7kgA==
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-io/-/lib-io-8.1.1.tgz#061694d418afd445d80feeb8b080fea1c7edf6c5"
+  integrity sha512-kDs7mhSx1Bm6k+G5wQV8s7s0qCjX8aJQNLH6GYkG0YL44GgiQGzCzzZhBJIETkxSMvfijfINAnuputmtvCAivA==
   dependencies:
-    "@enonic-types/core" "8.0.4"
+    "@enonic-types/core" "8.1.1"
 
 "@enonic-types/lib-mail@^8":
   version "8.1.0"
