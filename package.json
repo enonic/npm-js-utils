@@ -40,7 +40,7 @@
     "ts-node": "^10.9.1",
     "tsd": "^0",
     "tslib": "^2",
-    "tsup": "^8",
+    "tsup": "^9",
     "type-fest": "^5",
     "typedoc": "^0",
     "typescript": "^5"
