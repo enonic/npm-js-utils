@@ -544,9 +544,9 @@
     "@enonic-types/core" "8.1.0"
 
 "@enonic-types/lib-event@^8":
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-event/-/lib-event-8.1.1.tgz#0068d41d24659dd71c66abed7909980884183833"
-  integrity sha512-6F1K/8EUNow+zJd/gCe27xVlLU/bBW6gJqUUBnKst1RgK1o9aJh2tCZ6Rkaip4puQn7Eiy7BYDzZdT0EX8ZOug==
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-event/-/lib-event-8.1.2.tgz#76d05c7d854cc5b2c94d365220d282c5d18e4b91"
+  integrity sha512-gUdJUGz5CWIOhu4NAvl+Q3OhuFWC14UG/FAZ+vgV0WekOZXb96DnZgtOuNWZwdVeEx495QtJiNsasECM4Uns8A==
 
 "@enonic-types/lib-io@^8":
   version "8.1.1"
