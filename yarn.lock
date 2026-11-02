@@ -510,10 +510,15 @@
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.1.0.tgz#fe1286d357391a850bdbcccf71e3a230f36c50a3"
   integrity sha512-XLcdaYU2z7H9rMqwjR6FQyWKETLmdTwEhWUiwAGSiqrCHr/8LG0lVkf9HHsMBn/sWg2MmxioColYrpN+0NRxvQ==
 
-"@enonic-types/core@8.1.1", "@enonic-types/core@^8":
+"@enonic-types/core@8.1.1":
   version "8.1.1"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.1.1.tgz#d1aa55dad78025bdfbdb880e4d03d7d74a2112ca"
   integrity sha512-doqfZ7GSm5Q0IIZYED+J/b6KalGAYIcCkTjE6wCzFIVJivlUiJIQMg6hw18G280Vx7ovtVj5oOZgPjPou8SCNw==
+
+"@enonic-types/core@8.1.2", "@enonic-types/core@^8":
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.1.2.tgz#6e45fa86c82209067727f9887fd31402b0d88a66"
+  integrity sha512-iQ4y9u0ol3iu5Oby6SP5JSpTx5062Do4rtzDDKDVPi3pZgQTpb2fyjmrjaeMUcOKS5pYxuszL/QjRZZPmujjtA==
 
 "@enonic-types/global@^8":
   version "8.0.4"
@@ -530,11 +535,11 @@
     "@enonic-types/core" "8.1.1"
 
 "@enonic-types/lib-auth@^8":
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-8.1.1.tgz#bf70db82b3501ed158d6ebe16950183c83ec455c"
-  integrity sha512-WaMfPCqQG8nP2oa6b2b9WAQY90JfKvpWT2UpD828jE5exzw/c+my2owrr+wUbSQyWGZKPjmHDh0nJqK6ab31pQ==
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-auth/-/lib-auth-8.1.2.tgz#18be37afdd67e226aed95795ab773a9e67fc2613"
+  integrity sha512-CbhDaO3fS+ogv1/LrYVZmijWiNXBAHkoq0syONHydYpiAhHVqaHXjWy0DgRj4m28pkIapGleemBca5W+/b+Vuw==
   dependencies:
-    "@enonic-types/core" "8.1.1"
+    "@enonic-types/core" "8.1.2"
 
 "@enonic-types/lib-content@^8":
   version "8.1.0"
