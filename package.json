@@ -30,7 +30,7 @@
     "concurrently": "^10",
     "esbuild": "^0.28",
     "eslint": "^10",
-    "glob": "^13",
+    "glob": "^14",
     "jest": "^30",
     "jest-environment-jsdom": "^30",
     "rimraf": "^6",
