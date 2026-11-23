@@ -551,11 +551,11 @@
     "@enonic-types/core" "8.1.2"
 
 "@enonic-types/lib-mail@^8":
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-8.1.2.tgz#7490f68502c413378e0395d7fcd84dabbe861400"
-  integrity sha512-D5Wp/RmvI99u4o/3o0cJVZkPEP5kl+Wmyne2BUWHByAhAPSJvUZoSO3bwCShBPI4OL9qeQNF8G/unbG3UzunOQ==
+  version "8.1.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-mail/-/lib-mail-8.1.3.tgz#ae3effb3fc5bda8ffc6cf3a496c09ef384454237"
+  integrity sha512-Pece1sH7q8wRBWpAvCQIoy1goaBzFynIeGgJgnZjXnPuDH4+JpbbdlWGKWYWsIwG3dahcvV4ocP2kltOLH0h+A==
   dependencies:
-    "@enonic-types/core" "8.1.2"
+    "@enonic-types/core" "8.1.3"
 
 "@enonic-types/lib-node@^8":
   version "8.1.2"
