@@ -500,10 +500,15 @@
   dependencies:
     tslib "^2.4.0"
 
-"@enonic-types/core@8.1.2", "@enonic-types/core@^8":
+"@enonic-types/core@8.1.2":
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.1.2.tgz#6e45fa86c82209067727f9887fd31402b0d88a66"
   integrity sha512-iQ4y9u0ol3iu5Oby6SP5JSpTx5062Do4rtzDDKDVPi3pZgQTpb2fyjmrjaeMUcOKS5pYxuszL/QjRZZPmujjtA==
+
+"@enonic-types/core@8.1.3", "@enonic-types/core@^8":
+  version "8.1.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/core/-/core-8.1.3.tgz#10985d810ed28b783327d37864e006cd027ed7e5"
+  integrity sha512-ndCP9zooVfPPIfUYE7pQHtd9Xxq6uWtczCo5zZ/MpHCcrYowm7Hm/AxOVWPSZXHnfC16V/CsNxWf9iudUhaFFg==
 
 "@enonic-types/global@^8":
   version "8.1.2"
@@ -574,11 +579,11 @@
     "@enonic-types/core" "8.1.2"
 
 "@enonic-types/lib-schema@^8":
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/@enonic-types/lib-schema/-/lib-schema-8.1.2.tgz#2caf679bd125f55905005765af98af6d43b1439a"
-  integrity sha512-zCAgPvtDQiA+WBtYchLbnN/9chBJJlERvA1FD2y/G+dTxeXlJpnxMXmmCNz2Om+2Ij+6hdH+DFMYHYeuyLqU+w==
+  version "8.1.3"
+  resolved "https://registry.yarnpkg.com/@enonic-types/lib-schema/-/lib-schema-8.1.3.tgz#8bd255dacb6312004c2284d860eb14359721ac24"
+  integrity sha512-MVev9qwyRlh56Rf4O0+GcJh2HULvEPjHAUqIipxq5tCPBe7Je28kfd47Mhi7z6KyHwl8YPouikIp7533ZVsB+Q==
   dependencies:
-    "@enonic-types/core" "8.1.2"
+    "@enonic-types/core" "8.1.3"
 
 "@enonic-types/lib-value@^8":
   version "8.1.2"
